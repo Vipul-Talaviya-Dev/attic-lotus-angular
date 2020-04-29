@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // api: 'http://localhost/attic-lotus/public/api/v1/'
+  api: 'http://attic-lotus.altsolution.in/api/v1/'
 };
 
 /*

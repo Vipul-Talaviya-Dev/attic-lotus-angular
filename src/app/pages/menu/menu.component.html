@@ -1,0 +1,39 @@
+<div class="header_section">
+  <div class="row">
+    <nav class="navbar navbar-expand-md navbar-dark black" style="width: 98%;margin-left: 15px;">
+<!--    <nav class="navbar navbar-expand-md navbar-dark fixed-top black">-->
+      <a routerLink="/" class="navbar-brand">
+        <img src="assets/images/logo-black.png" height="28" alt="CoolBrand">
+      </a>
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav">
+          <li class="dropdown" style="margin-top: 11px;">
+            <a href="javascript:void(0);" class="active dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="menuTitle">Locations </span> <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li *ngFor="let city of cities;">
+                <a [routerLink]="['/'+city.name]" >{{ city.name }}</a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown" style="margin-top: 11px;">
+            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Space Solution <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="javascript:void(0);">Custom Made</a></li>
+              <li><a routerLink="/ready-to-move">Ready To Move</a></li>
+            </ul>
+          </li>
+          <li><a href="javascript:void(0);" class="nav-item nav-link">Support</a></li>
+        </ul>
+
+        <div class="navbar-nav ml-auto">
+          <a href="javascript:void(0);" class="nav-item nav-img nav-link"> <img src="assets/images/menu_2_black.png" alt="icon"></a>
+          <a href="javascript:void(0);" class="nav-item nav-img nav-link"> <img src="assets/images/menu_4_black.png" alt="icon"></a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>

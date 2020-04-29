@@ -1,0 +1,550 @@
+.bookvisit-tab {
+  padding: 20px;
+  padding-bottom: 0px;
+}
+
+.textline {
+  background: var(--primary);
+  height: 3px;
+  width: 150px;
+  margin: 3% 35%;
+}
+
+.visitform {
+  margin: 10px 30px;
+}
+
+.visit-input:focus,
+.visit-input:active {
+  border-bottom: 1px solid var(--primary);
+  outline: none;
+  box-shadow: none;
+  color: #000;
+}
+
+.visit-input {
+  font-family: 'ApercuProRegular';
+  border: 0px;
+  padding: 10px 10px;
+  outline: none;
+  box-shadow: none;
+  color: #000;
+  margin-top: 10px;
+  margin-left: -10px;
+  border-bottom: 1px solid #4d4d4d;
+  display: inline-block;
+  margin: 0px;
+  width: 100%;
+}
+
+.visit-form-group {
+  margin: 2em 0px;
+}
+
+.visit-form-group label {
+  padding: 0px 5px;
+  background: #ffffff;
+  margin-left: 10px;
+  font-family: 'ApercuProRegular';
+}
+
+.visit-tab-group {
+  margin: 1em 0px;
+}
+
+.visit-tab-group label {
+  font-family: 'ApercuProRegular';
+  padding: 0px 5px;
+  background: #ffffff;
+  margin-left: 10px;
+}
+
+.visit-form-control {
+  font-family: 'ApercuProRegular';
+  display: block;
+  width: 100%;
+  padding: 1rem .75rem .375rem .75rem;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--primary);
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #4d4d4d;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  margin-top: -20px;
+}
+
+.visit-form-control {
+  font-family: 'ApercuProRegular';
+  background-image: linear-gradient(45deg, transparent 50%, var(--primary) 60%), linear-gradient(135deg, var(--primary) 40%, transparent 50%) !important;
+  background-position: calc(100% - 26px) 26px, calc(100% - 16px) 26px, 100% 0;
+  background-size: 10px 10px, 10px 10px;
+  background-repeat: no-repeat;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.book-btn {
+  font-family: 'ApercuProRegular';
+  background-color: var(--primary);
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: all 0.2s linear 0s;
+  border-radius: 0px;
+  padding: 10px 50px;
+  font-size: 20px;
+}
+
+.book-btn:hover {
+  transform: scale(1.1, 1.1);
+  transition: all 0.2s linear 0s;
+  color: #ddd
+}
+
+.callustext {
+  font-family: 'ApercuProBold';
+  color: #000;
+  padding-top: 10px;
+}
+
+.callustext .mobileno {
+  font-family: 'ApercuProBold';
+  font-size: 20px;
+  color: #000;
+  transition: all 0.5s ease;
+}
+
+.mobileno:hover {
+  color: var(--primary);
+}
+
+.secheading {
+  margin: 30px 0px;
+  font-family: 'ApercuProBold';
+}
+
+.find-btn {
+  color: white !important;
+  padding: 15px 30px;
+  margin: 20px 20px 20px 0;
+  background: var(--primary);
+  font-family: 'ApercuProMedium';
+}
+
+.find-btn:hover {
+  background: #000092;
+  transition: all 0.5s ease;
+}
+
+address {
+  font: 16px 'ApercuProRegular';
+  line-height: 24px;
+}
+
+.w-80 {
+  width: 82% !important;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 2%;
+  color: #1a73e8;
+  text-align: center;
+  opacity: 1;
+  background-color: #1a73e8;
+  margin-right: 24px;
+  height: 78%;
+}
+
+.carousel-control-prev {
+  opacity: 0;
+}
+
+.setup_manage_section {
+  color: #fff;
+  background: var(--primary);
+}
+
+.setup_manage_section .container {
+  padding: 3rem 0;
+}
+
+.content_wrapper h3,
+.container h2 {
+  font-family: 'ApercuProBold';
+}
+
+.requirement img {
+  height: 60px;
+  width: auto;
+}
+
+.requirement {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.5 ease;
+  padding-bottom: 3px;
+}
+
+.requirement:hover,
+.navlink.active.requirement {
+  border-bottom: 3px solid rgba(255, 255, 255, 1);
+  transition: all 0.5 ease;
+  padding-bottom: 0;
+}
+
+.tb-space {
+  margin: 50px 0;
+  padding: 50px 0;
+}
+
+.zoho-image img {
+  width: 100%;
+  height: auto;
+}
+
+.zoho-content {
+  line-height: 26px;
+  padding: 10px 80px;
+}
+
+.zoho-content ul {
+  list-style-image: url('../../../assets/images/list-decoration.png');
+  padding-left: 20px;
+}
+
+.testimonial_section {
+  background: #f8f8f8;
+}
+
+.testimonial_section .container h2::before {
+  content: '';
+  position: absolute;
+  background: var(--primary);
+  width: 10%;
+  height: 3px;
+  z-index: 0;
+  margin-top: 40px;
+}
+
+.corners {
+  position: relative;
+  width: 100px;
+  /* for demo purposes */
+  padding: 50px;
+}
+
+.top,
+.bottom {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+}
+
+.top {
+  top: 0;
+  border-top: 10px solid;
+  border-color: var(--primary);
+}
+
+.bottom {
+  bottom: 0;
+  border-bottom: 10px solid;
+  border-color: var(--primary);
+}
+
+.left {
+  left: 0;
+  border-left: 10px solid;
+  border-color: var(--primary);
+}
+
+.right {
+  right: 0;
+  border-right: 10px solid;
+  border-color: var(--primary);
+}
+
+.quote {
+  font-size: 18px;
+  font-family: 'ApercuProMedium';
+}
+
+.testimonial_section .container .quote::before {
+  content: '';
+  position: absolute;
+  background: var(--primary);
+  width: 10%;
+  height: 3px;
+  z-index: 0;
+  left: 240px;
+  margin-top: 40px;
+  top: 170px;
+}
+
+.client_name {
+  margin-top: 40px;
+}
+
+.FAQ_section .container h2 {
+  font-family: 'ApercuProRegular' !important;
+}
+
+.underline-title {
+  font-family: 'ApercuProBold' !important;
+  padding-bottom: 5px;
+  border-bottom: 2px solid;
+  border-color: var(--primary);
+}
+.image_wrapper {
+  height: 350px;
+}
+
+.image_wrapper img {
+  height: 100%;
+  width: auto;
+}
+
+.opac-0 {
+  opacity: 0 !important;
+}
+@media (max-width: 1200px) {
+  .page-content .container-fluid {
+    padding-left: 10em;
+  }
+  .property-list ul .card {
+    display: inline-flex;
+    width: 50%;
+    padding: 10px;
+    margin-left: -6px;
+    border-radius: 0px;
+    border: 2px dashed #ddd;
+    border-top: 0px;
+  }
+  .card-title {
+    font-size: 15px;
+  }
+  .visitform {
+    margin: 10px 0px;
+  }
+  .book-btn {
+    padding: 10px 30px;
+  }
+  .property-list ul .card:nth-child(2n-1) {
+    border-left: 0px;
+    border-right: 2px dashed #ddd;
+  }
+  .property-list ul .card:nth-child(2n) {
+    border-right: 0px;
+    border-left: 2px dashed #ddd;
+    margin-left: -7px;
+  }
+  .property-list ul .card:nth-last-child(2),
+  .property-list ul .card:nth-last-child(1) {
+    border-bottom: 0px;
+    border-top: 2px dashed #ddd;
+  }
+  .search-container {
+    width: 50%;
+  }
+  .property .slick-next:before {
+    right: 50px;
+  }
+  .details-container {
+    padding: 30px 0px;
+  }
+  .btn-container {
+    display: grid !important;
+  }
+  .btn-container p {
+    padding: 10px 0px;
+    width: 100%;
+  }
+  .btn-container a {
+    float: left;
+    width: 100%;
+    padding: 10px 0px;
+  }
+}
+
+@media (max-width: 990px) {
+  .property-list ul .card {
+    display: inline-flex;
+    width: 100%;
+    padding: 10px;
+    margin-left: -6px;
+    border-radius: 0px;
+    border: 2px dashed #ddd;
+    border-top: 0px;
+  }
+  .property-list ul .card:nth-child(1) {
+    border-top: 0px !important;
+    border-bottom: 2px dashed #ddd;
+  }
+  .property-list ul .card:nth-child(n+1) {
+    border-left: 0px !important;
+    border-right: 0px !important;
+    border-top: 2px dashed #ddd;
+    border-bottom: 2px dashed #ddd;
+    margin-left: -7px;
+    margin-top: -2px;
+  }
+  .property-list ul .card:nth-last-child(1) {
+    border-bottom: 0px;
+    border-top: 2px dashed #ddd;
+  }
+  .minifooter_section {
+    padding: 10px 40px;
+  }
+  .search-container {
+    width: 70%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 !important;
+  }
+  .textline {
+    margin: 3% 10%;
+  }
+  .book-btn {
+    padding: 10px 10px;
+    font-size: 16px;
+  }
+  .footer_bar_left a {
+    padding: 0px;
+    display: block;
+  }
+  .page-content .container-fluid {
+    padding-left: 10em;
+  }
+  .search-container {
+    width: 100%;
+  }
+  .pr-1,
+  .px-1 {
+    padding-right: 15px !important;
+  }
+  .pl-1,
+  .px-1 {
+    padding-left: 15px !important;
+  }
+  .feature-img img {
+    padding: 10px;
+  }
+  .visit-form-group {
+    margin: 0.5em 0em;
+  }
+  .find-btn {
+    margin: 0px;
+  }
+  #secondSlider,
+  #thirdSlider,
+  #fourthSlider {
+    display: none;
+  }
+  .carousel {
+    margin-top: 50px;
+  }
+  .setup_manage_section,
+  .zoho-image {
+    display: none;
+  }
+  .tab-content>.tab-pane {
+    display: block;
+    opacity: 1 !important;
+    padding-bottom: 50px;
+  }
+  .zoho_invoice_section {
+    padding: 0 !important;
+  }
+  .zoho-content {
+    padding: 0 !important;
+  }
+  .tab-pane .col-12 {
+    padding: 0 !important;
+  }
+  .testimonial_section .col-12 {
+    display: block !important;
+  }
+  .corners {
+    width: 100%;
+  }
+  .testimonial_section .container .quote::before {
+    top: 200px;
+    left: 230px;
+  }
+  .custom-padding {
+    padding: 0 0 50px 0 !important;
+  }
+  .footer_bar_left a {
+    text-align: center;
+  }
+  .footer_bar_right {
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 0 25px !important;
+  }
+  .page-content .container-fluid {
+    padding-left: 1em;
+  }
+  .cal-form-group {
+    margin: 0;
+  }
+  .bigtitle {
+    font-size: 30px;
+  }
+  .bigfont {
+    font-size: 60px;
+  }
+  .textline {
+    margin: 3% 25%;
+  }
+  .book-btn {
+    padding: 10px 40px;
+    font-size: 20px;
+  }
+  .footer_bar_left a {
+    text-align: center;
+  }
+  .feature-box div {
+    padding: 0 !important;
+  }
+  .testimonial_section .container h2::before {
+    margin-top: 70px;
+  }
+  .testimonial_section .container .quote::before {
+    left: 180px;
+  }
+  .footer_section {
+    margin-top: 50px;
+  }
+  .question_screen {
+    text-align: left;
+    padding: 0 !important;
+  }
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link, .nav-tabs .nav-link.active, .nav-tabs .nav-link:hover {
+  font-family: 'ApercuProRegular';
+  color: #ffffff;
+  background-color: transparent;
+  border-color: transparent;
+}

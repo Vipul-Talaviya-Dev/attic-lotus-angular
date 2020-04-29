@@ -1,0 +1,84 @@
+<div class="footer_section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-11 col-sm-12 question_screen">
+        <h4><img src="assets/images/hello_emogy.png">Book Your Office Space</h4>
+        <br/><br/>
+        <div class="container">
+          <div class="row">
+            <div class="hidden-lg-down col-xl-1">
+              <p class="indicatePage">Start</p>
+            </div>
+            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-11">
+              <section class="start__question">
+                <p class="question__number">1/{{ total }}</p>
+                <!--<form action="/start" method="post" autocomplete="off">
+                  <div id="question-1" class="question__wrapper ">
+                    <p class="question__title ">Let’s make the first step!</p>
+                    <input id="question__question-1" class="question__question" placeholder="What’s your name?" type="text" name="name">
+                  </div>
+                  <div id="question-2" class="question__wrapper question__wrapper&#45;&#45;inactive">
+                    <p class="question__title ">Nice to meet you</p>
+                    <input id="question__question-2" class="question__question" placeholder="How can we help you?" type="text" name="how">
+                  </div>
+                  <div id="question-3" class="question__wrapper question__wrapper&#45;&#45;inactive">
+                    <p class="question__title ">Sounds like a plan!</p>
+                    <input id="question__question-3" class="question__question" placeholder="What's your budget?" type="text" name="budget">
+                  </div>
+                  <div id="question-4" class="question__wrapper question__wrapper&#45;&#45;inactive">
+                    <p class="question__title ">Good things always have a price!</p>
+                    <input id="question__question-4" class="question__question" placeholder="What's your deadline?" type="text" name="deadline">
+                  </div>
+                  <div id="question-5" class="question__wrapper question__wrapper&#45;&#45;inactive">
+                    <p class="question__title ">We’re glad it’s not yesterday!</p>
+                    <input id="question__question-5" class="question__question" placeholder="What's your email?" type="text" name="email">
+                  </div>
+                  <div id="question-6" class="question__wrapper question__wrapper&#45;&#45;inactive">
+                    <p class="confirm__title question__title ">we’re glad that you took your first step! Now it’s our time to help you stand out.</p>
+                    <p class="confirm__p"></p>
+                  </div>
+                  <div class="next__wrapper">
+                    <i class="fas fa-chevron-circle-right"></i>
+                    <input class="next__button white-text" readonly="readonly" value="Next question">
+                  </div>
+                  <div class="error__wrapper" style="opacity: 0;">
+                    <i class="fas fa-question-circle error__icon"></i>
+                    <p class="error__message white-text">Don’t be shy, please fill the fields correctly.</p>
+                  </div>
+                </form>-->
+                <div id="carousel-demo" class="carousel slide"  data-ride="carousel">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active" *ngFor="let question of questions;let i = index;">
+                      <h2 class="question__title ">{{ question.question }} <br/>
+                        <input type="text" class="footer-input question__question" placeholder="What's your Answer?"></h2>
+                      <br/><br/>
+                    </div>
+                    <!--<div class="carousel-item">
+                      <h2>Let’s Vipul Vipul! <br/>
+                        <input type="text" class="footer-input" placeholder="What's your name?"></h2>
+                      <br/><br/>
+                    </div>-->
+                  </div>
+                  <a href="#carousel-demo" class="next-step" data-slide="next" ><i class="fa fa-chevron-circle-right" aria-hidden="true"></i>&nbsp; Next Question</a><br /><br /><br /><br />
+                  <!--slider control for card-->
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-sm-12 footer_bars footer_bar_left float-left">
+        <a href="javascript:void(0);">Privacy Policy</a>
+        <a href="javascript:void(0);">Terms of Use</a>
+      </div>
+      <div class="col-md-4 col-sm-12 footer_bars footer_bar_center">
+        Company {{ year }} All Rights Reserved.
+      </div>
+      <div class="col-md-4 col-sm-12 footer_bars footer_bar_right float-right">
+        DEVISED BY ATTIC
+      </div>
+    </div>
+  </div>
+</div>

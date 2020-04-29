@@ -1,0 +1,115 @@
+@media (max-width: 2048px) {
+    .bangalore-map ul::before {
+        left: 135px !important;
+    }
+    .hydrabad-map ul::before {
+        left: 140px !important;
+    }
+}
+
+@media (max-width: 1680px) {
+    .bangalore-map ul::before {
+        left: 95px !important;
+    }
+    .hydrabad-map ul::before {
+        left: 100px !important;
+    }
+}
+
+@media (max-width: 1440px) {
+    .bangalore-map ul::before {
+        left: 50px !important;
+    }
+    .hydrabad-map ul::before {
+        left: 60px !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    .bangalore-map ul::before {
+        left: 0px !important;
+    }
+    .hydrabad-map ul::before {
+        left: 0px !important;
+    }
+}
+
+@media (max-width: 750px) {
+    .bangalore-map ul::before {
+        left: 100px !important;
+    }
+    .map_items ul {
+        margin-right: 190px;
+    }
+    .hydrabad-map ul::before {
+        left: 100px !important;
+    }
+    .map_section .maps {
+        display: block;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .bangalore-map ul::before {
+        left: 70px !important;
+    }
+    .map_items ul {
+        margin-right: 160px;
+    }
+    .hydrabad-map ul::before {
+        left: 70px !important;
+    }
+    .more-feature-right {
+        padding: 0;
+    }
+    .more-features {
+        padding: 20px;
+    }
+    .footer_section .container,
+    .question_screen {
+        padding: 0;
+    }
+}
+
+@media (max-width: 425px) {
+    .bangalore-map ul::before {
+        left: 20px !important;
+    }
+    .map_items ul {
+        margin-right: 160px;
+    }
+    .hydrabad-map ul::before {
+        left: 20px !important;
+    }
+}
+
+@media (max-width: 375px) {
+    .bangalore-map ul::before {
+        left: 0px !important;
+    }
+    .map_items ul {
+        margin-right: 130px;
+    }
+    .hydrabad-map ul::before {
+        left: 0px !important;
+    }
+}
+
+@media (max-width: 320px) {
+    .bangalore-map ul::before {
+        background-size: contain;
+        width: 100% !important;
+        left: 0px !important;
+        top: -100px !important;
+    }
+    .map_items ul {
+        margin-right: 80px;
+    }
+    .hydrabad-map ul::before {
+        background-size: contain;
+        width: 100% !important;
+        left: 0px !important;
+        top: -60px !important;
+    }
+}

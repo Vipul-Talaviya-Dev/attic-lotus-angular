@@ -1,0 +1,2653 @@
+#cursor {
+    position: absolute;
+    padding: 1.5rem;
+    border-radius: 100%;
+    margin-left: -1.5rem;
+    margin-top: -1.5rem;
+    pointer-events: none;
+    z-index: 9999;
+    background: #fdfdfd24!important
+}
+
+.cursor__info {
+    position: absolute;
+    width: 7rem;
+    bottom: -2rem;
+    left: -2rem;
+    text-align: center;
+    color: #fff;
+    font-size: .7rem;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.cursor__info--inactive {
+    opacity: 0;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.indicatePage {
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    color: #fff;
+    margin-left: -4rem;
+    pointer-events: none
+}
+
+.indicateScroll__text {
+    color: #fff;
+    font-size: .8rem;
+    opacity: .5;
+    display: inline-block
+}
+
+.indicateScroll {
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    pointer-events: none;
+    position: absolute;
+    bottom: -8rem;
+    left: -2rem
+}
+
+.indicateScroll__arrow {
+    color: #fff;
+    padding-right: 1rem;
+    float: left;
+    margin-top: .3rem
+}
+
+.icons {
+    float: right
+}
+
+.fab {
+    color: #fff;
+    padding: 0 10px;
+    opacity: .4;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.fab:hover {
+    opacity: 1;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.fas.fa-question-circle {
+    position: absolute;
+    top: -9px;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.fas.fa-question-circle:hover {
+    color: #fff;
+    cursor: pointer;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.ctaText__linksmall {
+    color: #fff!important;
+    opacity: .45;
+    -webkit-transition: 1s all;
+    transition: 1s all;
+    padding-left: 5px
+}
+
+.ctaText__linksmall--active {
+    opacity: 1!important;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.noscroll {
+    overflow: hidden!important
+}
+
+.background__textWrapper {
+    width: 100vw;
+    margin-left: -15.5vw;
+    margin-top: 10rem;
+    margin-bottom: -27rem
+}
+
+.background__text {
+    font-size: 7rem;
+    z-index: -1;
+    opacity: .1;
+    margin-top: -4rem;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
+    font-weight: 700;
+    width: 100%;
+    left: 0
+}
+
+.row__padding {
+    margin-top: 5rem
+}
+
+.active {
+    opacity: 1!important;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.active a {
+    opacity: 1;
+    color: #fff
+}
+
+.mobile__SwipeDownIndicator,
+.mobile__SwipeRightIndicator,
+.mobile__menuButton {
+    display: none!important
+}
+
+.displayNone__desktop {
+    display: none
+}
+
+.disable__click {
+    pointer-events: none!important
+}
+
+.mobileMenu {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background: #000;
+    top: 0;
+    z-index: 9999!important;
+    -webkit-transition: 1s all;
+    transition: 1s all;
+    opacity: 0;
+    visibility: hidden!important
+}
+
+.mobileMenu__link {
+    display: inline-block;
+    text-align: left;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff!important;
+    opacity: .2
+}
+
+.mobileMenu__links {
+    padding: 0;
+    margin-top: 10rem
+}
+
+.mobileMenu__start {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 3rem;
+    margin-bottom: 1rem
+}
+
+.mobileMenu__contact {
+    display: inline-block;
+    padding-bottom: .5rem;
+    letter-spacing: 1.8px
+}
+
+.mobileMenu--active {
+    opacity: 1;
+    visibility: visible!important
+}
+
+.mobile__menuButton {
+    width: 22px;
+    height: 22px;
+    background: #fdfdfd24;
+    border-radius: 100%;
+    margin-left: 2rem;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.mobile__menuButtonInner {
+    height: 13px;
+    width: 13px;
+    background: #fdfdfd47;
+    margin: 4.5px;
+    border-radius: 100%;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.mobile__menuButton--active {
+    background: #fdfdfd47!important;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.mobile__menuButtonInner--active {
+    background: #fff!important;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.mobile__fadeOut {
+    opacity: 0;
+    -webkit-transition: 1s;
+    transition: 1s;
+    visibility: hidden
+}
+
+.mobileMenu__content {
+    -webkit-transition: 1s all;
+    transition: 1s all;
+    opacity: 0;
+    margin-left: 2rem
+}
+
+.mobileMenu__content--active {
+    -webkit-transition: 1s all;
+    transition: 1s all;
+    opacity: 1;
+    margin-left: 0
+}
+
+.mobile__SwipeDownIndicator {
+    position: absolute;
+    bottom: 3rem;
+    text-align: center;
+    width: 100%;
+    color: #fff
+}
+
+.SwipeDownIndicator__arrow,
+.visitWebsite__arrow {
+    padding-left: 1rem
+}
+
+.mobile__SwipeRightIndicator {
+    margin-top: 2.5rem;
+    text-align: right;
+    margin-bottom: 1.5rem;
+    color: #fff
+}
+
+.mobile__SwipeRightIndicator--extended {
+    margin-top: 5rem
+}
+
+.SwipeRightIndicator__arrow {
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-left: 1rem
+}
+
+.public__p--padding {
+    width: 40%
+}
+
+.public__p--white {
+    color: #fff
+}
+
+.public__h2--padding {
+    padding: 5rem 0
+}
+
+.public__paddingBottom--25 {
+    padding-bottom: 2.5rem
+}
+
+header {
+    margin-top: 5%;
+    z-index: 9999!important;
+    position: relative
+}
+
+.crescosa__favicon {
+    height: 20px
+}
+
+.audioline {
+    height: 20px;
+    cursor: pointer;
+    margin-top: -5px
+}
+
+.menu__actions {
+    width: 50%;
+    display: inline-block;
+    text-align: right
+}
+
+.menu__elements {
+    display: inline-block
+}
+
+.sayhello {
+    display: inline
+}
+
+.audioline_wrapper {
+    display: inline;
+    margin-left: 5rem
+}
+
+.sayhello__hand {
+    margin-right: -1rem;
+    height: 25px
+}
+
+.menu__element {
+    list-style: none;
+    display: inline-block;
+    padding-left: 3rem
+}
+
+.menu__element--active {
+    opacity: 1!important
+}
+
+.menu__cta {
+    list-style: none;
+    display: inline-block;
+    padding-left: 2rem;
+    color: #fff;
+    font-weight: 700
+}
+
+.menu__link {
+    color: #fff;
+    opacity: .4;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.menu__linkSlides {
+    opacity: .2
+}
+
+.menu__link--light {
+    opacity: 1
+}
+
+footer {
+    margin-top: 10rem;
+    margin-bottom: 5rem
+}
+
+.crescosa__logo {
+    height: 15px;
+    opacity: .4;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.crescosa__logo:hover {
+    opacity: 1;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.footer__link {
+    padding: 0 5rem;
+    opacity: .4;
+    color: #fff;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.footer__link:hover {
+    opacity: 1;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.footer--inactive {
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.webgl {
+    position: absolute;
+    top: 0;
+    z-index: -100!important;
+    pointer-events: none;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.webgl-inner {
+    pointer-events: none;
+    position: absolute;
+    top: 5rem;
+    z-index: -100!important;
+    right: 0
+}
+
+.front {
+    text-align: right
+}
+
+.front__p {
+    width: 50%
+}
+
+.front__nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    bottom: 4rem;
+    list-style: none;
+    right: 6rem;
+    -webkit-transition: 1s all;
+    transition: 1s all;
+    pointer-events: none
+}
+
+.front__nav--inactive {
+    -webkit-transition: 1s all;
+    transition: 1s all;
+    opacity: 0
+}
+
+.front__li {
+    margin-right: 4rem
+}
+
+.front__nav--before {
+    display: block;
+    content: '';
+    height: 15px;
+    width: 15px;
+    background: #fff;
+    float: left;
+    margin-right: 1rem;
+    border-radius: 50%;
+    margin-top: .3rem;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.fp__block {
+    -webkit-transition: 2s all;
+    transition: 2s all;
+    opacity: 1
+}
+
+.fp__block--inactive {
+    -webkit-transition: 1s cubic-bezier(.22, .61, .36, 1);
+    transition: 1s cubic-bezier(.22, .61, .36, 1);
+    opacity: 0;
+    margin-bottom: 100px
+}
+
+.front__h1--long {
+    font-size: 2.3rem;
+    line-height: 3.2rem
+}
+
+.front__services {
+    font-size: .8rem;
+    color: #707070;
+    display: block
+}
+
+.front__services--active {
+    color: #fff;
+    opacity: 1;
+    padding-right: 1rem;
+    float: left
+}
+
+.front__servicesWrapper {
+    position: absolute;
+    margin-top: 9rem;
+    width: 80%
+}
+
+.front__h1 {
+    margin-left: -.4rem
+}
+
+.webgl--faded {
+    opacity: .4;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.getstarted__p {
+    display: inline-block
+}
+
+.front__presentation {
+    margin-left: 4rem;
+    display: inline-block
+}
+
+.front__cta {
+    display: inline-block
+}
+
+.getstarted__p::before {
+    display: block;
+    content: '';
+    height: 15px;
+    width: 15px;
+    float: left;
+    border: 1px solid #2eff96;
+    margin-right: 1rem;
+    border-radius: 50%;
+    margin-top: .3rem;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.front__cta::before,
+.front__presentation::before {
+    display: block;
+    content: '';
+    height: 15px;
+    width: 15px;
+    float: left;
+    border: 1px solid #707070;
+    margin-right: 1rem;
+    border-radius: 50%;
+    margin-top: .3rem;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.front__cta--active::before,
+.front__presentation--active::before,
+.getstarted__p--active::before {
+    border-color: transparent;
+    background: #2eff96
+}
+
+.front__getstarted {
+    margin-top: 4rem;
+    z-index: 99999;
+    pointer-events: all
+}
+
+.fa-chevron-right {
+    color: #2eff96;
+    padding-right: .5rem
+}
+
+.cta-innerwrapper {
+    width: 100%;
+    text-align: center;
+    margin-top: 25%
+}
+
+.cta-hand {
+    height: 25px
+}
+
+.about__h2 {
+    margin-top: 8rem
+}
+
+.about__imageLeaf {
+    width: 92.2%
+}
+
+.about__imageRoot {
+    width: 90%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding-left: 1rem;
+    -webkit-transition: 1s all;
+    transition: 1s all;
+    opacity: 0
+}
+
+.clients__wrapper {
+    text-align: center;
+    margin-top: 5rem
+}
+
+.clients__logo {
+    width: 12rem;
+    opacity: .3;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.clients__logo:hover {
+    opacity: 1;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.awards__wrapper {
+    background-color: #1a73e8;
+    /*background-image: url('../images/about/awards.jpg');*/
+    background-size: cover;
+    height: 25rem;
+    margin-top: 5rem;
+    width: 90vw
+}
+
+.awardscount__wrapper {
+    margin-top: 2rem
+}
+
+.awardscount__number {
+    float: left;
+    font-size: 4rem;
+    font-weight: 700
+}
+
+.awardscount__content {
+    padding-top: 1.5rem;
+    padding-left: 6rem
+}
+
+.awards__innerwrapper {
+    padding: 3.5rem 0 0 3rem
+}
+
+.awardslist {
+    height: 11rem;
+    overflow-y: auto;
+    display: inline-block;
+    scrollbar-width: none;
+    -ms-overflow-style: none
+}
+
+.awardslist::-webkit-scrollbar {
+    width: 0;
+    background: 0 0
+}
+
+.awardslist__item {
+    -webkit-transition: 1s all;
+    transition: 1s all;
+    display: table;
+    cursor: default
+}
+
+.awardslist__item:hover {
+    color: #fff;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.service__dot {
+    height: 15px;
+    width: 15px;
+    background: #fff;
+    border-radius: 50%;
+    -webkit-transition: 1s all;
+    transition: 1s all;
+    display: inline-block;
+    margin-right: 2rem;
+    margin-bottom: -.1rem
+}
+
+.service__name {
+    display: inline-block;
+    color: #fff
+}
+
+.team__person {
+    width: 38%;
+    margin-right: 1rem
+}
+
+.person__image {
+    width: 100%;
+    height: auto
+}
+
+.team-carousel {
+    margin-top: 6rem;
+    width: 88vw
+}
+
+.person__name {
+    color: #fff;
+    font-weight: 700;
+    padding-bottom: .5rem
+}
+
+.person__indicate {
+    height: 15px;
+    width: 15px;
+    background: #fff;
+    border-radius: 50%;
+    margin-top: .3rem;
+    -webkit-transition: 1s all;
+    transition: 1s all;
+    display: inline-block
+}
+
+.person__info {
+    position: absolute;
+    bottom: 3rem;
+    left: 3rem
+}
+
+.person__apply {
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.person__apply:hover {
+    opacity: 1;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.ctaText__link {
+    display: inline;
+    opacity: .5;
+    padding: 0 0 0 1rem;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.ctaText__link--active {
+    opacity: 1;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.ctaText__title {
+    padding: 0;
+    display: inline;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.ctaText__title--inactive {
+    opacity: .5;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.ctaText__text {
+    padding-top: 1rem
+}
+
+.about__ctaText {
+    padding: 5rem 0 0
+}
+
+.work-carousel {
+    margin-top: 6rem;
+    width: 88vw;
+    height: 100%
+}
+
+.work {
+    margin-right: 1rem;
+    width: 35rem
+}
+
+.work__featured {
+    width: 100%;
+    height: auto
+}
+
+.work__image {
+    width: 100%;
+    margin-bottom: 2.5rem
+}
+
+.work__name {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: #fff
+}
+
+.work--active {
+    width: 35rem
+}
+
+.work--inactive {
+    width: 35rem;
+    pointer-events: none;
+    cursor: move
+}
+
+.work__indicate {
+    height: 15px;
+    width: 15px;
+    background: #fff;
+    float: left;
+    margin-right: 1rem;
+    border-radius: 50%;
+    margin-top: .3rem;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.backButton__arrow {
+    position: fixed;
+    left: 6.6rem;
+    bottom: 6rem;
+    width: auto;
+    height: 3rem;
+    opacity: 0;
+    -webkit-transition: .33s all;
+    transition: .33s all
+}
+
+.backButton__arrow--active {
+    -webkit-transition: 1s all;
+    transition: 1s all;
+    opacity: .4
+}
+
+.backButton__arrow--active:hover {
+    opacity: 1;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.backButton__arrow--rotated {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    bottom: 12rem
+}
+
+.workInner__delivered {
+    margin: 5rem 0
+}
+
+.scrollprogress {
+    height: 3px;
+    background: #fff
+}
+
+.scrollprogress-wrap {
+    width: 20%;
+    background: #262626;
+    height: 3px;
+    position: fixed;
+    top: 50%;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    right: -6rem;
+    opacity: 0
+}
+
+.link__wrapper {
+    float: right;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.link__url {
+    padding-left: 1rem;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.link__url--active,
+.link__wrapper--active {
+    color: #fff;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.work__featuredInner {
+    height: auto;
+    width: 100%;
+    margin: 5rem 0 2.5rem
+}
+
+.work__video {
+    width: 100%;
+    margin-bottom: 2.5rem
+}
+
+.work__service {
+    width: auto;
+    display: inline-block
+}
+
+.delivered__span {
+    color: #fff;
+    padding-right: 1rem
+}
+
+.delivered__stats {
+    display: inline-block;
+    padding: 0 1.5rem
+}
+
+.contacts__contact {
+    margin-top: 5rem
+}
+
+.contact__p {
+    letter-spacing: 0;
+    margin-bottom: .5rem;
+    display: inline-block
+}
+
+.contact__p::before {
+    display: block;
+    content: '';
+    height: 15px;
+    width: 15px;
+    float: left;
+    margin-right: 1rem;
+    border-radius: 50%;
+    margin-top: .3rem;
+    -webkit-transition: 1s all;
+    transition: 1s all;
+    border: 1px solid #707070
+}
+
+.contact__p--active::before {
+    border-color: transparent;
+    background: #2eff96
+}
+
+.contact__title {
+    margin-bottom: 1rem
+}
+
+input:invalid,
+input:required {
+    -webkit-box-shadow: none;
+    box-shadow: none
+}
+
+.question__number--inactive {
+    -webkit-transition: 1s all;
+    transition: 1s all;
+    opacity: 0
+}
+
+.question__title {
+    font-size: 2.6665rem;
+    font-weight: 700;
+    color: #fff;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.confirm__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.confirm__p {
+    margin-top: 2.5rem
+}
+
+.question__title--inactive {
+    -webkit-transition: 1s all;
+    transition: 1s all;
+    opacity: .5
+}
+
+.question__question {
+    font-size: 2.6665rem;
+    font-weight: 700;
+    color: #fff;
+    background: 0 0;
+    border: 0
+}
+
+.question__wrapper {
+    -webkit-transition: 5s all;
+    transition: 5s all
+}
+
+.question__wrapper--inactive {
+    opacity: 0;
+    -webkit-transition: .5s all;
+    transition: .5s all;
+    pointer-events: none;
+    position: absolute
+}
+
+.fas.fa-chevron-circle-right {
+    padding-right: .7rem;
+    margin-top: .25rem;
+    color: #fff
+}
+
+.next__wrapper {
+    margin-top: 5rem;
+    cursor: pointer;
+    display: inline-block;
+    -webkit-transition: 1s all;
+    transition: 1s all;
+    opacity: .5
+}
+
+.next__wrapper:hover {
+    opacity: 1;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+.next__wrapper--inactive {
+    -webkit-transition: 1s all;
+    transition: 1s all;
+    opacity: 0;
+    pointer-events: none
+}
+
+.next__button {
+    display: inline-block;
+    cursor: pointer;
+    background: 0 0;
+    border: 0
+}
+
+.error__icon {
+    position: inherit!important;
+    float: left;
+    margin-right: 1rem;
+    margin-top: .25rem;
+    color: #fff;
+    pointer-events: none
+}
+
+.error__wrapper {
+    opacity: 0;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+#question-6 {
+    width: 60%;
+    -webkit-transition: 1s all;
+    transition: 1s all
+}
+
+@media all and (max-width:375px) {
+    .barba-wrapper,
+    body,
+    html {
+        overflow-x: hidden!important
+    }
+    .question__title,
+    h1 {
+        font-size: 3rem
+    }
+    .question__question,
+    h2 {
+        font-size: 1.5rem
+    }
+    p {
+        letter-spacing: 1.3px;
+        font-size: 1rem
+    }
+    footer {
+        margin-top: 5rem;
+        margin-bottom: 5rem
+    }
+    .container {
+        padding-right: 25px;
+        padding-left: 25px
+    }
+    .crescosa__favicon {
+        height: 16px;
+        margin-top: -5px
+    }
+    #cursor,
+    .audioline_wrapper,
+    .icons,
+    .indicatePage,
+    .menu__cta,
+    .menu__element,
+    .scrollprogress-wrap,
+    .work__backButton {
+        display: none!important
+    }
+    .displayNone__desktop {
+        display: block
+    }
+    .mobileMenu__links {
+        margin-top: 7rem
+    }
+    .mobile__menuButton {
+        display: inline-block!important
+    }
+    .sayhello__hand {
+        margin-right: 3px;
+        margin-top: -5px;
+        height: 16px
+    }
+    .mobile__sayhello {
+        background: #fdfdfd24!important;
+        display: block;
+        border-radius: 100%;
+        margin-left: 2rem;
+        width: 22px;
+        height: 22px;
+        float: left
+    }
+    .audioline_wrapper {
+        float: left
+    }
+    .audioline {
+        height: 13px;
+        cursor: pointer;
+        margin-top: -5px
+    }
+    .menu__actions {
+        float: right;
+        width: auto
+    }
+    .mobile__icons {
+        float: none;
+        margin-top: 2rem
+    }
+    .footer__link--phone {
+        display: none
+    }
+    .footer__link--mail {
+        float: right;
+        margin-top: 2px
+    }
+    .footer__link {
+        padding: 0
+    }
+    .preload__title {
+        margin-top: 45%
+    }
+    .preload__favicon {
+        margin-top: 65%
+    }
+    .fp__block {
+        margin-top: -5rem
+    }
+    #service-nav,
+    .front__servicesWrapper,
+    .indicateScroll,
+    .sayhello {
+        display: none!important
+    }
+    .front__p {
+        width: 100%;
+        padding-bottom: 2.5rem
+    }
+    .front__h1--long {
+        font-size: 1.3rem;
+        line-height: 2.5rem;
+        padding-bottom: 1.5rem
+    }
+    .front__getstarted {
+        margin-top: 0
+    }
+    .front__presentation {
+        margin-left: 0;
+        margin-top: 1rem
+    }
+    .public__p--padding {
+        width: 100%
+    }
+    .contact__block {
+        margin-bottom: 2.5rem
+    }
+    .work__featuredInner {
+        margin: 0 0 2.5rem
+    }
+    .workInner__delivered {
+        margin: 2.5rem 0
+    }
+    .work--active,
+    .work--inactive {
+        width: 100%;
+        -webkit-transform: none!important;
+        transform: none!important;
+        -webkit-filter: none!important;
+        filter: none!important
+    }
+    .work-carousel {
+        margin-top: 0;
+        width: 100%;
+        height: 100%
+    }
+    .mobile__SwipeDownIndicator,
+    .mobile__SwipeRightIndicator {
+        display: block!important
+    }
+    .team__person {
+        width: 100%
+    }
+    .delivered__stats {
+        display: block;
+        padding: 1rem 0;
+        text-align: left
+    }
+    .delivered__list {
+        margin-bottom: 2.5rem
+    }
+    .question__question {
+        margin-top: 2rem;
+        margin-left: -5px
+    }
+    .next__wrapper {
+        margin-top: 4rem
+    }
+    .error__message {
+        letter-spacing: 0
+    }
+    .fas.fa-chevron-circle-right {
+        padding-right: .25rem
+    }
+    .confirm__title {
+        font-size: 1.5rem
+    }
+    #question-6 {
+        width: 100%
+    }
+    .question__wrapper--inactive {
+        top: 0
+    }
+    .service__services {
+        padding-right: 2.5rem
+    }
+    .mobile__serviceWrapper {
+        opacity: .2;
+        -webkit-transition: 1s all;
+        transition: 1s all
+    }
+    .mobile__serviceWrapper.is-selected {
+        width: 100%!important;
+        opacity: 1
+    }
+    .mobile__serviceWrapper {
+        width: 100%!important
+    }
+    .team-carousel {
+        margin-top: 0;
+        width: 100%
+    }
+    .about__imageLeaf,
+    .about__imageRoot {
+        width: 100%
+    }
+    .about__h2 {
+        margin-top: 0
+    }
+    .awards__wrapper {
+        background-image: none;
+        background-size: cover;
+        height: auto;
+        margin-top: 2.5rem;
+        width: 100%
+    }
+    .awards__innerwrapper {
+        padding: 0
+    }
+    .displayNone__mobile {
+        display: none
+    }
+    .clients__logo {
+        width: 7rem;
+        margin-right: 2rem;
+        opacity: 1
+    }
+    .clients__logoWrapper.is-selected {
+        width: unset!important
+    }
+    .awardslist {
+        height: 8rem
+    }
+    .awardslist__item {
+        letter-spacing: 0;
+        font-size: .8rem
+    }
+    .service__nameWrapper {
+        margin-bottom: 1rem
+    }
+}
+
+@media(min-width:376px) and (max-width:480px) {
+    .barba-wrapper,
+    body,
+    html {
+        overflow-x: hidden!important
+    }
+    .question__title,
+    h1 {
+        font-size: 3rem
+    }
+    .question__question,
+    h2 {
+        font-size: 1.5rem
+    }
+    p {
+        letter-spacing: 1.8px;
+        font-size: 1rem
+    }
+    footer {
+        margin-top: 5rem;
+        margin-bottom: 5rem
+    }
+    .container {
+        padding-right: 25px;
+        padding-left: 25px
+    }
+    .crescosa__favicon {
+        height: 16px;
+        margin-top: -5px
+    }
+    #cursor,
+    .audioline_wrapper,
+    .icons,
+    .indicatePage,
+    .menu__cta,
+    .menu__element,
+    .scrollprogress-wrap,
+    .work__backButton {
+        display: none!important
+    }
+    .displayNone__desktop {
+        display: block
+    }
+    .mobile__menuButton {
+        display: inline-block!important
+    }
+    .sayhello__hand {
+        margin-right: 3px;
+        margin-top: -5px;
+        height: 16px
+    }
+    .mobile__sayhello {
+        background: #fdfdfd24!important;
+        display: block;
+        border-radius: 100%;
+        margin-left: 2rem;
+        width: 22px;
+        height: 22px;
+        float: left
+    }
+    .audioline_wrapper {
+        float: left
+    }
+    .audioline {
+        height: 13px;
+        cursor: pointer;
+        margin-top: -5px
+    }
+    .menu__actions {
+        float: right;
+        width: auto
+    }
+    .mobile__icons {
+        float: none;
+        margin-top: 2rem
+    }
+    .footer__link--phone {
+        display: none
+    }
+    .footer__link--mail {
+        float: right;
+        margin-top: 2px
+    }
+    .footer__link {
+        padding: 0
+    }
+    .preload__title {
+        margin-top: 45%
+    }
+    .preload__favicon {
+        margin-top: 65%
+    }
+    .fp__block {
+        margin-top: -5rem
+    }
+    #service-nav,
+    .front__servicesWrapper,
+    .indicateScroll,
+    .sayhello {
+        display: none!important
+    }
+    .front__p {
+        width: 100%;
+        padding-bottom: 2.5rem
+    }
+    .front__h1--long {
+        font-size: 1.6rem;
+        line-height: 2.5rem;
+        padding-bottom: 1.5rem
+    }
+    .front__getstarted {
+        margin-top: 0
+    }
+    .front__presentation {
+        margin-left: 0;
+        margin-top: 1rem
+    }
+    .public__p--padding {
+        width: 100%
+    }
+    .contact__block {
+        margin-bottom: 2.5rem
+    }
+    .work__featuredInner {
+        margin: 0 0 2.5rem
+    }
+    .workInner__delivered {
+        margin: 2.5rem 0
+    }
+    .work--active,
+    .work--inactive {
+        width: 100%;
+        -webkit-transform: none!important;
+        transform: none!important;
+        -webkit-filter: none!important;
+        filter: none!important
+    }
+    .work-carousel {
+        margin-top: 0;
+        width: 100%;
+        height: 100%
+    }
+    .mobile__SwipeDownIndicator,
+    .mobile__SwipeRightIndicator {
+        display: block!important
+    }
+    .team__person {
+        width: 100%
+    }
+    .delivered__stats {
+        display: block;
+        padding: 1rem 0;
+        text-align: left
+    }
+    .delivered__list {
+        margin-bottom: 2.5rem
+    }
+    .question__question {
+        margin-top: 2rem;
+        margin-left: -5px
+    }
+    .next__wrapper {
+        margin-top: 4rem
+    }
+    .error__message {
+        letter-spacing: 0
+    }
+    .fas.fa-chevron-circle-right {
+        padding-right: .25rem
+    }
+    .confirm__title {
+        font-size: 1.5rem
+    }
+    #question-6 {
+        width: 100%
+    }
+    .question__wrapper--inactive {
+        top: 0
+    }
+    .service__services {
+        padding-right: 4rem
+    }
+    .mobile__serviceWrapper {
+        opacity: .2;
+        -webkit-transition: 1s all;
+        transition: 1s all
+    }
+    .mobile__serviceWrapper.is-selected {
+        width: 100%!important;
+        opacity: 1
+    }
+    .mobile__serviceWrapper {
+        width: 100%!important
+    }
+    .team-carousel {
+        margin-top: 0;
+        width: 100%
+    }
+    .about__imageLeaf,
+    .about__imageRoot {
+        width: 100%
+    }
+    .about__h2 {
+        margin-top: 0
+    }
+    .awards__wrapper {
+        background-image: none;
+        background-size: cover;
+        height: auto;
+        margin-top: 2.5rem;
+        width: 100%
+    }
+    .awards__innerwrapper {
+        padding: 0
+    }
+    .displayNone__mobile {
+        display: none
+    }
+    .clients__logo {
+        width: 7rem;
+        margin-right: 2rem;
+        opacity: 1
+    }
+    .clients__logoWrapper.is-selected {
+        width: unset!important
+    }
+    .awardslist {
+        height: 8rem
+    }
+    .awardslist__item {
+        letter-spacing: 0;
+        font-size: .9rem
+    }
+    .service__nameWrapper {
+        margin-bottom: 1rem
+    }
+}
+
+@media(min-width:481px) and (max-width:760px) {
+    .wrapper__all {
+        margin-top: 10rem
+    }
+    .barba-wrapper,
+    body,
+    html {
+        overflow-x: hidden!important
+    }
+    .question__title,
+    h1 {
+        font-size: 3rem
+    }
+    .question__question,
+    h2 {
+        font-size: 1.5rem;
+        width: 80%
+    }
+    p {
+        letter-spacing: 1.8px;
+        font-size: .93rem
+    }
+    p .team__person {
+        width: 50%
+    }
+    footer {
+        margin-top: 5rem;
+        margin-bottom: 5rem
+    }
+    .container {
+        padding-right: 25px;
+        padding-left: 25px
+    }
+    .crescosa__favicon {
+        height: 16px;
+        margin-top: -5px
+    }
+    #cursor,
+    .audioline_wrapper,
+    .icons,
+    .indicatePage,
+    .menu__cta,
+    .menu__element,
+    .scrollprogress-wrap,
+    .work__backButton {
+        display: none!important
+    }
+    .displayNone__desktop {
+        display: block
+    }
+    .mobileMenu__links {
+        margin-top: 7rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex
+    }
+    .mobileMenu__link {
+        font-size: 2rem;
+        margin-right: 2.5rem
+    }
+    .mobileMenu__start {
+        margin-top: 2.5rem
+    }
+    .mobile__menuButton {
+        display: inline-block!important
+    }
+    .sayhello__hand {
+        margin-right: 3px;
+        margin-top: -5px;
+        height: 16px
+    }
+    .mobile__sayhello {
+        background: #fdfdfd24!important;
+        display: block;
+        border-radius: 100%;
+        margin-left: 2rem;
+        width: 22px;
+        height: 22px;
+        float: left
+    }
+    .audioline_wrapper {
+        float: left
+    }
+    .audioline {
+        height: 13px;
+        cursor: pointer;
+        margin-top: -5px
+    }
+    .menu__actions {
+        float: right;
+        width: auto
+    }
+    .mobile__icons {
+        float: none;
+        margin-top: 2rem
+    }
+    .footer__link--phone {
+        display: none
+    }
+    .footer__link--mail {
+        float: right;
+        margin-top: 2px
+    }
+    .footer__link {
+        padding: 0
+    }
+    .preload__title {
+        margin-top: 15%
+    }
+    .preload__favicon {
+        margin-top: 20%
+    }
+    .fp__block {
+        margin-top: -5rem
+    }
+    #service-nav,
+    .front__servicesWrapper,
+    .indicateScroll,
+    .sayhello {
+        display: none!important
+    }
+    .front__p {
+        width: 100%;
+        padding-bottom: 2.5rem;
+        padding-right: 1rem
+    }
+    .front__h1--long {
+        font-size: 1.4rem;
+        line-height: 2.5rem;
+        padding-bottom: 1.5rem
+    }
+    .front__getstarted {
+        margin-top: 0
+    }
+    .front__presentation {
+        margin-left: 2.5rem;
+        margin-top: 1rem
+    }
+    .public__p--padding {
+        width: 80%
+    }
+    .contact__block {
+        margin-bottom: 2.5rem
+    }
+    .work__featuredInner {
+        margin: 0 0 2.5rem
+    }
+    .workInner__delivered {
+        margin: 2.5rem 0
+    }
+    .work--active {
+        width: 50%;
+        -webkit-transform: none!important;
+        transform: none!important;
+        -webkit-filter: none!important;
+        filter: none!important
+    }
+    .work--inactive {
+        width: 50%;
+        -webkit-transform: none!important;
+        transform: none!important;
+        -webkit-filter: none!important;
+        filter: none!important;
+        pointer-events: all!important
+    }
+    .work-carousel {
+        margin-top: 0;
+        width: 100%;
+        height: 100%
+    }
+    .mobile__SwipeDownIndicator,
+    .mobile__SwipeRightIndicator {
+        display: block!important
+    }
+    .mobile__SwipeDownIndicator {
+        text-align: right
+    }
+    .team__person {
+        width: 50%
+    }
+    .delivered__stats {
+        display: inline-block;
+        padding: 1rem 5rem 1rem 0;
+        text-align: left
+    }
+    .delivered__list {
+        margin-bottom: 2.5rem
+    }
+    .question__question {
+        margin-top: 2rem;
+        margin-left: -5px
+    }
+    .next__wrapper {
+        margin-top: 4rem
+    }
+    .error__message {
+        letter-spacing: 0
+    }
+    .fas.fa-chevron-circle-right {
+        padding-right: .25rem
+    }
+    .confirm__title {
+        font-size: 1.5rem
+    }
+    #question-6 {
+        width: 100%
+    }
+    .question__wrapper--inactive {
+        top: 1.5rem
+    }
+    .service__services {
+        padding-right: 4rem
+    }
+    .mobile__serviceWrapper {
+        opacity: .2;
+        -webkit-transition: 1s all;
+        transition: 1s all
+    }
+    .mobile__serviceWrapper.is-selected {
+        width: 100%!important;
+        opacity: 1
+    }
+    .mobile__serviceWrapper {
+        width: 100%!important
+    }
+    .team-carousel {
+        margin-top: 0;
+        width: 100%
+    }
+    .about__imageLeaf,
+    .about__imageRoot {
+        width: 100%
+    }
+    .about__h2 {
+        margin-top: 0
+    }
+    .awards__wrapper {
+        background-image: none;
+        background-size: cover;
+        height: auto;
+        margin-top: 2.5rem;
+        width: 100%
+    }
+    .awards__innerwrapper {
+        padding: 0
+    }
+    .displayNone__mobile {
+        display: none
+    }
+    .clients__logo {
+        width: 7rem;
+        margin-right: 2rem;
+        opacity: 1
+    }
+    .clients__logoWrapper.is-selected {
+        width: unset!important
+    }
+    .awardslist {
+        height: 8rem
+    }
+    .awardslist__item {
+        letter-spacing: 0;
+        font-size: .9rem
+    }
+    .service__nameWrapper {
+        margin-bottom: 1rem
+    }
+}
+
+@media(min-width:761px) and (max-width:992px) {
+    .wrapper__all {
+        margin-top: 10rem
+    }
+    .barba-wrapper,
+    body,
+    html {
+        overflow-x: hidden!important
+    }
+    .question__title,
+    h1 {
+        font-size: 3.5rem
+    }
+    .question__question,
+    h2 {
+        font-size: 2rem;
+        width: 60%
+    }
+    p {
+        letter-spacing: 1.8px;
+        font-size: .93rem
+    }
+    footer {
+        margin-top: 5rem;
+        margin-bottom: 5rem
+    }
+    .container {
+        padding-right: 45px;
+        padding-left: 45px
+    }
+    .crescosa__favicon {
+        height: 16px;
+        margin-top: -5px
+    }
+    #cursor,
+    .audioline_wrapper,
+    .icons,
+    .indicatePage,
+    .menu__cta,
+    .menu__element,
+    .scrollprogress-wrap,
+    .work__backButton {
+        display: none!important
+    }
+    .displayNone__desktop {
+        display: block
+    }
+    .mobile__menuButton {
+        display: inline-block!important
+    }
+    .sayhello__hand {
+        margin-right: 3px;
+        margin-top: -5px;
+        height: 16px
+    }
+    .mobile__sayhello {
+        background: #fdfdfd24!important;
+        display: block;
+        border-radius: 100%;
+        margin-left: 2rem;
+        width: 22px;
+        height: 22px;
+        float: left
+    }
+    .audioline_wrapper {
+        float: left
+    }
+    .audioline {
+        height: 13px;
+        cursor: pointer;
+        margin-top: -5px
+    }
+    .menu__actions {
+        float: right;
+        width: auto
+    }
+    .mobileMenu__link {
+        font-size: 3.5rem
+    }
+    .mobileMenu__links {
+        margin-top: 15rem
+    }
+    .mobile__icons {
+        float: none;
+        margin-top: 2rem
+    }
+    .footer__link--phone {
+        display: none
+    }
+    .footer__link--mail {
+        float: right;
+        margin-top: 2px
+    }
+    .footer__link {
+        padding: 0
+    }
+    .preload__title {
+        margin-top: 15%
+    }
+    .preload__favicon {
+        margin-top: 20%
+    }
+    .fp__block {
+        margin-top: -5rem
+    }
+    #service-nav,
+    .front__servicesWrapper,
+    .indicateScroll,
+    .sayhello {
+        display: none!important
+    }
+    .front__p {
+        width: 60%;
+        padding-bottom: 2.5rem;
+        padding-right: 1rem
+    }
+    .front__h1--long {
+        font-size: 2.5rem;
+        line-height: 3.5rem;
+        padding-bottom: 1.5rem
+    }
+    .front__getstarted {
+        margin-top: 0
+    }
+    .front__presentation {
+        margin-left: 2.5rem;
+        margin-top: 1rem
+    }
+    .public__p--padding {
+        width: 60%
+    }
+    .contact__block {
+        margin-bottom: 2.5rem
+    }
+    .work__featuredInner {
+        margin: 0 0 2.5rem
+    }
+    .workInner__delivered {
+        margin: 2.5rem 0
+    }
+    .work--active {
+        width: 50%;
+        -webkit-transform: none!important;
+        transform: none!important;
+        -webkit-filter: none!important;
+        filter: none!important
+    }
+    .work--inactive {
+        width: 50%;
+        -webkit-transform: none!important;
+        transform: none!important;
+        -webkit-filter: none!important;
+        filter: none!important;
+        pointer-events: all!important
+    }
+    .work-carousel {
+        margin-top: 0;
+        width: 100%;
+        height: 100%
+    }
+    .mobile__SwipeDownIndicator,
+    .mobile__SwipeRightIndicator {
+        display: block!important
+    }
+    .mobile__SwipeDownIndicator {
+        text-align: right
+    }
+    .delivered__stats {
+        display: inline-block;
+        padding: 1rem 5rem 1rem 0;
+        text-align: left
+    }
+    .delivered__list {
+        margin-bottom: 2.5rem
+    }
+    .question__question {
+        margin-top: 2rem;
+        margin-left: -5px
+    }
+    .next__wrapper {
+        margin-top: 4rem
+    }
+    .error__message {
+        letter-spacing: 0
+    }
+    .fas.fa-chevron-circle-right {
+        padding-right: .25rem
+    }
+    .confirm__title {
+        font-size: 1.5rem
+    }
+    #question-6 {
+        width: 100%
+    }
+    .question__wrapper--inactive {
+        top: 1.5rem
+    }
+    .team__person {
+        width: 50%
+    }
+    .ctaText__text {
+        padding-top: 0
+    }
+    .service__services {
+        padding-right: 4rem
+    }
+    .mobile__serviceWrapper {
+        -webkit-transition: 1s all;
+        transition: 1s all;
+        width: 50%!important;
+        opacity: 1
+    }
+    .mobile__serviceWrapper.is-selected {
+        width: 50%!important
+    }
+    .team-carousel {
+        margin-top: 0;
+        width: 100%
+    }
+    .about__imageLeaf,
+    .about__imageRoot {
+        width: 100%
+    }
+    .about__h2 {
+        margin-top: 0
+    }
+    .awards__wrapper {
+        background-image: none;
+        background-size: cover;
+        height: auto;
+        margin-top: 2.5rem;
+        width: 100%
+    }
+    .awards__innerwrapper {
+        padding: 0
+    }
+    .displayNone__mobile {
+        display: none
+    }
+    .clients__logo {
+        width: 9rem;
+        margin-right: 4rem;
+        opacity: 1
+    }
+    .clients__logoWrapper.is-selected {
+        width: unset!important
+    }
+    .awardslist {
+        height: 8rem
+    }
+    .awardslist__item {
+        letter-spacing: 0;
+        font-size: 1rem
+    }
+    .service__nameWrapper {
+        margin-bottom: 1rem
+    }
+}
+
+@media(min-width:993px) and (max-width:1024px) {
+    .wrapper__all {
+        margin-top: 10rem
+    }
+    .barba-wrapper,
+    body,
+    html {
+        overflow-x: hidden!important
+    }
+    .question__title,
+    h1 {
+        font-size: 3.5rem
+    }
+    .question__question,
+    h2 {
+        font-size: 2rem;
+        width: 60%
+    }
+    p {
+        letter-spacing: 1.8px;
+        font-size: .93rem
+    }
+    footer {
+        margin-top: 5rem;
+        margin-bottom: 5rem
+    }
+    .container {
+        padding-right: 45px;
+        padding-left: 45px
+    }
+    .crescosa__favicon {
+        height: 16px;
+        margin-top: -5px
+    }
+    #cursor,
+    .audioline_wrapper,
+    .icons,
+    .indicatePage,
+    .menu__cta,
+    .menu__element,
+    .scrollprogress-wrap,
+    .work__backButton {
+        display: none!important
+    }
+    .displayNone__desktop {
+        display: block
+    }
+    .mobile__menuButton {
+        display: inline-block!important
+    }
+    .sayhello__hand {
+        margin-right: 3px;
+        margin-top: -5px;
+        height: 16px
+    }
+    .mobile__sayhello {
+        background: #fdfdfd24!important;
+        display: block;
+        border-radius: 100%;
+        margin-left: 2rem;
+        width: 22px;
+        height: 22px;
+        float: left
+    }
+    .audioline_wrapper {
+        float: left
+    }
+    .audioline {
+        height: 13px;
+        cursor: pointer;
+        margin-top: -5px
+    }
+    .menu__actions {
+        float: right;
+        width: auto
+    }
+    .mobileMenu__link {
+        font-size: 3.5rem
+    }
+    .mobileMenu__links {
+        margin-top: 10rem
+    }
+    .mobile__icons {
+        float: none;
+        margin-top: 2rem
+    }
+    .footer__link--phone {
+        display: none
+    }
+    .footer__link--mail {
+        float: right;
+        margin-top: 2px
+    }
+    .footer__link {
+        padding: 0
+    }
+    .preload__title {
+        margin-top: 20%
+    }
+    .preload__favicon {
+        margin-top: 35%
+    }
+    .fp__block {
+        margin-top: -5rem
+    }
+    #service-nav,
+    .front__servicesWrapper,
+    .indicateScroll,
+    .sayhello {
+        display: none!important
+    }
+    .front__p {
+        width: 60%;
+        padding-bottom: 2.5rem;
+        padding-right: 1rem
+    }
+    .front__h1--long {
+        font-size: 2.5rem;
+        line-height: 3.5rem;
+        padding-bottom: 1.5rem
+    }
+    .front__getstarted {
+        margin-top: 0
+    }
+    .front__presentation {
+        margin-left: 2.5rem;
+        margin-top: 1rem
+    }
+    .public__p--padding {
+        width: 60%
+    }
+    .contact__block {
+        margin-bottom: 2.5rem
+    }
+    .work__featuredInner {
+        margin: 0 0 2.5rem
+    }
+    .workInner__delivered {
+        margin: 2.5rem 0
+    }
+    .work--active {
+        width: 50%;
+        -webkit-transform: none!important;
+        transform: none!important;
+        -webkit-filter: none!important;
+        filter: none!important
+    }
+    .work--inactive {
+        width: 50%;
+        -webkit-transform: none!important;
+        transform: none!important;
+        -webkit-filter: none!important;
+        filter: none!important;
+        pointer-events: all!important
+    }
+    .work-carousel {
+        margin-top: 0;
+        width: 100%;
+        height: 100%
+    }
+    .mobile__SwipeDownIndicator,
+    .mobile__SwipeRightIndicator {
+        display: block!important
+    }
+    .mobile__SwipeDownIndicator {
+        text-align: right
+    }
+    .delivered__stats {
+        display: inline-block;
+        padding: 0 2rem 1rem 0;
+        text-align: left
+    }
+    .delivered__list {
+        margin-bottom: 2.5rem
+    }
+    .question__question {
+        margin-top: 2rem;
+        margin-left: -5px
+    }
+    .next__wrapper {
+        margin-top: 4rem
+    }
+    .error__message {
+        letter-spacing: 0
+    }
+    .fas.fa-chevron-circle-right {
+        padding-right: .25rem
+    }
+    .confirm__title {
+        font-size: 1.5rem
+    }
+    #question-6 {
+        width: 100%
+    }
+    .question__wrapper--inactive {
+        top: 1.5rem
+    }
+    .team__person {
+        width: 50%
+    }
+    .ctaText__text {
+        padding-top: 0
+    }
+    .service__services {
+        padding-right: 4rem
+    }
+    .mobile__serviceWrapper {
+        -webkit-transition: 1s all;
+        transition: 1s all;
+        width: 50%!important;
+        opacity: 1
+    }
+    .mobile__serviceWrapper.is-selected {
+        width: 50%!important
+    }
+    .team-carousel {
+        margin-top: 0;
+        width: 100%
+    }
+    .about__imageLeaf,
+    .about__imageRoot {
+        width: 100%
+    }
+    .about__h2 {
+        margin-top: 2rem
+    }
+    .awards__wrapper {
+        background-image: none;
+        background-size: cover;
+        height: auto;
+        margin-top: 2.5rem;
+        width: 100%
+    }
+    .awards__innerwrapper {
+        padding: 0
+    }
+    .displayNone__mobile {
+        display: none
+    }
+    .clients__logo {
+        width: 9rem;
+        margin-right: 4rem;
+        opacity: 1
+    }
+    .clients__logoWrapper.is-selected {
+        width: unset!important
+    }
+    .awardslist {
+        height: 8rem
+    }
+    .awardslist__item {
+        letter-spacing: 0;
+        font-size: 1rem
+    }
+    .service__nameWrapper {
+        margin-bottom: 1rem
+    }
+}
+
+@media(min-width:1025px) and (max-width:1279px) {
+    .displayNone__desktop {
+        display: none
+    }
+    .container {
+        max-width: 1110px
+    }
+    .about__h2 {
+        margin-top: 2rem
+    }
+    .team-carousel {
+        width: 90vw
+    }
+    .scrollprogress-wrap {
+        right: -5.5rem
+    }
+    .backButton__arrow {
+        left: 5.3rem
+    }
+    .front__servicesWrapper {
+        margin-top: 7rem
+    }
+    .indicateScroll {
+        bottom: -6rem
+    }
+    .footer__link {
+        padding: 0 3rem
+    }
+}
+
+@media(min-width:1280px) and (max-width:1399px) {
+    .preload__favicon {
+        margin-top: 30%
+    }
+    .preload__title {
+        margin-top: 20%
+    }
+    .displayNone__desktop {
+        display: none
+    }
+    .container {
+        max-width: 1110px
+    }
+    .about__h2 {
+        margin-top: 2rem
+    }
+    .team-carousel {
+        width: 90vw
+    }
+    .backButton__arrow {
+        left: 5.4rem
+    }
+    .scrollprogress-wrap {
+        right: -5rem
+    }
+    .front__p {
+        width: 70%
+    }
+    .front__servicesWrapper {
+        margin-top: 7rem
+    }
+    .indicateScroll {
+        bottom: -7rem
+    }
+    .footer__link {
+        padding: 0 3rem
+    }
+}
+
+@media(min-width:1400px) and (max-width:1440px) {
+    .preload__favicon {
+        margin-top: 27%
+    }
+    .preload__title {
+        margin-top: 18%
+    }
+    .displayNone__desktop {
+        display: none
+    }
+    .backButton__arrow {
+        left: 6.7rem
+    }
+    .front__servicesWrapper {
+        margin-top: 8rem
+    }
+    .indicateScroll {
+        bottom: -7rem
+    }
+    .backButton__arrow--rotated {
+        bottom: 22rem
+    }
+}
+
+@media(min-width:1441px) and (max-width:1600px) {
+    .displayNone__desktop {
+        display: none
+    }
+    .container {
+        max-width: 1300px
+    }
+    .preload__favicon {
+        margin-top: 35%
+    }
+    .preload__title {
+        margin-top: 25%
+    }
+    .front__servicesWrapper {
+        margin-top: 18rem
+    }
+    .indicateScroll {
+        bottom: -17rem
+    }
+    .about__h2 {
+        margin-top: 11.5rem
+    }
+    .backButton__arrow {
+        left: 10rem
+    }
+    .scrollprogress-wrap {
+        right: -4.5rem
+    }
+}
+
+@media(min-width:1601px) and (max-width:1680px) {
+    .displayNone__desktop {
+        display: none
+    }
+    .container {
+        max-width: 1300px
+    }
+    .preload__favicon {
+        margin-top: 30%
+    }
+    .preload__title {
+        margin-top: 20%
+    }
+    .front__servicesWrapper {
+        margin-top: 13rem
+    }
+    .indicateScroll {
+        bottom: -12rem
+    }
+    .about__h2 {
+        margin-top: 11.5rem
+    }
+    .backButton__arrow {
+        left: 13rem
+    }
+    .scrollprogress-wrap {
+        right: -4.5rem
+    }
+}
+
+@media(min-width:1681px) and (max-width:2400px) {
+    * {
+        font-size: 17px
+    }
+    .displayNone__desktop {
+        display: none
+    }
+    .container {
+        max-width: 1470px
+    }
+    .preload__favicon {
+        margin-top: 30%
+    }
+    .preload__title {
+        margin-top: 20%
+    }
+    .front__servicesWrapper {
+        margin-top: 13rem
+    }
+    .indicateScroll {
+        bottom: -13rem
+    }
+    .about__h2 {
+        margin-top: 11.5rem
+    }
+    .backButton__arrow {
+        left: 13rem
+    }
+    .scrollprogress-wrap {
+        right: -4.5rem
+    }
+}
+
+@media all and (min-width:2401px) {
+    .displayNone__desktop {
+        display: none
+    }
+    .container {
+        max-width: 1690px
+    }
+    * {
+        font-size: 20px
+    }
+    html {
+        font-size: 130%
+    }
+    p {
+        font-size: 1rem
+    }
+    .front__servicesWrapper {
+        margin-top: 10rem
+    }
+    .indicateScroll {
+        bottom: -9rem
+    }
+    .front__presentation::before,
+    .getstarted__p::before {
+        margin-top: .45rem
+    }
+    .front__nav {
+        bottom: 4rem;
+        right: 26rem
+    }
+    .front__nav--before {
+        margin-top: .4rem
+    }
+}
+
+@media(min-width:1366px) and (min-height:768px) {
+    .backButton__arrow {
+        left: 6.5rem
+    }
+    .backButton__arrow--rotated {
+        bottom: 22rem
+    }
+    .front__nav {
+        bottom: 5rem;
+        right: 9rem
+    }
+    .front__servicesWrapper {
+        margin-top: 7rem
+    }
+    .indicateScroll {
+        bottom: -6rem
+    }
+    .preload__favicon {
+        margin-top: 27%
+    }
+    .preload__title {
+        margin-top: 17%
+    }
+}
+
+@media(min-width:1440px) and (min-height:900px) {
+    .backButton__arrow {
+        left: 6.4rem
+    }
+    .front__servicesWrapper {
+        margin-top: 9rem
+    }
+    .indicateScroll {
+        bottom: -8rem
+    }
+    .front__nav {
+        bottom: 5rem;
+        right: 12rem
+    }
+}
+
+@media(min-width:1600px) and (min-height:900px) {
+    .backButton__arrow {
+        left: 10.4rem
+    }
+    .front__nav {
+        bottom: 6rem;
+        right: 17rem
+    }
+}
+
+@media(min-width:1680px) and (min-height:1050px) {
+    .front__servicesWrapper {
+        margin-top: 13rem
+    }
+    .front__nav {
+        bottom: 7rem;
+        right: 20rem
+    }
+    .indicateScroll {
+        bottom: -12rem
+    }
+    .preload__favicon {
+        margin-top: 30%
+    }
+    .backButton__arrow {
+        left: 13rem
+    }
+}
+
+@media(min-width:1920px) and (min-height:1080px) {
+    .indicateScroll {
+        bottom: -10rem
+    }
+    .front__nav {
+        bottom: 6rem;
+        right: 17rem
+    }
+    .front__servicesWrapper {
+        margin-top: 11rem
+    }
+    .preload__favicon {
+        margin-top: 28%
+    }
+}

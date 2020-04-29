@@ -1,0 +1,437 @@
+<app-menu></app-menu>
+<div class="banner_section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-12 feature-box">
+        <div class="visit-form-group text-left">
+          <label for="time">Find Workspace In</label>
+          <select class="visit-form-control rounded" id="time">
+            <option value="">-- Select Area --</option>
+            <option *ngFor="let location of locations;" value="{{ location.id }}">{{ location.name }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-12 feature-box">
+        <div class="visit-form-group text-left">
+          <label for="time">Number Of People</label>
+          <select class="visit-form-control rounded" id="time">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-12 feature-box">
+        <div class="visit-form-group text-left date" id="datepicker">
+          <label for="time">Move-In Date</label>
+          <input type="date" id="time" class="visit-form-control rounded" />
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-12 feature-box">
+        <div class="text-left">
+          <a class="btn find-btn" style="margin-top: 45px;">FIND WORK SPACE </a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-sm-12 p-0">
+        <div id="firstSlider" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="image_wrapper">
+                <img class="w-80" src="assets/images/Image-blue one aquare.png" alt="blue One Square">
+              </div>
+              <div class="content_wrapper">
+                <h3>Blue One Square</h3>
+                <address>Gurugram, <br> 3000SqFT</address>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="image_wrapper">
+                <img class="w-80" src="assets/images/slider-img1.jpeg" alt="blue One Square">
+              </div>
+              <div class="content_wrapper">
+                <h3>Blue Two Square</h3>
+                <address>Gurugram, <br> 3000SqFT</address>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="image_wrapper">
+                <img class="w-80" src="assets/images/slider-img2.jpeg" alt="blue One Square">
+              </div>
+              <div class="content_wrapper">
+                <h3>Blue Three Square</h3>
+                <address>Gurugram, <br> 3000SqFT</address>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#firstSlider" role="button" data-slide="prev">
+          </a>
+          <a class="carousel-control-next" href="#firstSlider" role="button" data-slide="next">
+            <img src="assets/images/play-btn-blue.png" alt="play">
+          </a>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-12 p-0">
+        <div id="secondSlider" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="image_wrapper">
+                <img class="w-80" src="assets/images/slider-img3.jpeg" alt="blue One Square">
+              </div>
+              <div class="content_wrapper">
+                <h3>Blue One Square</h3>
+                <address>Gurugram, <br> 3000SqFT</address>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="image_wrapper">
+                <img class="w-80" src="assets/images/slider-img4.jpeg" alt="blue One Square">
+              </div>
+              <div class="content_wrapper">
+                <h3>Blue Two Square</h3>
+                <address>Gurugram, <br> 3000SqFT</address>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="image_wrapper">
+                <img class="w-80" src="assets/images/slider-img5.jpeg" alt="blue One Square">
+              </div>
+              <div class="content_wrapper">
+                <h3>Blue Three Square</h3>
+                <address>Gurugram, <br> 3000SqFT</address>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#secondSlider" role="button" data-slide="prev">
+          </a>
+          <a class="carousel-control-next" href="#secondSlider" role="button" data-slide="next">
+            <img src="assets/images/play-btn-blue.png" alt="play">
+          </a>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-12 p-0">
+        <div id="thirdSlider" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="image_wrapper">
+                <img class="w-80" src="assets/images/slider-img6.jpeg" alt="blue One Square">
+              </div>
+              <div class="content_wrapper">
+                <h3>Blue One Square</h3>
+                <address>Gurugram, <br> 3000SqFT</address>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="image_wrapper">
+                <img class="w-80" src="assets/images/slider-img7.jpeg" alt="blue One Square">
+              </div>
+              <div class="content_wrapper">
+                <h3>Blue Two Square</h3>
+                <address>Gurugram, <br> 3000SqFT</address>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="image_wrapper">
+                <img class="w-80" src="assets/images/slider-img8.jpeg" alt="blue One Square">
+              </div>
+              <div class="content_wrapper">
+                <h3>Blue Three Square</h3>
+                <address>Gurugram, <br> 3000SqFT</address>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#thirdSlider" role="button" data-slide="prev">
+          </a>
+          <a class="carousel-control-next" href="#thirdSlider" role="button" data-slide="next">
+            <img src="assets/images/play-btn-blue.png" alt="play">
+          </a>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-12 p-0">
+        <div id="fourthSlider" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="image_wrapper">
+                <img class="w-80" src="assets/images/slider-img9.jpeg" alt="blue One Square">
+              </div>
+              <div class="content_wrapper">
+                <h3>Blue One Square</h3>
+                <address>Gurugram, <br> 3000SqFT</address>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="image_wrapper">
+                <img class="w-80" src="assets/images/slider-img4.jpeg" alt="blue One Square">
+              </div>
+              <div class="content_wrapper">
+                <h3>Blue Two Square</h3>
+                <address>Gurugram, <br> 3000SqFT</address>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="image_wrapper">
+                <img class="w-80" src="assets/images/slider-img6.jpeg" alt="blue One Square">
+              </div>
+              <div class="content_wrapper">
+                <h3>Blue Three Square</h3>
+                <address>Gurugram, <br> 3000SqFT</address>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#fourthSlider" role="button" data-slide="prev">
+          </a>
+          <a class="carousel-control-next opac-0" href="#fourthSlider" role="button" data-slide="next">
+            <!-- <img src="assets/images/play-btn-blue.png" alt="play"> -->
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="setup_manage_section tb-space">
+  <div class="container text-center">
+    <h2>Everything you need to set up and manage your office in Bangalore</h2>
+    <div class="col-12 d-inline-flex pt-3   ">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item requirement col-md-2 col-sm-12">
+          <img class="m-3" src="assets/images/location.png" alt="location">
+          <a class="nav-link active text-uppercase" id="location-tab" data-toggle="tab" href="#location" role="tab" aria-controls="location" aria-selected="true">location</a>
+        </li>
+        <li class="nav-item requirement col-md-2 col-sm-12">
+          <img class="m-3" src="assets/images/renovation.png" alt="Renovation">
+          <a class="nav-link text-uppercase" id="Renovation-tab" data-toggle="tab" href="#Renovation" role="tab" aria-controls="Renovation" aria-selected="false">Renovation</a>
+        </li>
+        <li class="nav-item requirement col-md-2 col-sm-12">
+          <img class="m-3" src="assets/images/communication.png" alt="Communiation_Network">
+          <a class="nav-link text-uppercase" id="Communiation_Network-tab" data-toggle="tab" href="#Communiation_Network" role="tab" aria-controls="Communiation_Network" aria-selected="false">Communiation Network</a>
+        </li>
+        <li class="nav-item requirement col-md-2 col-sm-12">
+          <img class="m-3" src="assets/images/access-control.png" alt="Access_Control">
+          <a class="nav-link text-uppercase" id="Access_Control-tab" data-toggle="tab" href="#Access_Control" role="tab" aria-controls="Access_Control" aria-selected="true">Access Control</a>
+        </li>
+        <li class="nav-item requirement col-md-2 col-sm-12">
+          <img class="m-3" src="assets/images/support_stuff.png" alt="Support_Stuff">
+          <a class="nav-link text-uppercase" id="Support_Stuff-tab" data-toggle="tab" href="#Support_Stuff" role="tab" aria-controls="Support_Stuff" aria-selected="false">Renovation</a>
+        </li>
+        <li class="nav-item requirement col-md-2 col-sm-12">
+          <img class="m-3" src="assets/images/all_maintenance.png" alt="All Maintenance_Work">
+          <a class="nav-link text-uppercase" id="Maintenance_Work-tab" data-toggle="tab" href="#Maintenance_Work" role="tab" aria-controls="Maintenance_Work" aria-selected="false">Maintenance Work</a>
+        </li>
+      </ul>
+    </div>
+
+
+  </div>
+</div>
+<div class="zoho_invoice_section tb-space">
+  <div class="container">
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="location" role="tabpanel" aria-labelledby="location-tab">
+        <div class="col-12 d-inline-flex">
+          <div class="zoho-image col-md-6 col-sm-12">
+            <img src="assets/images/zoho-invoice.png" alt="Zoho Invoice">
+          </div>
+          <div class="zoho-content col-md-6 col-sm-12">
+            <h4 class="text-uppercase">Zoho Invoice - Location</h4>
+            <p>Create professional invoices, send automatic payment reminders, and accept online payments with Zoho Invoice.</p>
+            <ul>
+              <li>Create beautiful invoices using templates</li>
+              <li>Manage Projects and track time</li>
+              <li>Receive online payments</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="Renovation" role="tabpanel" aria-labelledby="Renovation-tab">
+        <div class="col-12 d-inline-flex">
+          <div class="zoho-image col-md-6 col-sm-12">
+            <img src="assets/images/zoho-invoice.png" alt="Zoho Invoice">
+          </div>
+          <div class="zoho-content col-md-6 col-sm-12">
+            <h4 class="text-uppercase">Zoho Invoice - Renovation</h4>
+            <p>Create professional invoices, send automatic payment reminders, and accept online payments with Zoho Invoice.</p>
+            <ul>
+              <li>Create beautiful invoices using templates</li>
+              <li>Manage Projects and track time</li>
+              <li>Receive online payments</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="Communiation_Network" role="tabpanel" aria-labelledby="Communiation_Network-tab">
+        <div class="col-12 d-inline-flex">
+          <div class="zoho-image col-md-6 col-sm-12">
+            <img src="assets/images/zoho-invoice.png" alt="Zoho Invoice - Communiation Network">
+          </div>
+          <div class="zoho-content col-md-6 col-sm-12">
+            <h4 class="text-uppercase">Zoho Invoice - Communication Network</h4>
+            <p>Create professional invoices, send automatic payment reminders, and accept online payments with Zoho Invoice.</p>
+            <ul>
+              <li>Create beautiful invoices using templates</li>
+              <li>Manage Projects and track time</li>
+              <li>Receive online payments</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="Access_Control" role="tabpanel" aria-labelledby="Access_Control-tab">
+        <div class="col-12 d-inline-flex">
+          <div class="zoho-image col-md-6 col-sm-12">
+            <img src="assets/images/zoho-invoice.png" alt="Zoho Invoice">
+          </div>
+          <div class="zoho-content col-md-6 col-sm-12">
+            <h4 class="text-uppercase">Zoho Invoice - Access Control</h4>
+            <p>Create professional invoices, send automatic payment reminders, and accept online payments with Zoho Invoice.</p>
+            <ul>
+              <li>Create beautiful invoices using templates</li>
+              <li>Manage Projects and track time</li>
+              <li>Receive online payments</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="Support_Stuff" role="tabpanel" aria-labelledby="Support_Stuff-tab">
+        <div class="col-12 d-inline-flex">
+          <div class="zoho-image col-md-6 col-sm-12">
+            <img src="assets/images/zoho-invoice.png" alt="Zoho Invoice">
+          </div>
+          <div class="zoho-content col-md-6 col-sm-12">
+            <h4 class="text-uppercase">Zoho Invoice - Support Stuff</h4>
+            <p>Create professional invoices, send automatic payment reminders, and accept online payments with Zoho Invoice.</p>
+            <ul>
+              <li>Create beautiful invoices using templates</li>
+              <li>Manage Projects and track time</li>
+              <li>Receive online payments</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="Maintenance_Work" role="tabpanel" aria-labelledby="Maintenance_Work-tab">
+        <div class="col-12 d-inline-flex">
+          <div class="zoho-image col-md-6 col-sm-12">
+            <img src="assets/images/zoho-invoice.png" alt="Zoho Invoice">
+          </div>
+          <div class="zoho-content col-md-6 col-sm-12">
+            <h4 class="text-uppercase">Zoho Invoice - Maintenance Work</h4>
+            <p>Create professional invoices, send automatic payment reminders, and accept online payments with Zoho Invoice.</p>
+            <ul>
+              <li>Create beautiful invoices using templates</li>
+              <li>Manage Projects and track time</li>
+              <li>Receive online payments</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="testimonial_section tb-space">
+  <div class="container">
+    <h2 class="testimonial-title">Let see what our clients are saying.</h2>
+    <div class="col-12 d-inline-flex mt-5">
+      <div class="testimonial-content corners col-md-6 col-sm-12 text-center">
+        <div class="top left"></div>
+        <div class="top right"></div>
+        <div class="bottom right"></div>
+        <div class="bottom left"></div>
+        <img src="assets/images/one-kings-lane.png" alt="Zoho Invoice">
+        <p class="quote">“Desk.Com helps us offer customer service that’s as special as the items we sell.”</p>
+        <h6 class="client_name">ALEXIS CHAPMAN, DIRECTOR - CUSTOMER OPERATIONS</h6>
+        <p>Industry Retail</p>
+      </div>
+      <div class="testimonial-image col-md-6 col-sm-12 text-center">
+        <img src="assets/images/client_image.png" alt="Zoho Invoice">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container custom-padding">
+  <div class="row">
+    <div class="col">
+      <h2 class="secheading">Have more questions about Attic Space Bangalore?<br><span class="underline-title">We have the answer</span></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8 col-md-12 col-sm-12 faq-section">
+      <div id="accordion">
+        <div class="card">
+          <div class="card-header col-12 d-inline-flex" id="headingOne">
+            <h5 class="col-11 accordian_title mb-0 pl-0">What is Net Total Contract Value (TCV)? </h5>
+            <button class=" col-1 btn btn-link float-right" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <!-- <img src="assets/images/collapsed-icn.png" alt="">
+          <span><img src="assets/images/expand-icn.png" alt=""></span> -->
+              <i class="fa fa-plus" style="color: #212529;"></i>
+            </button>
+          </div>
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+              craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header col-12 d-inline-flex" id="headingOne">
+            <h5 class="col-11 accordian_title mb-0 pl-0">What is included in the Total Contract Value (TCV)?</h5>
+            <button class=" col-1 btn btn-link float-right" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+              <i class="fa fa-plus" style="color: #212529;"></i>
+            </button>
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+              craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header col-12 d-inline-flex" id="headingOne">
+            <h5 class="col-11 accordian_title mb-0 pl-0">What happens if my client moves out of WeWork prior to their full commitment term? </h5>
+            <button class=" col-1 btn btn-link float-right" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+              <i class="fa fa-plus" style="color: #212529;"></i>
+            </button>
+          </div>
+          <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+              craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header col-12 d-inline-flex" id="headingOne">
+            <h5 class="col-11 accordian_title mb-0 pl-0">What if the contract includes early exit options? How does this differ from termination fees? </h5>
+            <button class=" col-1 btn btn-link float-right" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+              <i class="fa fa-plus" style="color: #212529;"></i>
+            </button>
+          </div>
+          <div id="collapseFour" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+              craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header col-12 d-inline-flex" id="headingOne">
+            <h5 class="col-11 accordian_title mb-0 pl-0">What information do I need to provide to submit an introduction?</h5>
+            <button class=" col-1 btn btn-link float-right" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+              <i class="fa fa-plus" style="color: #212529;"></i>
+            </button>
+          </div>
+          <div id="collapseFive" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+              craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

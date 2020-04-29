@@ -1,16 +1,65 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {AppComponent} from './app.component';
+import {HomeComponent} from './pages/home/home.component';
+import {HttpClientModule} from '@angular/common/http';
+import {AppRoutingModule} from './app-routing.module';
+import {AppState} from './app-service';
+import {GlobalState} from './global.state';
+import {APP_BASE_HREF, CommonModule} from '@angular/common';
+import {ConfigService} from './services/config.service';
+import {MenuComponent} from './pages/menu/menu.component';
+import {FooterComponent} from './pages/footer/footer.component';
+import {CommonService} from './services/common.service';
+import {ImageLoaderService} from './services/imageLoader.service';
+import {ThemePreloader} from './services/themePreloader.service';
+import {ThemeSpinner} from './services/themeSpinner.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastrModule} from 'ngx-toastr';
+import {PropertyResolve} from './resolve/property.resolve';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {SearchResolve} from './resolve/search.resolve';
+import {ReadyToMoveComponent} from './pages/readyToMove/readyToMove.component';
+import {DetailComponent} from './pages/detail/detail.component';
+import {SearchComponent} from './pages/search/search.component';
 
-import { AppComponent } from './app.component';
+// Application wide providers
+const APP_PROVIDERS = [
+  AppState,
+  GlobalState
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    ReadyToMoveComponent,
+    DetailComponent,
+    SearchComponent,
+    MenuComponent,
+    FooterComponent
   ],
   imports: [
-    BrowserModule
+    CommonModule,
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    FormsModule,
+    ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    {provide: APP_BASE_HREF, useValue: '/'},
+    ConfigService,
+    ImageLoaderService,
+    ThemePreloader,
+    ThemeSpinner,
+    PropertyResolve,
+    SearchResolve,
+    CommonService,
+    APP_PROVIDERS
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
