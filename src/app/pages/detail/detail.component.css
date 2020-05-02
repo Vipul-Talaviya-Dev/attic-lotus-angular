@@ -620,6 +620,7 @@
   -ms-flex-item-align: start;
   align-self: flex-start;
   z-index: 2;
+  background-color: #ffffff;
 }
 
 .bottom-bar {

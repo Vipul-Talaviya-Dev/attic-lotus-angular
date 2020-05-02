@@ -5,38 +5,29 @@ import {ReadyToMoveComponent} from './pages/readyToMove/readyToMove.component';
 import {DetailComponent} from './pages/detail/detail.component';
 import {SearchComponent} from './pages/search/search.component';
 import {SearchResolve} from './resolve/search.resolve';
+import {PropertyResolve} from './resolve/property.resolve';
+import {PrivacyPolicyComponent} from './pages/privacyPolicy/privacyPolicy.component';
+import {TermConditionComponent} from './pages/termCondition/termCondition.component';
 
 const routes: Routes = [
-  // { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '', pathMatch: 'full', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'ready-to-move', component: ReadyToMoveComponent },
-  /*{
+  { path: 'privacy-policy', component: PrivacyPolicyComponent },
+  { path: 'terms-condition', component: TermConditionComponent },
+  {
     path: 'property/:slug', component: DetailComponent,
     resolve: {
       property: PropertyResolve
     }
-  },*/
-  { path: 'detail', component: DetailComponent },
-  // { path: 'location', component: SearchComponent },
+  },
+  // { path: 'detail', component: DetailComponent },
   {
     path: ':city', component: SearchComponent,
     resolve: {
       property: SearchResolve
     }
   }
-  /*{
-    path: 'property/:slug', component: DetailComponent,
-    resolve: {
-      property: PropertyResolve
-    }
-  },
-  {
-    path: ':city', component: SearchComponent,
-    resolve: {
-      property: SearchResolve
-    }
-  },*/
 ];
 
 @NgModule({

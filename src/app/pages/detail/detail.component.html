@@ -4,7 +4,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12 ">
-        <h1 class="bigtitle">Salarpuria Symbiosis</h1>
+        <h1 class="bigtitle">{{ property.name }}</h1>
       </div>
       <div class="col-12 rating mt-2">
         <img src="assets/images/star-blue.png" alt="star">
@@ -14,10 +14,9 @@
     <div class="row">
       <div class="position-sticky col-4 text-center">
         <div class="office-space">
-          <h2 class="text-center mb-3">Office Space
-          </h2>
+          <h2 class="text-center mb-3">Office Space</h2>
           <div class="col-12 note-section">
-            <p>Attic Monota is on High Demand - booking will be closed after 7 days</p>
+            <p>{{ property.name }} is on High Demand - booking will be closed after 7 days</p>
           </div>
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item w-50">
@@ -29,33 +28,53 @@
           </ul>
           <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="enquire" role="tabpanel" aria-labelledby="enquire-tab">
-              <form class="enquiryform pb-3" autocomplete="off" action="/action_page.php">
+              <form class="enquiryform pb-3" autocomplete="off" [formGroup]="enquiryForm" (submit)="onEnquirySubmit()">
                 <div class="row col-12 m-auto text-left">
-                  <div class="enquiry-form-group col-lg-6 col-md-12 pr-1">
+                  <div class="enquiry-form-group col-lg-6 col-md-12 pr-1" [ngClass]="{
+                    'has-error': (enquiryForm.get('firstName').hasError('required') || enquiryErrors.firstName) && enquiryForm.get('firstName').touched
+                  }">
                     <label>First Name*</label>
-                    <input type="text " class="enquiry-form-control" placeholder="First Name">
+                    <input type="text " class="enquiry-form-control" placeholder="First Name" formControlName="firstName">
+                    <em class="has-error" *ngIf="enquiryForm.get('firstName').hasError('required') && enquiryForm.get('firstName').touched">
+                      First Name is required
+                    </em>
                   </div>
-                  <div class="enquiry-form-group col-lg-6 col-md-12 pl-1">
+                  <div class="enquiry-form-group col-lg-6 col-md-12 pl-1" [ngClass]="{
+                    'has-error': (enquiryForm.get('lastName').hasError('required') || enquiryErrors.lastName) && enquiryForm.get('lastName').touched
+                  }">
                     <label>Last Name*</label>
-                    <input type="text " class="enquiry-form-control" placeholder="Last Name">
+                    <input type="text " class="enquiry-form-control" placeholder="Last Name" autocomplete="off" formControlName="lastName">
+                    <em class="has-error" *ngIf="enquiryForm.get('lastName').hasError('required') && enquiryForm.get('lastName').touched">
+                      Last Name is required
+                    </em>
                   </div>
                 </div>
                 <div class="row col-12 m-auto text-left">
-                  <div class="enquiry-form-group col-12">
+                  <div class="enquiry-form-group col-12" [ngClass]="{
+                    'has-error': (enquiryForm.get('mobile').hasError('required') || enquiryErrors.mobile) && enquiryForm.get('mobile').touched
+                  }">
                     <label>Contact Number*</label>
-                    <input type="number" class="enquiry-form-control" placeholder="Contact Number">
+                    <input type="number" class="enquiry-form-control" placeholder="Contact Number" autocomplete="off" formControlName="mobile">
+                    <em class="has-error" *ngIf="enquiryForm.get('mobile').hasError('required') && enquiryForm.get('mobile').touched">
+                      Mobile is required
+                    </em>
                   </div>
                 </div>
                 <div class="row col-12 m-auto text-left">
-                  <div class="enquiry-form-group col-12">
+                  <div class="enquiry-form-group col-12" [ngClass]="{
+                    'has-error': (enquiryForm.get('product_of_interest').hasError('required') || enquiryErrors.product_of_interest) && enquiryForm.get('product_of_interest').touched
+                  }">
                     <label for="products">Product of Interest*</label>
-                    <select class="visit-form-control" id="products">
-                      <option>Office Space</option>
-                      <option>Residential Space</option>
-                      <option>Corporate Space</option>
-                      <option>Mall Space</option>
-                      <option>Education Space</option>
+                    <select class="visit-form-control" id="products" formControlName="product_of_interest">
+                      <option value="Office Space">Office Space</option>
+                      <option value="Residential Space">Residential Space</option>
+                      <option value="Corporate Space">Corporate Space</option>
+                      <option value="Mall Space">Mall Space</option>
+                      <option value="Education Space">Education Space</option>
                     </select>
+                    <em class="has-error" *ngIf="enquiryForm.get('product_of_interest').hasError('required') && enquiryForm.get('product_of_interest').touched">
+                      Product of Interest is required
+                    </em>
                   </div>
                 </div>
                 <div class="row col-12 m-auto text-left">
@@ -63,63 +82,66 @@
                 </div>
                 <div class="row col-12 m-auto text-center">
                   <div class="enquiry-form-group col-12">
-                    <a href="" class="btn send-btn"> Send Inquiry</a>
+                    <button type="submit" class="btn send-btn">Send Enquiry</button>
                   </div>
                 </div>
               </form>
             </div>
             <div class="tab-pane fade" id="arrangevisit" role="tabpanel" aria-labelledby="arrangevisit-tab">
               <div class="bookvisit-tab">
-                <form class="visitform" autocomplete="off" action="/action_page.php">
-                  <div class="visit-tab-group ">
-                    <input type="text" class="visit-input" placeholder="Your Full Name">
+                <form class="visitform" autocomplete="off" [formGroup]="form" (submit)="onSubmit()">
+                  <div class="visit-tab-group" [ngClass]="{
+                    'has-error': (form.get('name').hasError('required') || errors.name) && form.get('name').touched
+                  }">
+                    <input type="text" class="visit-input" placeholder="Your Full Name" autocomplete="off" formControlName="name" required>
+                    <em class="has-error" *ngIf="form.get('name').hasError('required') && form.get('name').touched">
+                      Name is required
+                    </em>
                   </div>
-                  <div class="visit-tab-group ">
-                    <input type="text" class="visit-input" placeholder="Your Email">
+                  <div class="visit-tab-group " [ngClass]="{
+                    'has-error': (form.get('email').hasError('required') || errors.email) && form.get('email').touched
+                  }">
+                    <input type="text" class="visit-input" placeholder="Your Email" autocomplete="off" formControlName="email" required>
+                    <em class="has-error" *ngIf="form.get('email').hasError('required') && form.get('email').touched">
+                      Email is required
+                    </em>
+                    <em class="has-error" *ngIf="form.get('email').hasError('pattern')">
+                      Email is invalid
+                    </em>
                   </div>
-                  <div class="visit-tab-group ">
-                    <input type="text" class="visit-input" placeholder="Your Mobile Number">
+                  <div class="visit-tab-group" [ngClass]="{
+                    'has-error': (form.get('mobile').hasError('required') || errors.mobile) && form.get('mobile').touched
+                  }">
+                    <input type="text" class="visit-input" placeholder="Your Mobile Number" autocomplete="off" formControlName="mobile" required>
+                    <em class="has-error" *ngIf="form.get('mobile').hasError('required') && form.get('mobile').touched">
+                      Mobile is required
+                    </em>
                   </div>
-                  <div class="visit-tab-group text-left">
+                  <div class="visit-tab-group text-left" [ngClass]="{
+                    'has-error': (form.get('day').hasError('required') || errors.day) && form.get('day').touched
+                  }">
                     <label for="time">When would you like to visit?*</label>
-                    <select class="visit-form-control" id="time">
-                      <option>Today</option>
-                      <option>Tomorrow</option>
-                      <option>Sunday</option>
-                      <option>Monday</option>
-                      <option>Tuesday</option>
+                    <select class="visit-form-control" id="day" formControlName="day" required>
+                      <option value="">Select Day</option>
+                      <option *ngFor="let day of days" value="{{ day }}">{{ day }}</option>
                     </select>
+                    <em class="has-error" *ngIf="form.get('day').hasError('required') && form.get('day').touched">
+                      Day is required
+                    </em>
+                  </div>
+                  <div class="visit-tab-group " [ngClass]="{
+                    'has-error': (form.get('time').hasError('required') || errors.time) && form.get('time').touched
+                  }">
+                    <select class="visit-form-control no-lable" id="time" formControlName="time" required>
+                      <option value="">Select Time</option>
+                      <option *ngFor="let t of time" value="{{ t }}">{{ t }}</option>
+                    </select>
+                    <em class="has-error" *ngIf="form.get('time').hasError('required') && form.get('time').touched">
+                      Time is required
+                    </em>
                   </div>
                   <div class="visit-tab-group ">
-                    <select class="visit-form-control no-lable" id="time">
-                      <option>00:00</option>
-                      <option>01:00</option>
-                      <option>02:00</option>
-                      <option>03:00</option>
-                      <option>04:00</option>
-                      <option>05:00</option>
-                      <option>06:00</option>
-                      <option>07:00</option>
-                      <option>08:00</option>
-                      <option>09:00</option>
-                      <option>10:00</option>
-                      <option>11:00</option>
-                      <option>12:00</option>
-                      <option>13:00</option>
-                      <option>14:00</option>
-                      <option>15:00</option>
-                      <option>16:00</option>
-                      <option>17:00</option>
-                      <option>18:00</option>
-                      <option>19:00</option>
-                      <option>20:00</option>
-                      <option>21:00</option>
-                      <option>22:00</option>
-                      <option>23:00</option>
-                    </select>
-                  </div>
-                  <div class="visit-tab-group ">
-                    <a href="" class="btn book-btn"> Book Your Visit</a>
+                    <button type="submit" class="btn book-btn">Send Enquiry</button>
                     <p class="callustext">Call us at
                       <a href="tel:+917827948251" class="mobileno">+91 7827948251</a>
                     </p>
@@ -136,23 +158,8 @@
       <div class="col-lg-8 col-md-12 w-width">
         <div class="property-list">
           <section class="property slider">
-            <div>
-              <img src="assets/images/slide_img1.png">
-            </div>
-            <div>
-              <img src="assets/images/slide_img1.png">
-            </div>
-            <div>
-              <img src="assets/images/slide_img1.png">
-            </div>
-            <div>
-              <img src="assets/images/slide_img1.png">
-            </div>
-            <div>
-              <img src="assets/images/slide_img1.png">
-            </div>
-            <div>
-              <img src="assets/images/slide_img1.png">
+            <div *ngFor="let image of property.images;let i = index;">
+              <img [src]="image">
             </div>
           </section>
         </div>
@@ -164,48 +171,22 @@
         </div>
         <div class="row">
           <div class="property-features d-inline-flex">
-            <div class="col-md-12 col-lg-3 col-sm-12 feature1 text-center">
+            <div *ngFor="let feature of propertyFeatures;let i = index;" [class]="'col-md-12 col-lg-3 col-sm-12 text-center feature'+(i+1)">
               <div class="feature-img col-12">
-                <img src="assets/images/features_1.png" alt="feature 1">
+                <img [src]="feature.image" alt="feature" style="height: 115px;">
               </div>
               <div class="feature-content col-12">
-                <h5>Gross Building area</h5>
-                <p>54,066 Square Feet</p>
-              </div>
-            </div>
-            <div class="col-md-12 col-lg-3 col-sm-12 feature2 text-center">
-              <div class="feature-img col-12">
-                <img src="assets/images/features_2.png" alt="feature 1">
-              </div>
-              <div class="feature-content col-12">
-                <h5>Seating Capacity</h5>
-                <p>700 Seats</p>
-              </div>
-            </div>
-            <div class="col-md-12 col-lg-3 col-sm-12 feature3 text-center">
-              <div class="feature-img col-12">
-                <img src="assets/images/features_3.png" alt="feature 1">
-              </div>
-              <div class="feature-content col-12">
-                <h5>Floors</h5>
-                <p>Basement + Groumd + 3 + Terrace</p>
-              </div>
-            </div>
-            <div class="col-md-12 col-lg-3 col-sm-12 feature4 text-center">
-              <div class="feature-img col-12">
-                <img src="assets/images/features_4.png" alt="feature 1">
-              </div>
-              <div class="feature-content col-12">
-                <h5>Started In</h5>
-                <p>2014</p>
+                <h5>{{ feature.label }}</h5>
+                <p>{{ feature.value }}</p>
               </div>
             </div>
           </div>
         </div>
+
         <div class="row ">
           <div class="col-12 ">
             <h2 class="secheading ">Property Location</h2>
-            <p class="text-gray">#57,13th Cross, Adugodi, Baldwins College <br> Road, Gajendra Nagar, Bengaluru - 560030</p>
+            <p class="text-gray">#{{ property.address }}</p>
           </div>
           <div class="map-container col-12">
             <img src="assets/images/map.png" alt="location">
@@ -258,7 +239,7 @@
         <div class="row ">
           <div class="col-12 ">
             <h2 class="secheading ">Available Workspace</h2>
-            <a href="#" class="btn round-btn"><img class="pr-1" src="assets/images/icn_seat.png" alt="Hurry Up Now!">100 Seats Left</a>
+            <a href="javascript:void(0);" class="btn round-btn"><img class="pr-1" src="assets/images/icn_seat.png" alt="Hurry Up Now!">100 Seats Left</a>
           </div>
         </div>
         <div class="line col-12"> </div>
@@ -269,7 +250,7 @@
           </div>
           <div class="col-10 ml-5">
             <h4>Private Offices <span><img src="assets/images/badge.png" alt="badge"></span></h4>
-            <p>Lockable office space for teams all sizes</p>
+            <p>{{ property.workspace.privateDescription }}</p>
           </div>
         </div>
         <div class="line col-12"> </div>
@@ -280,7 +261,7 @@
           </div>
           <div class="col-10 ml-5">
             <h4>Dedicated Desk</h4>
-            <p>Desk space in a shared lockable office</p>
+            <p>{{ property.workspace.dedicatedDescription }}</p>
           </div>
         </div>
         <div class="line col-12"> </div>
@@ -291,7 +272,7 @@
           </div>
           <div class="col-10 ml-5">
             <h4>Hot Desk Membership</h4>
-            <p>On-demand access to shared workspace and common areas</p>
+            <p>{{ property.workspace.hotDescription }}</p>
           </div>
         </div>
         <div class="line col-12"> </div>
@@ -299,62 +280,27 @@
           <div class="col-12 col-sm-12">
             <h5 class="pt-3 pb-3">UNIQUE TO THIS BUILDING</h5>
           </div>
-          <div class="unique-section col-12 d-inline-flex p-0">
-            <div class="title-padding col-6 col-sm-12">
-              <h2>Parking</h2>
-              <p>Life’s Too Short To Circle The Block Looking for a spot. Communicate like a pro thanks to a vehicular home- away-from-home. Prices and rates vary by location.</p>
-            </div>
-            <div class="title-padding col-6 col-sm-12">
-              <h2>Event space</h2>
-              <p>With a projector, sound system and lighting controls, loungers are easily converted for members meetups.</p>
-            </div>
-          </div>
           <div class="unique-section col-12 p-0">
+            <div class="title-padding col-6 col-sm-12" *ngFor="let uniqueBuild of property.uniqueBuilds;">
+              <h2>{{ uniqueBuild.name }}</h2>
+              <p>{{ uniqueBuild.description }}</p>
+            </div>
+          </div>
+          <!--<div class="unique-section col-12 p-0">
             <div class="title-padding col-6 col-sm-12">
               <h2>Event space</h2>
               <p>With a projector, sound system and lighting controls, loungers are easily converted for members meetups.</p>
             </div>
-          </div>
+          </div>-->
         </div>
         <div class="row">
           <div class="col-12 col-sm-12">
             <h5 class="pt-3 pb-3">INCLUDED AMENITTES</h5>
           </div>
-          <div class="unique-section col-12 d-inline-flex p-0">
-            <div class="title-padding col-6 col-sm-12">
-              <h2>Onsite staff</h2>
-              <p>With years of operational expertise and service- focused backgrounds, our workplace team is here 9am-6pm, Mon-Fri, to provide everything you need to keep ypur office running smoothly.</p>
-            </div>
-            <div class="title-padding col-6 col-sm-12">
-              <h2>Cleaning services</h2>
-              <p>Around the clock, our cleaning crew helps keep common areas, meeting rooms, and private offices looking their spiffiest.</p>
-            </div>
-          </div>
-          <div class="unique-section col-12 d-inline-flex p-0">
-            <div class="title-padding col-6 col-sm-12">
-              <h2>High-speed Wi-Fi</h2>
-              <p>Hook yourself up to hard-wired Ethernet or secure Wi-Fi, including IT support and guest log-in functionality.
-              </p>
-            </div>
-            <div class="title-padding col-6 col-sm-12">
-              <h2>Professional & social events</h2>
-              <p>From workshops to thought-leader panels and cheese tastings, our programming helps you nurture a strong team culture.</p>
-            </div>
-          </div>
-          <div class="unique-section col-12 d-inline-flex p-0">
-            <div class="title-padding col-6 col-sm-12">
-              <h2>Unique common areas</h2>
-              <p>The heart and soul of our locations, these lounges are living room-style spaces designed for creativity, comfort and productivity.</p>
-            </div>
-            <div class="title-padding col-6 col-sm-12">
-              <h2>Meeting rooms</h2>
-              <p>From brainstorming rooms with whiteboards and high-top tables to conversation rooms for informal meetings to presentation rooms with projectors and speakers, to specify rooms, we’ve got you covered.</p>
-            </div>
-          </div>
           <div class="unique-section col-12 p-0">
-            <div class="title-padding col-6 col-sm-12">
-              <h2>Complimentary refreshments</h2>
-              <p>Stay caffeinated with free micro-roasted coffee, tea and keep your hydration up with refreshing fruit water at every WeWork location.</p>
+            <div class="title-padding col-6 col-sm-12" *ngFor="let includedAmenity of property.includedAmenittes;">
+              <h2>{{ includedAmenity.name }}</h2>
+              <p>{{ includedAmenity.description }}</p>
             </div>
           </div>
         </div>
@@ -365,11 +311,12 @@
   <div class="container-fluid ">
     <div class="row">
       <div class="about-user col-12 col-sm-12 d-inline-flex ">
-        <img src="assets/images/user_img_1.png" alt="Here to help">
+        <img [src]="property.support.image" alt="Here to help">
         <div class="user-content">
           <h5>HERE TO HELP</h5>
-          <h2>Shikhs U.</h2>
-          <p>The community management team adds a personal, professional touch to each <br>We Work building and is committed to empowering members in every possible way.</p>
+          <h2>{{ property.support.name }}</h2>
+          <p>{{ property.support.mobile }}, {{ property.support.email }}</p>
+          <p>{{ property.support.description }}</p>
         </div>
       </div>
     </div>
@@ -382,89 +329,16 @@
       </div>
       <div class="property-list col-md-12 col-lg-12 col-sm-12">
         <section class="center-nearby slider">
-          <div>
+          <div *ngFor="let row of properties">
             <div class="imgcontainer">
-              <img src="assets/images/center-img1.png">
+              <img [src]="row.image">
             </div>
             <div class="col-12 content-nby">
-              <h5>The Estate</h5>
-              <p>The Estate <br> Bangalore <br> 560042</p>
+              <h5>{{ row.name }}</h5>
+              <p>{{ row.city }}</p>
               <div class="col-12 btn-container d-inline-flex p-0">
-                <p class="distance">0.1 Miles</p>
-                <a href="#"><img src="assets/images/button-styled.png" alt="click Me"></a>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div class="imgcontainer">
-              <img src="assets/images/center-img2.png">
-            </div>
-            <div class="col-12 content-nby">
-              <h5>UB City</h5>
-              <p>Level 14 & 15 <br> Bangalore <br> 560001
-              </p>
-              <div class="col-12 btn-container d-inline-flex p-0">
-                <p class="distance">1.22 Miles</p>
-                <a href="#"><img src="assets/images/button-styled.png" alt="click Me"></a>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div class="imgcontainer">
-              <img src="assets/images/center-img3.png">
-            </div>
-            <div class="col-12 content-nby">
-              <h5>Fairway</h5>
-              <p>Fairway Business Park <br> Bangalore <br> 560001
-              </p>
-              <div class="col-12 btn-container d-inline-flex p-0">
-                <p class="distance">2.44 Miles</p>
-                <a href="#"><img src="assets/images/button-styled.png" alt="click Me"></a>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div class="imgcontainer">
-              <img src="assets/images/center-img2.png">
-            </div>
-            <div class="col-12 content-nby">
-              <h5>The Estate</h5>
-              <p>The Estate <br> Bangalore <br> 560042</p>
-              <div class="col-12 btn-container d-inline-flex p-0">
-                <p class="distance">0.1 Miles</p>
-                <a href="#"><img src="assets/images/button-styled.png" alt="click Me"></a>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div class="imgcontainer">
-              <img src="assets/images/center-img3.png">
-            </div>
-            <div class="col-12 content-nby">
-              <h5>UB City</h5>
-              <p>Level 14 & 15 <br> Bangalore <br> 560001
-              </p>
-              <div class="col-12 btn-container d-inline-flex p-0">
-                <p class="distance">1.22 Miles</p>
-                <a href="#"><img src="assets/images/button-styled.png" alt="click Me"></a>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div class="imgcontainer">
-              <img src="assets/images/center-img1.png">
-            </div>
-            <div class="col-12 content-nby">
-              <h5>Fairway</h5>
-              <p>Fairway Business Park <br> Bangalore <br> 560001
-              </p>
-              <div class="col-12 btn-container d-inline-flex p-0">
-                <p class="distance">2.44 Miles</p>
-                <a href="#"><img src="assets/images/button-styled.png" alt="click Me"></a>
+                <p class="distance">{{ row.mile }} Miles</p>
+                <a [routerLink]="['/property/'+ row.slug]"><img src="assets/images/button-styled.png" alt="click Me"></a>
               </div>
             </div>
           </div>
@@ -472,88 +346,5 @@
       </div>
     </div>
   </div>
-
   <!-- page content ends here -->
-  <!-- footer starts Here -->
-  <div class="container-fluid custom-padding">
-    <div class="row">
-      <div class="col">
-        <h2 class="secheading">Have more questions about Attic Space Bangalore?<br><span class="underline-title">We have the answer</span></h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-8 col-md-12 col-sm-12 faq-section">
-        <div id="accordion">
-          <div class="card">
-            <div class="card-header col-12 d-inline-flex" id="headingOne">
-              <h5 class="col-11 accordian_title mb-0 pl-0">What is Net Total Contract Value (TCV)? </h5>
-              <button class=" col-1 btn btn-link float-right" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                <!-- <img src="assets/images/collapsed-icn.png" alt="">
-            <span><img src="assets/images/expand-icn.png" alt=""></span> -->
-                <i class="fa fa-plus" style="color: #212529;"></i>
-              </button>
-            </div>
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-              <div class="card-body">
-                craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header col-12 d-inline-flex" id="headingOne">
-              <h5 class="col-11 accordian_title mb-0 pl-0">What is included in the Total Contract Value (TCV)?</h5>
-              <button class=" col-1 btn btn-link float-right" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fa fa-plus" style="color: #212529;"></i>
-              </button>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-              <div class="card-body">
-                craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header col-12 d-inline-flex" id="headingOne">
-              <h5 class="col-11 accordian_title mb-0 pl-0">What happens if my client moves out of WeWork prior to their full commitment term? </h5>
-              <button class=" col-1 btn btn-link float-right" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                <i class="fa fa-plus" style="color: #212529;"></i>
-              </button>
-            </div>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-              <div class="card-body">
-                craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header col-12 d-inline-flex" id="headingOne">
-              <h5 class="col-11 accordian_title mb-0 pl-0">What if the contract includes early exit options? How does this differ from termination fees? </h5>
-              <button class=" col-1 btn btn-link float-right" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-                <i class="fa fa-plus" style="color: #212529;"></i>
-              </button>
-            </div>
-            <div id="collapseFour" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-              <div class="card-body">
-                craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header col-12 d-inline-flex" id="headingOne">
-              <h5 class="col-11 accordian_title mb-0 pl-0">What information do I need to provide to submit an introduction?</h5>
-              <button class=" col-1 btn btn-link float-right" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
-                <i class="fa fa-plus" style="color: #212529;"></i>
-              </button>
-            </div>
-            <div id="collapseFive" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-              <div class="card-body">
-                craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
 <app-footer></app-footer>

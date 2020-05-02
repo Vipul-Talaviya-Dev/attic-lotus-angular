@@ -11,6 +11,8 @@ declare var $: any;
 })
 export class DetailComponent implements OnInit {
   public property: any;
+  public days: any;
+  public time: any;
   public propertyFeatures: any;
   public propertyFeature = {
     label: '',
@@ -20,12 +22,22 @@ export class DetailComponent implements OnInit {
   public properties: any;
   public slug: any;
   public form: FormGroup;
+  public enquiryForm: FormGroup;
   public submitted: boolean = false;
+  public enquiryErrors = {
+    firstName: false,
+    lastName: false,
+    mobile: false,
+    propertyId: false,
+    product_of_interest: false
+  };
   public errors = {
     name: false,
     email: false,
     mobile: false,
     propertyId: false,
+    day: false,
+    time: false,
   };
 
   constructor(
@@ -46,7 +58,18 @@ export class DetailComponent implements OnInit {
         ]
       ],
       'mobile': ['', [Validators.required]],
+      'day': ['', [Validators.required]],
+      'time': ['', [Validators.required]],
       'propertyId': [''],
+    });
+    // enquiry form
+    this.enquiryForm = fb.group({
+      'firstName': ['', [Validators.required]],
+      'lastName': ['', [Validators.required]],
+      'mobile': ['', [Validators.required]],
+      'product_of_interest': ['', [Validators.required]],
+      'propertyId': [''],
+      'name': [''],
     });
     /*
     * Id Set*/
@@ -57,12 +80,15 @@ export class DetailComponent implements OnInit {
     /**
      * Resolve Call
      */
-    /*this.route.data.subscribe((response) => {
+    this.route.data.subscribe((response) => {
       this.property = response.property.property;
       this.form.patchValue({'propertyId': this.property.id});
+      this.enquiryForm.patchValue({'propertyId': this.property.id});
       this.properties = this.property.properties;
+      this.days = this.property.days;
+      this.time = this.property.time;
       this.propertyFeatures = this.property.propertyFeatures;
-    });*/
+    });
   }
 
   ngOnInit(): void {
@@ -75,6 +101,20 @@ export class DetailComponent implements OnInit {
       this.commonService.inquiry(this.form.value).subscribe((res) => {
         if (res.status === true) {
           this.form.reset();
+          this.toaster.success(res.message, 'Success !!!');
+        } else {
+          this.toaster.error(res.message, 'Error !!!');
+        }
+      });
+    }
+  }
+
+  public onEnquirySubmit() {
+    this.enquiryForm.patchValue({'name': this.enquiryForm.get('firstName').value +' '+ this.enquiryForm.get('lastName').value});
+    if (this.enquiryForm.valid) {
+      this.commonService.inquiry(this.enquiryForm.value).subscribe((res) => {
+        if (res.status === true) {
+          this.enquiryForm.reset();
           this.toaster.success(res.message, 'Success !!!');
         } else {
           this.toaster.error(res.message, 'Error !!!');

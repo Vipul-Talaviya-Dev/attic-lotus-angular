@@ -9,6 +9,7 @@ import {CommonService} from '../../services/common.service';
 export class FooterComponent implements OnInit {
   year: number = new Date().getFullYear();
   public questions: any;
+  public normals: any;
   public total = 0;
   constructor(private commonService: CommonService) { }
 
@@ -20,7 +21,8 @@ export class FooterComponent implements OnInit {
     this.commonService.getQuestions().subscribe((res) => {
       try {
         if(res.status) {
-          this.questions = res.questions;
+          this.questions = res.footers;
+          this.normals = res.normals;
           this.total = this.questions.length;
         }
       } catch (e) {

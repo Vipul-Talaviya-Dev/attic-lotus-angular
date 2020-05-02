@@ -1,3 +1,27 @@
+<div class="container custom-padding">
+  <div class="row">
+    <div class="col">
+      <h2 class="secheading">Have more questions about Attic Space Bangalore?<br><span class="underline-title">We have the answer</span></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8 col-md-12 col-sm-12 faq-section">
+      <div id="accordion">
+        <div class="card" *ngFor="let normal of normals;">
+          <div class="card-header col-12 d-inline-flex" id="{{normal.string}}">
+            <h5 class="col-11 accordian_title mb-0 pl-0">{{ normal.question }}</h5>
+            <button class=" col-1 btn btn-link float-right" data-toggle="collapse" [attr.data-target]="'#'+ normal.string" aria-expanded="true" [attr.aria-controls]="normal.string"><i class="fa fa-plus" style="color: #212529;"></i></button>
+          </div>
+          <div id="{{ normal.string }}" class="collapse show" [attr.aria-labelledby]="normal.string" data-parent="#accordion">
+            <div class="card-body">{{ normal.answer }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer Start -->
 <div class="footer_section">
   <div class="container">
     <div class="row">
@@ -70,8 +94,8 @@
     </div>
     <div class="row">
       <div class="col-md-4 col-sm-12 footer_bars footer_bar_left float-left">
-        <a href="javascript:void(0);">Privacy Policy</a>
-        <a href="javascript:void(0);">Terms of Use</a>
+        <a routerLink="/privacy-policy">Privacy Policy</a>
+        <a routerLink="/terms-condition">Terms of Use</a>
       </div>
       <div class="col-md-4 col-sm-12 footer_bars footer_bar_center">
         Company {{ year }} All Rights Reserved.
@@ -82,3 +106,4 @@
     </div>
   </div>
 </div>
+<!-- Footer End -->

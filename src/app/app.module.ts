@@ -22,6 +22,8 @@ import {SearchResolve} from './resolve/search.resolve';
 import {ReadyToMoveComponent} from './pages/readyToMove/readyToMove.component';
 import {DetailComponent} from './pages/detail/detail.component';
 import {SearchComponent} from './pages/search/search.component';
+import {PrivacyPolicyComponent} from './pages/privacyPolicy/privacyPolicy.component';
+import {TermConditionComponent} from './pages/termCondition/termCondition.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -36,18 +38,20 @@ const APP_PROVIDERS = [
     ReadyToMoveComponent,
     DetailComponent,
     SearchComponent,
+    PrivacyPolicyComponent,
+    TermConditionComponent,
     MenuComponent,
     FooterComponent
   ],
   imports: [
-    CommonModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    CommonModule
   ],
   providers: [
     {provide: APP_BASE_HREF, useValue: '/'},

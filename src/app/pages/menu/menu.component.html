@@ -12,7 +12,7 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav">
           <li class="dropdown" style="margin-top: 11px;">
-            <a href="javascript:void(0);" class="active dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="menuTitle">Locations </span> <span class="caret"></span></a>
+            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="menuTitle">Locations </span> <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li *ngFor="let city of cities;">
                 <a [routerLink]="['/'+city.name]" >{{ city.name }}</a>

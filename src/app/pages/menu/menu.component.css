@@ -1,0 +1,4 @@
+.dropdown:hover .dropdown-menu {display: block;}
+.dropdown-toggle::after {
+   border-top: none;
+}
