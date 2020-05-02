@@ -39,6 +39,7 @@
               "src/assets/css/style.css",
               "src/assets/css/slick.css",
               "src/assets/css/slick-theme.css",
+              "node_modules/leaflet/dist/leaflet.css",
               "src/styles.css"
             ],
             "scripts": [
@@ -47,6 +48,7 @@
               "src/assets/js/jquery-ui.js",
               "src/assets/js/bundle.js",
               "src/assets/js/slick.min.js",
+              "node_modules/leaflet/dist/leaflet.js",
               "src/assets/js/script.js"
             ]
           },

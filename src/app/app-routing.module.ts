@@ -8,6 +8,7 @@ import {SearchResolve} from './resolve/search.resolve';
 import {PropertyResolve} from './resolve/property.resolve';
 import {PrivacyPolicyComponent} from './pages/privacyPolicy/privacyPolicy.component';
 import {TermConditionComponent} from './pages/termCondition/termCondition.component';
+import {MapViewComponent} from './pages/map-view/map-view.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'ready-to-move', component: ReadyToMoveComponent },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'terms-condition', component: TermConditionComponent },
+  { path: 'map-view', component: MapViewComponent },
   {
     path: 'property/:slug', component: DetailComponent,
     resolve: {

@@ -1,0 +1,446 @@
+.leaflet-maps {
+  width: 100%;
+  height: calc(97vh - 185px);
+}
+.Gmap_section .container-fluid {
+  padding-right: 0 !important;
+  margin-left: 10% !important;
+}
+.Gmap_section .content {
+  padding: 50px 0;
+}
+.banner-input-group {
+  background-image: linear-gradient(45deg, transparent 50%, var(--primary) 60%), linear-gradient(135deg, var(--primary) 40%, transparent 50%) !important;
+  background-position: calc(100% - 35px) 20px, calc(100% - 25px) 20px, 100% 0;
+  background-size: 10px 10px, 10px 10px;
+  background-repeat: no-repeat;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+input[type="button"] {
+  background-color: transparent;
+}
+
+.form-control,
+.form-control:focus,
+.form-control:active {
+  border: 1px solid var(--primary);
+  padding: 10px 10px;
+  outline: none;
+  box-shadow: none;
+  font-size: 20px;
+  color: var(--primary);
+  font-family: 'ApercuProBold';
+}
+
+.form-group label {
+  min-width: fit-content;
+  padding-top: 15px;
+  padding-right: 20px;
+  font-family: 'ApercuProBold';
+  color: var(--primary);
+}
+
+.modal-trigger {
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  cursor: pointer;
+  display: flex;
+  transition: 0.2s ease-in-out;
+  box-shadow: none;
+  outline: 0;
+  padding: 10px;
+  border: 2px solid var(--primary);
+  width: 300px;
+  text-align: left;
+  color: var(--primary);
+  font-family: 'ApercuProBold';
+}
+
+.modal-body {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: calc(100vw + 250px);
+  height: calc(100vh - 80px);
+  z-index: 9999;
+  overflow-x: hidden;
+  transform: translateX(100%);
+  font-family: 'ApercuProRegular';
+}
+
+.contact-us-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.contact-us-modal-content {
+  position: absolute;
+  transform: translateX(100%);
+  width: 100%;
+  max-width: 425px;
+  right: 265px;
+  bottom: 0;
+  height: calc(100vh - 70px);
+  padding: 32px;
+  padding-bottom: 0;
+  display: flex;
+  align-items: center;
+  max-height: calc(100vh - 70px);
+  background-color: #f8f8f8;
+  z-index: 1000;
+  overflow-y: scroll;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+  transition: transform 0.5s;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -webkit-backface-visibility: hidden;
+}
+
+.button-modal.button-plain {
+  color: #666666;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+}
+
+.contact-us-modal-form-wrapper {
+  padding: 0;
+  margin: 0;
+  background-color: #f8f8f8;
+}
+
+.form-layout-wrapper.contact-us-modal-form-wrapper .form-header-section {
+  padding-bottom: 14px;
+  text-align: center;
+}
+
+.form-layout-wrapper .form-body-section {
+  width: 100%;
+  text-align: center;
+  background-color: inherit;
+}
+
+.modal-body.active,
+.modal-body.active .contact-us-modal-content {
+  transform: translateX(0);
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+  transition: transform 0.5s;
+}
+
+.gray-border {
+  color: #d3d3d3;
+  border-color: #d3d3d3;
+}
+
+.btn-search {
+  background-color: var(--primary);
+}
+
+.all-location-link {
+  text-align: left;
+  padding-top: 100%;
+}
+
+.all-location-link a {
+  color: var(--primary) !important;
+}
+
+.city-section a {
+  font-family: 'ApercuProBold';
+}
+/* auto-complete css */
+
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+
+/*when hovering an item:*/
+
+.autocomplete-items div:hover {
+  background-color: #e9e9e9;
+}
+
+
+/*when navigating through the items using the arrow keys:*/
+
+.autocomplete-active {
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
+
+.image-section {
+  width: 25%;
+}
+
+.detail-section {
+  width: 50%;
+  padding-left: 30px;
+  margin: auto;
+  font-family: 'ApercuProRegular';
+}
+
+.detail-section h6 {
+  letter-spacing: 0.5em;
+  font-family: 'ApercuProBold';
+}
+
+.detail-section .statistic {
+  font-family: 'ApercuProBold';
+  font-size: 24px;
+  color: var(--primary);
+}
+
+.detail-section a,
+.button-section a {
+  text-decoration: none;
+}
+
+.button-section {
+  width: 25%;
+  margin: auto;
+}
+
+.map-locations {
+  padding: 15px;
+}
+
+.map-frame img {
+  height: 100%;
+  width: auto;
+}
+
+.w-100vw {
+  width: 100vw;
+}
+
+
+/* accordian css close */
+
+@media only screen and (max-width: 1200px) {
+  .bangalore-map ul::before {
+    width: 150%;
+    left: 0px;
+  }
+  .hydrabad-map ul::before {
+    width: 150%;
+    left: 30px;
+  }
+  .custom-padding {
+    padding: 3em;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .map_section .maps {
+    display: inline-flex;
+  }
+  .map_items {
+    margin: 150px auto;
+  }
+  .map_items ul {
+    margin-right: 100px;
+  }
+  .fix-w-280 {
+    width: 33%;
+  }
+  .Gmap_section .container-fluid {
+    margin-left: 3% !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .header-logo .item1 {
+    top: 55px;
+    left: 5px;
+    width: 40px;
+  }
+  .header-logo .item2 {
+    top: 105px;
+    left: 5px;
+    width: 40px;
+  }
+  .header-logo .item3 {
+    top: 155px;
+    left: 5px;
+    width: 40px;
+  }
+  .header-logo .item4 {
+    top: 205px;
+    left: 5px;
+    width: 40px;
+  }
+  .header-logo .item5 {
+    top: 5px;
+    width: 40px;
+    left: 5px;
+  }
+  .slider-image {
+    height: 300px;
+  }
+  .slider_section .slider-info {
+    margin-left: 0px;
+  }
+  .slider_section .slider-info h1 {
+    font-size: 18px;
+  }
+  .slider_section .slider-info p {
+    font-size: 16px;
+  }
+  .slider_section .slider-cta-btn {
+    width: 160px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 50px;
+    font-size: 12px;
+    padding: 7px;
+  }
+  .features_section {
+    padding: 0px;
+  }
+  .float-left,
+  .float-right {
+    text-align: center !important;
+    padding: 0px !important;
+    float: none;
+  }
+  .featured-box {
+    text-align: center;
+  }
+  .feature-box div {
+    width: 100%;
+    padding: 20px 0px !important;
+  }
+  .last_section {
+    float: none !important;
+    width: 100%;
+  }
+  .last_section_featured {
+    width: 100%;
+  }
+  .designed_for_you_section h2 {
+    padding: 10px;
+  }
+  .designed_for_you_section .float-left {
+    float: none !important;
+    text-align: center !important;
+  }
+  .clients_section h1 {
+    text-align: center;
+    font-size: 25px;
+    padding: 0px;
+  }
+  .clients_logos {
+    text-align: center;
+  }
+  .case-study-div {
+    text-align: center;
+  }
+  .case_study_section {
+    text-align: center;
+  }
+  .case_study_section .container-fluid {
+    padding: 10px;
+  }
+  .big-case-study h3 {
+    font-size: 22px;
+    padding: 0px;
+  }
+  .case_study_section a {
+    padding: 20px 0px;
+  }
+  .map_items {
+    text-align: center;
+  }
+  .footer-input,
+  .footer-input:focus,
+  .footer-input:active {
+    width: 100%;
+    font-size: 22px;
+  }
+  .question_screen {
+    text-align: left;
+  }
+  .verticle-text {
+    position: unset;
+    text-align: center;
+    top: 0px;
+    transform: rotate(0deg);
+  }
+  .fix-w-280 {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .bangalore-map ul::before,
+  .hydrabad-map ul::before {
+    left: 100px;
+  }
+  .map_items ul {
+    margin-right: 180px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .bangalore-map ul::before,
+  .hydrabad-map ul::before {
+    left: 30px;
+  }
+  .map_items ul {
+    margin-right: 150px;
+  }
+  .map_section .maps {
+    display: block;
+    text-align: center;
+  }
+  .fix-w-280 {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .bangalore-map ul::before,
+  .hydrabad-map ul::before {
+    left: 0px;
+  }
+  .map_items ul {
+    margin-right: 100px;
+  }
+}
