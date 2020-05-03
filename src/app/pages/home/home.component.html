@@ -8,11 +8,11 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
           </ol>
           <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img class="d-block slider-image w-100" src="assets/images/slider1.jpg" alt="First slide">
+            <div *ngFor="let banner of banners; let i = index;" [class]="(i == 0) ? 'carousel-item active' : 'carousel-item'">
+              <img class="d-block slider-image w-100" [src]="banner.image" >
               <div class="carousel-caption d-md-block slider-info">
-                <h1>CUSTOMIZE OFFICE SPACE </h1>
-                <p>for 50 seats</p>
+                <h1>{{ banner.title }}</h1>
+                <p>{{ banner.sub_title }}</p>
                 <a href="javascript:void(0);" class="btn slider-cta-btn">Attic Symbiosis</a>
               </div>
             </div>
@@ -68,20 +68,14 @@
     <div class="row">
       <div class="col-md-8 col-sm-12 ">
         <div class="float-left">
-          <h2>Designed for You.</h2>
+          <h2>{{ step1.title }}</h2>
         </div>
         <div class="float-right designed_section_list">
-          <ul class="navbar-nav">
-            <li><span>-</span>Roll it out and instantly park</li>
-            <li><span>-</span>Re-use it on multiple sites</li>
-            <li><span>-</span>Event Parking, Overflow, Vehicle Storage</li>
-            <li><span>-</span>Daily, temporary use <span>1-3 years</span></li>
-            <li><span>-</span>Daily, long term use <span>4-10 years</span></li>
-          </ul>
+          <span [innerHTML]="step1.description"></span>
         </div>
       </div>
       <div class="col-md-4 col-sm-12">
-        <img src="assets/images/designed_for_you.png" class="img img-fluid" alt="designed-for-you">
+        <img [src]="step1.image" class="img img-fluid" [attr.alt]="step1.title">
       </div>
     </div>
   </div>
@@ -91,21 +85,16 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1>Over 10000 Professionals are using<br/><span>Attic Space</span> for Companies Like </h1>
+        <span [innerHTML]="step2.title"></span>
       </div>
     </div>
     <div class="row" style="padding:30px 0px;">
       <p class="clients_logos">
-        <img src="assets/images/client_1.jpg" alt="client" class="img img-fluid">
-        <img src="assets/images/client_2.jpg" alt="client" class="img img-fluid">
-        <img src="assets/images/client_3.jpg" alt="client" class="img img-fluid">
-        <img src="assets/images/client_4.jpg" alt="client" class="img img-fluid">
-        <img src="assets/images/client_5.jpg" alt="client" class="img img-fluid">
-        <img src="assets/images/client_6.jpg" alt="client" class="img img-fluid">
-        <img src="assets/images/client_7.jpg" alt="client" class="img img-fluid">
+        <img *ngFor="let image of images" [src]="image" alt="client" class="img img-fluid">
       </p>
-      <div class="row col-md-12">
+      <div class="row col-md-12"><br>
         <div class="col case-study-div">
+          <h5 class="float-left">They Are Saying..</h5>
           <a href="javascript:void(0);">See all case studies</a>
         </div>
       </div>
@@ -115,7 +104,6 @@
 
 <div class="case_study_section">
   <div class="container">
-    <h4>They Are Saying..</h4>
     <div class="row">
       <div class="col-md-7 big-case-study">
         <img src="assets/images/client_7.jpg" alt="client" class="img img-fluid">
@@ -125,7 +113,7 @@
       </div>
       <div class="col-md-5">
         <div class="case_study_box">
-          <span class="case-study-1"></span>
+          <span class="case-study-1"></span>locations
           <h3>“We achieved a cost-savings project while achieving cultural transformation to collaborate better together.”</h3>
           <p>FRANCIS VAN PARYS, PRESIDENT AND CEO, GE HEALTHCARE KOREA</p>
           <a href="javascript:void(0);">Learn more <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
@@ -148,19 +136,19 @@
       <div class="maps col-sm-12 col-md-12 col-lg-3">
         <div class="map_item_box col-sm-12 col-md-3 col-lg-12">
           <h3>
-            <img src="assets/images/map_icon1.png" alt="map_icons"> 30
+            <img src="assets/images/map_icon1.png" alt="map_icons"> {{ step3.employees }}
           </h3>
           <p>employees</p>
         </div>
         <div class="map_item_box col-sm-12 col-md-3 col-lg-12">
           <h3>
-            <img src="assets/images/map_icon2.png" alt="map_icons"> 13
+            <img src="assets/images/map_icon2.png" alt="map_icons"> {{ step3.locations }}
           </h3>
           <p>locations</p>
         </div>
         <div class="map_item_box col-sm-12 col-md-3 col-lg-12">
           <h3>
-            <img src="assets/images/map_icon3.png" alt="map_icons"> 15
+            <img src="assets/images/map_icon3.png" alt="map_icons"> {{ step3.months }}
           </h3>
           <p>months we <br/> we are operating</p>
         </div>
@@ -196,18 +184,18 @@
     <div class="row">
       <div class="col-md-7  ">
         <div class="headings">
-          <h2>What to expect?</h2>
+          <h2>{{ step4.title }}</h2>
         </div>
         <div class="heading-right">
-          <h2>A turnkey solution</h2>
+          <h2>{{ step4.sub_title }}</h2>
         </div>
         <div class="move-in-desc">
-          <p>From design to installation, Rollpark can handle every aspect of the job: site procurement, civil engineering, geotechnical engineering, design, site preparation, and installation.</p>
+          <p>{{ step4.description }}</p>
         </div>
         <a href="javascript:void(0);" class="move-in-process">Move-in Process <i class="fa fa-arrow-right"></i></a>
       </div>
       <div class="col-md-5 more-feature-right">
-        <img src="assets/images/move-in.jpg" alt="move-in" class="img img-fluid">
+        <img [src]="step4.image" alt="move-in" class="img img-fluid">
       </div>
     </div>
   </div>

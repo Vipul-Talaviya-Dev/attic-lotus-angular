@@ -7,7 +7,28 @@ declare var $: any;
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public locations: any;
+  public banners: any;
+  public images: any;
+  public step1 = {
+    title: '',
+    description: '',
+    image: ''
+  };
+  public step2 = {
+    title: ''
+  };
+  public step3 = {
+    employees: 0,
+    locations: 0,
+    months: 0
+  };
+  public step4 = {
+    title: '',
+    sub_title: '',
+    description: '',
+    image: ''
+  };
+
   constructor(private commonService: CommonService) {
     $(document).ready(function() {
       $("body").on("click", ".searchInput", function() {
@@ -38,14 +59,19 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getLocations();
+    this.getIndex();
   }
 
-  getLocations() {
-    this.commonService.getLocations('').subscribe((res) => {
+  getIndex() {
+    this.commonService.getIndex().subscribe((res) => {
       try {
         if(res.status) {
-          this.locations = res.locations;
+          this.banners = res.banners;
+          this.step1 = res.step1;
+          this.step2 = res.step2;
+          this.images = res.step2.images;
+          this.step3 = res.step3;
+          this.step4 = res.step4;
         }
       } catch (e) {
         console.log('Do not get URL data');
