@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CommonService} from '../../services/common.service';
+declare var $: any;
 
 @Component({
   selector: 'app-footer',
@@ -11,7 +12,9 @@ export class FooterComponent implements OnInit {
   public questions: any;
   public normals: any;
   public total = 0;
-  constructor(private commonService: CommonService) { }
+  constructor(private commonService: CommonService) {
+    this.jsData();
+  }
 
   ngOnInit(): void {
     this.getQuestions();
@@ -28,6 +31,28 @@ export class FooterComponent implements OnInit {
       } catch (e) {
         console.log('Do not get URL data');
       }
+    });
+  }
+
+  jsData() {
+    $(document).ready(function() {
+      $(".menu-icon").on("click", function() {
+        $("nav ul").toggleClass("showing");
+      });
+    });
+    $(document).ready(function() {
+      $(".modal-trigger").on("click", function() {
+        $(".modal-body").toggleClass("active");
+      });
+
+      $(".modal-trigger2").on("click", function() {
+        $(".modal2").toggleClass("active");
+      });
+    });
+    $(document).ready(function() {
+      $(".button-modal").on("click", function() {
+        $(".modal-body").removeClass("active");
+      });
     });
   }
 }

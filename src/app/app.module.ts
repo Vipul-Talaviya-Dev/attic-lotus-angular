@@ -25,6 +25,7 @@ import {SearchComponent} from './pages/search/search.component';
 import {PrivacyPolicyComponent} from './pages/privacyPolicy/privacyPolicy.component';
 import {TermConditionComponent} from './pages/termCondition/termCondition.component';
 import {MapViewComponent} from './pages/map-view/map-view.component';
+import {BlogComponent} from './pages/blog/blog.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -40,6 +41,7 @@ const APP_PROVIDERS = [
     DetailComponent,
     SearchComponent,
     MapViewComponent,
+    BlogComponent,
     PrivacyPolicyComponent,
     TermConditionComponent,
     MenuComponent,

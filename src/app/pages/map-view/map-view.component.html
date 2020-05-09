@@ -4,57 +4,38 @@
     <div class="row">
       <div class="content col-12">
         <div class="row d-flex">
+          <div class="row col-12">
+            <div class="autocomplete form-group d-inline-flex w-65vw">
+              <label for="map_city">CHOOSE CITY</label>
+              <select class="map-form-control banner-input-group" id="map_city" (change)="changeCity($event.target.value);">
+                <option value="">All</option>
+                <option *ngFor="let city of cities;" value="{{ city.id }}" >{{ city.name }}</option>
+              </select>
+              <div class="text-right m-auto" style="color: var(--primary);">
+                <a href="javascript:void(0);" style="color: var(--primary); font-family: 'ApercuProBold';">{{ total }} WORKSPACES</a>
+              </div>
+            </div>
+          </div>
           <div class="city-section col-lg-6 col-md-12 col-sm-12">
-            <div class="row col-12">
-              <div class="autocomplete form-group d-inline-flex w-100vw">
-                <label for="map_city">CHOOSE CITY</label>
-                <input type="button" class="modal-trigger banner-input-group" id="map_city" data-toggle="modal" data-target="#exampleModal" value="ALL">
-                <div class="text-right m-auto" style="color: var(--primary);">
-                  <a href="javascript:void(0);">{{ total }} WORKSPACES</a>
+            <div class="map-location-container row col-12 p-0">
+              <!-- location list item 1 -->
+              <div class="map-locations row col-12" *ngFor="let property of properties;">
+                <div class="image-section p-0">
+                  <img class="w-100" [src]="property.image" alt="map goes here" style="height: 175px;">
                 </div>
-                <!-- modal -->
-                <section class="modal-body">
-                  <div class="contact-us-background"></div>
-                  <div class="contact-us-modal-content"><button type="button" class="button-modal button-plain "> <i class="fa fa-times"></i></button>
-                    <section class="form-layout-wrapper  contact-us-modal-form-wrapper">
-                      <div class="form-header-section ">
-                        <p class="m-0"> <span style="color: var(--primary);"> 13</span> NEW-AGE TECH-ENABLED WORKSPACES</p>
-                        <p style="color: #666666;">BANGALORE | HYDERABAD</p>
-                      </div>
-                      <div class="form-body-section">
-                        <div class="input-group md-form form-sm form-2 pl-0">
-                          <input id="myInput" class="autocomplete form-control my-0 py-1 gray-border" type="text" placeholder="Search for a location near you" aria-label="Search">
-                          <div class="input-group-append"><span class="input-group-text btn-search" id="basic-text1">
-                            <i class="fas fa-search text-white" aria-hidden="true"></i></span>
-                          </div>
-                        </div>
-                        <div class="all-location-link button-modal">
-                          <a href="javascript:void(0);">SEE ALL LOCATIONS</a>
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </section>
-
+                <div class="detail-section">
+                  <h6>{{ property.name }}</h6>
+                  <p>{{ property.address }}</p>
+                  <p class="m-0"> <span class="statistic">{{ property.square_feet }}</span> SFT</p>
+                  <p> <span class="statistic"></span> {{ property.privateDescription }}</p>
+                  <a [routerLink]="['/property/'+ property.slug]">READY TO MOVE IN</a>
+                </div>
+                <div class="button-section">
+                  <a style="cursor: pointer;color: #1a73e8;" (click)="mapMoveDevice(property);"><img src="assets/images/pin-icn.png" alt="View"> VIEW</a>
+                </div>
               </div>
+              <!-- location list item 1 -->
             </div>
-            <!-- location list item 1 -->
-            <div class="map-locations row col-12" *ngFor="let property of properties;">
-              <div class="image-section p-0">
-                <img class="w-100" [src]="property.image" alt="map goes here">
-              </div>
-              <div class="detail-section">
-                <h6>{{ property.name }}</h6>
-                <p>{{ property.address }}</p>
-                <p class="m-0"> <span class="statistic">{{ property.square_feet }}</span> SFT</p>
-                <p> <span class="statistic"></span> {{ property.privateDescription }}</p>
-                <a [routerLink]="['/property/'+ property.slug]">READY TO MOVE IN</a>
-              </div>
-              <div class="button-section">
-                <a style="cursor: pointer;" (click)="mapMoveDevice(property);"><img src="assets/images/pin-icn.png" alt="View">VIEW</a>
-              </div>
-            </div>
-            <!-- location list item 1 -->
           </div>
           <div class="col-lg-6 col-md-12 col-sm-12 map-frame">
             <div class="leaflet-maps"></div>

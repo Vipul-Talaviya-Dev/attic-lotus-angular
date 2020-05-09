@@ -33,7 +33,6 @@ export class MapViewComponent implements OnInit {
     this.getCities();
     this.getProperties('');
 
-    this.jsData();
   }
 
   ngOnInit(): void {
@@ -149,23 +148,5 @@ export class MapViewComponent implements OnInit {
     let lng = parseFloat(device.longitude);
     this.map.setView([lat, lng], 15);
     this.map.panTo([lat, lng]);
-  }
-
-  jsData() {
-    $(document).ready(function() {
-      $(".menu-icon").on("click", function() {
-        $("nav ul").toggleClass("showing");
-      });
-    });
-    $(document).ready(function() {
-      $(".modal-trigger").on("click", function() {
-        $(".modal-body").toggleClass("active");
-      });
-    });
-    $(document).ready(function() {
-      $(".button-modal").on("click", function() {
-        $(".modal-body").removeClass("active");
-      });
-    });
   }
 }
