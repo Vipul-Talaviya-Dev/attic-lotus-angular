@@ -71,10 +71,10 @@
                 <img class="w-80" src="assets/images/slider-img3.jpeg" alt="blue One Square">
               </div>
               <div class="content_wrapper">
-                <h3>Property Not Found.</h3>
+                <p>Please call 080 4717 8622, we will set up a new office Space in <b>{{ locationName }}</b> just for you</p>
               </div>
             </div>
-            <div *ngFor="let property of properties;let i = index;" [class]="(i==0) ? 'carousel-item active' : 'carousel-item'">
+            <div *ngFor="let property of oneSliders;let i = index;" [class]="(i==0) ? 'carousel-item active' : 'carousel-item'">
               <div class="image_wrapper" style="cursor: pointer;" [routerLink]="['/property/'+ property.slug]">
                 <img class="w-80" [src]="property.image" alt="{{ property.name }}">
               </div>
@@ -90,34 +90,16 @@
           </a>
         </div>
       </div>
-      <div class="col-md-3 col-sm-12 p-0">
+      <div class="col-md-3 col-sm-12 p-0" *ngIf="twoDiv">
         <div id="secondSlider" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="image_wrapper">
-                <img class="w-80" src="assets/images/slider-img3.jpeg" alt="blue One Square">
+            <div *ngFor="let twoSlider of twoSliders;let i = index;" [class]="(i==0) ? 'carousel-item active' : 'carousel-item'">
+              <div class="image_wrapper" style="cursor: pointer;" [routerLink]="['/property/'+ twoSlider.slug]">
+                <img class="w-80" [src]="twoSlider.image" alt="{{ twoSlider.name }}">
               </div>
-              <div class="content_wrapper">
-                <h3>Blue One Square</h3>
-                <address>Gurugram, <br> 3000SqFT</address>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="image_wrapper">
-                <img class="w-80" src="assets/images/slider-img4.jpeg" alt="blue One Square">
-              </div>
-              <div class="content_wrapper">
-                <h3>Blue Two Square</h3>
-                <address>Gurugram, <br> 3000SqFT</address>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="image_wrapper">
-                <img class="w-80" src="assets/images/slider-img5.jpeg" alt="blue One Square">
-              </div>
-              <div class="content_wrapper">
-                <h3>Blue Three Square</h3>
-                <address>Gurugram, <br> 3000SqFT</address>
+              <div class="content_wrapper" style="cursor: pointer;" [routerLink]="['/property/'+ twoSlider.slug]">
+                <h3>{{ twoSlider.name }}</h3>
+                <address>{{ twoSlider.city }}, <br> {{ twoSlider.privateDescription }}</address>
               </div>
             </div>
           </div>
@@ -128,34 +110,16 @@
           </a>
         </div>
       </div>
-      <div class="col-md-3 col-sm-12 p-0">
+      <div class="col-md-3 col-sm-12 p-0" *ngIf="threeDiv">
         <div id="thirdSlider" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="image_wrapper">
-                <img class="w-80" src="assets/images/slider-img6.jpeg" alt="blue One Square">
+            <div *ngFor="let threeSlider of threeSliders;let i = index;" [class]="(i==0) ? 'carousel-item active' : 'carousel-item'">
+              <div class="image_wrapper" style="cursor: pointer;" [routerLink]="['/property/'+ threeSlider.slug]">
+                <img class="w-80" [src]="threeSlider.image" alt="{{ threeSlider.name }}">
               </div>
-              <div class="content_wrapper">
-                <h3>Blue One Square</h3>
-                <address>Gurugram, <br> 3000SqFT</address>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="image_wrapper">
-                <img class="w-80" src="assets/images/slider-img7.jpeg" alt="blue One Square">
-              </div>
-              <div class="content_wrapper">
-                <h3>Blue Two Square</h3>
-                <address>Gurugram, <br> 3000SqFT</address>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="image_wrapper">
-                <img class="w-80" src="assets/images/slider-img8.jpeg" alt="blue One Square">
-              </div>
-              <div class="content_wrapper">
-                <h3>Blue Three Square</h3>
-                <address>Gurugram, <br> 3000SqFT</address>
+              <div class="content_wrapper" style="cursor: pointer;" [routerLink]="['/property/'+ threeSlider.slug]">
+                <h3>{{ threeSlider.name }}</h3>
+                <address>{{ threeSlider.city }}, <br> {{ threeSlider.privateDescription }}</address>
               </div>
             </div>
           </div>
@@ -166,34 +130,16 @@
           </a>
         </div>
       </div>
-      <div class="col-md-3 col-sm-12 p-0">
+      <div class="col-md-3 col-sm-12 p-0" *ngIf="fourDiv">
         <div id="fourthSlider" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="image_wrapper">
-                <img class="w-80" src="assets/images/slider-img9.jpeg" alt="blue One Square">
+            <div *ngFor="let fourSlider of fourSliders;let i = index;" [class]="(i==0) ? 'carousel-item active' : 'carousel-item'">
+              <div class="image_wrapper" style="cursor: pointer;" [routerLink]="['/property/'+ fourSlider.slug]">
+                <img class="w-80" [src]="fourSlider.image" alt="{{ fourSlider.name }}">
               </div>
-              <div class="content_wrapper">
-                <h3>Blue One Square</h3>
-                <address>Gurugram, <br> 3000SqFT</address>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="image_wrapper">
-                <img class="w-80" src="assets/images/slider-img4.jpeg" alt="blue One Square">
-              </div>
-              <div class="content_wrapper">
-                <h3>Blue Two Square</h3>
-                <address>Gurugram, <br> 3000SqFT</address>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="image_wrapper">
-                <img class="w-80" src="assets/images/slider-img6.jpeg" alt="blue One Square">
-              </div>
-              <div class="content_wrapper">
-                <h3>Blue Three Square</h3>
-                <address>Gurugram, <br> 3000SqFT</address>
+              <div class="content_wrapper" style="cursor: pointer;" [routerLink]="['/property/'+ fourSlider.slug]">
+                <h3>{{ fourSlider.name }}</h3>
+                <address>{{ fourSlider.city }}, <br> {{ fourSlider.privateDescription }}</address>
               </div>
             </div>
           </div>

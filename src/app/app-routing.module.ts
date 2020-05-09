@@ -10,6 +10,7 @@ import {PrivacyPolicyComponent} from './pages/privacyPolicy/privacyPolicy.compon
 import {TermConditionComponent} from './pages/termCondition/termCondition.component';
 import {MapViewComponent} from './pages/map-view/map-view.component';
 import {BlogComponent} from './pages/blog/blog.component';
+import {SupportComponent} from './pages/support/support.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -19,13 +20,13 @@ const routes: Routes = [
   { path: 'terms-condition', component: TermConditionComponent },
   { path: 'map-view', component: MapViewComponent },
   { path: 'blog', component: BlogComponent },
+  { path: 'support', component: SupportComponent },
   {
     path: 'property/:slug', component: DetailComponent,
     resolve: {
       property: PropertyResolve
     }
   },
-  // { path: 'detail', component: DetailComponent },
   {
     path: ':city', component: SearchComponent,
     resolve: {

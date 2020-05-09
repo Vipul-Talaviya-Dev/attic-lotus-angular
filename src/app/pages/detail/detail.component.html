@@ -8,12 +8,12 @@
       </div>
       <div class="col-12 rating mt-2">
         <img src="assets/images/star-blue.png" alt="star">
-        <span>4.4  |  181 reviews</span>
+        <span>0  |  0 reviews</span>
       </div>
     </div>
     <div class="row">
       <div class="position-sticky col-4 text-center">
-        <div class="office-space">
+        <div class="office-space" *ngIf="enquiryDiv">
           <h2 class="text-center mb-3">Office Space</h2>
           <div class="col-12 note-section">
             <p>{{ property.name }} is on High Demand - booking will be closed after 7 days</p>
@@ -66,6 +66,7 @@
                   }">
                     <label for="products">Product of Interest*</label>
                     <select class="visit-form-control" id="products" formControlName="product_of_interest">
+                      <option value="">Select Product of Interest</option>
                       <option value="Office Space">Office Space</option>
                       <option value="Residential Space">Residential Space</option>
                       <option value="Corporate Space">Corporate Space</option>

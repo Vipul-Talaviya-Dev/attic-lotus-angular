@@ -9,6 +9,8 @@ declare var $: any;
 export class HomeComponent implements OnInit {
   public banners: any;
   public images: any;
+  public step5Second: any = [];
+  public studyDiv = false;
   public step1 = {
     title: '',
     description: '',
@@ -23,6 +25,12 @@ export class HomeComponent implements OnInit {
     months: 0
   };
   public step4 = {
+    title: '',
+    sub_title: '',
+    description: '',
+    image: ''
+  };
+  public step5First = {
     title: '',
     sub_title: '',
     description: '',
@@ -72,6 +80,9 @@ export class HomeComponent implements OnInit {
           this.images = res.step2.images;
           this.step3 = res.step3;
           this.step4 = res.step4;
+          this.step5First = res.step5.first;
+          this.step5Second = res.step5.second;
+          this.studyDiv = (res.step5.total > 0) ? true : false;
         }
       } catch (e) {
         console.log('Do not get URL data');

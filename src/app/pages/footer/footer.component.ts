@@ -42,10 +42,12 @@ export class FooterComponent implements OnInit {
     });
     $(document).ready(function() {
       $(".modal-trigger").on("click", function() {
-        $(".modal-body").toggleClass("active");
+        $(".modal-body").removeClass("active");
+        $(".modal1").toggleClass("active");
       });
 
       $(".modal-trigger2").on("click", function() {
+        $(".modal-body").removeClass("active");
         $(".modal2").toggleClass("active");
       });
     });

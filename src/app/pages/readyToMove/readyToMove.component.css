@@ -599,3 +599,23 @@ a:hover {
     padding-top: 10px;
   }
 }
+
+.msg-success {
+  background-color: #f7f7f7;
+  padding: 20px;
+  text-align: left;
+  border: 1px solid #f3f3f3;
+  border-top: 3px solid #ffd500;
+}
+
+.sliderImage p {
+  color: #1a73e8;
+  z-index: 99;
+  margin: -21px 0 0 8px;
+  position: relative;
+  display: none;
+  border:none;
+}
+.sliderImage p.highlighted {
+  display:block;
+}

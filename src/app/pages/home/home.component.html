@@ -102,27 +102,21 @@
   </div>
 </div>
 
-<div class="case_study_section">
+<div class="case_study_section" *ngIf="studyDiv">
   <div class="container">
     <div class="row">
       <div class="col-md-7 big-case-study">
-        <img src="assets/images/client_7.jpg" alt="client" class="img img-fluid">
-        <h3>“We achieved a cost-savings project while achieving cultural transformation to collaborate better together.”</h3>
-        <p>FRANCIS VAN PARYS, PRESIDENT AND CEO, GE HEALTHCARE KOREA</p>
+        <img [src]="step5First.image" alt="client" class="img img-fluid">
+        <h3>{{ step5First.title }}</h3>
+        <p>{{ step5First.sub_title }}</p>
         <a href="javascript:void(0);">Learn more <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
       </div>
       <div class="col-md-5">
-        <div class="case_study_box">
-          <span class="case-study-1"></span>locations
-          <h3>“We achieved a cost-savings project while achieving cultural transformation to collaborate better together.”</h3>
-          <p>FRANCIS VAN PARYS, PRESIDENT AND CEO, GE HEALTHCARE KOREA</p>
-          <a href="javascript:void(0);">Learn more <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-        </div>
-        <div class="case_study_box">
-          <span class="case-study-2"></span>
-          <!-- <img src="assets/images/client_5.jpg" alt="client" class="img img-fluid"> -->
-          <h3>“We achieved a cost-savings project while achieving cultural transformation to collaborate better together.”</h3>
-          <p>FRANCIS VAN PARYS, PRESIDENT AND CEO, GE HEALTHCARE KOREA</p>
+        <div class="case_study_box" *ngFor="let vipul of step5Second">
+          <span class="case-study-2" [ngStyle]="{'background-image':'linear-gradient(to right, #f7f7f7 0%, #f7f7f7 100%), url(' + vipul.image + ')'}" ></span>
+<!--          <img [src]="vipul.image" alt="client" class="img img-fluid">-->
+          <h3>{{ vipul.title }}</h3>
+          <p>{{ vipul.sub_title }}</p>
           <a href="javascript:void(0);">Learn more <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>

@@ -14,6 +14,7 @@ export class DetailComponent implements OnInit {
   public days: any;
   public time: any;
   public propertyFeatures: any;
+  public enquiryDiv = true;
   public propertyFeature = {
     label: '',
     value: '',
@@ -82,6 +83,7 @@ export class DetailComponent implements OnInit {
      */
     this.route.data.subscribe((response) => {
       this.property = response.property.property;
+      this.enquiryDiv = (this.property.isAvailable) ? true : false;
       this.form.patchValue({'propertyId': this.property.id});
       this.enquiryForm.patchValue({'propertyId': this.property.id});
       this.properties = this.property.properties;
