@@ -27,6 +27,7 @@ import {TermConditionComponent} from './pages/termCondition/termCondition.compon
 import {MapViewComponent} from './pages/map-view/map-view.component';
 import {BlogComponent} from './pages/blog/blog.component';
 import {SupportComponent} from './pages/support/support.component';
+import {BlogDetailComponent} from './pages/blog-detail/blog-detail.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -43,6 +44,7 @@ const APP_PROVIDERS = [
     SearchComponent,
     MapViewComponent,
     BlogComponent,
+    BlogDetailComponent,
     SupportComponent,
     PrivacyPolicyComponent,
     TermConditionComponent,

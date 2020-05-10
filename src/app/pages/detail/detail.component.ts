@@ -15,6 +15,7 @@ export class DetailComponent implements OnInit {
   public time: any;
   public propertyFeatures: any;
   public enquiryDiv = true;
+  public msgDiv = false;
   public propertyFeature = {
     label: '',
     value: '',
@@ -83,7 +84,8 @@ export class DetailComponent implements OnInit {
      */
     this.route.data.subscribe((response) => {
       this.property = response.property.property;
-      this.enquiryDiv = (this.property.isAvailable) ? true : false;
+      this.enquiryDiv = (this.property.isAvailable) ? false : true;
+      this.msgDiv = (this.property.isAvailable) ? true : false;
       this.form.patchValue({'propertyId': this.property.id});
       this.enquiryForm.patchValue({'propertyId': this.property.id});
       this.properties = this.property.properties;
@@ -103,7 +105,9 @@ export class DetailComponent implements OnInit {
       this.commonService.inquiry(this.form.value).subscribe((res) => {
         if (res.status === true) {
           this.form.reset();
-          this.toaster.success(res.message, 'Success !!!');
+          this.msgDiv = true;
+          this.enquiryDiv = false;
+          // this.toaster.success(res.message, 'Success !!!');
         } else {
           this.toaster.error(res.message, 'Error !!!');
         }
@@ -117,7 +121,9 @@ export class DetailComponent implements OnInit {
       this.commonService.inquiry(this.enquiryForm.value).subscribe((res) => {
         if (res.status === true) {
           this.enquiryForm.reset();
-          this.toaster.success(res.message, 'Success !!!');
+          this.msgDiv = true;
+          this.enquiryDiv = false;
+          // this.toaster.success(res.message, 'Success !!!');
         } else {
           this.toaster.error(res.message, 'Error !!!');
         }

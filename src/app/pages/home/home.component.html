@@ -11,9 +11,9 @@
             <div *ngFor="let banner of banners; let i = index;" [class]="(i == 0) ? 'carousel-item active' : 'carousel-item'">
               <img class="d-block slider-image w-100" [src]="banner.image" >
               <div class="carousel-caption d-md-block slider-info">
-                <h1>{{ banner.title }}</h1>
-                <p>{{ banner.sub_title }}</p>
-                <a href="javascript:void(0);" class="btn slider-cta-btn">Attic Symbiosis</a>
+                <h1>CUSTOMIZE OFFICE SPACE</h1>
+                <p>{{ banner.title }}</p>
+                <a [routerLink]="['/property/'+ banner.propertySlug]" class="btn slider-cta-btn">{{ banner.propertyName }}</a>
               </div>
             </div>
           </div>
@@ -112,11 +112,10 @@
         <a href="javascript:void(0);">Learn more <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
       </div>
       <div class="col-md-5">
-        <div class="case_study_box" *ngFor="let vipul of step5Second">
-          <span class="case-study-2" [ngStyle]="{'background-image':'linear-gradient(to right, #f7f7f7 0%, #f7f7f7 100%), url(' + vipul.image + ')'}" ></span>
-<!--          <img [src]="vipul.image" alt="client" class="img img-fluid">-->
-          <h3>{{ vipul.title }}</h3>
-          <p>{{ vipul.sub_title }}</p>
+        <div class="case_study_box" *ngFor="let step of step5Second">
+          <span class="case-study-2" [ngStyle]="{'background-image':'linear-gradient(to right, #f7f7f7 0%, #f7f7f7 100%), url(' + step.image + ')'}" ></span>
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.sub_title }}</p>
           <a href="javascript:void(0);">Learn more <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
         </div>
       </div>

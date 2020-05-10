@@ -13,6 +13,10 @@
     </div>
     <div class="row">
       <div class="position-sticky col-4 text-center">
+        <div class="msg-success" *ngIf="msgDiv">
+          <b>You're all set!</b>
+          <p>We can't wait to show you around. Sit tight, you'll be receiving an email from a representative shortly.</p>
+        </div>
         <div class="office-space" *ngIf="enquiryDiv">
           <h2 class="text-center mb-3">Office Space</h2>
           <div class="col-12 note-section">

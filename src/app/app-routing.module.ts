@@ -11,6 +11,7 @@ import {TermConditionComponent} from './pages/termCondition/termCondition.compon
 import {MapViewComponent} from './pages/map-view/map-view.component';
 import {BlogComponent} from './pages/blog/blog.component';
 import {SupportComponent} from './pages/support/support.component';
+import {BlogDetailComponent} from './pages/blog-detail/blog-detail.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'terms-condition', component: TermConditionComponent },
   { path: 'map-view', component: MapViewComponent },
   { path: 'blog', component: BlogComponent },
+  { path: 'blog-detail', component: BlogDetailComponent },
   { path: 'support', component: SupportComponent },
   {
     path: 'property/:slug', component: DetailComponent,

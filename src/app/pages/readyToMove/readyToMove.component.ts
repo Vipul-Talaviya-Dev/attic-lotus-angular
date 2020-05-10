@@ -20,7 +20,7 @@ export class ReadyToMoveComponent implements OnInit {
   public time: any;
   public form: FormGroup;
   public submitted: boolean = false;
-  public msgDiv: boolean = false;
+  public msgDiv = false;
   public formDiv: boolean = true;
   public errors = {
     name: false,
@@ -61,7 +61,7 @@ export class ReadyToMoveComponent implements OnInit {
   }
 
   getProperties(city) {
-    this.commonService.searchLocation({city: city}).subscribe((res) => {
+    this.commonService.getProperties(city).subscribe((res) => {
       if (res.status === true) {
         this.properties = res.properties;
       } else {
