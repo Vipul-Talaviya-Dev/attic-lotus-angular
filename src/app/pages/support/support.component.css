@@ -272,84 +272,7 @@
   padding: 50px 0;
 }
 
-.social-links {
-  padding: 50px 0;
-  font-size: 18px;
-  display: flex;
-}
 
-.location-link .arrow {
-  -webkit-font-smoothing: antialiased;
-  display: inline-block;
-  font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  line-height: 1;
-  background-image: url(../../../assets/images/arrow-shape.png);
-  width: 25px;
-  height: 15px;
-  background-repeat: no-repeat;
-  margin: auto;
-}
-
-.social-icons {
-  margin-left: auto;
-}
-
-.social-icons .fab {
-  color: #232323;
-  opacity: 1;
-  font-size: 20px;
-}
-
-.social-icons .fab:hover {
-  color: var(--primary);
-}
-
-.quick-links {
-  display: flex;
-}
-
-.quick-links h4 {
-  padding-bottom: 20px;
-}
-
-.quick-links ul li a {
-  color: #979797;
-  line-height: 2rem;
-}
-
-.footer-form .form-group {
-  margin-bottom: 30px;
-}
-
-.footer-form .form-group:nth-last-child(2) {
-  margin-bottom: 10px !important;
-}
-
-.footer-form .form-group .form-label {
-  padding-left: 15px;
-  font-size: 14px;
-  color: #2b2a29;
-  opacity: 0.7;
-}
-
-.footer-form .form-group select {
-  background-image: linear-gradient(45deg, transparent 70%, #979797 60%), linear-gradient(135deg, #979797 40%, transparent 30%) !important;
-  background-position: calc(100% - 35px) 20px, calc(100% - 25px) 20px, 100% 0;
-  background-size: 10px 10px, 10px 10px;
-  background-repeat: no-repeat;
-  -webkit-appearance: none;
-}
-
-.footer-form .form-group .form-control {
-  height: 50px !important;
-  padding-top: 15px;
-  margin-top: -20px;
-  border-radius: 0;
-  width: 100%;
-  display: inherit;
-}
 
 .btn-footer-form {
   width: 100%;
@@ -422,16 +345,6 @@
   border: 1px solid;
   border-color: #7a7979;
   border-radius: 50%;
-}
-
-.all-location-link {
-  text-align: center;
-  margin-top: 10%;
-}
-
-.all-location-link a {
-  color: var(--primary) !important;
-  font-weight: 900 !important;
 }
 
 
@@ -945,11 +858,6 @@
   margin-bottom: 0;
   border: 0;
   background-color: transparent;
-}
-.footer {
-  background-color: #f7f7f7;
-  padding: 30px 0;
-  padding-bottom: 0;
 }
 
 .next-step {

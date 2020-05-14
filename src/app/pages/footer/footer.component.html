@@ -36,40 +36,6 @@
             <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-11">
               <section class="start__question">
                 <p class="question__number">1/{{ total }}</p>
-                <!--<form action="/start" method="post" autocomplete="off">
-                  <div id="question-1" class="question__wrapper ">
-                    <p class="question__title ">Let’s make the first step!</p>
-                    <input id="question__question-1" class="question__question" placeholder="What’s your name?" type="text" name="name">
-                  </div>
-                  <div id="question-2" class="question__wrapper question__wrapper&#45;&#45;inactive">
-                    <p class="question__title ">Nice to meet you</p>
-                    <input id="question__question-2" class="question__question" placeholder="How can we help you?" type="text" name="how">
-                  </div>
-                  <div id="question-3" class="question__wrapper question__wrapper&#45;&#45;inactive">
-                    <p class="question__title ">Sounds like a plan!</p>
-                    <input id="question__question-3" class="question__question" placeholder="What's your budget?" type="text" name="budget">
-                  </div>
-                  <div id="question-4" class="question__wrapper question__wrapper&#45;&#45;inactive">
-                    <p class="question__title ">Good things always have a price!</p>
-                    <input id="question__question-4" class="question__question" placeholder="What's your deadline?" type="text" name="deadline">
-                  </div>
-                  <div id="question-5" class="question__wrapper question__wrapper&#45;&#45;inactive">
-                    <p class="question__title ">We’re glad it’s not yesterday!</p>
-                    <input id="question__question-5" class="question__question" placeholder="What's your email?" type="text" name="email">
-                  </div>
-                  <div id="question-6" class="question__wrapper question__wrapper&#45;&#45;inactive">
-                    <p class="confirm__title question__title ">we’re glad that you took your first step! Now it’s our time to help you stand out.</p>
-                    <p class="confirm__p"></p>
-                  </div>
-                  <div class="next__wrapper">
-                    <i class="fas fa-chevron-circle-right"></i>
-                    <input class="next__button white-text" readonly="readonly" value="Next question">
-                  </div>
-                  <div class="error__wrapper" style="opacity: 0;">
-                    <i class="fas fa-question-circle error__icon"></i>
-                    <p class="error__message white-text">Don’t be shy, please fill the fields correctly.</p>
-                  </div>
-                </form>-->
                 <div id="carousel-demo" class="carousel slide"  data-ride="carousel">
                   <div class="carousel-inner">
                     <div class="carousel-item active" *ngFor="let question of questions;let i = index;">
@@ -77,11 +43,6 @@
                         <input type="text" class="footer-input question__question" placeholder="What's your Answer?"></h2>
                       <br/><br/>
                     </div>
-                    <!--<div class="carousel-item">
-                      <h2>Let’s Vipul Vipul! <br/>
-                        <input type="text" class="footer-input" placeholder="What's your name?"></h2>
-                      <br/><br/>
-                    </div>-->
                   </div>
                   <a href="#carousel-demo" class="next-step" data-slide="next" ><i class="fa fa-chevron-circle-right" aria-hidden="true"></i>&nbsp; Next Question</a><br /><br /><br /><br />
                   <!--slider control for card-->
@@ -92,20 +53,96 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-4 col-sm-12 footer_bars footer_bar_left float-left">
-        <a routerLink="/privacy-policy">Privacy Policy</a>
-        <a routerLink="/terms-condition">Terms of Use</a>
-      </div>
-      <div class="col-md-4 col-sm-12 footer_bars footer_bar_center">
-        Company {{ year }} All Rights Reserved.
-      </div>
-      <div class="col-md-4 col-sm-12 footer_bars footer_bar_right float-right">
-        DEVISED BY ATTIC
-      </div>
-    </div>
   </div>
 </div>
+<section class="footer">
+  <div class="row">
+    <div class="container">
+      <section class="social-links ">
+        <a href="javascript:void(0);" class="location-link">All Locations <i class="arrow"></i></a>
+        <div class="social-icons ">
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-linkedin-in"></i>
+        </div>
+      </section>
+      <section class="quick-links">
+        <div class="col-md-3 col-sm-12">
+          <h4>COMPANY</h4>
+          <ul class="list-unstyled">
+            <li><a href="javascript:void(0);">About Us </a></li>
+            <li><a href="javascript:void(0);">Team </a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 col-sm-12">
+          <h4>PARTNERSHIPS</h4>
+          <ul class="list-unstyled">
+            <li><a href="javascript:void(0);">Brokers</a></li>
+            <li><a href="javascript:void(0);">Landlords</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 col-sm-12">
+          <h4>Impact</h4>
+          <ul class="list-unstyled">
+            <li><a href="javascript:void(0);">Ideas</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 col-sm-12">
+          <h4>upcoming locations</h4>
+          <form class="footer-form">
+            <div class="form-group">
+              <label class="form-label">Select City</label>
+              <select class="form-control">
+                <option>Bengalore</option>
+                <option>Hydrabad</option>
+              </select>
+            </div>
+            <label class="form-group has-float-label">
+              <input class="form-control" type="email" placeholder="email@example.com"/>
+              <span>Email address</span>
+            </label>
+            <label class="form-group has-float-label">
+              <input class="form-control" type="number" placeholder="1234567890"/>
+              <span>Phone Number</span>
+            </label>
+            <button type="submit" class="btn btn-footer-form"> <span><img src="assets/images/notify-me.png" alt=""></span> Notify Me</button>
+          </form>
+        </div>
+      </section>
+      <section class="footer-bottom">
+        <div class="info-container">
+          <div class="contact-info">
+            <a href="tel:080 4717 8622">080 4717 8622</a>
+            <a href="mailto:info@atticspace.in  ">info@atticspace.in </a>
+            <address>#612, Basil Moneta, Koramangala <br>
+              4th block, 80ft road, Bengaluru - 560034  </address>
+          </div>
+        </div>
+        <div class="copyright-info">
+          <div class="link-container">
+            <div class="q-links">
+              <ul class="list-unstyled d-inline-flex">
+                <li><a routerLink="/privacy-policy">Privacy</a></li>
+                <li><a routerLink="/terms-condition">Terms</a></li>
+                <li><a href="javascript:void(0);">Cookies</a></li>
+                <li><a href="javascript:void(0);">Sitemap</a></li>
+              </ul>
+            </div>
+            <div class="copyright">
+              <p> Company {{ year }} Attic Companies Inc. All Rights Reserved</p>
+            </div>
+          </div>
+          <div class="footer-logo">
+            <div class="footer-logo-container">
+              <img src="assets/images/logo-black.png" alt="">
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
 <!-- Footer End -->
 <!-- modal -->
 <section class="modal-body modal1">
