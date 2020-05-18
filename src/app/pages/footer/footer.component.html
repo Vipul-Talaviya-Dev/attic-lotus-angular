@@ -20,14 +20,13 @@
     </div>
   </div>
 </div>
-
 <!-- Footer Start -->
 <div class="footer_section">
   <div class="container">
     <div class="row">
       <div class="col-md-11 col-sm-12 question_screen">
         <h4><img src="assets/images/hello_emogy.png">Book Your Office Space</h4>
-        <br/><br/>
+        <br /><br />
         <div class="container">
           <div class="row">
             <div class="hidden-lg-down col-xl-1">
@@ -36,15 +35,15 @@
             <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-11">
               <section class="start__question">
                 <p class="question__number">1/{{ total }}</p>
-                <div id="carousel-demo" class="carousel slide"  data-ride="carousel">
+                <div id="carousel-demo" class="carousel slide" data-ride="carousel">
                   <div class="carousel-inner">
-                    <div class="carousel-item active" *ngFor="let question of questions;let i = index;">
-                      <h2 class="question__title ">{{ question.question }} <br/>
+                    <div class="question__wrapper carousel-item active" *ngFor="let question of questions;let i = index;">
+                      <h2 class="question__title ">{{ question.question }} <br />
                         <input type="text" class="footer-input question__question" placeholder="What's your Answer?"></h2>
-                      <br/><br/>
+                      <br /><br />
                     </div>
                   </div>
-                  <a href="#carousel-demo" class="next-step" data-slide="next" ><i class="fa fa-chevron-circle-right" aria-hidden="true"></i>&nbsp; Next Question</a><br /><br /><br /><br />
+                  <a href="#carousel-demo" class="next-step" data-slide="next"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i>&nbsp; Next Question</a><br /><br /><br /><br />
                   <!--slider control for card-->
                 </div>
               </section>
@@ -73,6 +72,7 @@
           <ul class="list-unstyled">
             <li><a href="javascript:void(0);">About Us </a></li>
             <li><a href="javascript:void(0);">Team </a></li>
+            <li><a routerLink="/blog">Blog </a></li>
           </ul>
         </div>
         <div class="col-md-3 col-sm-12">
@@ -99,11 +99,11 @@
               </select>
             </div>
             <label class="form-group has-float-label">
-              <input class="form-control" type="email" placeholder="email@example.com"/>
+              <input class="form-control" type="email" placeholder="email@example.com" />
               <span>Email address</span>
             </label>
             <label class="form-group has-float-label">
-              <input class="form-control" type="number" placeholder="1234567890"/>
+              <input class="form-control" type="number" placeholder="1234567890" />
               <span>Phone Number</span>
             </label>
             <button type="submit" class="btn btn-footer-form"> <span><img src="assets/images/notify-me.png" alt=""></span> Notify Me</button>
@@ -116,7 +116,7 @@
             <a href="tel:080 4717 8622">080 4717 8622</a>
             <a href="mailto:info@atticspace.in  ">info@atticspace.in </a>
             <address>#612, Basil Moneta, Koramangala <br>
-              4th block, 80ft road, Bengaluru - 560034  </address>
+              4th block, 80ft road, Bengaluru - 560034 </address>
           </div>
         </div>
         <div class="copyright-info">
@@ -126,7 +126,7 @@
                 <li><a routerLink="/privacy-policy">Privacy</a></li>
                 <li><a routerLink="/terms-condition">Terms</a></li>
                 <li><a href="javascript:void(0);">Cookies</a></li>
-                <li><a href="javascript:void(0);">Sitemap</a></li>
+                <li><a routerLink="/site-map">Sitemap</a></li>
               </ul>
             </div>
             <div class="copyright">
@@ -151,14 +151,14 @@
     <button type="button" class="button-modal button-plain" style="cursor: pointer;"> <i class="fa fa-times"></i></button>
     <section class="form-layout-wrapper  contact-us-modal-form-wrapper">
       <div class="form-header-section ">
-        <p class="m-0"> <span style="color: var(--primary);"> 13</span> NEW-AGE TECH-ENABLED WORKSPACES</p>
+        <p class="m-0"> <span style="color: var(--primary);"> 13</span> NEW AGE TECH ENABLED WORKSPACES</p>
         <p style="color: #666666;">BANGALORE | HYDERABAD</p>
       </div>
       <div class="form-body-section">
         <div class="input-group md-form form-sm form-2 pl-0">
           <input id="myInput" class="autocomplete form-control my-0 py-1 gray-border" type="text" placeholder="Search for a location near you" aria-label="Search">
           <div class="input-group-append"><span class="input-group-text btn-search" id="basic-text1">
-                            <i class="fas fa-search text-white" aria-hidden="true"></i></span>
+              <i class="fas fa-search" aria-hidden="true"></i></span>
           </div>
         </div>
         <div class="all-location-link button-modal">
@@ -168,7 +168,6 @@
     </section>
   </div>
 </section>
-
 <!-- Model 2-->
 <section class="modal-body  modal2">
   <div class="contact-us-background"></div>
@@ -194,12 +193,12 @@
             <div class="input-group col-lg-12 col-md-12 p-0">
               <!-- <label>PHONE NUMBER*</label> -->
               <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1"><img src="../assets/images/india.jpg" alt="">
-                                    <select class="form-group" data-countries="">
-                                        <option value="1">+91</option>
-                                        <option value="1"><img src="assets/images/india.jpg" alt="">+91</option>
-                                    </select>
-                                </span>
+                <span class="input-group-text" id="basic-addon1"><img src="../assets/images/india.jpg" alt="">
+                  <select class="form-group" data-countries="">
+                    <option value="1">+91</option>
+                    <option value="1"><img src="assets/images/india.jpg" alt="">+91</option>
+                  </select>
+                </span>
               </div>
               <input type="number" class="form-control" placeholder="Phone No*" aria-describedby="basic-addon1">
             </div>
@@ -238,3 +237,45 @@
     </section>
   </div>
 </section>
+
+<!-- Model 3 Start -->
+<section class="modal-body  modal3">
+  <div class="contact-us-background"></div>
+  <div class="contact-us-modal-content">
+    <button type="button" class="button-modal button-plain "> <i class="fa fa-times"></i></button>
+    <div class="navbar-nav3">
+      <ul id="fresponsive" class="nav navbar-nav3">
+        <li class="dropdown menu1">
+          <a href="javascript:void(0);">Locations<span class="caret"></span></a>
+          <div>
+            <ul>
+              <li><a routerLink="/Bangalore">Bangalore</a></li>
+              <!--<li>
+                <a href="javascript:void(0);" class="special-link" style="color: #000 !important; font-size: 14px;"> <span style=" font-size: 14px;">NEW</span> Attic Lotus </a>
+              </li>
+              <li class="divider"></li>-->
+              <li><a routerLink="/Hydrabad">Hydrabad</a></li>
+            </ul>
+
+          </div>
+        </li>
+        <li class="dropdown menu2">
+          <a href="javascript:void(0);">Space Solutions<span class="caret"></span></a>
+          <div >
+            <ul>
+              <li><a routerLink="/ready-to-move">Ready to Move </a></li>
+<!--              <li class="divider"></li>-->
+              <li><a href="javascript:void(0);">Custom Build </a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a style="color: #000;" routerLink="/support">Support</a></li>
+      </ul>
+      <div class="ray-page-container mobile-menu-item">
+        <div class="nav-questions">Have Questions or need Help?</div>
+        <a class="support-phone-number" href="tel:080 4717 8622">Call 080 4717 8622</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Model 3 End -->

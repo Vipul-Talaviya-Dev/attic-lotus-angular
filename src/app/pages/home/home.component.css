@@ -1,3 +1,200 @@
 .carousel-indicators .active {
   background-color: inherit;
 }
+@media only screen and (max-width: 1200px) {
+  .card-title {
+    font-size: 15px;
+  }
+}
+
+
+/* accordian css close */
+
+@media only screen and (max-width: 1200px) {
+  .bangalore-map ul::before {
+    width: 150%;
+    left: 0px;
+  }
+  .hydrabad-map ul::before {
+    width: 150%;
+    left: 30px;
+  }
+  .custom-padding {
+    padding: 3em;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .map_section .maps {
+    display: inline-flex;
+  }
+  .map_items {
+    margin: 150px auto;
+  }
+  .map_items ul {
+    margin-right: 100px;
+  }
+  .fix-w-280 {
+    width: 33%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .header-logo .item1 {
+    top: 55px;
+    left: 5px;
+    width: 40px;
+  }
+  .header-logo .item2 {
+    top: 105px;
+    left: 5px;
+    width: 40px;
+  }
+  .header-logo .item3 {
+    top: 155px;
+    left: 5px;
+    width: 40px;
+  }
+  .header-logo .item4 {
+    top: 205px;
+    left: 5px;
+    width: 40px;
+  }
+  .header-logo .item5 {
+    top: 5px;
+    width: 40px;
+    left: 5px;
+  }
+  .slider-image {
+    height: 300px;
+  }
+  .slider_section .slider-info {
+    margin-left: 0px;
+  }
+  .slider_section .slider-info h1 {
+    font-size: 18px;
+  }
+  .slider_section .slider-info p {
+    font-size: 16px;
+  }
+  .slider_section .slider-cta-btn {
+    width: 160px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 50px;
+    font-size: 12px;
+    padding: 7px;
+  }
+  .features_section {
+    padding: 0px;
+  }
+  .float-left,
+  .float-right {
+    text-align: center !important;
+    padding: 0px !important;
+    float: none;
+  }
+  .featured-box {
+    text-align: center;
+  }
+  .feature-box div {
+    width: 100%;
+    padding: 20px 0px !important;
+  }
+  .last_section {
+    float: none !important;
+    width: 100%;
+  }
+  .last_section_featured {
+    width: 100%;
+  }
+  .designed_for_you_section h2 {
+    padding: 10px;
+  }
+  .designed_for_you_section .float-left {
+    float: none !important;
+    text-align: center !important;
+  }
+  .clients_section h1 {
+    text-align: center;
+    font-size: 25px;
+    padding: 0px;
+  }
+  .clients_logos {
+    text-align: center;
+  }
+  .case-study-div {
+    text-align: center;
+  }
+  .case_study_section {
+    text-align: center;
+  }
+  .case_study_section .container-fluid {
+    padding: 10px;
+  }
+  .big-case-study h3 {
+    font-size: 22px;
+    padding: 0px;
+  }
+  .case_study_section a {
+    padding: 20px 0px;
+  }
+  .map_items {
+    text-align: center;
+  }
+  .footer-input,
+  .footer-input:focus,
+  .footer-input:active {
+    width: 100%;
+    font-size: 22px;
+  }
+  .question_screen {
+    text-align: left;
+  }
+  .verticle-text {
+    position: unset;
+    text-align: center;
+    top: 0px;
+    transform: rotate(0deg);
+  }
+  .fix-w-280 {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .bangalore-map ul::before,
+  .hydrabad-map ul::before {
+    left: 100px;
+  }
+  .map_items ul {
+    margin-right: 180px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .bangalore-map ul::before,
+  .hydrabad-map ul::before {
+    left: 30px;
+  }
+  .map_items ul {
+    margin-right: 150px;
+  }
+  .map_section .maps {
+    display: block;
+    text-align: center;
+  }
+  .fix-w-280 {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .bangalore-map ul::before,
+  .hydrabad-map ul::before {
+    left: 0px;
+  }
+  .map_items ul {
+    margin-right: 100px;
+  }
+}

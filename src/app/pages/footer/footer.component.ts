@@ -50,10 +50,17 @@ export class FooterComponent implements OnInit {
         $(".modal-body").removeClass("active");
         $(".modal2").toggleClass("active");
       });
+
+      $(".modal-trigger3").on("click", function() {
+        $(".modal-body").removeClass("active");
+        $(".modal3").toggleClass("active");
+        $("body").css("background", "#f8f8f8");
+      });
     });
     $(document).ready(function() {
       $(".button-modal").on("click", function() {
         $(".modal-body").removeClass("active");
+        $("body").css("background", "#fff");
       });
     });
   }

@@ -1,41 +1,74 @@
-<div class="header_section">
-  <div class="row">
-    <nav class="navbar navbar-expand-md navbar-dark black" style="width: 98%;margin-left: 15px;">
-<!--    <nav class="navbar navbar-expand-md navbar-dark fixed-top black">-->
-      <a routerLink="/" class="navbar-brand">
-        <img src="assets/images/logo-black.png" height="28" alt="CoolBrand">
-      </a>
-      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<nav class="header_section navbar navbar-expand-md navbar-dark pr-0 navbar-default mainmenu">
+  <div class="container">
+    <button type="button" class="modal-trigger3">
+      <i class="fas fa-bars"></i>
+    </button>
 
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav">
-          <li class="dropdown" style="margin-top: 11px;">
-            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="menuTitle">Locations </span> <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li *ngFor="let city of cities;">
-                <a [routerLink]="['/'+city.name]" >{{ city.name }}</a>
-              </li>
-            </ul>
+    <a routerLink="/" class="navbar-brand">
+      <img src="assets/images/logo-black.png" height="28" alt="CoolBrand">
+    </a>
+
+    <div class="navbar-nav navbar-icn for-mobile ml-auto">
+      <a href="javascript:void(0);" class="modal-trigger nav-item nav-img nav-link">
+        <img class="icn-black" src="assets/images/menu_2_black.png" alt="icon">
+        <img class="icn-blue" src="assets/images/menu_2_blue.png" alt="icon"></a>
+      <a href="javascript:void(0);" class="modal-trigger2 nav-item nav-img nav-link">
+        <img class="icn-black" src="assets/images/menu_3_black.png" alt="icon">
+        <img class="icn-blue" src="assets/images/menu_3_blue.png" alt="icon"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav">
+        <ul id="fresponsive" class="nav navbar-nav dropdown">
+          <li class="dropdown "><a data-toggle="dropdown" class="dropdown-toggle">Locations<span class="caret"></span></a>
+            <div class="dropdown-menu custom-dropdown">
+              <ul >
+                <span *ngFor="let city of cities;let i = index;">
+                  <li>
+                    <a [routerLink]="['/'+city.name]">{{ city.name }}</a>
+                  </li><li class="divider" *ngIf="(i == 0) ? true : false"></li>
+                </span>
+              </ul>
+              <!--<ul>
+                <li><a href="javascript:void(0);">Bangalore</a></li>
+                <li>
+                  <a href="javascript:void(0);" class="special-link" style="color: #000 !important; font-size: 14px;"> <span style=" font-size: 14px;">NEW</span> Attic Lotus </a>
+                </li>
+                <li class="divider"></li>
+                <li><a href="javascript:void(0);">Hydrabad</a></li>
+              </ul>-->
+              <div class="dropdown-info text-center">
+                <img src="assets/images/plane-icn.png" alt="">
+                <p style="color: #000; font-weight: 600;">See places near you</p>
+                <p style="font-size: 13px;">You have turned off location. To see a list of places near you, allow facebook to access your location while you use the app</p>
+              </div>
+            </div>
           </li>
-          <li class="dropdown" style="margin-top: 11px;">
-            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Space Solution <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="javascript:void(0);">Custom Made</a></li>
-              <li><a routerLink="/ready-to-move">Ready To Move</a></li>
-            </ul>
+          <li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle">Space Solutions<span class="caret"></span></a>
+            <div class="dropdown-menu custom-dropdown">
+              <ul>
+                <li><a routerLink="/ready-to-move">Ready to Move </a></li>
+                <li class="divider"></li>
+                <li><a href="javascript:void(0);">Custom Build </a></li>
+              </ul>
+              <div class="dropdown-info text-center">
+                <img src="assets/images/building-icn.png" alt="">
+                <p style="color: #000; font-weight: 600;">+5000 Seats Solution</p>
+                <p style="font-size: 13px;">You have turned off location. To see a list of places near you, allow Facebook to access your location while you use the app</p>
+              </div>
+            </div>
           </li>
-          <li><a routerLink="/support" class="nav-item nav-link">Support</a></li>
-          <li><a routerLink="/blog" class="nav-item nav-link">Blog</a></li>
-          <li><a routerLink="/map-view" class="nav-item nav-link">Map View</a></li>
+          <li><a routerLink="/support">Support</a></li>
         </ul>
-
-        <div class="navbar-nav ml-auto">
-          <a href="javascript:void(0);" class="modal-trigger nav-item nav-img nav-link" data-toggle="modal" data-target="#exampleModal"> <img src="assets/images/menu_2_black.png" alt="icon"></a>
-          <a href="javascript:void(0);" class="modal-trigger2 nav-item nav-img nav-link"> <img src="assets/images/menu_3_black.png" alt="icon"></a>
-        </div>
       </div>
-    </nav>
+
+    </div>
+    <div class="navbar-nav navbar-icn for-pc ml-auto">
+      <a href="javascript:void(0);" class="modal-trigger nav-item nav-img nav-link">
+        <img class="icn-black" src="assets/images/menu_2_black.png" alt="icon">
+        <img class="icn-blue" src="assets/images/menu_2_blue.png" alt="icon"></a>
+      <a href="javascript:void(0);" class="modal-trigger2 nav-item nav-img nav-link">
+        <img class="icn-black" src="assets/images/menu_3_black.png" alt="icon">
+        <img class="icn-blue" src="assets/images/menu_3_blue.png" alt="icon"></a>
+    </div>
   </div>
-</div>
+</nav>

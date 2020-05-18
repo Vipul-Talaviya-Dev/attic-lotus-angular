@@ -105,11 +105,13 @@ body .black {
 }
 
 .navbar-nav a:hover {
-    border-color: #fff;
+    border-color: transparent;
+    color: var(--primary) !important;
 }
 
-.black .navbar-nav a:hover {
-    border-color: #000;
+.navbar-nav a:hover {
+    color: var(--primary) !important;
+    border-color: transparent;
     text-decoration: none;
 }
 
@@ -119,6 +121,10 @@ body .black {
 
 .black .navbar-nav .active {
     border-color: #000;
+}
+a:hover, a:focus {
+  text-decoration: none;
+  outline: none;
 }
 
 .navbar-nav .active {
@@ -201,7 +207,7 @@ body .black {
 }
 
 .designed_section_list {
-    padding: 40px 0px;
+    padding: 40px 0px 0px 260px;
 }
 
 .designed_section_list ul li {

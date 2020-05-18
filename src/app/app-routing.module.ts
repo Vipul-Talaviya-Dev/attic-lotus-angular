@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'ready-to-move', component: ReadyToMoveComponent },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'terms-condition', component: TermConditionComponent },
-  { path: 'map-view', component: MapViewComponent },
+  { path: 'site-map', component: MapViewComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'blog-detail', component: BlogDetailComponent },
   { path: 'support', component: SupportComponent },
