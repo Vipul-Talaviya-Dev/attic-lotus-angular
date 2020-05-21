@@ -80,10 +80,10 @@ export class CommonService {
     );
   }
 
-  getQuestions(): Observable<any> {
+  getQuestions(questionPage): Observable<any> {
     this.configService.notifyLoaderEmitter(true);
     let endPoint = environment.api;
-    let apiURL = endPoint + 'questions';
+    let apiURL = endPoint + 'questions?questionPage='+questionPage;
 
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'

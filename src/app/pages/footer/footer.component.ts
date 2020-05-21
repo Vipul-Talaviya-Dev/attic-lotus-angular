@@ -1,7 +1,7 @@
 import {Compiler, Component, OnInit} from '@angular/core';
 import {CommonService} from '../../services/common.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 declare var $: any;
 
@@ -24,6 +24,7 @@ export class FooterComponent implements OnInit {
   };
   public contactForm: FormGroup;
   public contactFormDivMessage = false;
+  public normalsDiv = false;
   public contactFormDiv = true;
   public submitted: boolean = false;
   public contactErrors = {
@@ -35,10 +36,18 @@ export class FooterComponent implements OnInit {
     message: false,
   };
 
-  constructor(private commonService: CommonService, private fb: FormBuilder, private router: Router,
-              private toaster: ToastrService,
-              private _compiler: Compiler,
-              private route: ActivatedRoute) {
+  constructor(
+    private commonService: CommonService,
+    private fb: FormBuilder,
+    private router: Router,
+    private toaster: ToastrService,
+    private _compiler: Compiler,
+    private route: ActivatedRoute
+  ) {
+
+    this.route.params.subscribe((params: Params) => {
+      this.getQuestions(this.router.url);
+    });
     this.jsData();
     // search form
     this.contactForm = fb.group({
@@ -56,17 +65,17 @@ export class FooterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getQuestions();
     this.getOfficeContact();
     this._compiler.clearCache();
   }
 
-  getQuestions() {
-    this.commonService.getQuestions().subscribe((res) => {
+  getQuestions(questionPage) {
+    this.commonService.getQuestions(questionPage).subscribe((res) => {
       try {
         if(res.status) {
           this.questions = res.footers;
           this.normals = res.normals;
+          this.normalsDiv = (res.normals.length > 0) ? true : false;
           this.total = this.questions.length;
         }
       } catch (e) {
