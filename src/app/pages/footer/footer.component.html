@@ -7,12 +7,12 @@
   <div class="row">
     <div class="col-lg-8 col-md-12 col-sm-12 faq-section">
       <div id="accordion">
-        <div class="card" *ngFor="let normal of normals;">
-          <div class="card-header col-12 d-inline-flex" id="{{normal.string}}">
-            <h5 class="col-11 accordian_title mb-0 pl-0">{{ normal.question }}</h5>
+        <div class="card" *ngFor="let normal of normals;let i = index;">
+          <div class="card-header col-12 d-inline-flex" id="headingOne">
+            <h5 class="col-11 accordian_title mb-0 pl-0">{{ normal.question }} </h5>
             <button class=" col-1 btn btn-link float-right" data-toggle="collapse" [attr.data-target]="'#'+ normal.string" aria-expanded="true" [attr.aria-controls]="normal.string"><i class="fa fa-plus" style="color: #212529;"></i></button>
           </div>
-          <div id="{{ normal.string }}" class="collapse show" [attr.aria-labelledby]="normal.string" data-parent="#accordion">
+          <div id="{{ normal.string }}" [class]="(i==0) ? 'collapse show' : 'collapse'" aria-labelledby="headingOne" data-parent="#accordion">
             <div class="card-body">{{ normal.answer }}</div>
           </div>
         </div>
@@ -21,7 +21,73 @@
   </div>
 </div>
 <!-- Footer Start -->
-<div class="footer_section">
+<section class="footer_form_section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-11 col-sm-12 question_screen">
+        <h4><img src="assets/images/hello_emogy.png">Book Your Office Space</h4>
+        <br/><br/>
+        <!-- <p>1/5</p>
+        <h2>Let’s make the first step! <br/>
+            <input type="text" class="footer-input" placeholder="What's your name?"></h2>
+        <br/><br/>
+        <a href="#" class="next-step"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i>&nbsp; Next Question</a><br /><br /><br /><br /> -->
+        <div class="container">
+          <div class="row">
+            <div class="hidden-lg-down col-xl-1">
+              <p class="indicatePage">Start</p>
+            </div>
+            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-11">
+              <section class="start__question">
+                <p class="question__number"><span class="active-question">1</span>/6</p>
+                <form action="/start" method="post" autocomplete="off">
+                  <div id="question-1" class="question__wrapper " data-id="1">
+                    <p class="question__title ">Let’s make the first step!</p>
+                    <input id="question__question-1" class="question__question" placeholder="What’s your name?" type="text" name="name">
+                  </div>
+                  <div id="question-2" class="question__wrapper question__wrapper--inactive" data-id="2">
+                    <p class="question__title ">Great to greet you</p>
+                    <input id="question__question-2" class="question__question" placeholder="Are you looking for office space in Bangalore or Hyderabad?" type="text" name="how">
+                  </div>
+                  <div id="question-3" class="question__wrapper question__wrapper--inactive" data-id="3">
+                    <p class="question__title ">Sounds like a plan!</p>
+                    <input id="question__question-3" class="question__question" placeholder="What's your budget?" type="text" name="budget">
+                  </div>
+                  <div id="question-4" class="question__wrapper question__wrapper--inactive" data-id="4">
+                    <p class="question__title ">We got you covered.</p>
+                    <input id="question__question-4" class="question__question" placeholder="Do you prefer a ready-to-move-in space or a made-for-you space?" type="text" name="deadline">
+                  </div>
+                  <div id="question-5" class="question__wrapper question__wrapper--inactive" data-id="5">
+                    <p class="question__title ">When the user selects made-for-you Or ready-to-move-in space.Your Indeed a brilliant choice.</p>
+                    <input id="question__question-5" class="question__question" placeholder="What's your best email?" type="text" name="email">
+                  </div>
+                  <div id="question-6" class="question__wrapper question__wrapper--inactive" data-id="6">
+                    <p class="question__title ">An email is on your way!</p>
+                    <input id="question__question-6" class="question__question" placeholder="Can we also have your phone number?" type="text" name="mobile">
+                  </div>
+                  <div id="question-7" class="question__wrapper question__wrapper--inactive" data-id="7">
+                    <p class="confirm__title question__title ">we’re glad that you took your first step! Now it’s our time to help you stand out.</p>
+                    <p class="confirm__p"></p>
+                  </div>
+                  <div class="next__wrapper">
+                    <i class="fas fa-chevron-circle-right"></i>
+                    <input class="next__button white-text" readonly="readonly" value="Next question">
+                  </div>
+                  <div class="error__wrapper" style="opacity: 0;">
+                    <i class="fas fa-question-circle error__icon"></i>
+                    <p class="error__message white-text">Don’t be shy, please fill the fields correctly.</p>
+                  </div>
+                </form>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--<div class="footer_section">
   <div class="container">
     <div class="row">
       <div class="col-md-11 col-sm-12 question_screen">
@@ -37,14 +103,14 @@
                 <p class="question__number">1/{{ total }}</p>
                 <div id="carousel-demo" class="carousel slide" data-ride="carousel">
                   <div class="carousel-inner">
-                    <div class="question__wrapper carousel-item active" *ngFor="let question of questions;let i = index;">
+                    <div *ngFor="let question of questions;let i = index;" [class]="(i == 0) ? 'question__wrapper carousel-item active' : 'question__wrapper carousel-item'">
                       <h2 class="question__title ">{{ question.question }} <br />
                         <input type="text" class="footer-input question__question" placeholder="What's your Answer?"></h2>
                       <br /><br />
                     </div>
                   </div>
                   <a href="#carousel-demo" class="next-step" data-slide="next"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i>&nbsp; Next Question</a><br /><br /><br /><br />
-                  <!--slider control for card-->
+                  &lt;!&ndash;slider control for card&ndash;&gt;
                 </div>
               </section>
             </div>
@@ -53,7 +119,8 @@
       </div>
     </div>
   </div>
-</div>
+</div>-->
+
 <section class="footer">
   <div class="row">
     <div class="container">
@@ -175,22 +242,41 @@
     <section class="form-layout-wrapper  contact-us-modal-form-wrapper">
       <div class="form-header-section text-left">
         <h2 style="font-weight: 900;">Contact Us</h2>
-        <p style="color: #666666;">Reach Out to us on +91 95386 11122</p>
+        <p style="color: #666666;">Reach Out to us on +{{ officeContact.jobMobile }}</p>
       </div>
-      <div class="form-body-section p-0">
-        <form class="contactform" autocomplete="off">
+      <div class="msg-success" *ngIf="contactFormDivMessage">
+        <b>You're all set!</b>
+        <p>We can't wait to show you around. Sit tight, you'll be receiving an email from a representative shortly.</p>
+      </div>
+      <div class="form-body-section p-0" *ngIf="contactFormDiv">
+        <form class="contactform" autocomplete="off" [formGroup]="contactForm" (submit)="onSubmit()">
           <div class="row col-12 m-auto text-left ">
-            <div class="input-group col-lg-12 col-md-12 p-0 ">
-              <input type="text " class="form-control" placeholder="Name*">
+            <div class="input-group col-lg-12 col-md-12 p-0" [ngClass]="{
+                'has-error': (contactForm.get('name').hasError('required') || contactErrors.name) && contactForm.get('name').touched
+              }">
+              <input type="text " class="form-control" placeholder="Name*" autocomplete="off" formControlName="name">
             </div>
+            <em class="has-error" *ngIf="contactForm.get('name').hasError('required') && contactForm.get('name').touched">
+              Full Name is required
+            </em>
           </div>
           <div class="row col-12 m-auto text-left ">
-            <div class="input-group col-lg-12 col-md-12 p-0">
-              <input type="text " class="form-control" placeholder="Email Id*">
+            <div class="input-group col-lg-12 col-md-12 p-0" [ngClass]="{
+                'has-error': (contactForm.get('email').hasError('required') || contactErrors.email) && contactForm.get('email').touched
+              }">
+              <input type="email " class="form-control" placeholder="Email Id*" autocomplete="off" formControlName="email" required>
             </div>
+            <em class="has-error" *ngIf="contactForm.get('email').hasError('required') && contactForm.get('email').touched">
+              Email is required
+            </em>
+            <em class="has-error" *ngIf="contactForm.get('email').hasError('pattern')">
+              Email is invalid
+            </em>
           </div>
           <div class="row col-12 m-auto text-left">
-            <div class="input-group col-lg-12 col-md-12 p-0">
+            <div class="input-group col-lg-12 col-md-12 p-0" [ngClass]="{
+                'has-error': (contactForm.get('phone').hasError('required') || contactErrors.phone) && contactForm.get('phone').touched
+              }">
               <!-- <label>PHONE NUMBER*</label> -->
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1"><img src="../assets/images/india.jpg" alt="">
@@ -200,36 +286,45 @@
                   </select>
                 </span>
               </div>
-              <input type="number" class="form-control" placeholder="Phone No*" aria-describedby="basic-addon1">
+              <input type="number" class="form-control" placeholder="Phone No*" aria-describedby="basic-addon1" autocomplete="off" formControlName="phone" required>
             </div>
+            <em class="has-error" *ngIf="contactForm.get('phone').hasError('required') && contactForm.get('phone').touched">
+              Phone is required
+            </em>
           </div>
           <div class="row col-12 m-auto text-left ">
-            <div class="input-group col-lg-12 col-md-12 p-0">
-              <input type="text " class="form-control" placeholder="Company">
+            <div class="input-group col-lg-12 col-md-12 p-0" [ngClass]="{
+                'has-error': (contactForm.get('companyName').hasError('required') || contactErrors.companyName) && contactForm.get('companyName').touched
+              }">
+              <input type="text " class="form-control" placeholder="Company" autocomplete="off" formControlName="companyName" required>
             </div>
+            <em class="has-error" *ngIf="contactForm.get('companyName').hasError('required') && contactForm.get('companyName').touched">
+              Company Name is required
+            </em>
           </div>
           <div class="row col-12 m-auto text-left ">
             <label>Team</label>
             <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+              <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" value="1-10" (change)="onItemChange($event.target.value)">
               <label class="custom-control-label" for="customRadioInline1">1-10</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+              <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input" value="10-50" (change)="onItemChange($event.target.value)">
               <label class="custom-control-label" for="customRadioInline2">10-50</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" id="customRadioInline3" name="customRadioInline1" class="custom-control-input">
+              <input type="radio" id="customRadioInline3" name="customRadioInline1" class="custom-control-input" value="50-100" (change)="onItemChange($event.target.value)">
               <label class="custom-control-label" for="customRadioInline3">50-100</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" id="customRadioInline4" name="customRadioInline1" class="custom-control-input">
+              <input type="radio" id="customRadioInline4" name="customRadioInline1" class="custom-control-input" value="100+" (change)="onItemChange($event.target.value)">
               <label class="custom-control-label" for="customRadioInline4">100+</label>
             </div>
           </div>
           <div class="row col-12 m-auto text-left">
             <div class="contact-form-group col-12 p-0">
-              <a href="" class="btn contact-btn"> SUBSCRIBE</a>
+              <button type="submit" class="btn contact-btn" [disabled]="!contactForm.valid">SUBSCRIBE</button>
+<!--              <a href="" class="btn contact-btn"> SUBSCRIBE</a>-->
             </div>
           </div>
         </form>

@@ -8,6 +8,7 @@ declare var $: any;
 })
 export class HomeComponent implements OnInit {
   public banners: any;
+  public cities: any;
   public images: any;
   public step5Second: any = [];
   public studyDiv = false;
@@ -68,6 +69,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getIndex();
+    this.getCities();
   }
 
   getIndex() {
@@ -88,5 +90,21 @@ export class HomeComponent implements OnInit {
         console.log('Do not get URL data');
       }
     });
+  }
+
+  getCities() {
+    this.commonService.getCities(2).subscribe((res) => {
+      try {
+        if(res.status) {
+          this.cities = res.cities;
+        }
+      } catch (e) {
+        console.log('Do not get URL data');
+      }
+    });
+  }
+
+  counter(i: number) {
+    return new Array(i);
   }
 }

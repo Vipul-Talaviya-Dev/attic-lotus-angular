@@ -94,7 +94,7 @@
       </p>
       <div class="row col-md-12"><br>
         <div class="col case-study-div">
-          <h5 class="float-left">They Are Saying..</h5>
+          <h5 class="float-left" style="font-size: 2rem;">They Are Saying..</h5>
           <a href="javascript:void(0);">See all case studies</a>
         </div>
       </div>
@@ -146,7 +146,13 @@
           <p>months we <br/> we are operating</p>
         </div>
       </div>
-      <div class="col-sm-12 col-md-6 col-lg-3 map_items bangalore-map">
+      <div *ngFor="let city of cities;let i = index;" [class]="(i==0) ? 'col-sm-12 col-md-6 col-lg-3 map_items bangalore-map' : 'col-sm-12 col-md-6 col-lg-3 map_items hydrabad-map'">
+        <ul class="nav flex-column">
+          <li class="nav-item" *ngFor="let property of city.properties"><a class="nav-link active" [routerLink]="['/property/'+property.slug]">{{ property.name }}</a></li>
+          <li class="nav-item" *ngFor='let in of counter(((i == 0) ?  9 - city.properties.length : 5 - city.properties.length) ) ;let j = index'><a class="nav-link active" href="javascript:void(0);">&nbsp;</a></li>
+        </ul>
+      </div>
+      <!--<div class="col-sm-12 col-md-6 col-lg-3 map_items bangalore-map">
         <ul class="nav flex-column">
           <li class="nav-item"><a class="nav-link active" href="javascript:void(0);">ATTIC GREENAGE</a></li>
           <li class="nav-item"><a class="nav-link active" href="javascript:void(0);">ATTIC LOTUS</a></li>
@@ -161,13 +167,13 @@
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 map_items hydrabad-map">
         <ul class="nav flex-column">
-          <li class="nav-item"><a class="nav-link active" href="javascript:void(0);">ATTIC GREENAGE</a></li>
-          <li class="nav-item"><a class="nav-link active" href="javascript:void(0);">ATTIC LOTUS</a></li>
-          <li class="nav-item"><a class="nav-link active" href="javascript:void(0);">ATTIC MONETA</a></li>
-          <li class="nav-item"><a class="nav-link active" href="javascript:void(0);">ATTIC VISTARA</a></li>
-          <li class="nav-item"><a class="nav-link active" href="javascript:void(0);">ATTIC ASPIRE</a></li>
+          <li class="nav-item"><a class="nav-link active" routerLink="/property/attic-hitech">Attic Hitech</a></li>
+          <li class="nav-item"><a class="nav-link active" href="javascript:void(0);">&nbsp;</a></li>
+          <li class="nav-item"><a class="nav-link active" href="javascript:void(0);">&nbsp;</a></li>
+          <li class="nav-item"><a class="nav-link active" href="javascript:void(0);">&nbsp;</a></li>
+          <li class="nav-item"><a class="nav-link active" href="javascript:void(0);">&nbsp;</a></li>
         </ul>
-      </div>
+      </div>-->
     </div>
   </div>
 </div>

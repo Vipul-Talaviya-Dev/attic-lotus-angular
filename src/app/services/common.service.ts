@@ -58,10 +58,10 @@ export class CommonService {
     );
   }
 
-  getCities(): Observable<any> {
+  getCities(propertyLimit = 0): Observable<any> {
     this.configService.notifyLoaderEmitter(true);
     let endPoint = environment.api;
-    let apiURL = endPoint + 'cities';
+    let apiURL = endPoint + 'cities?propertyLimit='+propertyLimit;
 
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'

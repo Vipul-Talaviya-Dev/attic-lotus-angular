@@ -25,7 +25,11 @@
                 <span *ngFor="let city of cities;let i = index;">
                   <li>
                     <a [routerLink]="['/'+city.name]">{{ city.name }}</a>
-                  </li><li class="divider" *ngIf="(i == 0) ? true : false"></li>
+                  </li>
+                  <li *ngFor="let property of city.properties">
+                      <a [routerLink]="['/property/'+property.slug]" class="special-link" style="color: #000 !important; font-size: 14px;"> <span *ngIf="(property.isNew) ? true : false" style=" font-size: 14px;">NEW</span> {{ property.name }}</a>
+                  </li>
+                  <li class="divider" *ngIf="(i == 0) ? true : false"></li>
                 </span>
               </ul>
               <!--<ul>

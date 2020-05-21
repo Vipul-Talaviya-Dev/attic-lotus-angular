@@ -820,3 +820,13 @@
 .dropdown-toggle::after {
   display: none;
 }
+.btn.focus, .btn:focus {
+  outline: 0;
+  box-shadow: none !important;
+  /*box-shadow: 0 0 0 0.2rem #00008B;*/
+}
+.question__question {
+  font-size: 2.0rem;
+   width: 200%;
+}
+

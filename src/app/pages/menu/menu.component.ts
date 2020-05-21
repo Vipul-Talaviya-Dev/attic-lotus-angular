@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit {
   }
 
   getCities() {
-    this.commonService.getCities().subscribe((res) => {
+    this.commonService.getCities(2).subscribe((res) => {
       try {
         if(res.status) {
           this.cities = res.cities;

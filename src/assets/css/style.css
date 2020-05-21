@@ -204,10 +204,12 @@ a:hover, a:focus {
 
 .designed_for_you_section h2 {
     font-family: 'GothamProBlack';
+    font-size: 3rem;
 }
 
 .designed_section_list {
-    padding: 40px 0px 0px 260px;
+    padding: 40px 0px 0px 23
+    0px;
 }
 
 .designed_section_list ul li {
