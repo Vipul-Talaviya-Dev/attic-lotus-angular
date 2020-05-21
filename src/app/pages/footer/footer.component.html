@@ -27,11 +27,6 @@
       <div class="col-md-11 col-sm-12 question_screen">
         <h4><img src="assets/images/hello_emogy.png">Book Your Office Space</h4>
         <br/><br/>
-        <!-- <p>1/5</p>
-        <h2>Let’s make the first step! <br/>
-            <input type="text" class="footer-input" placeholder="What's your name?"></h2>
-        <br/><br/>
-        <a href="#" class="next-step"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i>&nbsp; Next Question</a><br /><br /><br /><br /> -->
         <div class="container">
           <div class="row">
             <div class="hidden-lg-down col-xl-1">
@@ -43,27 +38,47 @@
                 <form action="/start" method="post" autocomplete="off">
                   <div id="question-1" class="question__wrapper " data-id="1">
                     <p class="question__title ">Let’s make the first step!</p>
-                    <input id="question__question-1" class="question__question" placeholder="What’s your name?" type="text" name="name">
+                    <input id="question__question-1" class="question__question" placeholder="What’s your name?" type="text" name="name" autocomplete="off">
                   </div>
                   <div id="question-2" class="question__wrapper question__wrapper--inactive" data-id="2">
                     <p class="question__title ">Great to greet you</p>
-                    <input id="question__question-2" class="question__question" placeholder="Are you looking for office space in Bangalore or Hyderabad?" type="text" name="how">
+                    <input id="question__question-2" class="question__question" placeholder="Are you looking for office space in Bangalore or Hyderabad?" type="text" name="how" readonly autocomplete="off">
+                    <span>
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="customRadioInline6" name="customRadioInline6" class="custom-control-input question__question radioBtn cursor-pointer" data-name="Bangalore" value="Bangalore">
+                        <label class="custom-control-label" for="customRadioInline6">&nbsp; Bangalore</label>
+                      </div>
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="customRadioInline7" name="customRadioInline6" class="custom-control-input question__question radioBtn cursor-pointer" data-name="Hyderabad" value="Hyderabad">
+                        <label class="custom-control-label" for="customRadioInline7">&nbsp; Hyderabad</label>
+                      </div>
+                    </span>
                   </div>
                   <div id="question-3" class="question__wrapper question__wrapper--inactive" data-id="3">
                     <p class="question__title ">Sounds like a plan!</p>
-                    <input id="question__question-3" class="question__question" placeholder="What's your budget?" type="text" name="budget">
+                    <input id="question__question-3" class="question__question" placeholder="For how many Members?" type="text" name="budget" autocomplete="off">
                   </div>
                   <div id="question-4" class="question__wrapper question__wrapper--inactive" data-id="4">
                     <p class="question__title ">We got you covered.</p>
-                    <input id="question__question-4" class="question__question" placeholder="Do you prefer a ready-to-move-in space or a made-for-you space?" type="text" name="deadline">
+                    <input id="question__question-4" class="question__question" placeholder="What kind of office space do you prefer?" type="text" name="deadline" readonly autocomplete="off">
+                    <span>
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="customRadioInline9" name="customRadioInline9" class="custom-control-input question__question radioBtn2 cursor-pointer" data-name="Ready to Move in" value="Ready to Move in" >
+                        <label class="custom-control-label" for="customRadioInline9">&nbsp; Ready to Move in</label>
+                      </div>
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="customRadioInline10" name="customRadioInline9" class="custom-control-input question__question radioBtn2 cursor-pointer" data-name="Custom" value="Custom">
+                        <label class="custom-control-label" for="customRadioInline10">&nbsp; Custom</label>
+                      </div>
+                    </span>
                   </div>
                   <div id="question-5" class="question__wrapper question__wrapper--inactive" data-id="5">
-                    <p class="question__title ">When the user selects made-for-you Or ready-to-move-in space.Your Indeed a brilliant choice.</p>
-                    <input id="question__question-5" class="question__question" placeholder="What's your best email?" type="text" name="email">
+                    <p class="question__title ">Indeed A Brilliant Choice.</p>
+                    <input id="question__question-5" class="question__question" placeholder="What's your best email?" type="text" name="email" autocomplete="off">
                   </div>
                   <div id="question-6" class="question__wrapper question__wrapper--inactive" data-id="6">
                     <p class="question__title ">An email is on your way!</p>
-                    <input id="question__question-6" class="question__question" placeholder="Can we also have your phone number?" type="text" name="mobile">
+                    <input id="question__question-6" class="question__question" placeholder="Can we also have your phone number?" type="text" name="mobile" maxlength="10" autocomplete="off">
                   </div>
                   <div id="question-7" class="question__wrapper question__wrapper--inactive" data-id="7">
                     <p class="confirm__title question__title ">we’re glad that you took your first step! Now it’s our time to help you stand out.</p>
@@ -150,27 +165,34 @@
           </ul>
         </div>
         <div class="col-md-3 col-sm-12">
-          <h4>Impact</h4>
+          <h4>IMPACT</h4>
           <ul class="list-unstyled">
             <li><a href="javascript:void(0);">Ideas</a></li>
+            <li><a href="javascript:void(0);">Calculator</a></li>
           </ul>
         </div>
         <div class="col-md-3 col-sm-12">
-          <h4>upcoming locations</h4>
+          <h4>UPCOMING LOCATIONS</h4>
           <form class="footer-form">
-            <div class="form-group">
-              <label class="form-label">Select City</label>
-              <select class="form-control">
+            <label class="form-group has-float-label">
+              <span class="select-input-img">
+                  <svg width="12" height="16" viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 16S0 9.312 0 6a6 6 0 0 1 12 0c0 3.313-6 10-6 10zM6 1a5 5 0 0 0-5 5c0 2.761 5 8.499 5 8.499S11 8.761 11 6a5 5 0 0 0-5-5zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-5a2 2 0 1 0 0 4 2 2 0 0 0 0-4z">
+                  </path>
+                </svg>
+              </span>
+              <select class="form-control " style="color: #495057;">
                 <option>Bengalore</option>
                 <option>Hydrabad</option>
               </select>
-            </div>
+              <span class="selection" style="top: 0;">Select City</span>
+            </label>
             <label class="form-group has-float-label">
-              <input class="form-control" type="email" placeholder="email@example.com" />
+              <input class="form-control" type="email" placeholder="email@example.com"/>
               <span>Email address</span>
             </label>
             <label class="form-group has-float-label">
-              <input class="form-control" type="number" placeholder="1234567890" />
+              <input class="form-control" type="number" placeholder="1234567890"/>
               <span>Phone Number</span>
             </label>
             <button type="submit" class="btn btn-footer-form"> <span><img src="assets/images/notify-me.png" alt=""></span> Notify Me</button>
@@ -302,7 +324,7 @@
               Company Name is required
             </em>
           </div>
-          <div class="row col-12 m-auto text-left ">
+          <div class="row col-12 m-auto text-left teamRadio">
             <label>Team</label>
             <div class="custom-control custom-radio custom-control-inline">
               <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" value="1-10" (change)="onItemChange($event.target.value)">

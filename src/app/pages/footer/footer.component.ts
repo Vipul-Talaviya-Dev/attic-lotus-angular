@@ -149,6 +149,23 @@ export class FooterComponent implements OnInit {
       });
     });
 
+    $(function () {
+      $('input[name="customRadioInline6"]:radio').change(function () {
+        $("#question__question-2").val($("input[name='customRadioInline6']:checked").attr('data-name'));
+      });
+
+      $('input[name="customRadioInline9"]:radio').change(function () {
+        $("#question__question-4").val($("input[name='customRadioInline9']:checked").attr('data-name'));
+      });
+
+      $('#question__question-6, #question__question-3').keypress(function (event) {
+        var keycode = event.which;
+        if (!(event.shiftKey == false && (keycode == 46 || keycode == 8 || keycode == 37 || keycode == 39 || (keycode >= 48 && keycode <= 57)))) {
+          event.preventDefault();
+        }
+      });
+    });
+
     $(document).ready(function() {
       ($(".question__question")[0].value = ""), ($(".question__question")[1].value = ""), ($(".question__question")[2].value = ""), ($(".question__question")[3].value = ""), ($(".question__question")[4].value = ""), ($(".question__question")[5].value = "");
       let e = 1,
@@ -166,7 +183,7 @@ export class FooterComponent implements OnInit {
             ? ($(".question__title").addClass("question__title--inactive "),
               o($("#question__question-5")[0].value)
                 ? o($("#question__question-5")[0].value) && ((t = !1), $(".error__wrapper").css("opacity", "0"))
-                : ($(".error__wrapper").css("opacity", "0.2"), ($(".error__message")[0].innerText = "Don’t be shy, the entered email is incorrect."), (t = !0)))
+                : ($(".error__wrapper").css("opacity", "1"), ($(".error__message")[0].innerText = "Don’t be shy, the entered email is incorrect."), (t = !0)))
             : $(".question__title").removeClass("question__title--inactive "));
         }),
         $(".question__question").focusout(function () {
@@ -204,7 +221,7 @@ export class FooterComponent implements OnInit {
                   let o = $(".question__question")[4].value;
                   let m = $(".question__question")[5].value;
                   (clientNameFinal = clientNameFinal.charAt(0).toUpperCase() + clientNameFinal.slice(1)), ($(".question__title")[6].innerText = clientNameFinal + ", " + $(".question__title")[6].innerText);
-                  let i = "We will contact you via email: " + o + " or mobile: "+ m +" in no time. But if you don’t want to wait for a good things to happen, feel free to call us - let’s have a conversation!";
+                  let i = "We will contact you via email: " + o + " or mobile: "+ m +" in no time. But if you don’t want to wait for a good things to happen, feel free to call us at 080 4717 8622 - let’s have a conversation!";
                   ($(".confirm__p")[0].innerText = i),
                     $("#question-6").addClass("question__wrapper--inactive"),
                     $(".next__wrapper").addClass("next__wrapper--inactive"),
@@ -212,23 +229,24 @@ export class FooterComponent implements OnInit {
                     $("#question-7").removeClass("question__wrapper--inactive");
               }
             else
-              switch (($(".error__wrapper").css("opacity", "0.2"), e)) {
+              switch (($(".error__wrapper").css("opacity", "1"), e)) {
                 case 1:
                   $(".error__message")[0].innerText = "Don’t be shy, tell us your name.";
                   break;
                 case 2:
-                  $(".error__message")[0].innerText = "Don’t be shy, tell us about your project.";
+                  $(".error__message")[0].innerText = "Don't be shy, please type the city name.";
                   break;
                 case 3:
-                  $(".error__message")[0].innerText = "Don’t be shy, please fill the budget field.";
+                  $(".error__message")[0].innerText = "Don't be shy, Please type how big is your team.";
                   break;
                 case 4:
-                  $(".error__message")[0].innerText = "Don’t be shy, please fill the deadline field.";
+                  $(".error__message")[0].innerText = "Don't be shy, please type what kind of office you like.";
                   break;
                 case 5:
-                  $(".error__message")[0].innerText = "Don’t be shy, we need to contact you somehow.";
+                  $(".error__message")[0].innerText = "Don't be shy, Please enter your email id.";
+                  break;
                 case 6:
-                  $(".error__message")[0].innerText = "Don’t be shy, we need to contact you somehow.";
+                  $(".error__message")[0].innerText = "Don't be shy, Please enter your 10 digits mobile number.";
               }
         });
     });

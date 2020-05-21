@@ -14,7 +14,7 @@
 
 .footer-logo {
   margin-left: auto;
-  width: 10%;
+  width: auto;
 }
 
 .quick-links {
@@ -416,10 +416,7 @@
     font-size: 1.5rem !important;
   }
   .question_screen {
-    padding: 0;
-  }
-  .error__message {
-    display: none;
+    padding: 0 !important;
   }
   .header_section {
     padding-right: 16px !important;
@@ -456,7 +453,24 @@
   border: 0;
   background-color: transparent;
 }
-
+.select-input-img {
+  position: relative !important;
+  left: 15px !important;
+  top: 20px !important;
+  height: 24px !important;
+}
+.footer-form .form-group select {
+  padding-left: 40px;
+}
+.footer-form .form-group select::before {
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 0;
+  height: 20px;
+  width: 20px;
+  background: #000;
+}
 .next-step {
   color: #FFF;
   border-radius: 3px;
@@ -763,7 +777,7 @@
 .custom-control-label {
   margin-bottom: 0;
 }
-.custom-radio .custom-control-label::before {
+.teamRadio .custom-radio .custom-control-label::before {
   width: 100%;
   height: 40px;
   border: 1px solid;

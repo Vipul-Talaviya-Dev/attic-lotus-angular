@@ -1332,7 +1332,7 @@ input:required {
     }
     .question__question,
     h2 {
-        font-size: 1.5rem
+        font-size: 1.5rem !important;
     }
     p {
         letter-spacing: 1.8px;
@@ -1479,7 +1479,8 @@ input:required {
     }
     .question__question {
         margin-top: 2rem;
-        margin-left: -5px
+        margin-left: -5px;
+        width: auto !important;
     }
     .next__wrapper {
         margin-top: 4rem

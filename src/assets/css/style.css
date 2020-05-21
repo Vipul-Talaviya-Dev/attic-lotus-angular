@@ -979,3 +979,6 @@ a:hover, a:focus {
   border: 1px solid #f3f3f3;
   border-top: 3px solid #ffd500;
 }
+.cursor-pointer {
+  cursor: pointer;
+}
