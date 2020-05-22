@@ -93,8 +93,10 @@
         <img *ngFor="let image of images" [src]="image" alt="client" class="img img-fluid">
       </p>
       <div class="row col-md-12"><br>
-        <div class="col case-study-div">
-          <h5 class="float-left" style="font-size: 2rem;">They Are Saying..</h5>
+        <div class="col-sm-6 col-lg-6">
+          <h1 class="float-left">They Are Saying..</h1>
+        </div>
+        <div class="col case-study-div col-sm-6 col-lg-6">
           <a href="javascript:void(0);">See all case studies</a>
         </div>
       </div>
@@ -149,7 +151,7 @@
       <div *ngFor="let city of cities;let i = index;" [class]="(i==0) ? 'col-sm-12 col-md-6 col-lg-3 map_items bangalore-map' : 'col-sm-12 col-md-6 col-lg-3 map_items hydrabad-map'">
         <ul class="nav flex-column">
           <li class="nav-item" *ngFor="let property of city.properties"><a class="nav-link active" [routerLink]="['/property/'+property.slug]">{{ property.name }}</a></li>
-          <li class="nav-item" *ngFor='let in of counter(((i == 0) ?  9 - city.properties.length : 5 - city.properties.length) ) ;let j = index'><a class="nav-link active" href="javascript:void(0);">&nbsp;</a></li>
+          <li style="list-style: none;" class="nav-item" *ngFor='let in of counter(((i == 0) ?  9 - city.properties.length : 5 - city.properties.length) ) ;let j = index'><a class="nav-link active" href="javascript:void(0);">&nbsp;</a></li>
         </ul>
       </div>
       <!--<div class="col-sm-12 col-md-6 col-lg-3 map_items bangalore-map">

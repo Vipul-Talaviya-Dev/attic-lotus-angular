@@ -141,17 +141,20 @@ a:hover, a:focus {
 
 .slider_section .slider-info h1 {
     font-size: 45px;
-    font-family: 'ApercuBold';
+    font-family: 'ApercuProRegular';
+    /*font-family: 'ApercuBold';*/
 }
 
 .slider-image {
-    height: 80vh;
+  height: 65vh;
+    /*height: 80vh;*/
     background-size: cover;
 }
 
 .slider_section .slider-info p {
     font-style: italic;
     font-size: 50px;
+    /*font-family: 'GothamProBold';*/
     font-family: 'Times New Roman', Times, serif;
 }
 
@@ -162,7 +165,8 @@ a:hover, a:focus {
     font-size: 20px;
     width: 235px;
     padding: 10px;
-    font-family: 'ApercuBold';
+    font-family: 'ApercuProRegular';
+    /*font-family: 'ApercuBold';*/
     background-image: url('../images/slider_btn.png');
 }
 
@@ -172,6 +176,7 @@ a:hover, a:focus {
 
 .features_section {
     padding: 40px;
+    font-family: 'ApercuProRegular';
 }
 
 .features_section .feature-box h3 {
@@ -189,8 +194,9 @@ a:hover, a:focus {
 }
 
 .clients_section h1 {
-    font-family: 'GothamProBlack';
-    font-size: 42px;
+    font-family: 'ApercuProRegular';
+    /*font-family: 'GothamProBlack';*/
+    /*font-size: 42px;*/
 }
 
 .clients_section h1 span {
@@ -203,19 +209,21 @@ a:hover, a:focus {
 }
 
 .designed_for_you_section h2 {
-    font-family: 'GothamProBlack';
-    font-size: 3rem;
+    /*font-family: 'GothamProBlack';*/
+    /*font-size: 3rem;*/
+    font-family: 'ApercuProRegular';
+    font-size: 42px;
 }
 
 .designed_section_list {
-    padding: 40px 0px 0px 23
-    0px;
+    padding: 40px 0px 0px 230px;
 }
 
 .designed_section_list ul li {
     font-size: 20px;
     padding: 5px;
-    font-family: 'GothamProRegular';
+    /*font-family: 'GothamProRegular';*/
+    font-family: 'ApercuProRegular';
     color: #808080;
 }
 
@@ -279,6 +287,7 @@ a:hover, a:focus {
 
 .case-study-div {
     text-align: right;
+    font-family: 'ApercuProRegular';
 }
 
 .clients_logos {
@@ -317,7 +326,7 @@ a:hover, a:focus {
 .case_study_section h3 {
     font-size: 35px;
     color: #000;
-    font-family: 'GothamBlack';
+    font-family: 'ApercuProRegular';
 }
 
 .big-case-study h3 {
@@ -326,17 +335,20 @@ a:hover, a:focus {
     padding-right: 40px;
     padding-left: 0px;
     line-height: 1.5;
-    font-family: 'GothamProBlack';
+    /*font-family: 'GothamProBlack';*/
+  font-family: 'ApercuProRegular';
 }
 
 .case_study_section a {
     color: #1a73e8;
+    /*font-family: 'ApercuProRegular';*/
     font-family: 'ApercuProRegular';
     padding: 10px 0px;
 }
 
 .case_study_section p {
-    font-family: 'GothamNarrowBlack';
+    /*font-family: 'GothamNarrowBlack';*/
+    font-family: 'ApercuProRegular';
 }
 
 .case_study_box {
@@ -363,7 +375,8 @@ a:hover, a:focus {
     font-size: 18px;
     padding: 10px 0px;
     color: #000;
-    font-family: 'GothamProRegular';
+    /*font-family: 'GothamProRegular';*/
+    font-family: 'ApercuProRegular';
     margin-top: 15px;
 }
 
@@ -411,6 +424,7 @@ a:hover, a:focus {
     font-size: 12px;
     font-family: 'GothamProRegular';
     color: #000;
+  font-family: 'ApercuProRegular';
 }
 
 .map_items ul li {
@@ -451,12 +465,14 @@ a:hover, a:focus {
 
 .feature-left a {
     color: #1a73e8;
-    font-family: 'GothamProRegular';
+    /*font-family: 'GothamProRegular';*/
+    font-family: 'ApercuProRegular';
 }
 
 .more-features .headings {
     padding: 10px 0px;
-    font-family: 'GothamProBold';
+    /*font-family: 'GothamProBold';*/
+  font-family: 'ApercuProRegular';
 }
 
 .more-features .heading-right h2 {
@@ -464,7 +480,8 @@ a:hover, a:focus {
     color: #4d4d4d;
     font-size: 23px;
     font-weight: bolder;
-    font-family: 'ApercuBold';
+    /*font-family: 'ApercuBold';*/
+    font-family: 'ApercuProRegular';
 }
 
 .move-in-desc {
@@ -472,11 +489,13 @@ a:hover, a:focus {
     color: #666;
     font-weight: 400;
     font-size: 23px;
-    font-family: 'GothamProRegular';
+    /*font-family: 'GothamProRegular';*/
+    font-family: 'ApercuProRegular';
 }
 
 .move-in-process {
-    font-family: 'GothamProRegular';
+    /*font-family: 'GothamProRegular';*/
+    font-family: 'ApercuProRegular';
     color: #1a73e8
 }
 
@@ -538,21 +557,16 @@ a:hover, a:focus {
 .social-icons .fab:hover {
   color: var(--primary);
 }
-
-.quick-links {
-  display: flex;
-}
-
-.quick-links h4 {
+/*.quick-links h4 {
   padding-bottom: 20px;
 }
 
 .quick-links ul li a {
   color: #979797;
   line-height: 2rem;
-}
+}*/
 
-.footer_section {
+/*.footer_section {
     padding: 30px;
     background-color: #1a73e8;
     color: #fff;
@@ -568,7 +582,8 @@ a:hover, a:focus {
     position: absolute;
     top: 34%;
     transform: rotate(-90deg);
-    font-family: 'ApercuProRegular';
+    font-family: 'GothamProBlack';
+    !*font-family: 'ApercuProRegular';*!
 }
 
 .question_screen {
@@ -583,12 +598,14 @@ a:hover, a:focus {
 }
 
 .footer_section h2 {
-    font-family: 'ApercuProBold';
+  font-family: 'GothamProBlack';
+    !*font-family: 'ApercuProBold';*!
 }
 
 .footer_section h4 {
-    font-family: 'ApercuBold';
-}
+  font-family: 'GothamProBlack';
+    !*font-family: 'ApercuBold';*!
+}*/
 
 .footer-input,
 .footer-input:focus,
@@ -660,7 +677,8 @@ a:hover, a:focus {
 }
 
 .case-study-div a {
-    font-family: 'GothamProBold';
+    /*font-family: 'GothamProBold';*/
+  font-family: 'ApercuProRegular';
     text-decoration: underline;
 }
 
@@ -669,11 +687,13 @@ a:hover, a:focus {
 
 .secheading {
     margin: 30px 0px;
-    font-family: 'ApercuProBold';
+    /*font-family: 'ApercuProBold';*/
+  font-family: 'ApercuProRegular';
 }
 
 .underline-title {
-    font-family: 'ApercuBold' !important;
+    /*font-family: 'ApercuBold' !important;*/
+    font-family: 'ApercuProRegular';
     font-weight: 900;
     font-size: 2rem;
     padding-bottom: 5px;
@@ -981,4 +1001,8 @@ a:hover, a:focus {
 }
 .cursor-pointer {
   cursor: pointer;
+}
+.page-content {
+  font-family: 'ApercuProRegular';
+  overflow: hidden;
 }
