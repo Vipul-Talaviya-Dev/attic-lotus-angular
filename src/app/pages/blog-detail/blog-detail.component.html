@@ -1,5 +1,5 @@
 <app-menu></app-menu>
-<div class="page-content" style="padding: 0px;margin: 0;">
+<div class="page-content" style="padding: 0px;margin-top: 25px;">
   <!-- Slider section start here -->
   <div class="container">
     <div class="row">
@@ -36,10 +36,10 @@
         <div class="search-section">
           <div class="row">
             <ul class="list-unstyled d-inline-flex" id="one-pagenav">
-              <li><a class="active" href="#growth-innovation"> Growth & innovation </a></li>
-              <li><a href="#officedesign"> Office design & space</a></li>
+              <li *ngFor="let category of blog.categories;"><a href="javascript:void(0);" [class]="(blog.category_id == category.id) ? 'active' : ''"> {{ category.name }} </a></li>
+              <!--<li><a href="#officedesign"> Office design & space</a></li>
               <li><a href="#cityguides"> City guides</a></li>
-              <li><a href="#worklife"> Work life</a></li>
+              <li><a href="#worklife"> Work life</a></li>-->
             </ul>
           </div>
           <div class="row">
@@ -52,37 +52,26 @@
           </div>
           <div class="row">
             <div class="blog-image-container">
-              <h2>WeWork Labs Members Working To Fight The Coronavirus</h2>
-              <p> From Singapore to Portland, Oregon, meet startups tackling challenges stemming from the new virus</p>
-              <img src="assets/images/search-img.png" alt="img">
+              <h2>{{ blog.title }}</h2>
+              <p>{{ blog.sub_title }}</p>
+              <img [src]="blog.image" alt="">
+<!--              <img src="assets/images/search-img.png" alt="img">-->
             </div>
-            <div class="blog-content">
-              <p>The novel coronavirus (COVID-19) has taken 2020 by surprise and has changed the way organizations are thinking about the way we work. With the <span style="color: var(--primary);"> coronavirus spreading</span> to more
-                cities, global businesses are adapting to working from home and managing teams working across multiple locations.
-              </p>
-              <p> While this has caused certain inconveniences, every set of constraints present opportunities. <span style="color: var(--primary);">WeWork Labs,</span> a global community of startups, is in a unique position at the forefront
-                of <span style="color: var(--primary);">innovation.</span> Here are some of theamazing startups in our Labs network that are working on ideas to help tackle COVID-19 and make life easier for many around the world
-                now working from home.</p>
-            </div>
-            <div class="blog-content">
-              <h2>A Privacy-First Collaboration Tool</h2>
-              <p> Singapore <span style="color: var(--primary);">City House</span> member <span style="color: var(--primary);">Beowulf’s Quickcom</span> decentralized cloud network allows customers and teammates to call each other directly
-                by scanning a QR code using the built-in camera on their smartphone. Such QR codes can replace the regular phone number for complete privacy control. As more teams begin<span style="color: var(--primary);"> working remotely,</span>                                        this tool allows them to join group meetings in a snap.</p>
-            </div>
+            <span [innerHTML]="blog.description"></span>
             <div class="author-section">
               <div class="author-id">
-                <h6 class="author-name">Adrian Tan</h6>
-                <p class="position">Head of Labs, Pacific</p>
-                <p class="date"> March 16, 2020</p>
-                <div class="social-icons ">
-                  <a title="Share article on Facebook" href="#"><i class="fab fa-facebook-f"></i></a>
-                  <a title="Share article on Twitter" href="#"><i class="fab fa-twitter"></i></a>
-                  <a title="Share article on Instagram" href="#"><i class="fab fa-instagram"></i></a>
-                  <a title="Share article on Linked-In" href="#"><i class="fab fa-linkedin-in"></i></a>
+                <h6 class="author-name">{{ blog.name }}</h6>
+                <p class="position">{{ blog.designation }}</p>
+                <p class="date"> {{ blog.date }}</p>
+                <div class="social-icons">
+                  <a title="Share article on Facebook" href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a>
+                  <a title="Share article on Twitter" href="javascript:void(0);"><i class="fab fa-twitter"></i></a>
+                  <a title="Share article on Instagram" href="javascript:void(0);"><i class="fab fa-instagram"></i></a>
+                  <a title="Share article on Linked-In" href="javascript:void(0);"><i class="fab fa-linkedin-in"></i></a>
                 </div>
               </div>
               <div class="author-message">
-                <p class="quote">Adrian Tan is head of WeWork Labs, Pacific, based in Singapore, helping startups expand in Southeast Asia, South Korea, and Australia.</p>
+                <p class="quote">{{ blog.writer_description }}</p>
               </div>
             </div>
           </div>
@@ -95,26 +84,12 @@
     <div class="row">
       <div class="container">
         <h2>Related Articles</h2>
-        <div class="article-container">
-          <div class="article article-left col-md-4 col-sm-12">
-            <div class="article-img one"></div>
+        <div class="article-container" style="margin-left: -15px;">
+          <div class="article col-md-4 col-sm-12 cursor-pointer" *ngFor="let releventBlog of blog.relevents;" [routerLink]="['/blog/'+ releventBlog.slug]">
+            <div class="article-img" [style.backgroundImage]="'url('+ releventBlog.image +')'"></div>
             <div class="article-details">
-              <h4 class="article-title">Companies rally around Australian bushfire relief efforts</h4>
-              <p class="article-description">From crafting pouches for orphaned kangaroos to funding a koala hospital, WeWork members do what they can to help</p>
-            </div>
-          </div>
-          <div class="article col-md-4 col-sm-12">
-            <div class="article-img two"></div>
-            <div class="article-details">
-              <h4 class="article-title">Companies rally around Australian bushfire relief efforts</h4>
-              <p class="article-description">From crafting pouches for orphaned kangaroos to funding a koala hospital, WeWork members do what they can to help</p>
-            </div>
-          </div>
-          <div class="article article-right col-md-4 col-sm-12">
-            <div class="article-img three"></div>
-            <div class="article-details">
-              <h4 class="article-title">Companies rally around Australian bushfire relief efforts</h4>
-              <p class="article-description">From crafting pouches for orphaned kangaroos to funding a koala hospital, WeWork members do what they can to help</p>
+              <h4 class="article-title">{{ releventBlog.title }}</h4>
+              <p class="article-description">{{ releventBlog.sub_title }}</p>
             </div>
           </div>
         </div>

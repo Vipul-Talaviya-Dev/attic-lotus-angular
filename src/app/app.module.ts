@@ -28,6 +28,8 @@ import {MapViewComponent} from './pages/map-view/map-view.component';
 import {BlogComponent} from './pages/blog/blog.component';
 import {SupportComponent} from './pages/support/support.component';
 import {BlogDetailComponent} from './pages/blog-detail/blog-detail.component';
+import {FooterSearchService} from './services/footer-search.service';
+import {BlogDetailResolve} from './resolve/blog-detail.resolve';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -68,8 +70,10 @@ const APP_PROVIDERS = [
     ThemePreloader,
     ThemeSpinner,
     PropertyResolve,
+    BlogDetailResolve,
     SearchResolve,
     CommonService,
+    FooterSearchService,
     APP_PROVIDERS
   ],
   bootstrap: [AppComponent]

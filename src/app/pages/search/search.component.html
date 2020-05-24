@@ -77,7 +77,7 @@
               </div>
               <div class="content_wrapper" style="cursor: pointer;" [routerLink]="['/property/'+ property.slug]">
                 <h3>{{ property.name }}</h3>
-                <address>{{ property.city }}, <br> {{ property.privateDescription }}</address>
+                <address>{{ property.city }}</address>
               </div>
             </div>
           </div>
@@ -96,7 +96,7 @@
               </div>
               <div class="content_wrapper" style="cursor: pointer;" [routerLink]="['/property/'+ twoSlider.slug]">
                 <h3>{{ twoSlider.name }}</h3>
-                <address>{{ twoSlider.city }}, <br> {{ twoSlider.privateDescription }}</address>
+                <address>{{ twoSlider.city }}</address>
               </div>
             </div>
           </div>
@@ -116,7 +116,7 @@
               </div>
               <div class="content_wrapper" style="cursor: pointer;" [routerLink]="['/property/'+ threeSlider.slug]">
                 <h3>{{ threeSlider.name }}</h3>
-                <address>{{ threeSlider.city }}, <br> {{ threeSlider.privateDescription }}</address>
+                <address>{{ threeSlider.city }}</address>
               </div>
             </div>
           </div>
@@ -136,7 +136,7 @@
               </div>
               <div class="content_wrapper" style="cursor: pointer;" [routerLink]="['/property/'+ fourSlider.slug]">
                 <h3>{{ fourSlider.name }}</h3>
-                <address>{{ fourSlider.city }}, <br> {{ fourSlider.privateDescription }}</address>
+                <address>{{ fourSlider.city }}</address>
               </div>
             </div>
           </div>
@@ -159,16 +159,16 @@
           <a class="nav-link active text-uppercase" id="location-tab" data-toggle="tab" href="#location" role="tab" aria-controls="location" aria-selected="true"><img class="m-3" src="assets/images/location.png" alt="location"> location</a>
         </li>
         <li class="nav-item requirement col-md-2 col-sm-12">
-          <a class="nav-link text-uppercase" id="Renovation-tab" data-toggle="tab" href="#Renovation" role="tab" aria-controls="Renovation" aria-selected="false"><img class="m-3" src="assets/images/renovation.png" alt="Renovation"> Renovation</a>
+          <a class="nav-link text-uppercase" id="Renovation-tab" data-toggle="tab" href="#Renovation" role="tab" aria-controls="Renovation" aria-selected="false"><img class="m-3" src="assets/images/renovation.png" alt="Interior design and decor"> Interior design and decor</a>
         </li>
         <li class="nav-item requirement col-md-2 col-sm-12">
-          <a class="nav-link text-uppercase" id="Communiation_Network-tab" data-toggle="tab" href="#Communiation_Network" role="tab" aria-controls="Communiation_Network" aria-selected="false"><img class="m-3" src="assets/images/communication.png" alt="Communiation_Network"> Communication Network</a>
+          <a class="nav-link text-uppercase" id="Communiation_Network-tab" data-toggle="tab" href="#Communiation_Network" role="tab" aria-controls="Communiation_Network" aria-selected="false"><img class="m-3" src="assets/images/communication.png" alt="Legal"> Legal</a>
         </li>
         <li class="nav-item requirement col-md-2 col-sm-12">
           <a class="nav-link text-uppercase" id="Access_Control-tab" data-toggle="tab" href="#Access_Control" role="tab" aria-controls="Access_Control" aria-selected="true"><img class="m-3" src="assets/images/access-control.png" alt="Access_Control"> Access Control</a>
         </li>
         <li class="nav-item requirement col-md-2 col-sm-12">
-          <a class="nav-link text-uppercase" id="Support_Stuff-tab" data-toggle="tab" href="#Support_Stuff" role="tab" aria-controls="Support_Stuff" aria-selected="false"><img class="m-3" src="assets/images/support_stuff.png" alt="Support_Stuff"> Renovation</a>
+          <a class="nav-link text-uppercase" id="Support_Stuff-tab" data-toggle="tab" href="#Support_Stuff" role="tab" aria-controls="Support_Stuff" aria-selected="false"><img class="m-3" src="assets/images/support_stuff.png" alt="Support_Stuff"> Support Stuff </a>
         </li>
         <li class="nav-item requirement col-md-2 col-sm-12">
           <a class="nav-link text-uppercase" id="Maintenance_Work-tab" data-toggle="tab" href="#Maintenance_Work" role="tab" aria-controls="Maintenance_Work" aria-selected="false"><img class="m-3" src="assets/images/all_maintenance.png" alt="All Maintenance_Work"> Maintenance Work</a>
@@ -280,23 +280,32 @@
   </div>
 </div>
 <div class="testimonial_section tb-space">
-  <div class="container">
+  <div class="container carousel slide" id="testimonial" data-ride="carousel">
+    <ul class="carousel-indicators">
+      <li data-target="#testimonial" data-slide-to="0" class="active"></li>
+<!--      <li data-target="#testimonial" data-slide-to="1"></li>-->
+    </ul>
     <h2 class="testimonial-title">Let see what our clients are saying.</h2>
-    <div class="col-12 d-inline-flex mt-5">
+    <div class="carousel-inner">
+      <div *ngFor="let testimonial of testimonials;let i = index;" [class]="(i == 0) ? 'carousel-item active' : 'carousel-item'">
+        <div class="col-12 d-inline-flex mt-5">
       <div class="testimonial-content corners col-md-6 col-sm-12 text-center">
         <div class="top left"></div>
         <div class="top right"></div>
         <div class="bottom right"></div>
         <div class="bottom left"></div>
-        <img src="assets/images/one-kings-lane.png" alt="Zoho Invoice">
-        <p class="quote">“Desk.Com helps us offer customer service that’s as special as the items we sell.”</p>
-        <h6 class="client_name">ALEXIS CHAPMAN, DIRECTOR - CUSTOMER OPERATIONS</h6>
-        <p>Industry Retail</p>
+        <img [src]="testimonial.logo" >
+        <p class="quote">{{ testimonial.title }}</p>
+        <h6 class="client_name">{{ testimonial.sub_title }}</h6>
+        <p>{{ testimonial.third_title }}</p>
       </div>
       <div class="testimonial-image col-md-6 col-sm-12 text-center">
-        <img src="assets/images/client_image.png" alt="Zoho Invoice">
+        <img [src]="testimonial.image">
       </div>
     </div>
+      </div>
+    </div>
+
   </div>
 </div>
 <app-footer></app-footer>

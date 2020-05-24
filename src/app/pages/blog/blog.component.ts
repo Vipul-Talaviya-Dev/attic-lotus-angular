@@ -11,22 +11,14 @@ declare var $: any;
   styleUrls: ['./blog.component.css']
 })
 export class BlogComponent implements OnInit {
-  public officeContact =  {
-    officeMobile: '',
-    officeEmail: '',
-    jobMobile: '',
-    jobEmail: '',
-    address: ''
-  };
+  public categories: any;
+  public blogs: any;
   public form: FormGroup;
   public submitted: boolean = false;
   public errors = {
     name: false,
     email: false,
     phone: false,
-    companyName: false,
-    companySize: false,
-    message: false,
   };
 
   constructor(
@@ -47,9 +39,6 @@ export class BlogComponent implements OnInit {
         ]
       ],
       'phone': ['', [Validators.required]],
-      'companyName': ['', [Validators.required]],
-      'companySize': ['', [Validators.required]],
-      'message': ['', [Validators.required]],
     });
 
     this.jsData();
@@ -60,10 +49,11 @@ export class BlogComponent implements OnInit {
   }
 
   getOfficeContact() {
-    this.commonService.getOfficeContact().subscribe((res) => {
+    this.commonService.getBlogs().subscribe((res) => {
       try {
         if(res.status) {
-          this.officeContact = res.officeContact;
+          this.categories = res.blogCategories;
+          this.blogs = res.blogs;
         }
       } catch (e) {
         console.log('Do not get URL data');
@@ -94,26 +84,15 @@ export class BlogComponent implements OnInit {
       });
 
       // Add smooth scrolling on all links inside the navbar
-      $("#one-pagenav a").on('click', function(event) {
-        // Make sure this.hash has a value before overriding default behavior
-        if (this.hash !== "") {
-          // Prevent default anchor click behavior
-          event.preventDefault();
-
-          // Store hash
-          var hash = this.hash;
+      $("body").on('click', '.blogSlug', function() {
+        let slug = $(this).attr('data-name');
+        if (slug !== "") {
+          var hash = slug;
           var navOffset = $('.header_section nav').height();
-
-
-          // Using jQuery's animate() method to add smooth page scroll
-          // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
           $('html, body').animate({
-            scrollTop: $(hash).offset().top - navOffset
+            scrollTop: $('#'+hash).offset().top - navOffset
           }, 500, function() {
-
-            // Add hash (#) to URL when done scrolling (default click behavior)
             window.location.hash = hash;
-
           });
         } // End if
       });

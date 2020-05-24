@@ -201,7 +201,7 @@ a:hover, a:focus {
 
 .clients_section h1 span {
     color: #1a73e8;
-    font-size: 42px;
+    /*font-size: 42px;*/
 }
 
 .clients_logos img {
@@ -982,7 +982,7 @@ a:hover, a:focus {
   z-index: 5;
 }
 .has-error {
-  color: red;
+  color: #00008b;
 }
 .btn.focus, .btn:focus {
   outline: 0;
@@ -1006,3 +1006,18 @@ a:hover, a:focus {
   font-family: 'ApercuProRegular';
   overflow: hidden;
 }
+/* Blog Detail*/
+.blog-content {
+  font-family: 'ApercuProMedium';
+  color: #939393;
+  padding-top: 50px;
+}
+
+.blog-content h2 {
+  color: #121212;
+}
+
+.blog-content p {
+  line-height: 2rem;
+}
+

@@ -3,6 +3,7 @@ import {CommonService} from '../../services/common.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
+import {FooterSearchService} from '../../services/footer-search.service';
 declare var $: any;
 
 @Component({
@@ -14,6 +15,7 @@ export class FooterComponent implements OnInit {
   year: number = new Date().getFullYear();
   public questions: any;
   public normals: any;
+  public searchProperties: any;
   public total = 0;
   public officeContact =  {
     officeMobile: '',
@@ -26,6 +28,7 @@ export class FooterComponent implements OnInit {
   public contactFormDivMessage = false;
   public normalsDiv = false;
   public contactFormDiv = true;
+  public contactMessage = '';
   public submitted: boolean = false;
   public contactErrors = {
     name: false,
@@ -38,6 +41,7 @@ export class FooterComponent implements OnInit {
 
   constructor(
     private commonService: CommonService,
+    private footerSearch: FooterSearchService,
     private fb: FormBuilder,
     private router: Router,
     private toaster: ToastrService,
@@ -102,8 +106,9 @@ export class FooterComponent implements OnInit {
       this.commonService.contact(this.contactForm.value).subscribe((res) => {
         if (res.status === true) {
           this.contactForm.reset();
-          this.contactFormDivMessage = true;
+          this.contactMessage = res.message;
           this.contactFormDiv = false;
+          this.contactFormDivMessage = true;
         } else {
           this.toaster.error(res.message, 'Error !!!');
         }
@@ -111,9 +116,20 @@ export class FooterComponent implements OnInit {
     }
   }
 
+  public searchProperty(name) {
+    this.searchProperties = [];
+    if(name.length > 3) {
+      this.footerSearch.getProperties(name).subscribe((res) => {
+        if (res.status === true) {
+          this.searchProperties = res.properties;
+        }
+      });
+    }
+  }
   onItemChange(value) {
     this.contactForm.patchValue({'companySize': value});
   }
+
   jsData() {
     $(document).ready(function() {
       $(".menu-icon").on("click", function() {

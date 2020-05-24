@@ -20,15 +20,15 @@
             <div class="map-location-container row col-12 p-0">
               <!-- location list item 1 -->
               <div class="map-locations row col-12" *ngFor="let property of properties;">
-                <div class="image-section p-0">
+                <div class="image-section p-0 cursor-pointer" [routerLink]="['/property/'+ property.slug]">
                   <img class="w-100" [src]="property.image" alt="map goes here" style="height: 175px;">
                 </div>
                 <div class="detail-section">
-                  <h6>{{ property.name }}</h6>
-                  <p>{{ property.address }}</p>
+                  <h6 class="cursor-pointer" [routerLink]="['/property/'+ property.slug]">{{ property.name }}</h6>
+                  <p >{{ property.address }}</p>
                   <p class="m-0"> <span class="statistic">{{ property.square_feet }}</span> SFT</p>
-                  <p> <span class="statistic"></span> {{ property.privateDescription }}</p>
-                  <a [routerLink]="['/property/'+ property.slug]">READY TO MOVE IN</a>
+                  <!--<p> <span class="statistic"></span> {{ property.privateDescription }}</p>-->
+                  <!--<a [routerLink]="['/property/'+ property.slug]">READY TO MOVE IN</a>-->
                 </div>
                 <div class="button-section">
                   <a style="cursor: pointer;color: #1a73e8;" (click)="mapMoveDevice(property);"><img src="assets/images/pin-icn.png" alt="View"> VIEW</a>

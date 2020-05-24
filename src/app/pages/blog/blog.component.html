@@ -37,10 +37,10 @@
         <div class="search-section">
           <div class="row">
             <ul class="list-unstyled d-inline-flex" id="one-pagenav">
-              <li><a href="#growth-innovation"> Growth & innovation </a></li>
-              <li><a href="#officedesign"> Office design & space</a></li>
+              <li *ngFor="let category of categories;"><a href="javascript:void(0);" class="blogSlug" [attr.data-name]="category.slug"> {{ category.name }} </a></li>
+              <!--<li><a href="#officedesign"> Office design & space</a></li>
               <li><a href="#cityguides"> City guides</a></li>
-              <li><a href="#worklife"> Work life</a></li>
+              <li><a href="#worklife"> Work life</a></li>-->
             </ul>
           </div>
           <div class="row">
@@ -51,7 +51,7 @@
               </div>
             </div>
           </div>
-          <div class="row" routerLink="/blog-detail" style="cursor: pointer;">
+          <div class="row">
             <div class="image-container">
               <img src="assets/images/search-img.png" alt="img">
               <h4 class="img-title">WeWork Labs members working to fight the coronavirus
@@ -59,113 +59,20 @@
             </div>
           </div>
         </div>
-        <div id="growth-innovation" class="growth-section">
+        <div *ngFor="let blogCategoroy of blogs;" [attr.id]="blogCategoroy.slug" class="growth-section">
           <div class="row">
-            <h2>Growth & Innovation</h2>
+            <h2>{{ blogCategoroy.name }}</h2>
           </div>
-          <div class="row">
+          <!--<div class="row">
             <p>Growing your business takes new ideas, the right talent, and so much more.</p>
-          </div>
+          </div>-->
           <div class="row">
-            <div class="blog col-lg-6 col-md-6 col-sm-12 pl-0">
+            <div class="blog col-lg-6 col-md-6 col-sm-12 pl-0 cursor-pointer" *ngFor="let blog of blogCategoroy.blogs;" [routerLink]="['/blog/'+ blog.slug]">
               <div class="blog-container">
-                <img src="assets/images/blog-img-1.png" alt="img">
+                <img [src]="blog.image" alt="img">
                 <div class="blog-content-wrapper">
-                  <h5>10 best videoconferencing software for remote teams</h5>
-                  <p>We review the most popular solutions so that you can jump straight into working</p>
-                </div>
-              </div>
-            </div>
-            <div class="blog col-lg-6 col-md-6 col-sm-12 pl-0">
-              <div class="blog-container">
-                <img src="assets/images/blog-img-2.png" alt="img">
-                <div class="blog-content-wrapper">
-                  <h5>How to host a virtual conference while social distancing</h5>
-                  <p>Holding a virtual conference now supports your industry and creates re actionships that can outlast a crisis</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="officedesign" class="growth-section">
-          <div class="row">
-            <h2>Office design & space</h2>
-          </div>
-          <div class="row">
-            <p>International design can inspire, foster community, and drive productivity.</p>
-          </div>
-          <div class="row">
-            <div class="blog col-lg-6 col-md-6 col-sm-12 pl-0">
-              <div class="blog-container">
-                <img src="assets/images/blog-img-1.png" alt="img">
-                <div class="blog-content-wrapper">
-                  <h5>10 best videoconferencing software for remote teams</h5>
-                  <p>We review the most popular solutions so that you can jump straight into working</p>
-                </div>
-              </div>
-            </div>
-            <div class="blog col-lg-6 col-md-6 col-sm-12 pl-0">
-              <div class="blog-container">
-                <img src="assets/images/blog-img-2.png" alt="img">
-                <div class="blog-content-wrapper">
-                  <h5>How to host a virtual conference while social distancing</h5>
-                  <p>Holding a virtual conference now supports your industry and creates re actionships that can outlast a crisis</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="cityguides" class="growth-section">
-          <div class="row">
-            <h2>City guides</h2>
-          </div>
-          <div class="row">
-            <p>Growing your business takes new ideas, the right talent, and so much more.</p>
-          </div>
-          <div class="row">
-            <div class="blog col-lg-6 col-md-6 col-sm-12 pl-0">
-              <div class="blog-container">
-                <img src="assets/images/blog-img-1.png" alt="img">
-                <div class="blog-content-wrapper">
-                  <h5>10 best videoconferencing software for remote teams</h5>
-                  <p>We review the most popular solutions so that you can jump straight into working</p>
-                </div>
-              </div>
-            </div>
-            <div class="blog col-lg-6 col-md-6 col-sm-12 pl-0">
-              <div class="blog-container">
-                <img src="assets/images/blog-img-2.png" alt="img">
-                <div class="blog-content-wrapper">
-                  <h5>How to host a virtual conference while social distancing</h5>
-                  <p>Holding a virtual conference now supports your industry and creates re actionships that can outlast a crisis</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="worklife" class="growth-section">
-          <div class="row">
-            <h2>Work Life</h2>
-          </div>
-          <div class="row">
-            <p>International design can inspire, foster community, and drive productivity.</p>
-          </div>
-          <div class="row">
-            <div class="blog col-lg-6 col-md-6 col-sm-12 pl-0">
-              <div class="blog-container">
-                <img src="assets/images/blog-img-1.png" alt="img">
-                <div class="blog-content-wrapper">
-                  <h5>10 best videoconferencing software for remote teams</h5>
-                  <p>We review the most popular solutions so that you can jump straight into working</p>
-                </div>
-              </div>
-            </div>
-            <div class="blog col-lg-6 col-md-6 col-sm-12 pl-0">
-              <div class="blog-container">
-                <img src="assets/images/blog-img-2.png" alt="img">
-                <div class="blog-content-wrapper">
-                  <h5>How to host a virtual conference while social distancing</h5>
-                  <p>Holding a virtual conference now supports your industry and creates re actionships that can outlast a crisis</p>
+                  <h5>{{ blog.title }}</h5>
+                  <p>{{ blog.sub_title }}</p>
                 </div>
               </div>
             </div>

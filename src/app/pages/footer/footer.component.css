@@ -658,6 +658,7 @@
   height: calc(100vh - 80px);
   z-index: 9999;
   overflow-x: hidden;
+  overflow-y: scroll;
   transform: translateX(100%);
   font-family: 'ApercuProRegular';
 }
@@ -846,4 +847,33 @@
 }
 .start__question {
   font-family: 'ApercuProRegular';
+}
+.search-item {
+  padding: 15px;
+  display: flex;
+  padding-left: 0;
+}
+
+.search-img img {
+  width: 150px;
+  padding-right: 15px;
+}
+
+.search-content {
+  text-align: left;
+}
+
+.search-content h6 {
+  letter-spacing: 5px;
+  font-weight: 700;
+}
+
+.search-content p {
+  margin-bottom: 5px;
+}
+
+.search-content p span {
+  font-size: 24px;
+  color: var(--primary);
+  font-weight: 700;
 }

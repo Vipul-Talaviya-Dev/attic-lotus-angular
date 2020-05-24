@@ -269,7 +269,7 @@ a:hover {
   -webkit-box-ordinal-group: 3;
   position: -webkit-sticky;
   position: sticky;
-  top: 7rem;
+  /*top: 7rem;*/
   -ms-flex-item-align: start;
   align-self: flex-start;
   z-index: 2;
@@ -450,7 +450,7 @@ a:hover {
   height: auto;
 }
 
-.blog-content {
+/*.blog-content {
   font-family: 'ApercuProMedium';
   color: #939393;
   padding-top: 50px;
@@ -462,7 +462,7 @@ a:hover {
 
 .blog-content p {
   line-height: 2rem;
-}
+}*/
 
 .social-icons {
   margin-top: 15px;

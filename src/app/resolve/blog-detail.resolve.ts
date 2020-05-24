@@ -7,7 +7,7 @@ import {ToastrService} from 'ngx-toastr';
 import {CommonService} from '../services/common.service';
 
 @Injectable()
-export class PropertyResolve implements Resolve<any> {
+export class BlogDetailResolve implements Resolve<any> {
   constructor(
     public http: HttpClient, public router: Router,
     public toaster: ToastrService,
@@ -19,8 +19,8 @@ export class PropertyResolve implements Resolve<any> {
     state: RouterStateSnapshot
   ) {
     try {
-      return this.commonService.getPropertyDetail(route.params['slug']).pipe(
-        map(res => { return this.properties(res); }),
+      return this.commonService.getBlogDetail(route.params['slug']).pipe(
+        map(res => { return this.blogDetail(res); }),
         catchError(error => {
           return this.handleError(error);
         }),
@@ -30,7 +30,7 @@ export class PropertyResolve implements Resolve<any> {
     }
   }
 
-  private properties(res) {
+  private blogDetail(res) {
     if (res.status === false) {
       this.router.navigate(['/']).then(() => {
         this.toaster.error('Oop, Property Not Found...!!', 'Warning !!!');

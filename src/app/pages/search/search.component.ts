@@ -12,6 +12,7 @@ declare var $: any;
 })
 export class SearchComponent implements OnInit {
   public locations: any;
+  public testimonials: any;
   public cityData = {
     title: '',
     left_text: '',
@@ -50,6 +51,7 @@ export class SearchComponent implements OnInit {
       this.city = params['city'];
       this.getProperties(params['city']);
       this.getLocations(params['city']);
+      this.getTestimonials(params['city']);
     });
     // search form
     this.form = fb.group({
@@ -70,6 +72,18 @@ export class SearchComponent implements OnInit {
           this.locations = res.locations;
           this.cityData = res.city;
           this.contents = res.city.contents;
+        }
+      } catch (e) {
+        console.log('Do not get URL data');
+      }
+    });
+  }
+
+  getTestimonials(city) {
+    this.commonService.getTestimonials(city).subscribe((res) => {
+      try {
+        if(res.status) {
+          this.testimonials = res.testimonials;
         }
       } catch (e) {
         console.log('Do not get URL data');

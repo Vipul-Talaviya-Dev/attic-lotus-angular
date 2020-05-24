@@ -12,6 +12,7 @@ import {MapViewComponent} from './pages/map-view/map-view.component';
 import {BlogComponent} from './pages/blog/blog.component';
 import {SupportComponent} from './pages/support/support.component';
 import {BlogDetailComponent} from './pages/blog-detail/blog-detail.component';
+import {BlogDetailResolve} from './resolve/blog-detail.resolve';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -19,9 +20,14 @@ const routes: Routes = [
   { path: 'ready-to-move', component: ReadyToMoveComponent },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'terms-condition', component: TermConditionComponent },
-  { path: 'site-map', component: MapViewComponent },
+  { path: 'all-locations', component: MapViewComponent },
   { path: 'blog', component: BlogComponent },
-  { path: 'blog-detail', component: BlogDetailComponent },
+  {
+    path: 'blog/:slug', component: BlogDetailComponent,
+    resolve: {
+      blog: BlogDetailResolve
+    }
+  },
   { path: 'support', component: SupportComponent },
   {
     path: 'property/:slug', component: DetailComponent,

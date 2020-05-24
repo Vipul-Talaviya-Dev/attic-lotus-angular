@@ -129,7 +129,8 @@
   color: white !important;
   padding: 15px 30px;
   margin: 20px 20px 20px 0;
-  background: var(--primary);
+  /*background: var(--primary);*/
+  background-color: #232323;
   font-family: 'ApercuProMedium';
 }
 
