@@ -50,7 +50,7 @@ export class DetailComponent implements OnInit {
     private fb: FormBuilder,
     private _compiler: Compiler,
   ) {
-    this.jsData();
+    // this.jsData();
     // search form
     this.form = fb.group({
       'name': ['', [Validators.required]],
@@ -92,6 +92,8 @@ export class DetailComponent implements OnInit {
       this.days = this.property.days;
       this.time = this.property.time;
       this.propertyFeatures = this.property.propertyFeatures;
+
+      this.jsData();
     });
   }
 
@@ -133,16 +135,23 @@ export class DetailComponent implements OnInit {
 
   public jsData() {
     $(document).ready(function() {
-      $(".property ").slick({
+      if ($('.property').hasClass('slick-initialized')) {
+        $('.property').slick('destroy');
+      }
+      if ($('.center-nearby').hasClass('slick-initialized')) {
+        $('.center-nearby').slick('destroy');
+      }
+      $(".property ").not('.slick-initialized').slick({
         dots: false,
         infinite: true,
         variableWidth: true
       });
-      $(".center-nearby").slick({
+      $(".center-nearby").not('.slick-initialized').slick({
         dots: false,
         infinite: true,
         slidesToShow: 3,
         slidesToScroll: 3,
+        setPosition: true,
         responsive: [{
           breakpoint: 1200,
           settings: {

@@ -5,29 +5,51 @@
   <div class="container mt-5">
     <div class="row">
       <div class="position-sticky col-4 text-center">
-        <div class="Subscribe-space">
+        <div class="msg-success" *ngIf="contactFormDivMessage">
+          <p>{{ contactMessage }}</p>
+        </div>
+        <div class="Subscribe-space" *ngIf="contactFormDiv">
           <h4 class="text-left mb-3">The latest from CoWorks delivered straight to your inbox!
           </h4>
-          <form class="subscribeform pb-3" autocomplete="off">
+          <form class="subscribeform pb-3" autocomplete="off" [formGroup]="form" (submit)="onSubmit()">
             <div class="row col-12 m-auto text-left">
-              <div class="subscribe-form-group col-lg-12 col-md-12 ">
+              <div class="subscribe-form-group col-lg-12 col-md-12 " [ngClass]="{
+                'has-error': (form.get('email').hasError('required') || errors.email) && form.get('email').touched
+              }">
                 <label>EMAIL ADDRESS*</label>
-                <input type="text " class="subscribe-form-control" placeholder="">
+                <input type="email " class="subscribe-form-control" placeholder="" autocomplete="off" formControlName="email" required>
+                <em class="has-error" *ngIf="form.get('email').hasError('required') && form.get('email').touched">
+                  Email is required
+                </em>
+                <em class="has-error" *ngIf="form.get('email').hasError('pattern')">
+                  Email is invalid
+                </em>
               </div>
-              <div class="subscribe-form-group col-lg-12 col-md-12 ">
+              <div class="subscribe-form-group col-lg-12 col-md-12 "[ngClass]="{
+                'has-error': (form.get('name').hasError('required') || errors.name) && form.get('name').touched
+              }">
                 <label>NAME*</label>
-                <input type="text " class="subscribe-form-control" placeholder="">
+                <input type="text " class="subscribe-form-control" placeholder="" autocomplete="off" formControlName="name" required>
+                <em class="has-error" *ngIf="form.get('name').hasError('required') && form.get('name').touched">
+                  Full Name is required
+                </em>
               </div>
             </div>
             <div class="row col-12 m-auto text-left">
-              <div class="subscribe-form-group col-12">
+              <div class="subscribe-form-group col-12" [ngClass]="{
+                'has-error': (form.get('phone').hasError('required') || errors.phone) && form.get('phone').touched
+              }">
                 <label>PHONE NUMBER*</label>
-                <input type="number" class="subscribe-form-control" placeholder="">
+                <input type="text" class="subscribe-form-control contact" autocomplete="off" formControlName="phone" required maxlength="10">
+                <em class="has-error" *ngIf="form.get('phone').hasError('required') && form.get('phone').touched">
+                  Phone is required
+                </em>
               </div>
             </div>
             <div class="row col-12 m-auto text-left">
               <div class="subscribe-form-group col-12">
-                <a href="" class="btn subscribe-btn"> SUBSCRIBE</a>
+                <button type="submit" class="btn subscribe-btn" [disabled]="!form.valid">SUBSCRIBE</button>
+                <!--                <a href="" class="btn subscribe-btn"> SUBSCRIBE</a>-->
               </div>
             </div>
           </form>

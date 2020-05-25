@@ -249,40 +249,20 @@
             <a href="javascript:void(0);" class="btn round-btn"><img class="pr-1" src="assets/images/icn_seat.png" alt="Hurry Up Now!">100 Seats Left</a>
           </div>
         </div>
-        <div class="line col-12"> </div>
-        <div class="details-container pb-0 col-12 d-inline-flex">
-          <div class="col-2 text-center">
-            <!-- <img src="assets/images/private_office.png" alt="Private Office"> -->
-            <h2 class="bigtitle ">G1</h2>
-          </div>
-          <div class="col-10 ml-5">
-            <h4>Private Offices <span><img src="assets/images/badge.png" alt="badge"></span></h4>
-            <p>{{ property.workspace.privateDescription }}</p>
-          </div>
-        </div>
-        <div class="line col-12"> </div>
-        <div class="details-container pb-0 col-12 d-inline-flex">
-          <div class="col-2 text-center">
-            <!-- <img src="assets/images/dedicated_desk.png" alt="Private Office"> -->
-            <h2 class="bigtitle ">G2</h2>
-          </div>
-          <div class="col-10 ml-5">
-            <h4>Dedicated Desk</h4>
-            <p>{{ property.workspace.dedicatedDescription }}</p>
-          </div>
-        </div>
-        <div class="line col-12"> </div>
-        <div class="details-container pb-0 col-12 d-inline-flex">
-          <div class="col-2 text-center">
-            <!-- <img src="assets/images/hot_desk_membership.png" alt="Private Office"> -->
-            <h2 class="bigtitle ">G3</h2>
-          </div>
-          <div class="col-10 ml-5">
-            <h4>Hot Desk Membership</h4>
-            <p>{{ property.workspace.hotDescription }}</p>
-          </div>
-        </div>
-        <div class="line col-12"> </div>
+        <div class="line col-12" *ngIf="(property.propertyWorkspaces.length > 0) ? true : false;"> </div>
+        <span *ngFor="let propertyWorkspace of property.propertyWorkspaces;">
+          <div class="details-container pb-0 col-12 d-inline-flex">
+            <div class="col-2 text-center">
+              <h2 class="bigtitle ">{{ propertyWorkspace.title }}</h2>
+            </div>
+            <div class="col-10 ml-5">
+              <h4>{{ propertyWorkspace.sub_title }} <!--<span><img src="assets/images/badge.png" alt="badge"></span>--></h4>
+              <p>{{ propertyWorkspace.third_title }}</p>
+              <a *ngIf="(propertyWorkspace.isAvailable) ? true : false;" href="javascript:void(0);" class="btn round-btn" style="font-size: 14px; padding: 6px;">Not Available</a>
+            </div>
+          </div><div class="line col-12"> </div>
+        </span>
+
         <div class="row">
           <div class="col-12 col-sm-12">
             <h5 class="pt-3 pb-3">UNIQUE TO THIS BUILDING</h5>

@@ -12,6 +12,9 @@ declare var $: any;
 })
 export class BlogDetailComponent implements OnInit {
   public form: FormGroup;
+  public contactFormDivMessage = false;
+  public contactFormDiv = true;
+  public contactMessage = '';
   public submitted: boolean = false;
   public blog: any;
   public relevantBlogTotal = 0;
@@ -19,9 +22,6 @@ export class BlogDetailComponent implements OnInit {
     name: false,
     email: false,
     phone: false,
-    companyName: false,
-    companySize: false,
-    message: false,
   };
 
   constructor(
@@ -35,6 +35,8 @@ export class BlogDetailComponent implements OnInit {
     this.route.data.subscribe((response) => {
       this.blog = response.blog.blog;
       this.relevantBlogTotal = response.blog.blog.relevents.length;
+
+      this.jsData();
     });
     // search form
     this.form = fb.group({
@@ -45,12 +47,9 @@ export class BlogDetailComponent implements OnInit {
         ]
       ],
       'phone': ['', [Validators.required]],
-      'companyName': ['', [Validators.required]],
-      'companySize': ['', [Validators.required]],
-      'message': ['', [Validators.required]],
     });
 
-    this.jsData();
+    // this.jsData();
   }
 
   ngOnInit(): void {
@@ -60,10 +59,12 @@ export class BlogDetailComponent implements OnInit {
   public onSubmit() {
     this.submitted = true;
     if (this.form.valid) {
-      this.commonService.contact(this.form.value).subscribe((res) => {
+      this.commonService.subscribe(this.form.value).subscribe((res) => {
         if (res.status === true) {
           this.form.reset();
-          this.toaster.success(res.message, 'Success !!!');
+          this.contactMessage = res.message;
+          this.contactFormDiv = false;
+          this.contactFormDivMessage = true;
         } else {
           this.toaster.error(res.message, 'Error !!!');
         }
@@ -74,13 +75,24 @@ export class BlogDetailComponent implements OnInit {
   public jsData() {
     let total = this.relevantBlogTotal;
     $(document).ready(function() {
+      $('.contact').keypress(function (event) {
+        var keycode = event.which;
+        if (!(event.shiftKey == false && (keycode == 46 || keycode == 8 || keycode == 37 || keycode == 39 || (keycode >= 48 && keycode <= 57)))) {
+          event.preventDefault();
+        }
+      });
+
       if(total >= 4) {
-        $('.article-container').slick({
+        if ($('.article-container').hasClass('slick-initialized')) {
+          $('.article-container').slick('destroy');
+        }
+        $('.article-container').not('.slick-initialized').slick({
           infinite: true,
           autoplay: true,
           autoplaySpeed: 2000,
           slidesToShow: 3,
-          slidesToScroll: 3
+          slidesToScroll: 3,
+          setPosition: true
         });
       }
     });

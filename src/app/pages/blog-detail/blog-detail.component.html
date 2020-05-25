@@ -4,29 +4,51 @@
   <div class="container">
     <div class="row">
       <div class="position-sticky col-4 text-center">
-        <div class="Subscribe-space">
+        <div class="msg-success" *ngIf="contactFormDivMessage">
+          <p>{{ contactMessage }}</p>
+        </div>
+        <div class="Subscribe-space" *ngIf="contactFormDiv">
           <h4 class="text-left mb-3">The latest from CoWorks delivered straight to your inbox!
           </h4>
-          <form class="subscribeform pb-3" autocomplete="off" action="/action_page.php">
+          <form class="subscribeform pb-3" autocomplete="off" [formGroup]="form" (submit)="onSubmit()">
             <div class="row col-12 m-auto text-left">
-              <div class="subscribe-form-group col-lg-12 col-md-12 ">
+              <div class="subscribe-form-group col-lg-12 col-md-12 " [ngClass]="{
+                'has-error': (form.get('email').hasError('required') || errors.email) && form.get('email').touched
+              }">
                 <label>EMAIL ADDRESS*</label>
-                <input type="text " class="subscribe-form-control" placeholder="">
+                <input type="email " class="subscribe-form-control" placeholder="" autocomplete="off" formControlName="email" required>
+                <em class="has-error" *ngIf="form.get('email').hasError('required') && form.get('email').touched">
+                  Email is required
+                </em>
+                <em class="has-error" *ngIf="form.get('email').hasError('pattern')">
+                  Email is invalid
+                </em>
               </div>
-              <div class="subscribe-form-group col-lg-12 col-md-12 ">
+              <div class="subscribe-form-group col-lg-12 col-md-12 "[ngClass]="{
+                'has-error': (form.get('name').hasError('required') || errors.name) && form.get('name').touched
+              }">
                 <label>NAME*</label>
-                <input type="text " class="subscribe-form-control" placeholder="">
+                <input type="text " class="subscribe-form-control" placeholder="" autocomplete="off" formControlName="name" required>
+                <em class="has-error" *ngIf="form.get('name').hasError('required') && form.get('name').touched">
+                  Full Name is required
+                </em>
               </div>
             </div>
             <div class="row col-12 m-auto text-left">
-              <div class="subscribe-form-group col-12">
+              <div class="subscribe-form-group col-12" [ngClass]="{
+                'has-error': (form.get('phone').hasError('required') || errors.phone) && form.get('phone').touched
+              }">
                 <label>PHONE NUMBER*</label>
-                <input type="number" class="subscribe-form-control" placeholder="">
+                <input type="text" class="subscribe-form-control contact" autocomplete="off" formControlName="phone" required maxlength="10">
+                <em class="has-error" *ngIf="form.get('phone').hasError('required') && form.get('phone').touched">
+                  Phone is required
+                </em>
               </div>
             </div>
             <div class="row col-12 m-auto text-left">
               <div class="subscribe-form-group col-12">
-                <a href="" class="btn subscribe-btn"> SUBSCRIBE</a>
+                <button type="submit" class="btn subscribe-btn" [disabled]="!form.valid">SUBSCRIBE</button>
+<!--                <a href="" class="btn subscribe-btn"> SUBSCRIBE</a>-->
               </div>
             </div>
           </form>
@@ -36,7 +58,7 @@
         <div class="search-section">
           <div class="row">
             <ul class="list-unstyled d-inline-flex" id="one-pagenav">
-              <li *ngFor="let category of blog.categories;"><a href="javascript:void(0);" [class]="(blog.category_id == category.id) ? 'active' : ''"> {{ category.name }} </a></li>
+              <li *ngFor="let category of blog.categories;"><a href="javascript:void(0);" [class]="(blog.category_id === category.id) ? 'active' : ''"> {{ category.name }} </a></li>
               <!--<li><a href="#officedesign"> Office design & space</a></li>
               <li><a href="#cityguides"> City guides</a></li>
               <li><a href="#worklife"> Work life</a></li>-->
@@ -99,163 +121,5 @@
 
   <!-- page content ends here -->
   <!-- footer starts Here -->
-
-  <section class="footer_form_section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-11 col-sm-12 question_screen">
-          <h4><img src="assets/images/hello_emogy.png">Book Your Office Space</h4>
-          <br/><br/>
-          <div class="container">
-            <div class="row">
-              <div class="hidden-lg-down col-xl-1">
-                <p class="indicatePage">Start</p>
-              </div>
-              <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-11">
-                <section class="start__question">
-                  <p class="question__number">1/5</p>
-                  <form action="/start" method="post" autocomplete="off">
-                    <div id="question-1" class="question__wrapper ">
-                      <p class="question__title ">Let’s make the first step!</p>
-                      <input id="question__question-1" class="question__question" placeholder="What’s your name?" type="text" name="name">
-                    </div>
-                    <div id="question-2" class="question__wrapper question__wrapper--inactive">
-                      <p class="question__title ">Nice to meet you</p>
-                      <input id="question__question-2" class="question__question" placeholder="How can we help you?" type="text" name="how">
-                    </div>
-                    <div id="question-3" class="question__wrapper question__wrapper--inactive">
-                      <p class="question__title ">Sounds like a plan!</p>
-                      <input id="question__question-3" class="question__question" placeholder="What's your budget?" type="text" name="budget">
-                    </div>
-                    <div id="question-4" class="question__wrapper question__wrapper--inactive">
-                      <p class="question__title ">Good things always have a price!</p>
-                      <input id="question__question-4" class="question__question" placeholder="What's your deadline?" type="text" name="deadline">
-                    </div>
-                    <div id="question-5" class="question__wrapper question__wrapper--inactive">
-                      <p class="question__title ">We’re glad it’s not yesterday!</p>
-                      <input id="question__question-5" class="question__question" placeholder="What's your email?" type="text" name="email">
-                    </div>
-                    <div id="question-6" class="question__wrapper question__wrapper--inactive">
-                      <p class="confirm__title question__title ">we’re glad that you took your first step! Now it’s our time to help you stand out.</p>
-                      <p class="confirm__p"></p>
-                    </div>
-                    <div class="next__wrapper">
-                      <i class="fas fa-chevron-circle-right"></i>
-                      <input class="next__button white-text" readonly="readonly" value="Next question">
-                    </div>
-                    <div class="error__wrapper" style="opacity: 0;">
-                      <i class="fas fa-question-circle error__icon"></i>
-                      <p class="error__message white-text">Don’t be shy, please fill the fields correctly.</p>
-                    </div>
-                  </form>
-                </section>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="footer">
-    <div class="row">
-      <div class="container">
-        <section class="social-links ">
-
-          <a href="#" class="location-link">All Locations <i class="arrow"></i></a>
-          <div class="social-icons ">
-            <i class="fab fa-facebook-f"></i>
-            <i class="fab fa-twitter"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-linkedin-in"></i>
-          </div>
-
-        </section>
-        <section class="quick-links">
-          <div class="col-md-3 col-sm-12">
-            <h4>COMPANY</h4>
-            <ul class="list-unstyled">
-              <li><a href="#">Global Locations</a></li>
-              <li><a href="#">Mission</a></li>
-              <li><a href="#">Careers</a></li>
-              <li><a href="#">Investors</a></li>
-              <li><a href="#">Newsroom</a></li>
-            </ul>
-          </div>
-          <div class="col-md-3 col-sm-12">
-            <h4>PARTNERSHIPS</h4>
-            <ul class="list-unstyled">
-              <li><a href="#">Brokers</a></li>
-              <li><a href="#">Landlords</a></li>
-              <li><a href="#">Refer a Friend</a></li>
-              <li><a href="#">Event Planners</a></li>
-              <li><a href="#">Space Services</a></li>
-              <li><a href="#">Referral Partners</a></li>
-            </ul>
-          </div>
-          <div class="col-md-3 col-sm-12">
-            <h4>Impact</h4>
-            <ul class="list-unstyled">
-              <li><a href="#">Ideas</a></li>
-              <li><a href="#">Refugee Initiative</a></li>
-              <li><a href="#">Flatiron School</a></li>
-              <li><a href="#">Veterans in Residence</a></li>
-            </ul>
-          </div>
-          <div class="col-md-3 col-sm-12">
-            <h4>upcoming locations</h4>
-            <form class="footer-form">
-              <div class="form-group">
-                <label class="form-label">Select City</label>
-                <select class="form-control">
-                  <option>Bengalore</option>
-                  <option>Hydrabad</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="exampleFormControlInput1">Email address</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="exampleFormControlInput2">Phone Number</label>
-                <input type="number" class="form-control" id="exampleFormControlInput2" placeholder="">
-              </div>
-              <button type="submit" class="btn btn-footer-form"> <span><img src="assets/images/notify-me.png" alt=""></span> Notify Me</button>
-            </form>
-          </div>
-        </section>
-        <section class="footer-bottom">
-          <div class="info-container">
-            <div class="contact-info">
-              <a href="tel:080 4717 8622">080 4717 8622</a>
-              <a href="mailto:info@atticspace.in  ">info@atticspace.in </a>
-              <address>#612, Basil Moneta, Koramangala <br>
-                4th block, 80ft road, Bengaluru - 560034  </address>
-            </div>
-          </div>
-          <div class="copyright-info">
-            <div class="link-container">
-              <div class="q-links">
-                <ul class="list-unstyled d-inline-flex">
-                  <li><a href="#">Privacy</a></li>
-                  <li><a href="#">Terms</a></li>
-                  <li><a href="#">Cookies</a></li>
-                  <li><a href="#">Accessibility</a></li>
-                  <li><a href="#">Sitemap</a></li>
-                  <li><a href="#">FAQ</a></li>
-                </ul>
-              </div>
-              <div class="copyright">
-                <p> Company 2020 Attiic Companies Inc. All Rights Reserved</p>
-              </div>
-            </div>
-            <div class="footer-logo">
-              <div class="footer-logo-container">
-                <img src="assets/images/logo-black.png" alt="">
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-  </section>
+  <app-footer></app-footer>
 </div>
