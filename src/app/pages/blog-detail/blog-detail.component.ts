@@ -3,6 +3,7 @@ import {CommonService} from '../../services/common.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
+import {FooterSearchService} from '../../services/footer-search.service';
 declare var $: any;
 
 @Component({
@@ -18,6 +19,13 @@ export class BlogDetailComponent implements OnInit {
   public submitted: boolean = false;
   public blog: any;
   public relevantBlogTotal = 0;
+  public searchBlogs: any;
+  public searchTotal = 0;
+  public step6 = {
+    title: '',
+    sub_title: '',
+    image: ''
+  };
   public errors = {
     name: false,
     email: false,
@@ -28,6 +36,7 @@ export class BlogDetailComponent implements OnInit {
     private commonService: CommonService,
     private fb: FormBuilder,
     private router: Router,
+    private footerSearch: FooterSearchService,
     private toaster: ToastrService,
     private _compiler: Compiler,
     private route: ActivatedRoute
@@ -35,7 +44,7 @@ export class BlogDetailComponent implements OnInit {
     this.route.data.subscribe((response) => {
       this.blog = response.blog.blog;
       this.relevantBlogTotal = response.blog.blog.relevents.length;
-
+      this.step6 = response.blog.blog.step6;
       this.jsData();
     });
     // search form
@@ -54,6 +63,17 @@ export class BlogDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this._compiler.clearCache();
+  }
+  public searchBlog(name) {
+    this.searchBlogs = [];
+    if(name.length > 3) {
+      this.footerSearch.getBlogSearch(name).subscribe((res) => {
+        if (res.status === true) {
+          this.searchBlogs = res.blogs;
+          this.searchTotal = res.blogs.length;
+        }
+      });
+    }
   }
 
   public onSubmit() {
@@ -75,6 +95,11 @@ export class BlogDetailComponent implements OnInit {
   public jsData() {
     let total = this.relevantBlogTotal;
     $(document).ready(function() {
+      $("body").on('click', '#subscribeBtn', function() {
+        $(".position-sticky").show();
+        $(this).hide();
+      });
+
       $('.contact').keypress(function (event) {
         var keycode = event.which;
         if (!(event.shiftKey == false && (keycode == 46 || keycode == 8 || keycode == 37 || keycode == 39 || (keycode >= 48 && keycode <= 57)))) {

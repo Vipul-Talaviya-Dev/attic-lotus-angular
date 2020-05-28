@@ -1004,7 +1004,7 @@ a:hover, a:focus {
 }
 .page-content {
   font-family: 'ApercuProRegular';
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 /* Blog Detail*/
 .blog-content {

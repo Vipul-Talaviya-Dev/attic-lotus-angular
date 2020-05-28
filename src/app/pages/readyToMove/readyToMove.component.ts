@@ -2,6 +2,7 @@ import {Compiler, Component, OnInit} from '@angular/core';
 import {CommonService} from '../../services/common.service';
 import {ToastrService} from 'ngx-toastr';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Meta, Title} from '@angular/platform-browser';
 declare var $: any;
 
 @Component({
@@ -31,7 +32,7 @@ export class ReadyToMoveComponent implements OnInit {
     time: false,
   };
 
-  constructor(private commonService: CommonService, private toaster: ToastrService, private fb: FormBuilder, private _compiler: Compiler,) {
+  constructor(private commonService: CommonService, private toaster: ToastrService, private fb: FormBuilder, private _compiler: Compiler, private titleService: Title, private meta: Meta) {
     // search form
     this.form = fb.group({
       'name': ['', [Validators.required]],
@@ -55,6 +56,7 @@ export class ReadyToMoveComponent implements OnInit {
   }
   ngOnInit(): void {
     this._compiler.clearCache();
+    this.pageContent();
     this.getCommon();
     this.getProperties('');
     this.getCities();
@@ -130,6 +132,20 @@ export class ReadyToMoveComponent implements OnInit {
         $(".sliderImage").find("p").removeClass("highlighted");
         $(this).find("p").addClass("highlighted");
       });
+    });
+  }
+
+  public pageContent() {
+    this.commonService.getPageContent(4).subscribe((res) => {
+      try {
+        if(res.status) {
+          this.titleService.setTitle(res.page.title);
+          this.meta.addTag({name: 'keywords', content: res.page.keywords});
+          this.meta.addTag({name: 'description', content: res.page.decription});
+        }
+      } catch (e) {
+        console.log('Do not get URL data');
+      }
     });
   }
 }

@@ -8,8 +8,7 @@
           <p>{{ contactMessage }}</p>
         </div>
         <div class="Subscribe-space" *ngIf="contactFormDiv">
-          <h4 class="text-left mb-3">The latest from CoWorks delivered straight to your inbox!
-          </h4>
+          <h4 class="text-left mb-3">{{ step6.sub_title }}</h4>
           <form class="subscribeform pb-3" autocomplete="off" [formGroup]="form" (submit)="onSubmit()">
             <div class="row col-12 m-auto text-left">
               <div class="subscribe-form-group col-lg-12 col-md-12 " [ngClass]="{
@@ -66,9 +65,16 @@
           </div>
           <div class="row">
             <div class="input-group pl-0">
-              <input class="form-control" type="text" placeholder="Search Article" aria-label="Search">
+              <input class="form-control" type="text" placeholder="Search Article" aria-label="Search" (keyup)="searchBlog($event.target.value)">
               <div class="input-group-append">
-                <span class="input-group-text" id="basic-text1"><img src="assets/images/search-white.png" alt=""></span>
+                <span class="input-group-text" id="basic-text1"><img src="assets/images/search-icn.png" alt=""></span>
+              </div>
+            </div>
+            <div [class]="(searchTotal > 0) ? 'searched visible' : 'visible'">
+              <div class="search-item cursor-pointer" *ngFor="let searchBlog of searchBlogs;" [routerLink]="['/ideas/'+ searchBlog.slug]">
+                <div class="search-content">
+                  <h6>{{ searchBlog.title }}</h6>
+                </div>
               </div>
             </div>
           </div>
@@ -107,7 +113,7 @@
       <div class="container">
         <h2>Related Articles</h2>
         <div class="article-container" style="margin-left: -15px;">
-          <div class="article col-md-4 col-sm-12 cursor-pointer" *ngFor="let releventBlog of blog.relevents;" [routerLink]="['/blog/'+ releventBlog.slug]">
+          <div class="article col-md-4 col-sm-12 cursor-pointer" *ngFor="let releventBlog of blog.relevents;" [routerLink]="['/ideas/'+ releventBlog.slug]">
             <div class="article-img" [style.backgroundImage]="'url('+ releventBlog.image +')'"></div>
             <div class="article-details">
               <h4 class="article-title">{{ releventBlog.title }}</h4>
@@ -118,7 +124,9 @@
       </div>
     </div>
   </section>
-
+  <div class="bottom-bar">
+    <button type="button" class="btn btn-primary w-100" id="subscribeBtn">Subscribe</button>
+  </div>
   <!-- page content ends here -->
   <!-- footer starts Here -->
   <app-footer></app-footer>

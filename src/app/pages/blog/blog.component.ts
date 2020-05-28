@@ -3,6 +3,8 @@ import {CommonService} from '../../services/common.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
+import {FooterSearchService} from '../../services/footer-search.service';
+import {Meta, Title} from '@angular/platform-browser';
 declare var $: any;
 
 @Component({
@@ -17,7 +19,14 @@ export class BlogComponent implements OnInit {
   public contactFormDivMessage = false;
   public contactFormDiv = true;
   public contactMessage = '';
+  public searchBlogs: any;
+  public searchTotal = 0;
   public submitted: boolean = false;
+  public step6 = {
+    title: '',
+    sub_title: '',
+    image: ''
+  };
   public errors = {
     name: false,
     email: false,
@@ -26,12 +35,15 @@ export class BlogComponent implements OnInit {
 
   constructor(
     private commonService: CommonService,
+    private footerSearch: FooterSearchService,
     private fb: FormBuilder, private router: Router,
     private toaster: ToastrService,
     private _compiler: Compiler,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private titleService: Title, private meta: Meta
   ) {
-    this.getOfficeContact();
+    this.pageContent();
+    this.getBlogs();
 
     // search form
     this.form = fb.group({
@@ -51,17 +63,30 @@ export class BlogComponent implements OnInit {
     this._compiler.clearCache();
   }
 
-  getOfficeContact() {
+  getBlogs() {
     this.commonService.getBlogs().subscribe((res) => {
       try {
         if(res.status) {
           this.categories = res.blogCategories;
           this.blogs = res.blogs;
+          this.step6 = res.step6;
         }
       } catch (e) {
         console.log('Do not get URL data');
       }
     });
+  }
+
+  public searchBlog(name) {
+    this.searchBlogs = [];
+    if(name.length > 3) {
+      this.footerSearch.getBlogSearch(name).subscribe((res) => {
+        if (res.status === true) {
+          this.searchBlogs = res.blogs;
+          this.searchTotal = res.blogs.length;
+        }
+      });
+    }
   }
 
   public onSubmit() {
@@ -82,6 +107,11 @@ export class BlogComponent implements OnInit {
 
   public jsData() {
     $(document).ready(function() {
+      $("body").on('click', '#subscribeBtn', function() {
+        $(".position-sticky").show();
+        $(this).hide();
+      });
+
       $('.contact').keypress(function (event) {
         var keycode = event.which;
         if (!(event.shiftKey == false && (keycode == 46 || keycode == 8 || keycode == 37 || keycode == 39 || (keycode >= 48 && keycode <= 57)))) {
@@ -94,7 +124,10 @@ export class BlogComponent implements OnInit {
         target: ".search-section",
         offset: 50
       });
-
+      $("body").on("click", ".topSide", function() {
+        var body = $("html, body");
+        body.stop().animate({scrollTop:0}, 500, 'swing', function() {});
+      });
       // Add smooth scrolling on all links inside the navbar
       $("body").on('click', '.blogSlug', function() {
         let slug = $(this).attr('data-name');
@@ -108,6 +141,20 @@ export class BlogComponent implements OnInit {
           });
         } // End if
       });
+    });
+  }
+
+  public pageContent() {
+    this.commonService.getPageContent(7).subscribe((res) => {
+      try {
+        if(res.status) {
+          this.titleService.setTitle(res.page.title);
+          this.meta.addTag({name: 'keywords', content: res.page.keywords});
+          this.meta.addTag({name: 'description', content: res.page.decription});
+        }
+      } catch (e) {
+        console.log('Do not get URL data');
+      }
     });
   }
 }

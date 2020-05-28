@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CommonService} from '../../services/common.service';
+import {Meta, Title} from '@angular/platform-browser';
 declare var $: any;
 @Component({
   selector: 'app-home',
@@ -38,7 +39,7 @@ export class HomeComponent implements OnInit {
     image: ''
   };
 
-  constructor(private commonService: CommonService) {
+  constructor(private commonService: CommonService, private titleService: Title, private meta: Meta) {
     $(document).ready(function() {
       $("body").on("click", ".searchInput", function() {
         var id = $(this).data('id');
@@ -68,6 +69,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.pageContent();
     this.getIndex();
     this.getCities();
   }
@@ -106,5 +108,19 @@ export class HomeComponent implements OnInit {
 
   counter(i: number) {
     return new Array(i);
+  }
+
+  public pageContent() {
+    this.commonService.getPageContent(1).subscribe((res) => {
+      try {
+        if(res.status) {
+          this.titleService.setTitle(res.page.title);
+          this.meta.addTag({name: 'keywords', content: res.page.keywords});
+          this.meta.addTag({name: 'description', content: res.page.decription});
+        }
+      } catch (e) {
+        console.log('Do not get URL data');
+      }
+    });
   }
 }

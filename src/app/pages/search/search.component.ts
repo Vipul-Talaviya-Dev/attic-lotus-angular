@@ -3,6 +3,7 @@ import {CommonService} from '../../services/common.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
+import {Meta, Title} from '@angular/platform-browser';
 declare var $: any;
 
 @Component({
@@ -45,10 +46,12 @@ export class SearchComponent implements OnInit {
     private fb: FormBuilder, private router: Router,
     private toaster: ToastrService,
     private _compiler: Compiler,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private titleService: Title, private meta: Meta
   ) {
     this.route.params.subscribe((params: Params) => {
       this.city = params['city'];
+      this.pageContent((params['city'] == "Bangalore") ? 2 : 3)
       this.getProperties(params['city']);
       this.getLocations(params['city']);
       this.getTestimonials(params['city']);
@@ -138,4 +141,17 @@ export class SearchComponent implements OnInit {
     }
   }
 
+  public pageContent(id) {
+    this.commonService.getPageContent(id).subscribe((res) => {
+      try {
+        if(res.status) {
+          this.titleService.setTitle(res.page.title);
+          this.meta.addTag({name: 'keywords', content: res.page.keywords});
+          this.meta.addTag({name: 'description', content: res.page.decription});
+        }
+      } catch (e) {
+        console.log('Do not get URL data');
+      }
+    });
+  }
 }

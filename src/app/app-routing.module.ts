@@ -21,9 +21,9 @@ const routes: Routes = [
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'terms-condition', component: TermConditionComponent },
   { path: 'all-locations', component: MapViewComponent },
-  { path: 'idea', component: BlogComponent },
+  { path: 'ideas', component: BlogComponent },
   {
-    path: 'blog/:slug', component: BlogDetailComponent,
+    path: 'ideas/:slug', component: BlogDetailComponent,
     resolve: {
       blog: BlogDetailResolve
     }

@@ -269,7 +269,7 @@ a:hover {
   -webkit-box-ordinal-group: 3;
   position: -webkit-sticky;
   position: sticky;
-  /*top: 7rem;*/
+  top: 7rem;
   -ms-flex-item-align: start;
   align-self: flex-start;
   z-index: 2;
@@ -370,7 +370,7 @@ a:hover {
 }
 
 .search-section ul {
-  background: #fff;
+  background: #f7f7f7;
   width: 100%;
 }
 
@@ -380,20 +380,15 @@ a:hover {
   text-align: center;
 }
 
-.search-section ul li a:hover,
-.search-section ul li .active {
+.search-section ul li a:hover {
   color: var(--primary);
 }
 
 .search-section ul li a,
 .form-control {
-  font-family: 'ApercuProBold';
+  font-family: 'ApercuProMedium';
   font-size: 16px;
   color: #2b2a29;
-}
-
-.search-section .form-control {
-  padding: 20px 10px !important;
 }
 
 .form-control:hover,
@@ -411,19 +406,17 @@ a:hover {
 .Subscribe-space h4 {
   padding: 0 15px;
 }
-
 .input-group-text {
-  background: var(--primary);
+  background: transparent;
   transition: all 0.5s ease;
 }
-
 .input-group-text:hover {
-  background-color: #232323;
+  background-color: #e9ecef;
   transition: all 0.5s ease;
 }
 
 .form-control {
-  padding: 0.5rem !important;
+  padding: 0.75rem !important;
 }
 
 .blog-image-container {
@@ -435,14 +428,14 @@ a:hover {
 
 .blog-image-container h2 {
   font-family: 'ApercuProBold';
-  max-width: 75%;
+  max-width: 100%;
 }
 
 .blog-image-container p {
   font-family: 'ApercuProMedium';
   line-height: 2rem;
   color: #7b7b7b;
-  max-width: 75%;
+  max-width: 100%;
 }
 
 .blog-image-container img {
@@ -959,7 +952,11 @@ a:hover {
     padding: 10px 0px;
   }
   .position-sticky {
-    display: none !important;
+    display: none;
+  }
+  .col-4 {
+    flex: initial;
+    max-width: inherit;
   }
   .tab-content {
     width: -webkit-fill-available;
@@ -1236,9 +1233,6 @@ a:hover {
     left: 150px;
     top: 20px;
   }
-  .input-group-text {
-    background-color: var(--primary);
-  }
   .article-container {
     display: block;
   }
@@ -1306,38 +1300,12 @@ a:hover {
     padding: 10px;
   }
 }
-.footer_form_section {
-  padding: 30px;
-  background-color: var(--primary);
-  color: #fff;
-}
-
-.footer {
-  background-color: #f7f7f7;
-  padding: 30px 0;
-  padding-bottom: 0;
-}
-
-.next-step {
-  color: #FFF;
-  border-radius: 3px;
-  transition: all 0.2s linear 0s;
-}
-
-.verticle-text {
-  position: absolute;
-  top: 34%;
-  transform: rotate(-90deg);
+.searched {
+  background: #f7f7f7;
+  width: 100%;
+  padding: 15px 15px 15px 35px;
+  position: relative;
+  z-index: 99999999;
   font-family: 'ApercuProRegular';
-}
-
-.question_screen {
-  padding: 40px;
-}
-
-.next-step:hover {
-  color: #FFF;
-  text-decoration: none;
-  transform: scale(1.1, 1.1);
-  transition: all 0.2s linear 0s;
+  color: blue;
 }

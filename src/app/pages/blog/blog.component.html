@@ -9,8 +9,7 @@
           <p>{{ contactMessage }}</p>
         </div>
         <div class="Subscribe-space" *ngIf="contactFormDiv">
-          <h4 class="text-left mb-3">The latest from CoWorks delivered straight to your inbox!
-          </h4>
+          <h4 class="text-left mb-3">{{ step6.sub_title }}</h4>
           <form class="subscribeform pb-3" autocomplete="off" [formGroup]="form" (submit)="onSubmit()">
             <div class="row col-12 m-auto text-left">
               <div class="subscribe-form-group col-lg-12 col-md-12 " [ngClass]="{
@@ -67,29 +66,35 @@
           </div>
           <div class="row">
             <div class="input-group pl-0">
-              <input class="form-control" type="text" placeholder="Search Article" aria-label="Search">
+              <input class="form-control" type="text" placeholder="Search Article" aria-label="Search" (keyup)="searchBlog($event.target.value)">
               <div class="input-group-append">
                 <span class="input-group-text" id="basic-text1"><img src="assets/images/search-icn.png" alt=""></span>
+              </div>
+            </div>
+            <div [class]="(searchTotal > 0) ? 'searched visible' : 'visible'">
+              <div class="search-item cursor-pointer" *ngFor="let searchBlog of searchBlogs;" [routerLink]="['/ideas/'+ searchBlog.slug]">
+                <div class="search-content">
+                  <h6>{{ searchBlog.title }}</h6>
+                </div>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="image-container">
-              <img src="assets/images/search-img.png" alt="img">
-              <h4 class="img-title">WeWork Labs members working to fight the coronavirus
-              </h4>
+              <img [src]="step6.image" alt="img">
+              <h4 class="img-title">{{ step6.title }}</h4>
             </div>
           </div>
         </div>
         <div *ngFor="let blogCategoroy of blogs;" [attr.id]="blogCategoroy.slug" class="growth-section">
           <div class="row">
-            <h2>{{ blogCategoroy.name }}</h2>
+            <h2>{{ blogCategoroy.name }} <a href="javascript:void(0);" class="topSide"><i class="fa fa-arrow-up"></i></a></h2>
           </div>
           <!--<div class="row">
             <p>Growing your business takes new ideas, the right talent, and so much more.</p>
           </div>-->
           <div class="row">
-            <div class="blog col-lg-6 col-md-6 col-sm-12 pl-0 cursor-pointer" *ngFor="let blog of blogCategoroy.blogs;" [routerLink]="['/blog/'+ blog.slug]">
+            <div class="blog col-lg-6 col-md-6 col-sm-12 pl-0 cursor-pointer" *ngFor="let blog of blogCategoroy.blogs;" [routerLink]="['/ideas/'+ blog.slug]">
               <div class="blog-container">
                 <img [src]="blog.image" alt="img">
                 <div class="blog-content-wrapper">
@@ -103,7 +108,9 @@
       </div>
     </div>
   </div>
-
+  <div class="bottom-bar">
+    <button type="button" class="btn btn-primary w-100" id="subscribeBtn">Subscribe</button>
+  </div>
   <!-- page content ends here -->
   <app-footer></app-footer>
 </div>

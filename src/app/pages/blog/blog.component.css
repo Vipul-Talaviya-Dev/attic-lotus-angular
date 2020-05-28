@@ -493,7 +493,11 @@
     padding: 10px 0px;
   }
   .position-sticky {
-    display: none !important;
+    display: none;
+  }
+  .col-4 {
+    flex: initial;
+    max-width: inherit;
   }
   .tab-content {
     width: -webkit-fill-available;
@@ -680,4 +684,13 @@
     bottom: 70px;
     left: 15px;
   }
+}
+.searched {
+  background: #f7f7f7;
+  width: 100%;
+  padding: 15px 15px 15px 35px;
+  position: relative;
+  z-index: 99999999;
+  font-family: 'ApercuProRegular';
+  color: blue;
 }
