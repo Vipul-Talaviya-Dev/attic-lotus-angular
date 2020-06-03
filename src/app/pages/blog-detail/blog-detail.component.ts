@@ -95,11 +95,6 @@ export class BlogDetailComponent implements OnInit {
   public jsData() {
     let total = this.relevantBlogTotal;
     $(document).ready(function() {
-      $("body").on('click', '#subscribeBtn', function() {
-        $(".position-sticky").show();
-        $(this).hide();
-      });
-
       $('.contact').keypress(function (event) {
         var keycode = event.which;
         if (!(event.shiftKey == false && (keycode == 46 || keycode == 8 || keycode == 37 || keycode == 39 || (keycode >= 48 && keycode <= 57)))) {

@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 import {FooterSearchService} from '../../services/footer-search.service';
 import {Meta, Title} from '@angular/platform-browser';
+
 declare var $: any;
 
 @Component({
@@ -60,6 +61,7 @@ export class BlogComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    window.scroll(0,0);
     this._compiler.clearCache();
   }
 
@@ -75,6 +77,20 @@ export class BlogComponent implements OnInit {
         console.log('Do not get URL data');
       }
     });
+  }
+
+  public  getOffset(el) {
+    el = el.getBoundingClientRect();
+    return {
+      left: el.left + window.scrollX,
+      top: el.top + window.scrollY,
+      bottom: el.top + window.scrollY
+    }
+  }
+  public scrollToElement(target) {
+    var scroll_to = document.getElementById(target);
+    var topHight = this.getOffset(scroll_to).top;
+    window.scrollTo(0, topHight);
   }
 
   public searchBlog(name) {
@@ -107,39 +123,15 @@ export class BlogComponent implements OnInit {
 
   public jsData() {
     $(document).ready(function() {
-      $("body").on('click', '#subscribeBtn', function() {
-        $(".position-sticky").show();
-        $(this).hide();
-      });
-
       $('.contact').keypress(function (event) {
         var keycode = event.which;
         if (!(event.shiftKey == false && (keycode == 46 || keycode == 8 || keycode == 37 || keycode == 39 || (keycode >= 48 && keycode <= 57)))) {
           event.preventDefault();
         }
       });
-
-      // Add scrollspy to <body>
-      $('body').scrollspy({
-        target: ".search-section",
-        offset: 50
-      });
       $("body").on("click", ".topSide", function() {
         var body = $("html, body");
         body.stop().animate({scrollTop:0}, 500, 'swing', function() {});
-      });
-      // Add smooth scrolling on all links inside the navbar
-      $("body").on('click', '.blogSlug', function() {
-        let slug = $(this).attr('data-name');
-        if (slug !== "") {
-          var hash = slug;
-          var navOffset = $('.header_section nav').height();
-          $('html, body').animate({
-            scrollTop: $('#'+hash).offset().top - navOffset
-          }, 500, function() {
-            window.location.hash = hash;
-          });
-        } // End if
       });
     });
   }

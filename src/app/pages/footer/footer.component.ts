@@ -38,6 +38,16 @@ export class FooterComponent implements OnInit {
     companySize: false,
     message: false,
   };
+  public footerForm: FormGroup;
+  public footerFormDivMessage = false;
+  public footerFormDiv = true;
+  public footerMessage = '';
+  public footerSubmitted: boolean = false;
+  public footerErrors = {
+    cityId: false,
+    email: false,
+    mobile: false,
+  };
 
   constructor(
     private commonService: CommonService,
@@ -65,6 +75,16 @@ export class FooterComponent implements OnInit {
       'companyName': ['', [Validators.required]],
       'companySize': ['', [Validators.required]],
       'message': ['Please Contact To User'],
+    });
+    // Upcoming Location
+    this.footerForm = fb.group({
+      'email': ['', [
+          Validators.required,
+          Validators.pattern(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)
+        ]
+      ],
+      'mobile': ['', [Validators.required]],
+      'cityId': ['', [Validators.required]],
     });
   }
 
@@ -109,6 +129,23 @@ export class FooterComponent implements OnInit {
           this.contactMessage = res.message;
           this.contactFormDiv = false;
           this.contactFormDivMessage = true;
+        } else {
+          this.toaster.error(res.message, 'Error !!!');
+        }
+      });
+    }
+  }
+
+  // Footer Submit
+  public onFooterSubmit() {
+    this.footerSubmitted = true;
+    if (this.footerForm.valid) {
+      this.commonService.footerUpcomingLocation(this.footerForm.value).subscribe((res) => {
+        if (res.status === true) {
+          this.footerForm.reset();
+          this.footerMessage = res.message;
+          this.footerFormDiv = false;
+          this.footerFormDivMessage = true;
         } else {
           this.toaster.error(res.message, 'Error !!!');
         }
@@ -183,7 +220,7 @@ export class FooterComponent implements OnInit {
         $("#question__question-4").val($("input[name='customRadioInline9']:checked").attr('data-name'));
       });
 
-      $('#question__question-6, #question__question-3').keypress(function (event) {
+      $('#question__question-6, #question__question-3, .mobile').keypress(function (event) {
         var keycode = event.which;
         if (!(event.shiftKey == false && (keycode == 46 || keycode == 8 || keycode == 37 || keycode == 39 || (keycode >= 48 && keycode <= 57)))) {
           event.preventDefault();

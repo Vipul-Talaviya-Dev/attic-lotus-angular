@@ -125,9 +125,74 @@
     </div>
   </section>
   <div class="bottom-bar">
-    <button type="button" class="btn btn-primary w-100" id="subscribeBtn">Subscribe</button>
+    <button type="button" data-toggle="modal" data-target="#getInTouch" class="btn btn-primary w-100" id="subscribeBtn">Subscribe</button>
   </div>
   <!-- page content ends here -->
   <!-- footer starts Here -->
   <app-footer></app-footer>
+
+  <!--  Modal Start-->
+  <div class="modal fade" id="getInTouch" tabindex="-1" role="dialog" aria-labelledby="getInTouchTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Subscribe Now</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <div class="msg-success" *ngIf="contactFormDivMessage">
+            <p>{{ contactMessage }}</p>
+          </div>
+          <div class="Subscribe-space" *ngIf="contactFormDiv">
+            <h4 class="text-left mb-3">{{ step6.sub_title }}</h4>
+            <form class="subscribeform pb-3" autocomplete="off" [formGroup]="form" (submit)="onSubmit()">
+              <div class="row col-12 m-auto text-left">
+                <div class="subscribe-form-group col-lg-12 col-md-12 " [ngClass]="{
+                'has-error': (form.get('email').hasError('required') || errors.email) && form.get('email').touched
+              }">
+                  <label>EMAIL ADDRESS*</label>
+                  <input type="email " class="subscribe-form-control" placeholder="" autocomplete="off" formControlName="email" required>
+                  <em class="has-error" *ngIf="form.get('email').hasError('required') && form.get('email').touched">
+                    Email is required
+                  </em>
+                  <em class="has-error" *ngIf="form.get('email').hasError('pattern')">
+                    Email is invalid
+                  </em>
+                </div>
+                <div class="subscribe-form-group col-lg-12 col-md-12 "[ngClass]="{
+                'has-error': (form.get('name').hasError('required') || errors.name) && form.get('name').touched
+              }">
+                  <label>NAME*</label>
+                  <input type="text " class="subscribe-form-control" placeholder="" autocomplete="off" formControlName="name" required>
+                  <em class="has-error" *ngIf="form.get('name').hasError('required') && form.get('name').touched">
+                    Full Name is required
+                  </em>
+                </div>
+              </div>
+              <div class="row col-12 m-auto text-left">
+                <div class="subscribe-form-group col-12" [ngClass]="{
+                'has-error': (form.get('phone').hasError('required') || errors.phone) && form.get('phone').touched
+              }">
+                  <label>PHONE NUMBER*</label>
+                  <input type="text" class="subscribe-form-control contact" autocomplete="off" formControlName="phone" required maxlength="10">
+                  <em class="has-error" *ngIf="form.get('phone').hasError('required') && form.get('phone').touched">
+                    Phone is required
+                  </em>
+                </div>
+              </div>
+              <div class="row col-12 m-auto text-left">
+                <div class="subscribe-form-group col-12">
+                  <button type="submit" class="btn subscribe-btn" [disabled]="!form.valid">SUBSCRIBE</button>
+                  <!--                <a href="" class="btn subscribe-btn"> SUBSCRIBE</a>-->
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  Modal End-->
 </div>

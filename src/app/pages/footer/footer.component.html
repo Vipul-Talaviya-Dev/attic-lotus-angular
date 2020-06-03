@@ -102,40 +102,6 @@
   </div>
 </section>
 
-<!--<div class="footer_section">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-11 col-sm-12 question_screen">
-        <h4><img src="assets/images/hello_emogy.png">Book Your Office Space</h4>
-        <br /><br />
-        <div class="container">
-          <div class="row">
-            <div class="hidden-lg-down col-xl-1">
-              <p class="indicatePage">Start</p>
-            </div>
-            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-11">
-              <section class="start__question">
-                <p class="question__number">1/{{ total }}</p>
-                <div id="carousel-demo" class="carousel slide" data-ride="carousel">
-                  <div class="carousel-inner">
-                    <div *ngFor="let question of questions;let i = index;" [class]="(i == 0) ? 'question__wrapper carousel-item active' : 'question__wrapper carousel-item'">
-                      <h2 class="question__title ">{{ question.question }} <br />
-                        <input type="text" class="footer-input question__question" placeholder="What's your Answer?"></h2>
-                      <br /><br />
-                    </div>
-                  </div>
-                  <a href="#carousel-demo" class="next-step" data-slide="next"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i>&nbsp; Next Question</a><br /><br /><br /><br />
-                  &lt;!&ndash;slider control for card&ndash;&gt;
-                </div>
-              </section>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>-->
-
 <section class="footer">
   <div class="row">
     <div class="container">
@@ -170,31 +136,55 @@
             <li><a href="javascript:void(0);">Calculator</a></li>
           </ul>
         </div>
-        <div class="col-md-3 col-sm-12 pr-0">
+        <div class="col-md-3 col-sm-12 pr-0" *ngIf="footerFormDivMessage">
+          <div class="msg-success" *ngIf="footerFormDivMessage">
+            <p>{{ footerMessage }}</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-12 pr-0" *ngIf="footerFormDiv">
           <h4>UPCOMING LOCATIONS</h4>
-          <form class="footer-form">
-            <label class="form-group has-float-label">
+          <form class="footer-form" autocomplete="off" [formGroup]="footerForm" (submit)="onFooterSubmit()">
+            <label class="form-group has-float-label" [ngClass]="{
+                'has-error': (footerForm.get('cityId').hasError('required') || footerErrors.cityId) && footerForm.get('cityId').touched
+              }">
               <span class="select-input-img">
                   <svg width="12" height="16" viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg">
                   <path d="M6 16S0 9.312 0 6a6 6 0 0 1 12 0c0 3.313-6 10-6 10zM6 1a5 5 0 0 0-5 5c0 2.761 5 8.499 5 8.499S11 8.761 11 6a5 5 0 0 0-5-5zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-5a2 2 0 1 0 0 4 2 2 0 0 0 0-4z">
                   </path>
                 </svg>
               </span>
-              <select class="form-control " style="color: #495057;">
-                <option>Bengalore</option>
-                <option>Hydrabad</option>
+              <select class="form-control " style="color: #495057;" formControlName="cityId">
+                <option value="">Select City</option>
+                <option value="1">Bangalore</option>
+                <option value="2">Hyderabad</option>
               </select>
               <span class="selection" style="top: 0;">Select City</span>
+              <em class="has-error" *ngIf="footerForm.get('cityId').hasError('required') && footerForm.get('cityId').touched">
+                City is required
+              </em>
             </label>
-            <label class="form-group has-float-label">
-              <input class="form-control" type="email" placeholder="email@example.com"/>
+            <label class="form-group has-float-label" [ngClass]="{
+                'has-error': (footerForm.get('email').hasError('required') || footerErrors.email) && footerForm.get('email').touched
+              }">
+              <input class="form-control" type="email" placeholder="email@example.com" autocomplete="off" formControlName="email" required />
               <span>Email address</span>
+              <em class="has-error" *ngIf="footerForm.get('email').hasError('required') && footerForm.get('email').touched">
+                Email is required
+              </em>
+              <em class="has-error" *ngIf="footerForm.get('email').hasError('pattern')">
+                Email is invalid
+              </em>
             </label>
-            <label class="form-group has-float-label">
-              <input class="form-control" type="number" placeholder="1234567890"/>
+            <label class="form-group has-float-label" [ngClass]="{
+                'has-error': (footerForm.get('mobile').hasError('required') || footerErrors.mobile) && footerForm.get('mobile').touched
+              }">
+              <input class="form-control mobile" type="text" maxlength="10" placeholder="1234567890" autocomplete="off" formControlName="mobile" required/>
               <span>Phone Number</span>
+              <em class="has-error" *ngIf="footerForm.get('mobile').hasError('required') && footerForm.get('mobile').touched">
+                Mobile is required
+              </em>
             </label>
-            <button type="submit" class="btn btn-footer-form"> <span><img src="assets/images/notify-me.png" alt=""></span> Notify Me</button>
+            <button type="submit" class="btn btn-footer-form" [disabled]="!footerForm.valid"> <span><img src="assets/images/notify-me.png" alt=""></span> Notify Me</button>
           </form>
         </div>
       </section>

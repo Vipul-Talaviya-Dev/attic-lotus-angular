@@ -280,9 +280,10 @@
   padding: 10px;
   position: relative;
   bottom: 100px;
-  width: 50%;
+  width: 60%;
   left: 25px;
   border-radius: 10px;
+  font-family: 'ApercuProMedium';
 }
 
 .growth-section {
@@ -348,15 +349,6 @@
   text-align: center;
   background-color: inherit;
   padding-top: 30%;
-}
-
-.modal-body.active,
-.modal-body.active .contact-us-modal-content {
-  transform: translateX(0);
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
-  transition: transform 0.5s;
 }
 
 .input-group-prepend img {
@@ -680,10 +672,26 @@
     margin-bottom: 15px;
   }
   .image-container .img-title {
+    width: 100%;
     font-size: 16px;
-    bottom: 70px;
-    left: 15px;
+    bottom: 0px;
+    left: 0px;
+    border: 1px solid #666;
+    border-top: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    padding: 20px;
   }
+  .image-container .img-title a {
+    color: var(--primary) !important;
+    text-decoration: underline !important;
+  }
+}
+.img-title a {
+  color: #2b2a29;
+  font-size: 25px;
 }
 .searched {
   background: #f7f7f7;
