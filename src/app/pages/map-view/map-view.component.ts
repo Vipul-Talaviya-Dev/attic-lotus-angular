@@ -36,6 +36,7 @@ export class MapViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    window.scroll(0,0);
     this._compiler.clearCache();
 
     let el = this._elementRef.nativeElement.querySelector('.leaflet-maps');

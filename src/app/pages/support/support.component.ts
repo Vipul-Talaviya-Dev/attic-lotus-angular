@@ -25,6 +25,7 @@ export class SupportComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    window.scroll(0,0);
     this._compiler.clearCache();
   }
 

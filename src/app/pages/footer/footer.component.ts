@@ -16,6 +16,8 @@ export class FooterComponent implements OnInit {
   public questions: any;
   public normals: any;
   public searchProperties: any;
+  public cities: any;
+  public locations: any;
   public total = 0;
   public officeContact =  {
     officeMobile: '',
@@ -47,6 +49,17 @@ export class FooterComponent implements OnInit {
     cityId: false,
     email: false,
     mobile: false,
+  };
+  // calculate part
+  public calMessageDiv = false;
+  public calculateAmount = 0;
+  public calculateForm: FormGroup;
+  public calculateSubmitted: boolean = false;
+  public calculateErrors = {
+    cityId: false,
+    locationId: false,
+    feet: false,
+    type: false,
   };
 
   constructor(
@@ -86,9 +99,18 @@ export class FooterComponent implements OnInit {
       'mobile': ['', [Validators.required]],
       'cityId': ['', [Validators.required]],
     });
+
+    // Upcoming Location
+    this.calculateForm = fb.group({
+      'cityId': ['', [Validators.required]],
+      'locationId': ['', [Validators.required]],
+      'feet': [10, [Validators.required]],
+      'type': ['', [Validators.required]],
+    });
   }
 
   ngOnInit(): void {
+    this.getCities();
     this.getOfficeContact();
     this._compiler.clearCache();
   }
@@ -163,12 +185,55 @@ export class FooterComponent implements OnInit {
       });
     }
   }
+
   onItemChange(value) {
     this.contactForm.patchValue({'companySize': value});
   }
 
+  onTypeChange(value) {
+    this.calculateForm.patchValue({'type': value});
+  }
+
+  public onCalculateSubmit() {
+    this.calculateSubmitted = true;
+    if (this.calculateForm.valid) {
+      this.commonService.calculation(this.calculateForm.value).subscribe((res) => {
+        if (res.status === true) {
+          this.calMessageDiv = true;
+          this.calculateAmount = res.amount;
+        } else {
+          this.toaster.error(res.message, 'Error !!!');
+        }
+      });
+    }
+  }
+
+  getCities() {
+    this.commonService.getCities(2).subscribe((res) => {
+      try {
+        if(res.status) {
+          this.cities = res.cities;
+        }
+      } catch (e) {
+        console.log('Do not get URL data');
+      }
+    });
+  }
+
+  public getLocations(city) {
+    this.commonService.getLocations(city).subscribe((res) => {
+      try {
+        if(res.status) {
+          this.locations = res.locations;
+        }
+      } catch (e) {
+        console.log('Do not get URL data');
+      }
+    });
+  }
   jsData() {
     $(document).ready(function() {
+      $(window).scroll(function() { $(this).scrollTop() > 0 ? $(".to-top").fadeIn() : $(".to-top").fadeOut() }), $(".to-top").click(function(e) { $("html, body").animate({ scrollTop: 0 }, 500) })
       $(".menu-icon").on("click", function() {
         $("nav ul").toggleClass("showing");
       });
@@ -188,6 +253,12 @@ export class FooterComponent implements OnInit {
         $(".modal-body").removeClass("active");
         $(".modal3").toggleClass("active");
         $("body").css("background", "#f8f8f8");
+      });
+
+      $(".modal-trigger4").on("click", function() {
+        window.scroll(0,0);
+        $(".modal-body").removeClass("active");
+        $(".modal4").toggleClass("active");
       });
     });
     $(document).ready(function() {

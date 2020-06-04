@@ -309,6 +309,31 @@ export class CommonService {
     );
   }
 
+  calculation(data): Observable<any> {
+    this.configService.notifyLoaderEmitter(true);
+    const endPoint = environment.api;
+    const apiURL = endPoint + 'calculate';
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    const requestOptions: object = {
+      headers: headers,
+      responseType: 'json'
+    };
+    const body = JSON.stringify(data);
+
+    return this.http.post(apiURL, body, requestOptions).pipe(
+      map(res => {
+        return this.extractData(res);
+      }),
+      catchError(error => {
+        return this.handleError(error);
+      }),
+    );
+  }
+
   subscribe(data): Observable<any> {
     this.configService.notifyLoaderEmitter(true);
     const endPoint = environment.api;

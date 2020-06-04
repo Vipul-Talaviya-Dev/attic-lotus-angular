@@ -55,6 +55,7 @@ export class ReadyToMoveComponent implements OnInit {
     this.selectedIndex = index;
   }
   ngOnInit(): void {
+    window.scroll(0,0);
     this._compiler.clearCache();
     this.pageContent();
     this.getCommon();

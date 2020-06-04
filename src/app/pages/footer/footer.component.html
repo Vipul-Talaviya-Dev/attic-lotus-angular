@@ -112,6 +112,7 @@
           <i class="fab fa-twitter"></i>
           <i class="fab fa-instagram"></i>
           <i class="fab fa-linkedin-in"></i>
+          <a href="javascript:void(0);" class="to-top"><i class="fa fa-angle-double-up"></i></a>
         </div>
       </section>
       <section class="quick-links">
@@ -133,7 +134,7 @@
           <h4>IMPACT</h4>
           <ul class="list-unstyled">
             <li><a routerLink="/ideas">Ideas</a></li>
-            <li><a href="javascript:void(0);">Calculator</a></li>
+            <li><a href="javascript:void(0);" class="modal-trigger4">Calculator</a></li>
           </ul>
         </div>
         <div class="col-md-3 col-sm-12 pr-0" *ngIf="footerFormDivMessage">
@@ -155,8 +156,7 @@
               </span>
               <select class="form-control " style="color: #495057;" formControlName="cityId">
                 <option value="">Select City</option>
-                <option value="1">Bangalore</option>
-                <option value="2">Hyderabad</option>
+                <option *ngFor="let city of cities;" [value]="city.id">{{ city.name }}</option>
               </select>
               <span class="selection" style="top: 0;">Select City</span>
               <em class="has-error" *ngIf="footerForm.get('cityId').hasError('required') && footerForm.get('cityId').touched">
@@ -366,12 +366,11 @@
           <a href="javascript:void(0);">Locations<span class="caret"></span></a>
           <div>
             <ul>
-              <li><a routerLink="/Bangalore">Bangalore</a></li>
+              <li *ngFor="let city of cities;"><a [routerLink]="['/'+city.name]">{{ city.name }}</a></li>
               <!--<li>
                 <a href="javascript:void(0);" class="special-link" style="color: #000 !important; font-size: 14px;"> <span style=" font-size: 14px;">NEW</span> Attic Lotus </a>
               </li>
               <li class="divider"></li>-->
-              <li><a routerLink="/Hydrabad">Hydrabad</a></li>
             </ul>
 
           </div>
@@ -396,3 +395,83 @@
   </div>
 </section>
 <!-- Model 3 End -->
+
+<!-- Model 4 Start -->
+<section class="modal-body modal4">
+  <div class="contact-us-background"></div>
+  <div class="contact-us-modal-content">
+    <button type="button" class="button-modal button-plain cursor-pointer"> <i class="fa fa-times"></i></button>
+    <section class="form-layout-wrapper  contact-us-modal-form-wrapper">
+      <div class="form-header-section text-left">
+        <p class="m-0">Lets see, How much will you<span style="color: var(--primary);"> SAVE</span> with the <br>Attic Space</p>
+      </div>
+      <div class="form-body-section footer-popup text-left">
+        <form class="footer-form" autocomplete="off" [formGroup]="calculateForm" (submit)="onCalculateSubmit()">
+          <label class="form-group has-float-label" [ngClass]="{
+            'has-error': (calculateForm.get('cityId').hasError('required') || calculateErrors.cityId) && calculateForm.get('cityId').touched
+          }">
+            <span class="select-input-svg">
+                <svg width="12" height="16" viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 16S0 9.312 0 6a6 6 0 0 1 12 0c0 3.313-6 10-6 10zM6 1a5 5 0 0 0-5 5c0 2.761 5 8.499 5 8.499S11 8.761 11 6a5 5 0 0 0-5-5zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-5a2 2 0 1 0 0 4 2 2 0 0 0 0-4z">
+                    </path>
+                </svg>
+            </span>
+            <select class="form-control " (change)="getLocations($event.target.value);" formControlName="cityId">
+              <option value="">Select City</option>
+              <option *ngFor="let city of cities;" [value]="city.id">{{ city.name }}</option>
+            </select>
+            <em class="has-error" *ngIf="calculateForm.get('cityId').hasError('required') && calculateForm.get('cityId').touched">
+              City is required
+            </em>
+            <span class="selection" style="top: 0;">Select City</span>
+          </label>
+
+          <label class="form-group has-float-label" [ngClass]="{
+            'has-error': (calculateForm.get('locationId').hasError('required') || calculateErrors.locationId) && calculateForm.get('locationId').touched
+          }">
+            <span class="select-input-svg">
+                <svg width="12" height="16" viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 16S0 9.312 0 6a6 6 0 0 1 12 0c0 3.313-6 10-6 10zM6 1a5 5 0 0 0-5 5c0 2.761 5 8.499 5 8.499S11 8.761 11 6a5 5 0 0 0-5-5zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-5a2 2 0 1 0 0 4 2 2 0 0 0 0-4z">
+                    </path>
+                </svg>
+            </span>
+            <select class="form-control " formControlName="locationId">
+              <option value="">-- Select Area --</option>
+              <option *ngFor="let location of locations;" value="{{ location.id }}">{{ location.name }}</option>
+            </select>
+            <em class="has-error" *ngIf="calculateForm.get('locationId').hasError('required') && calculateForm.get('locationId').touched">
+              Location is required
+            </em>
+            <span class="selection" style="top: 0;">Select Area</span>
+          </label>
+          <label class="form-group has-float-label" [ngClass]="{
+            'has-error': (calculateForm.get('feet').hasError('required') || calculateErrors.feet) && calculateForm.get('feet').touched
+          }">
+            <span class="select-input-svg">
+                <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 36 59" width="20"><g id="004---Office-Chair" transform="translate(-1)"><path id="Shape" d="m30 11c0-1.1045695-.8954305-2-2-2h-6v-3.14c1.1139539-.08961313 2.2161257-.29061712 3.29-.6.4372829-.13205152.7295036-.54363007.71-1v-3.26c0-.55228475-.4477153-1-1-1h-12c-.5522847 0-1 .44771525-1 1v3.3c-.0195036.45636993.2727171.86794848.71 1 1.0738743.30938288 2.1760461.51038687 3.29.6v3.1h-6c-1.1045695 0-2 .8954305-2 2v20h22zm-10-2h-2v-3h2z"/><path id="Shape" d="m3 59c.76120463-.0018263 1.45537815-.4356029 1.79069722-1.1189747.33531906-.6833717.25364113-1.4978456-.21069722-2.1010253 16.5-2.35 12.24-2.37 28.84 0-.5069203.6616012-.5504003 1.5682126-.10912 2.2752883.4412802.7070757 1.2747961 1.0663611 2.0918433.9016849.8170472-.1646761 1.4463129-.8187857 1.5792444-1.641594.1329315-.8228084-.2583433-1.6417947-.9819677-2.0553792.130101-.4803716-.1128413-.9833047-.57-1.18-15.34-6.55-14.13-6.08-14.43-6.08v-5c0-.5522847-.4477153-1-1-1 0-5.13 0-3.77 0-4 3.6155266-.1916612 7.201401-.7580282 10.7-1.69.8972989-.2084675 1.4593642-1.1006348 1.26-2 .110791-.052571.2095223-.1274706.29-.22 1.12-1.3 3.75-4.84 3.75-9.09h1v-2c0-1.1045695-.8954305-2-2-2h-3v4h2c0 3.58-2.29 6.66-3.28 7.82-.0464097.064448-.0834451.1351519-.11.21-.3-.05-23 0-23.22 0-.21-.43-3.39-3.76-3.39-8.03h2v-4h-3c-1.1045695 0-2 .8954305-2 2v2h1c0 4.25 2.63 7.79 3.75 9.11.0804777.0925294.17920903.167429.29.22-.09853638.432333-.02108778.886105.21527174 1.2612788s.61222281.6409446 1.04472826.7387212c2.30879446.5715931 4.6451395 1.0255115 7 1.36l-1.8 2.31h-3.5c-.55228475 0-1 .4477153-1 1s.44771525 1 1 1h4c.3147573 0 .6111456-.1481942.8-.4 2.6-3.48 2.54-3.28 2.57-3.71.53 0 1.08.07 1.64.08v4c-.5522847 0-1 .4477153-1 1v5c-.3 0 .83-.44-14.39 6.08-.49123624.1792004-.76147441.7066007-.62 1.21-.79242532.4490362-1.18137619 1.376762-.94610929 2.2566602.23526691.8798983 1.03532344 1.4897076 1.94610929 1.4833398zm14.21-9h3.58l6.87 2.94c-9.26-1.32-8.76-1.22-17.32 0z"/></g></svg>
+            </span>
+            <input class="form-control mobile" type="text" placeholder="0" autocomplete="off" formControlName="feet" required/>
+            <em class="has-error" *ngIf="calculateForm.get('feet').hasError('required') && calculateForm.get('feet').touched">
+              Feet is required
+            </em>
+            <span class="selection" style="top: 2px;">Select No of Feet</span>
+          </label>
+          <div class="radio">
+            <label><input type="radio" name="optradio" value="1" (change)="onTypeChange($event.target.value)"> Ready to move in</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="optradio" value="2" (change)="onTypeChange($event.target.value)"> Custom Build</label>
+          </div>
+          <button id="calculate" type="submit" class=" btn btn-footer-form" [disabled]="!calculateForm.valid">Calculate </button>
+        </form>
+        <div class="message" *ngIf="calMessageDiv">
+          <p>Approximate Saving will be <br> <span>INR {{ calculateAmount }}</span> / year</p>
+        </div>
+      </div>
+      <div class="all-location-link button-modal">
+        <a href="javascript:void(0);">SEE ALL LOCATIONS</a>
+      </div>
+    </section>
+  </div>
+</section>
+<!-- Model 4 End -->

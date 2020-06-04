@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 import {FooterSearchService} from '../../services/footer-search.service';
+import {Meta, Title} from '@angular/platform-browser';
 declare var $: any;
 
 @Component({
@@ -39,12 +40,18 @@ export class BlogDetailComponent implements OnInit {
     private footerSearch: FooterSearchService,
     private toaster: ToastrService,
     private _compiler: Compiler,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private titleService: Title, private meta: Meta
   ) {
     this.route.data.subscribe((response) => {
       this.blog = response.blog.blog;
       this.relevantBlogTotal = response.blog.blog.relevents.length;
       this.step6 = response.blog.blog.step6;
+
+      this.titleService.setTitle(this.blog.title);
+      this.meta.addTag({name: 'keywords', content: this.blog.meta_keywords});
+      this.meta.addTag({name: 'description', content: this.blog.meta_description});
+
       this.jsData();
     });
     // search form
@@ -62,6 +69,7 @@ export class BlogDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    window.scroll(0,0);
     this._compiler.clearCache();
   }
   public searchBlog(name) {

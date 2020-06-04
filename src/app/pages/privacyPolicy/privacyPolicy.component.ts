@@ -13,6 +13,7 @@ export class PrivacyPolicyComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    window.scroll(0,0);
     this.getPolicy();
   }
 
