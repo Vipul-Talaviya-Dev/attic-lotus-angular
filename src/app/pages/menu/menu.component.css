@@ -101,11 +101,6 @@ body .black {
   margin-bottom: 0;
   border: 0px !important;
 }
-.header_section {
-  max-height: 100px;
-  background-color: #ffffff;
-  box-shadow: var(--myshadow);
-}
 .navbar-nav>li:last-child>a {
   padding-right: 0px;
   margin-right: 0px;

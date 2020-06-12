@@ -13,11 +13,13 @@ import {BlogComponent} from './pages/blog/blog.component';
 import {SupportComponent} from './pages/support/support.component';
 import {BlogDetailComponent} from './pages/blog-detail/blog-detail.component';
 import {BlogDetailResolve} from './resolve/blog-detail.resolve';
+import {CustomBuildComponent} from './pages/customBuild/customBuild.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'ready-to-move', component: ReadyToMoveComponent },
+  { path: 'custom-build', component: CustomBuildComponent },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'terms-condition', component: TermConditionComponent },
   { path: 'all-locations', component: MapViewComponent },

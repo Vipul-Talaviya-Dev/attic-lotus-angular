@@ -30,6 +30,7 @@ import {SupportComponent} from './pages/support/support.component';
 import {BlogDetailComponent} from './pages/blog-detail/blog-detail.component';
 import {FooterSearchService} from './services/footer-search.service';
 import {BlogDetailResolve} from './resolve/blog-detail.resolve';
+import {CustomBuildComponent} from './pages/customBuild/customBuild.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -50,6 +51,7 @@ const APP_PROVIDERS = [
     SupportComponent,
     PrivacyPolicyComponent,
     TermConditionComponent,
+    CustomBuildComponent,
     MenuComponent,
     FooterComponent
   ],

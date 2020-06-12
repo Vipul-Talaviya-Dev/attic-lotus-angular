@@ -1,0 +1,175 @@
+<app-menu></app-menu>
+<div class="page-content customcolcontent">
+  <section class="innerbannersection">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div id="primary" class="prxls">
+            <div class="bannercontent">
+              <h1 class="xltitle">{{ step7.title }}</h1>
+              <p class="secondrypr">{{ step7.sub_title }}</p>
+            </div><!--/.bannercontent-->
+          </div><!--/#primary-->
+        </div><!--/.col-lg-8-->
+        <div class="col-md-12 col-lg-3">
+          <aside id="sidebar">
+            <span class="linetitle txtcenter">{{ step7.description }}</span>
+            <div class="msg-success" *ngIf="msgDiv">
+              <p>{{ message }}</p>
+            </div>
+            <form class="footer-form" autocomplete="off" [formGroup]="form" (submit)="onSubmit()" *ngIf="formDiv">
+              <label class="form-group has-float-label" [ngClass]="{
+              'has-error': (form.get('name').hasError('required') || errors.name) && form.get('name').touched
+              }">
+                <input class="form-control" type="text" placeholder="Your Full Name" autocomplete="off" formControlName="name">
+                <span>Your Full Name*</span>
+                <em class="has-error" *ngIf="form.get('name').hasError('required') && form.get('name').touched">
+                  Full Name is required
+                </em>
+              </label>
+              <label class="form-group has-float-label" [ngClass]="{
+                'has-error': (form.get('email').hasError('required') || errors.email) && form.get('email').touched
+              }">
+                <input class="form-control" type="text" placeholder="Your Email" formControlName="email" autocomplete="off">
+                <span>Your Email*</span>
+                <em class="has-error" *ngIf="form.get('email').hasError('required') && form.get('email').touched">
+                  Email is required
+                </em>
+                <em class="has-error" *ngIf="form.get('email').hasError('pattern')">
+                  Email is invalid
+                </em>
+              </label>
+              <label class="form-group has-float-label" [ngClass]="{
+                'has-error': (form.get('phone').hasError('required') || errors.phone) && form.get('phone').touched
+              }">
+                <input class="form-control contact" type="text" placeholder="Your Mobile Number" autocomplete="off" formControlName="phone" required maxlength="10">
+                <span>Your Mobile Number*</span>
+                <em class="has-error" *ngIf="form.get('phone').hasError('required') && form.get('phone').touched">
+                  Mobile is required
+                </em>
+              </label>
+              <span class="formtitleline">In which do you like to build the office space?*</span>
+              <label class="form-group has-float-label" [ngClass]="{
+                'has-error': (form.get('seat').hasError('required') || errors.seat) && form.get('seat').touched
+              }">
+                <div class="select-input-img">
+                  <svg width="12" height="16" viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg"></svg></div>
+                <select class="form-control" formControlName="seat" required>
+                  <option value="">select Seat</option>
+                  <option value="10">10</option>
+                  <option value="50">50</option>
+                  <option value="100">100</option>
+                  <option value="100+">100+</option>
+                </select>
+                <span class="selection" style="top: 0;">How many seats?</span>
+                <em class="has-error" *ngIf="form.get('seat').hasError('required') && form.get('seat').touched">
+                  Select Seats
+                </em>
+              </label>
+
+              <button type="submit" class="btn btn-footer-form" [disabled]="!form.valid">Schudle Call</button>
+              <a class="cta" href="tel:7827948251">Call us at +91 7827948251</a>
+            </form>
+          </aside><!--/#sidebar-->
+        </div><!--/.col-lg-4-->
+      </div><!--/.row-->
+    </div><!--/.container-->
+  </section><!--/.innerbannersection-->
+
+  <section class="secpadding howitworksection">
+    <div class="container custom-container">
+      <div class="row prxls">
+        <div class="col-md-12 col-lg-6">
+          <h3>How It Works</h3>
+          <ul class="listing-custom">
+            <li *ngFor="let work of customWorks;let i = index;" [class]="(i==0) ? 'active' : ''"><span>{{ i+1 }}</span> {{ work.title }}</li>
+          </ul><!--/.listing-custom-->
+        </div><!--/.col-lg-6-->
+        <div class="col-md-12 col-lg-6 hiwright">
+          <span *ngFor="let work of customWorks;let i = index;" [style]="(i == 0) ? 'display:block;' : 'display:none;'">
+            <img [src]="work.image"><img src="assets/images/imgarrow.png" alt="">
+            <h6>{{ work.title }}</h6>
+            <p>{{ work.sub_title }}</p>
+          </span>
+        </div><!--/.col-lg-6-->
+      </div><!--/.row-->
+    </div><!--/.container-->
+  </section><!--/.howitworksection-->
+
+  <section class="secpadding boxlisting">
+    <div class="container custom-container">
+      <div class="boxlistingwrapper">
+        <div *ngIf="divData" class="row">
+          <div class="col-md-12 col-lg-6">
+            <img src="assets/images/listingimg01.png" alt="">
+            <img src="assets/images/imgarrow.png" alt="">
+            <div class="hiwright">
+              <h6>We Manage the Operations</h6>
+              <p>Handling everything from front desk service: of fresh fruit water, otilities & security to employee events.</p>
+            </div><!--/.hiwright-->
+          </div><!--/.col-lg-6-->
+          <div class="col-md-12 col-lg-6">
+            <img src="assets/images/listingimg02.png" alt="">
+            <img src="assets/images/imgarrow.png" alt="">
+            <div class="hiwright">
+              <h6>We Transform the Building</h6>
+              <p>With smartly designed conference rooms, phone booths, and more based on our own user data.</p>
+            </div><!--/.hiwright-->
+          </div><!--/.col-lg-6-->
+          <div class="col-md-12 col-lg-6">
+            <img src="assets/images/listingimg03.png" alt="">
+            <img src="assets/images/imgarrow.png" alt="">
+            <div class="hiwright">
+              <h6>Choose Layout</h6>
+              <p>Select from various layout options that have proven results for companies of your size and locale.</p>
+            </div><!--/.hiwright-->
+          </div><!--/.col-lg-6-->
+          <div class="col-md-12 col-lg-6">
+            <img src="assets/images/listingimg04.png" alt="">
+            <img src="assets/images/imgarrow.png" alt="">
+            <div class="hiwright">
+              <h6>personalize Details</h6>
+              <p>Upgrade technical gear based on your needs, and integrate your branding into art and signage.</p>
+            </div><!--/.hiwright-->
+          </div><!--/.col-lg-6-->
+          <div class="col-md-12 col-lg-6">
+            <img src="assets/images/listingimg05.png" alt="">
+            <img src="assets/images/imgarrow.png" alt="">
+            <div class="hiwright">
+              <h6>Move in Swiftly</h6>
+              <p>Thanks to a streamlined design and build process, you’ll  waste no time getting up and running.</p>
+            </div><!--/.hiwright-->
+          </div><!--/.col-lg-6-->
+          <div class="col-md-12 col-lg-6">
+            <img src="assets/images/listingimg06.png" alt="">
+            <img src="assets/images/imgarrow.png" alt="">
+            <div class="hiwright">
+              <h6>Pick Your Location</h6>
+              <p>Thanks to a streamlined design and build process, you’ll  waste no time getting up and running.</p>
+            </div><!--/.hiwright-->
+          </div><!--/.col-lg-6-->
+        </div><!--/.row-->
+        <div class="row" *ngFor="let category of categories;">
+          <div class="col-lg-12">
+            <h3>{{ category.title }}</h3>
+            <p>{{ category.sub_title }}</p>
+          </div><!--/.col-lg-12-->
+          <div class="col-md-12 col-lg-6" *ngFor="let product of category.products;">
+            <img [src]="product.image" alt="">
+            <img src="assets/images/imgarrow.png" alt="">
+            <div class="hiwright">
+              <h6>{{ product.title }}</h6>
+              <p>{{ product.sub_title }}</p>
+            </div><!--/.hiwright-->
+          </div><!--/.col-lg-6-->
+        </div><!--/.row-->
+      </div><!--/.boxlistingwrapper-->
+    </div><!--/.container-->
+  </section><!--/.boxlisting-->
+
+  <section class="secpadding ourspaces">
+    <img src="assets/images/customspacesimg.png" alt="">
+  </section><!--/.ourspaces-->
+
+  <app-footer></app-footer>
+</div>
