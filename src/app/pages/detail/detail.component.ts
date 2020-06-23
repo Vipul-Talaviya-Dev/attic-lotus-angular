@@ -16,6 +16,9 @@ export class DetailComponent implements OnInit {
   public propertyFeatures: any;
   public enquiryDiv = true;
   public msgDiv = false;
+  public uniqueBuildDiv = false;
+  public includedAmenityDiv = false;
+  public message = '';
   public propertyFeature = {
     label: '',
     value: '',
@@ -31,7 +34,8 @@ export class DetailComponent implements OnInit {
     lastName: false,
     mobile: false,
     propertyId: false,
-    product_of_interest: false
+    product_of_interest: false,
+    checkbox: false
   };
   public errors = {
     name: false,
@@ -40,6 +44,7 @@ export class DetailComponent implements OnInit {
     propertyId: false,
     day: false,
     time: false,
+    checkboxs: false
   };
 
   constructor(
@@ -62,6 +67,7 @@ export class DetailComponent implements OnInit {
       'mobile': ['', [Validators.required]],
       'day': ['', [Validators.required]],
       'time': ['', [Validators.required]],
+      'checkboxs': ['', [Validators.required]],
       'propertyId': [''],
     });
     // enquiry form
@@ -70,6 +76,7 @@ export class DetailComponent implements OnInit {
       'lastName': ['', [Validators.required]],
       'mobile': ['', [Validators.required]],
       'product_of_interest': ['', [Validators.required]],
+      'checkbox': ['', [Validators.required]],
       'propertyId': [''],
       'name': [''],
     });
@@ -86,6 +93,8 @@ export class DetailComponent implements OnInit {
       this.property = response.property.property;
       this.enquiryDiv = (this.property.isAvailable) ? false : true;
       this.msgDiv = (this.property.isAvailable) ? true : false;
+      this.uniqueBuildDiv = (this.property.uniqueBuilds.length > 0) ? true : false;
+      this.includedAmenityDiv = (this.property.includedAmenittes.length > 0) ? true : false;
       this.form.patchValue({'propertyId': this.property.id});
       this.enquiryForm.patchValue({'propertyId': this.property.id});
       this.properties = this.property.properties;
@@ -125,8 +134,8 @@ export class DetailComponent implements OnInit {
         if (res.status === true) {
           this.enquiryForm.reset();
           this.msgDiv = true;
+          this.message = res.message;
           this.enquiryDiv = false;
-          // this.toaster.success(res.message, 'Success !!!');
         } else {
           this.toaster.error(res.message, 'Error !!!');
         }
@@ -134,8 +143,33 @@ export class DetailComponent implements OnInit {
     }
   }
 
+  onItemChange(e) {
+    if(e.target.checked) {
+      this.enquiryForm.patchValue({'checkbox': 1});
+    } else {
+      this.enquiryForm.patchValue({'checkbox': ""});
+      this.enquiryForm.get('checkbox').setValidators(Validators.required);
+    }
+  }
+
+  onFormItemChange(e) {
+    if(e.target.checked) {
+      this.form.patchValue({'checkboxs': 1});
+    } else {
+      this.form.patchValue({'checkboxs': ""});
+      this.form.get('checkbox').setValidators(Validators.required);
+    }
+  }
+
   public jsData() {
     $(document).ready(function() {
+      $('.mobile').keypress(function (event) {
+        var keycode = event.which;
+        if (!(event.shiftKey == false && (keycode == 46 || keycode == 8 || keycode == 37 || keycode == 39 || (keycode >= 48 && keycode <= 57)))) {
+          event.preventDefault();
+        }
+      });
+
       if ($('.property').hasClass('slick-initialized')) {
         $('.property').slick('destroy');
       }

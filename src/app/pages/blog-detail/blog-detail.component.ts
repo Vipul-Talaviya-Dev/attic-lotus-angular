@@ -22,6 +22,7 @@ export class BlogDetailComponent implements OnInit {
   public relevantBlogTotal = 0;
   public searchBlogs: any;
   public searchTotal = 0;
+  public termsText = '';
   public step6 = {
     title: '',
     sub_title: '',
@@ -31,6 +32,7 @@ export class BlogDetailComponent implements OnInit {
     name: false,
     email: false,
     phone: false,
+    checkbox: false,
   };
 
   constructor(
@@ -45,6 +47,7 @@ export class BlogDetailComponent implements OnInit {
   ) {
     this.route.data.subscribe((response) => {
       this.blog = response.blog.blog;
+      this.termsText = this.blog.termsText;
       this.relevantBlogTotal = response.blog.blog.relevents.length;
       this.step6 = response.blog.blog.step6;
 
@@ -63,6 +66,7 @@ export class BlogDetailComponent implements OnInit {
         ]
       ],
       'phone': ['', [Validators.required]],
+      'checkbox': ['', [Validators.required]],
     });
 
     // this.jsData();
@@ -83,7 +87,14 @@ export class BlogDetailComponent implements OnInit {
       });
     }
   }
-
+  onItemChange(e) {
+    if(e.target.checked) {
+      this.form.patchValue({'checkbox': 1});
+    } else {
+      this.form.patchValue({'checkbox': ""});
+      this.form.get('checkbox').setValidators(Validators.required);
+    }
+  }
   public onSubmit() {
     this.submitted = true;
     if (this.form.valid) {

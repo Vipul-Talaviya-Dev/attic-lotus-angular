@@ -24,16 +24,11 @@
                 'has-error': (form.get('noOfPeople').hasError('required') || errors.noOfPeople) && form.get('noOfPeople').touched
               }">
               <option value="">--Select Number--</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+              <option value="200">200</option>
+              <option value="400">400</option>
+              <option value="500">500</option>
             </select>
             <em class="has-error" *ngIf="form.get('noOfPeople').hasError('required') && form.get('noOfPeople').touched">
               Number Of People is required
@@ -53,7 +48,7 @@
         </div>
         <div class="col-md-3 col-sm-12 feature-box">
           <div class="text-left">
-            <button type="submit" class="btn find-btn" style="margin-top: 45px;">FIND WORK SPACE</button>
+            <button type="submit" class="btn find-btn" [disabled]="!form.valid" style="margin-top: 45px;">FIND WORK SPACE</button>
           </div>
         </div>
       </div>
@@ -72,10 +67,10 @@
         <div id="firstSlider" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <div *ngFor="let property of oneSliders;let i = index;" [class]="(i==0) ? 'carousel-item active' : 'carousel-item'">
-              <div class="image_wrapper" style="cursor: pointer;" [routerLink]="['/property/'+ property.slug]">
+              <div class="image_wrapper" style="cursor: pointer;" [routerLink]="['/office-space/'+ property.locationSlug+'/'+ property.slug]">
                 <img class="w-80" [src]="property.image" alt="{{ property.name }}">
               </div>
-              <div class="content_wrapper" style="cursor: pointer;" [routerLink]="['/property/'+ property.slug]">
+              <div class="content_wrapper" style="cursor: pointer;" [routerLink]="['/office-space/'+ property.locationSlug+'/'+ property.slug]">
                 <h3>{{ property.name }}</h3>
                 <address>{{ property.city }}</address>
               </div>
@@ -91,10 +86,10 @@
         <div id="secondSlider" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <div *ngFor="let twoSlider of twoSliders;let i = index;" [class]="(i==0) ? 'carousel-item active' : 'carousel-item'">
-              <div class="image_wrapper" style="cursor: pointer;" [routerLink]="['/property/'+ twoSlider.slug]">
+              <div class="image_wrapper" style="cursor: pointer;" [routerLink]="['/office-space/'+ twoSlider.locationSlug+'/'+ twoSlider.slug]">
                 <img class="w-80" [src]="twoSlider.image" alt="{{ twoSlider.name }}">
               </div>
-              <div class="content_wrapper" style="cursor: pointer;" [routerLink]="['/property/'+ twoSlider.slug]">
+              <div class="content_wrapper" style="cursor: pointer;" [routerLink]="['/office-space/'+ twoSlider.locationSlug+'/'+ twoSlider.slug]">
                 <h3>{{ twoSlider.name }}</h3>
                 <address>{{ twoSlider.city }}</address>
               </div>
@@ -111,10 +106,10 @@
         <div id="thirdSlider" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <div *ngFor="let threeSlider of threeSliders;let i = index;" [class]="(i==0) ? 'carousel-item active' : 'carousel-item'">
-              <div class="image_wrapper" style="cursor: pointer;" [routerLink]="['/property/'+ threeSlider.slug]">
+              <div class="image_wrapper" style="cursor: pointer;" [routerLink]="['/office-space/'+ threeSlider.locationSlug+'/'+ threeSlider.slug]">
                 <img class="w-80" [src]="threeSlider.image" alt="{{ threeSlider.name }}">
               </div>
-              <div class="content_wrapper" style="cursor: pointer;" [routerLink]="['/property/'+ threeSlider.slug]">
+              <div class="content_wrapper" style="cursor: pointer;" [routerLink]="['/office-space/'+ threeSlider.locationSlug+'/'+ threeSlider.slug]">
                 <h3>{{ threeSlider.name }}</h3>
                 <address>{{ threeSlider.city }}</address>
               </div>
@@ -131,10 +126,10 @@
         <div id="fourthSlider" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <div *ngFor="let fourSlider of fourSliders;let i = index;" [class]="(i==0) ? 'carousel-item active' : 'carousel-item'">
-              <div class="image_wrapper" style="cursor: pointer;" [routerLink]="['/property/'+ fourSlider.slug]">
+              <div class="image_wrapper" style="cursor: pointer;" [routerLink]="['/office-space/'+ fourSlider.locationSlug+'/'+ fourSlider.slug]">
                 <img class="w-80" [src]="fourSlider.image" alt="{{ fourSlider.name }}">
               </div>
-              <div class="content_wrapper" style="cursor: pointer;" [routerLink]="['/property/'+ fourSlider.slug]">
+              <div class="content_wrapper" style="cursor: pointer;" [routerLink]="['/office-space/'+ fourSlider.locationSlug+'/'+ fourSlider.slug]">
                 <h3>{{ fourSlider.name }}</h3>
                 <address>{{ fourSlider.city }}</address>
               </div>
@@ -150,28 +145,14 @@
     </div>
   </div>
 </div>
+
 <div class="setup_manage_section tb-space">
   <div class="container text-center">
-    <h2>Everything you need to set up and manage your office in Bangalore</h2>
-    <div class="col-12 d-inline-flex pt-3   ">
+    <h2>{{ cityContentTitle }}</h2>
+    <div class="col-12 d-inline-flex pt-3">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item requirement col-md-2 col-sm-12">
-          <a class="nav-link active text-uppercase" id="location-tab" data-toggle="tab" href="#location" role="tab" aria-controls="location" aria-selected="true"><img class="m-3" src="assets/images/location.png" alt="location"> location</a>
-        </li>
-        <li class="nav-item requirement col-md-2 col-sm-12">
-          <a class="nav-link text-uppercase" id="Renovation-tab" data-toggle="tab" href="#Renovation" role="tab" aria-controls="Renovation" aria-selected="false"><img class="m-3" src="assets/images/renovation.png" alt="Interior design and decor"> Interior design and decor</a>
-        </li>
-        <li class="nav-item requirement col-md-2 col-sm-12">
-          <a class="nav-link text-uppercase" id="Communiation_Network-tab" data-toggle="tab" href="#Communiation_Network" role="tab" aria-controls="Communiation_Network" aria-selected="false"><img class="m-3" src="assets/images/communication.png" alt="Legal"> Legal</a>
-        </li>
-        <li class="nav-item requirement col-md-2 col-sm-12">
-          <a class="nav-link text-uppercase" id="Access_Control-tab" data-toggle="tab" href="#Access_Control" role="tab" aria-controls="Access_Control" aria-selected="true"><img class="m-3" src="assets/images/access-control.png" alt="Access_Control"> Access Control</a>
-        </li>
-        <li class="nav-item requirement col-md-2 col-sm-12">
-          <a class="nav-link text-uppercase" id="Support_Stuff-tab" data-toggle="tab" href="#Support_Stuff" role="tab" aria-controls="Support_Stuff" aria-selected="false"><img class="m-3" src="assets/images/support_stuff.png" alt="Support_Stuff"> Support Stuff </a>
-        </li>
-        <li class="nav-item requirement col-md-2 col-sm-12">
-          <a class="nav-link text-uppercase" id="Maintenance_Work-tab" data-toggle="tab" href="#Maintenance_Work" role="tab" aria-controls="Maintenance_Work" aria-selected="false"><img class="m-3" src="assets/images/all_maintenance.png" alt="All Maintenance_Work"> Maintenance Work</a>
+        <li class="nav-item requirement col-md-2 col-sm-12" *ngFor="let cityContentSub of cityContentSubs;let i = index;">
+          <a [class]="(i == 0) ? 'nav-link active text-uppercase' : 'nav-link text-uppercase'" [id]="cityContentSub.string+'-tab'" data-toggle="tab" [attr.href]="'#'+cityContentSub.string" role="tab" [attr.aria-controls]="cityContentSub.string" aria-selected="true"><img class="m-3" [src]="cityContentSub.icon" alt="{{ cityContentSub.icon_title }}">{{ cityContentSub.icon_title }}</a>
         </li>
       </ul>
     </div>
@@ -180,105 +161,21 @@
 <div class="zoho_invoice_section tb-space">
   <div class="container">
     <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="location" role="tabpanel" aria-labelledby="location-tab">
+      <div *ngFor="let cityContentSub of cityContentSubs;let i = index;" [class]="(i == 0) ? 'tab-pane fade show active' : 'tab-pane fade'" [id]="cityContentSub.string" role="tabpanel" [attr.aria-labelledby]="cityContentSub.string+'-tab'">
         <div class="col-12 d-inline-flex">
           <div class="zoho-image col-md-6 col-sm-12">
-            <img src="assets/images/zoho-invoice.png" alt="Zoho Invoice">
+            <img [src]="cityContentSub.image" alt="{{ cityContentSub.image_title }}">
           </div>
           <div class="zoho-content col-md-6 col-sm-12">
-            <h4 class="text-uppercase">Zoho Invoice - Location</h4>
-            <p>Create professional invoices, send automatic payment reminders, and accept online payments with Zoho Invoice.</p>
-            <ul>
-              <li>Create beautiful invoices using templates</li>
-              <li>Manage Projects and track time</li>
-              <li>Receive online payments</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="tab-pane fade" id="Renovation" role="tabpanel" aria-labelledby="Renovation-tab">
-        <div class="col-12 d-inline-flex">
-          <div class="zoho-image col-md-6 col-sm-12">
-            <img src="assets/images/zoho-invoice.png" alt="Zoho Invoice">
-          </div>
-          <div class="zoho-content col-md-6 col-sm-12">
-            <h4 class="text-uppercase">Zoho Invoice - Renovation</h4>
-            <p>Create professional invoices, send automatic payment reminders, and accept online payments with Zoho Invoice.</p>
-            <ul>
-              <li>Create beautiful invoices using templates</li>
-              <li>Manage Projects and track time</li>
-              <li>Receive online payments</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="tab-pane fade" id="Communiation_Network" role="tabpanel" aria-labelledby="Communiation_Network-tab">
-        <div class="col-12 d-inline-flex">
-          <div class="zoho-image col-md-6 col-sm-12">
-            <img src="assets/images/zoho-invoice.png" alt="Zoho Invoice - Communiation Network">
-          </div>
-          <div class="zoho-content col-md-6 col-sm-12">
-            <h4 class="text-uppercase">Zoho Invoice - Communication Network</h4>
-            <p>Create professional invoices, send automatic payment reminders, and accept online payments with Zoho Invoice.</p>
-            <ul>
-              <li>Create beautiful invoices using templates</li>
-              <li>Manage Projects and track time</li>
-              <li>Receive online payments</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="tab-pane fade" id="Access_Control" role="tabpanel" aria-labelledby="Access_Control-tab">
-        <div class="col-12 d-inline-flex">
-          <div class="zoho-image col-md-6 col-sm-12">
-            <img src="assets/images/zoho-invoice.png" alt="Zoho Invoice">
-          </div>
-          <div class="zoho-content col-md-6 col-sm-12">
-            <h4 class="text-uppercase">Zoho Invoice - Access Control</h4>
-            <p>Create professional invoices, send automatic payment reminders, and accept online payments with Zoho Invoice.</p>
-            <ul>
-              <li>Create beautiful invoices using templates</li>
-              <li>Manage Projects and track time</li>
-              <li>Receive online payments</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="tab-pane fade" id="Support_Stuff" role="tabpanel" aria-labelledby="Support_Stuff-tab">
-        <div class="col-12 d-inline-flex">
-          <div class="zoho-image col-md-6 col-sm-12">
-            <img src="assets/images/zoho-invoice.png" alt="Zoho Invoice">
-          </div>
-          <div class="zoho-content col-md-6 col-sm-12">
-            <h4 class="text-uppercase">Zoho Invoice - Support Stuff</h4>
-            <p>Create professional invoices, send automatic payment reminders, and accept online payments with Zoho Invoice.</p>
-            <ul>
-              <li>Create beautiful invoices using templates</li>
-              <li>Manage Projects and track time</li>
-              <li>Receive online payments</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="tab-pane fade" id="Maintenance_Work" role="tabpanel" aria-labelledby="Maintenance_Work-tab">
-        <div class="col-12 d-inline-flex">
-          <div class="zoho-image col-md-6 col-sm-12">
-            <img src="assets/images/zoho-invoice.png" alt="Zoho Invoice">
-          </div>
-          <div class="zoho-content col-md-6 col-sm-12">
-            <h4 class="text-uppercase">Zoho Invoice - Maintenance Work</h4>
-            <p>Create professional invoices, send automatic payment reminders, and accept online payments with Zoho Invoice.</p>
-            <ul>
-              <li>Create beautiful invoices using templates</li>
-              <li>Manage Projects and track time</li>
-              <li>Receive online payments</li>
-            </ul>
+            <h4 class="text-uppercase">{{ cityContentSub.image_title }}</h4>
+            <div [innerHtml]="cityContentSub.description"></div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 <div class="testimonial_section tb-space">
   <div class="container carousel slide" id="testimonial" data-ride="carousel">
     <ul class="carousel-indicators">

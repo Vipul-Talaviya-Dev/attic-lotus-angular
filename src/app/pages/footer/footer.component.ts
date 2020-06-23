@@ -19,6 +19,7 @@ export class FooterComponent implements OnInit {
   public cities: any;
   public locations: any;
   public total = 0;
+  public termsText = '';
   public officeContact =  {
     officeMobile: '',
     officeEmail: '',
@@ -39,6 +40,7 @@ export class FooterComponent implements OnInit {
     companyName: false,
     companySize: false,
     message: false,
+    checkbox: false,
   };
   public footerForm: FormGroup;
   public footerFormDivMessage = false;
@@ -49,6 +51,7 @@ export class FooterComponent implements OnInit {
     cityId: false,
     email: false,
     mobile: false,
+    checkboxs: false,
   };
   // calculate part
   public calMessageDiv = false;
@@ -88,6 +91,7 @@ export class FooterComponent implements OnInit {
       'companyName': ['', [Validators.required]],
       'companySize': ['', [Validators.required]],
       'message': ['Please Contact To User'],
+      'checkbox': ['', [Validators.required]],
     });
     // Upcoming Location
     this.footerForm = fb.group({
@@ -98,6 +102,7 @@ export class FooterComponent implements OnInit {
       ],
       'mobile': ['', [Validators.required]],
       'cityId': ['', [Validators.required]],
+      'checkboxs': ['', [Validators.required]],
     });
 
     // Upcoming Location
@@ -135,11 +140,30 @@ export class FooterComponent implements OnInit {
       try {
         if(res.status) {
           this.officeContact = res.officeContact;
+          this.termsText = res.officeContact.termsText;
         }
       } catch (e) {
         console.log('Do not get URL data');
       }
     });
+  }
+
+  onItemChangeContactForm(e) {
+    if(e.target.checked) {
+      this.contactForm.patchValue({'checkbox': 1});
+    } else {
+      this.contactForm.patchValue({'checkbox': ""});
+      this.contactForm.get('checkbox').setValidators(Validators.required);
+    }
+  }
+
+  onItemChangeFooterForm(e) {
+    if(e.target.checked) {
+      this.footerForm.patchValue({'checkboxs': 1});
+    } else {
+      this.footerForm.patchValue({'checkboxs': ""});
+      this.footerForm.get('checkboxs').setValidators(Validators.required);
+    }
   }
 
   public onSubmit() {

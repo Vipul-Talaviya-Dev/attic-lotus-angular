@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col">
-        <h1 class="bigtitle"><span class="color-primary bigfont">8</span> Ready to Move <span class="color-gray">In</span><br> Properties <span class="color-gray">are</span> Available</h1>
+        <h1 class="bigtitle"><span class="color-primary bigfont">8</span> Ready to Use <span class="color-gray">In</span><br> Properties <span class="color-gray">are</span> Available</h1>
       </div>
     </div>
     <div class="row">
@@ -57,7 +57,7 @@
             <div class="visit-form-group" [ngClass]="{
               'has-error': (form.get('mobile').hasError('required') || errors.mobile) && form.get('mobile').touched
             }">
-              <input type="text" class="visit-input" placeholder="Your Mobile Number" autocomplete="off" formControlName="mobile" required>
+              <input type="text" class="visit-input mobile" placeholder="Your Mobile Number" maxlength="10" autocomplete="off" formControlName="mobile" required>
               <em class="has-error" *ngIf="form.get('mobile').hasError('required') && form.get('mobile').touched">
                 Mobile is required
               </em>
@@ -85,8 +85,14 @@
                 Time is required
               </em>
             </div>
+            <div class="visit-tab-group">
+              <input type="checkbox" (change)="onItemChange($event)" formControlName="checkboxs" style="margin-left: -15px;"  class="form-check-input" id="exampleCheck2" value="1"> <label class="form-check-label" for="exampleCheck2">{{ termsText }}</label>
+              <em class="has-error" *ngIf="form.get('checkboxs').hasError('required') && form.get('checkboxs').touched">
+                Terms & Condition required.
+              </em>
+            </div>
             <div class="visit-form-group ">
-              <button type="submit" class="btn book-btn">Book Your Visit</button>
+              <button type="submit" [disabled]="!form.valid" class="btn book-btn">Book Your Visit</button>
               <p class="callustext">Call us at
                 <a href="tel:+917827948251" class="mobileno">+91 7827948251</a>
               </p>

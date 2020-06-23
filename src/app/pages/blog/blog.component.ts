@@ -22,6 +22,7 @@ export class BlogComponent implements OnInit {
   public contactMessage = '';
   public searchBlogs: any;
   public searchTotal = 0;
+  public termsText = '';
   public submitted: boolean = false;
   public step6 = {
     title: '',
@@ -32,6 +33,7 @@ export class BlogComponent implements OnInit {
     name: false,
     email: false,
     phone: false,
+    checkbox: false,
   };
 
   constructor(
@@ -55,6 +57,7 @@ export class BlogComponent implements OnInit {
         ]
       ],
       'phone': ['', [Validators.required]],
+      'checkbox': ['', [Validators.required]],
     });
 
     this.jsData();
@@ -105,6 +108,14 @@ export class BlogComponent implements OnInit {
     }
   }
 
+  onItemChange(e) {
+    if(e.target.checked) {
+      this.form.patchValue({'checkbox': 1});
+    } else {
+      this.form.patchValue({'checkbox': ""});
+      this.form.get('checkbox').setValidators(Validators.required);
+    }
+  }
   public onSubmit() {
     this.submitted = true;
     if (this.form.valid) {
@@ -140,6 +151,7 @@ export class BlogComponent implements OnInit {
     this.commonService.getPageContent(7).subscribe((res) => {
       try {
         if(res.status) {
+          this.termsText = res.page.termsText;
           this.titleService.setTitle(res.page.title);
           this.meta.addTag({name: 'keywords', content: res.page.keywords});
           this.meta.addTag({name: 'description', content: res.page.decription});

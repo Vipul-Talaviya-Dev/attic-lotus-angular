@@ -45,6 +45,14 @@
               </div>
             </div>
             <div class="row col-12 m-auto text-left">
+              <div style="margin-left: 25px;">
+                <input type="checkbox" (change)="onItemChange($event)" formControlName="checkbox" style="margin-left: -15px;"  class="form-check-input" id="exampleCheck3" value="1"> <p class="form-check-label" for="exampleCheck3">{{ termsText }}</p>
+                <em class="has-error" *ngIf="form.get('checkbox').hasError('required') && form.get('checkbox').touched">
+                  Terms & Condition required.
+                </em>
+              </div>
+            </div>
+            <div class="row col-12 m-auto text-left">
               <div class="subscribe-form-group col-12">
                 <button type="submit" class="btn subscribe-btn" [disabled]="!form.valid">SUBSCRIBE</button>
 <!--                <a href="" class="btn subscribe-btn"> SUBSCRIBE</a>-->
@@ -179,6 +187,14 @@
                   <input type="text" class="subscribe-form-control contact" autocomplete="off" formControlName="phone" required maxlength="10">
                   <em class="has-error" *ngIf="form.get('phone').hasError('required') && form.get('phone').touched">
                     Phone is required
+                  </em>
+                </div>
+              </div>
+              <div class="row col-12 m-auto text-left">
+                <div style="margin-left: 25px;">
+                  <input type="checkbox" (change)="onItemChange($event)" formControlName="checkbox" style="margin-left: -15px;"  class="form-check-input" id="exampleCheck3" value="1"> <p class="form-check-label" for="exampleCheck3">{{ termsText }}</p>
+                  <em class="has-error" *ngIf="form.get('checkbox').hasError('required') && form.get('checkbox').touched">
+                    Terms & Condition required.
                   </em>
                 </div>
               </div>

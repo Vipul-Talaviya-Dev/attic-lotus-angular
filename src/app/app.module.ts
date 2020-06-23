@@ -31,6 +31,7 @@ import {BlogDetailComponent} from './pages/blog-detail/blog-detail.component';
 import {FooterSearchService} from './services/footer-search.service';
 import {BlogDetailResolve} from './resolve/blog-detail.resolve';
 import {CustomBuildComponent} from './pages/customBuild/customBuild.component';
+import {LandlordComponent} from './pages/landlord/landlord.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -52,6 +53,7 @@ const APP_PROVIDERS = [
     PrivacyPolicyComponent,
     TermConditionComponent,
     CustomBuildComponent,
+    LandlordComponent,
     MenuComponent,
     FooterComponent
   ],

@@ -19,6 +19,7 @@ export class ReadyToMoveComponent implements OnInit {
   public slug: any;
   public days: any;
   public time: any;
+  public termsText = '';
   public form: FormGroup;
   public submitted: boolean = false;
   public msgDiv = false;
@@ -30,6 +31,7 @@ export class ReadyToMoveComponent implements OnInit {
     propertyId: false,
     day: false,
     time: false,
+    checkboxs: false
   };
 
   constructor(private commonService: CommonService, private toaster: ToastrService, private fb: FormBuilder, private _compiler: Compiler, private titleService: Title, private meta: Meta) {
@@ -45,6 +47,7 @@ export class ReadyToMoveComponent implements OnInit {
       'day': ['', [Validators.required]],
       'time': ['', [Validators.required]],
       'propertyId': ['', [Validators.required]],
+      'checkboxs': ['', [Validators.required]],
     });
 
     this.jsData();
@@ -61,6 +64,14 @@ export class ReadyToMoveComponent implements OnInit {
     this.getCommon();
     this.getProperties('');
     this.getCities();
+  }
+  onItemChange(e) {
+    if(e.target.checked) {
+      this.form.patchValue({'checkboxs': 1});
+    } else {
+      this.form.patchValue({'checkboxs': ""});
+      this.form.get('checkboxs').setValidators(Validators.required);
+    }
   }
 
   getProperties(city) {
@@ -128,6 +139,12 @@ export class ReadyToMoveComponent implements OnInit {
 
   jsData() {
     $(document).ready(function() {
+      $('.mobile').keypress(function (event) {
+        var keycode = event.which;
+        if (!(event.shiftKey == false && (keycode == 46 || keycode == 8 || keycode == 37 || keycode == 39 || (keycode >= 48 && keycode <= 57)))) {
+          event.preventDefault();
+        }
+      });
       $(".sliderImage").on("click", function() {
         $(".sliderImage").find("p").removeClass("highlighted");
         $(this).find("p").addClass("highlighted");
@@ -139,6 +156,7 @@ export class ReadyToMoveComponent implements OnInit {
     this.commonService.getPageContent(4).subscribe((res) => {
       try {
         if(res.status) {
+          this.termsText = res.page.termsText;
           this.titleService.setTitle(res.page.title);
           this.meta.addTag({name: 'keywords', content: res.page.keywords});
           this.meta.addTag({name: 'description', content: res.page.decription});

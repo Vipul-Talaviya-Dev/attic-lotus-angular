@@ -21,12 +21,14 @@ export class CustomBuildComponent implements OnInit {
   public msgDiv = false;
   public formDiv: boolean = true;
   public message = '';
+  public termsText = '';
   public divData: boolean = false;
   public errors = {
     name: false,
     email: false,
     phone: false,
     seat: false,
+    checkbox: false,
   };
   public step7 = {
     title: '',
@@ -45,6 +47,7 @@ export class CustomBuildComponent implements OnInit {
       ],
       'phone': ['', [Validators.required]],
       'seat': ['', [Validators.required]],
+      'checkbox': ['', [Validators.required]],
       'type': ['2'],
     });
 
@@ -61,6 +64,15 @@ export class CustomBuildComponent implements OnInit {
     this._compiler.clearCache();
     this.pageContent();
     this.getData();
+  }
+
+  onItemChange(e) {
+    if(e.target.checked) {
+      this.form.patchValue({'checkbox': 1});
+    } else {
+      this.form.patchValue({'checkbox': ""});
+      this.form.get('checkbox').setValidators(Validators.required);
+    }
   }
 
   getProperties(city) {
@@ -106,6 +118,7 @@ export class CustomBuildComponent implements OnInit {
     this.commonService.getPageContent(8).subscribe((res) => {
       try {
         if(res.status) {
+          this.termsText = res.page.termsText;
           this.titleService.setTitle(res.page.title);
           this.meta.addTag({name: 'keywords', content: res.page.keywords});
           this.meta.addTag({name: 'description', content: res.page.decription});

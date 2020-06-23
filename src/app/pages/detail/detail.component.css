@@ -464,18 +464,22 @@
 
 .feature1 {
   background: #f1f1f1;
+  max-width: 100% !important;
 }
 
 .feature2 {
   background: #ebebeb;
+  max-width: 100% !important;
 }
 
 .feature3 {
   background: #e4e4e4;
+  max-width: 100% !important;
 }
 
 .feature4 {
   background: #dddddd;
+  max-width: 100% !important;
 }
 
 .feature-img img {

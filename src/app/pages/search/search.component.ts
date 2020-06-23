@@ -1,4 +1,4 @@
-import {Compiler, Component, OnInit} from '@angular/core';
+import {Compiler, Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {CommonService} from '../../services/common.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Params, Router} from '@angular/router';
@@ -9,11 +9,14 @@ declare var $: any;
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  styleUrls: ['./search.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class SearchComponent implements OnInit {
   public locations: any;
   public testimonials: any;
+  public cityContentSubs: any;
+  public cityContentTitle = '';
   public cityData = {
     title: '',
     left_text: '',
@@ -88,6 +91,8 @@ export class SearchComponent implements OnInit {
       try {
         if(res.status) {
           this.testimonials = res.testimonials;
+          this.cityContentSubs = res.cityContentSubs;
+          this.cityContentTitle = res.cityContentTitle;
         }
       } catch (e) {
         console.log('Do not get URL data');

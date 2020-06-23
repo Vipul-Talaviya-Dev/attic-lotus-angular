@@ -13,7 +13,7 @@
               <div class="carousel-caption d-md-block slider-info">
                 <h1>CUSTOMIZE OFFICE SPACE</h1>
                 <p>{{ banner.title }}</p>
-                <a [routerLink]="['/property/'+ banner.propertySlug]" class="btn slider-cta-btn">{{ banner.propertyName }}</a>
+                <a [routerLink]="['/office-space/'+banner.locationSlug+'/' +banner.propertySlug]" class="btn slider-cta-btn">{{ banner.propertyName }}</a>
               </div>
             </div>
           </div>
@@ -150,7 +150,7 @@
       </div>
       <div *ngFor="let city of cities;let i = index;" [class]="(i==0) ? 'col-sm-12 col-md-6 col-lg-3 map_items bangalore-map' : 'col-sm-12 col-md-6 col-lg-3 map_items hydrabad-map'">
         <ul class="nav flex-column">
-          <li class="nav-item" *ngFor="let property of city.properties"><a class="nav-link active" [routerLink]="['/property/'+property.slug]">{{ property.name }}</a></li>
+          <li class="nav-item" *ngFor="let property of city.properties"><a class="nav-link active" [routerLink]="['/office-space/'+ property.locationSlug+'/'+property.slug]">{{ property.name }}</a></li>
           <li style="list-style: none;" class="nav-item" *ngFor='let in of counter(((i == 0) ?  9 - city.properties.length : 5 - city.properties.length) ) ;let j = index'><a class="nav-link active" href="javascript:void(0);">&nbsp;</a></li>
         </ul>
       </div>

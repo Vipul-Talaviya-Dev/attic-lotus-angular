@@ -20,7 +20,7 @@ export class AppComponent implements AfterContentInit, OnInit {
     private _spinner: ThemeSpinner,
     readonly cd: ChangeDetectorRef
   ) {
-    console.log("call app");
+    // console.log("call app");
   }
 
   ngOnInit(): void {

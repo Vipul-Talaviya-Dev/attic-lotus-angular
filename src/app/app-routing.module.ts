@@ -14,15 +14,17 @@ import {SupportComponent} from './pages/support/support.component';
 import {BlogDetailComponent} from './pages/blog-detail/blog-detail.component';
 import {BlogDetailResolve} from './resolve/blog-detail.resolve';
 import {CustomBuildComponent} from './pages/customBuild/customBuild.component';
+import {LandlordComponent} from './pages/landlord/landlord.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'ready-to-move', component: ReadyToMoveComponent },
+  { path: 'ready-to-use', component: ReadyToMoveComponent },
   { path: 'custom-build', component: CustomBuildComponent },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'terms-condition', component: TermConditionComponent },
   { path: 'all-locations', component: MapViewComponent },
+  { path: 'landlord', component: LandlordComponent },
   { path: 'ideas', component: BlogComponent },
   {
     path: 'ideas/:slug', component: BlogDetailComponent,
@@ -32,7 +34,7 @@ const routes: Routes = [
   },
   { path: 'support', component: SupportComponent },
   {
-    path: 'property/:slug', component: DetailComponent,
+    path: 'office-space/:locationName/:slug', component: DetailComponent,
     resolve: {
       property: PropertyResolve
     }

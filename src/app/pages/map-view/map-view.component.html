@@ -24,7 +24,7 @@
                   <img class="w-100" [src]="property.image" alt="map goes here" style="height: 175px;">
                 </div>
                 <div class="detail-section">
-                  <h6 class="cursor-pointer" [routerLink]="['/property/'+ property.slug]">{{ property.name }}</h6>
+                  <h6 class="cursor-pointer" [routerLink]="['/office-space/'+ property.locationSlug+'/'+ property.slug]">{{ property.name }}</h6>
                   <p >{{ property.address }}</p>
                   <p class="m-0"> <span class="statistic">{{ property.square_feet }}</span> SFT</p>
                   <!--<p> <span class="statistic"></span> {{ property.privateDescription }}</p>-->

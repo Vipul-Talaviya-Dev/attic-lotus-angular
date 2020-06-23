@@ -127,7 +127,7 @@
           <h4>PARTNERSHIPS</h4>
           <ul class="list-unstyled">
             <li><a href="javascript:void(0);">Brokers</a></li>
-            <li><a href="javascript:void(0);">Landlords</a></li>
+            <li><a routerLink="/landlord">Landlords</a></li>
           </ul>
         </div>
         <div class="col-md-3 col-sm-12">
@@ -184,6 +184,12 @@
                 Mobile is required
               </em>
             </label>
+            <label class="form-group has-float-label" style="margin-left: 15px;">
+              <input type="checkbox" (change)="onItemChange($event)" formControlName="checkboxs" style="margin-left: -15px;"  class="form-check-input" id="exampleCheck3" value="1"> <p class="form-check-label" for="exampleCheck3">{{ termsText }}</p>
+              <em class="has-error" *ngIf="footerForm.get('checkboxs').hasError('required') && footerForm.get('checkboxs').touched">
+                Terms & Condition required.
+              </em>
+            </label>
             <button type="submit" class="btn btn-footer-form" [disabled]="!footerForm.valid"> <span><img src="assets/images/notify-me.png" alt=""></span> Notify Me</button>
           </form>
         </div>
@@ -201,10 +207,10 @@
           <div class="link-container">
             <div class="q-links">
               <ul class="list-unstyled d-inline-flex">
-                <li><a routerLink="/privacy-policy">Privacy</a></li>
-                <li><a routerLink="/terms-condition">Terms</a></li>
-                <li><a href="javascript:void(0);">Cookies</a></li>
-                <li><a routerLink="/site-map">Sitemap</a></li>
+                <li><a routerLink="/privacy-policy"><h2>Privacy</h2></a></li>
+                <li><a routerLink="/terms-condition"><h2>Terms</h2></a></li>
+                <li><a href="javascript:void(0);"><h2>Cookies</h2></a></li>
+                <li><a href="javascript:void(0);"><h2>Sitemap</h2></a></li>
               </ul>
             </div>
             <div class="copyright">
@@ -240,7 +246,7 @@
           </div>
         </div>
         <div class="searched visible">
-          <div class="search-item cursor-pointer" *ngFor="let searchProperty of searchProperties;" [routerLink]="['/property/'+ searchProperty.slug]">
+          <div class="search-item cursor-pointer" *ngFor="let searchProperty of searchProperties;" [routerLink]="['/office-space/'+ searchProperty.locationSlug+'/'+ searchProperty.slug]">
             <div class="search-img">
               <img [src]="searchProperty.image" alt="">
             </div>
@@ -343,6 +349,12 @@
               <label class="custom-control-label" for="customRadioInline4">100+</label>
             </div>
           </div>
+          <div class="row col-12 m-auto text-left" style="margin-left: 20px !important;">
+            <input type="checkbox" (change)="onItemChangeContactForm($event)" formControlName="checkbox" style="margin-left: -15px;"  class="form-check-input" id="exampleCheck4" value="1"> <p class="form-check-label" for="exampleCheck4">{{ termsText }}</p>
+            <em class="has-error" *ngIf="contactForm.get('checkbox').hasError('required') && contactForm.get('checkbox').touched">
+              Terms & Condition required.
+            </em>
+          </div>
           <div class="row col-12 m-auto text-left">
             <div class="contact-form-group col-12 p-0">
               <button type="submit" class="btn contact-btn" [disabled]="!contactForm.valid">Submit</button>
@@ -379,7 +391,7 @@
           <a href="javascript:void(0);">Space Solutions<span class="caret"></span></a>
           <div >
             <ul>
-              <li><a routerLink="/ready-to-move">Ready to Move </a></li>
+              <li><a routerLink="/ready-to-use">Ready to Use </a></li>
 <!--              <li class="divider"></li>-->
               <li><a href="javascript:void(0);">Custom Build </a></li>
             </ul>

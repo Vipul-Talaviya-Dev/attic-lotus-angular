@@ -6,21 +6,20 @@
       <div class="col-12 ">
         <h1 class="bigtitle">{{ property.name }}</h1>
       </div>
-      <div class="col-12 rating mt-2">
+      <!--<div class="col-12 rating mt-2">
         <img src="assets/images/star-blue.png" alt="star">
         <span>0  |  0 reviews</span>
-      </div>
+      </div>-->
     </div>
     <div class="row">
       <div class="position-sticky col-4 text-center">
-        <div class="msg-success" *ngIf="msgDiv">
-          <b>You're all set!</b>
-          <p>We can't wait to show you around. Sit tight, you'll be receiving an email from a representative shortly.</p>
+        <div class="msg-success" *ngIf="(msgDiv && (message != '')) ? true : false">
+          <p>{{ message }}</p>
         </div>
         <div class="office-space" *ngIf="enquiryDiv">
           <h2 class="text-center mb-3">Office Space</h2>
           <div class="col-12 note-section">
-            <p>{{ property.name }} is on High Demand - booking will be closed after 7 days</p>
+            <p>{{ property.formText }}</p>
           </div>
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item w-50">
@@ -58,7 +57,7 @@
                     'has-error': (enquiryForm.get('mobile').hasError('required') || enquiryErrors.mobile) && enquiryForm.get('mobile').touched
                   }">
                     <label>Contact Number*</label>
-                    <input type="number" class="enquiry-form-control" placeholder="Contact Number" autocomplete="off" formControlName="mobile">
+                    <input type="text" class="enquiry-form-control mobile" placeholder="Contact Number" maxlength="10" autocomplete="off" formControlName="mobile">
                     <em class="has-error" *ngIf="enquiryForm.get('mobile').hasError('required') && enquiryForm.get('mobile').touched">
                       Mobile is required
                     </em>
@@ -71,23 +70,29 @@
                     <label for="products">Product of Interest*</label>
                     <select class="visit-form-control" id="products" formControlName="product_of_interest">
                       <option value="">Select Product of Interest</option>
-                      <option value="Office Space">Office Space</option>
+                      <option *ngFor="let vseat of property.seats;" [value]="vseat">{{ vseat }}</option>
+                      <!--<option value="Office Space">Office Space</option>
                       <option value="Residential Space">Residential Space</option>
                       <option value="Corporate Space">Corporate Space</option>
                       <option value="Mall Space">Mall Space</option>
-                      <option value="Education Space">Education Space</option>
+                      <option value="Education Space">Education Space</option>-->
                     </select>
                     <em class="has-error" *ngIf="enquiryForm.get('product_of_interest').hasError('required') && enquiryForm.get('product_of_interest').touched">
                       Product of Interest is required
                     </em>
                   </div>
                 </div>
-                <div class="row col-12 m-auto text-left">
-                  <p class="agreetext">By clicking the above button you agree to our Terms of Service and have read and understood our Privacy Policy</p>
+                <div class="row col-12 m-auto text-left" [ngClass]="{
+                    'has-error': (enquiryForm.get('checkbox').hasError('required') || enquiryErrors.checkbox) && enquiryForm.get('checkbox').touched
+                  }">
+                  <p class="agreetext" style="margin-left: 20px;"><input type="checkbox" (change)="onItemChange($event)" class="form-check-input" id="exampleCheck1" value="1"> <label class="form-check-label" for="exampleCheck1">{{ property.termsText }}</label></p>
+                  <em class="has-error" *ngIf="enquiryForm.get('product_of_interest').hasError('required') && enquiryForm.get('product_of_interest').touched">
+                    Terms & Condition required.
+                  </em>
                 </div>
                 <div class="row col-12 m-auto text-center">
                   <div class="enquiry-form-group col-12">
-                    <button type="submit" class="btn send-btn">Send Enquiry</button>
+                    <button type="submit" [disabled]="!enquiryForm.valid" class="btn send-btn">Send Enquiry</button>
                   </div>
                 </div>
               </form>
@@ -117,7 +122,7 @@
                   <div class="visit-tab-group" [ngClass]="{
                     'has-error': (form.get('mobile').hasError('required') || errors.mobile) && form.get('mobile').touched
                   }">
-                    <input type="text" class="visit-input" placeholder="Your Mobile Number" autocomplete="off" formControlName="mobile" required>
+                    <input type="text" class="visit-input mobile" placeholder="Your Mobile Number" maxlength="10" autocomplete="off" formControlName="mobile" required>
                     <em class="has-error" *ngIf="form.get('mobile').hasError('required') && form.get('mobile').touched">
                       Mobile is required
                     </em>
@@ -145,19 +150,23 @@
                       Time is required
                     </em>
                   </div>
+                  <div class="visit-tab-group">
+                    <input type="checkbox" (change)="onFormItemChange($event)" formControlName="checkboxs" style="margin-left: -120px;" class="form-check-input" id="exampleCheck2" value="1"> <p class="form-check-label" for="exampleCheck2">{{ property.termsText }}</p>
+                    <em class="has-error" *ngIf="form.get('checkboxs').hasError('required') && form.get('checkboxs').touched">
+                      Terms & Condition required.
+                    </em>
+                  </div>
                   <div class="visit-tab-group ">
-                    <button type="submit" class="btn book-btn">Send Enquiry</button>
+                    <button type="submit" class="btn book-btn" [disabled]="!form.valid">Send Enquiry</button>
                     <p class="callustext">Call us at
                       <a href="tel:+917827948251" class="mobileno">+91 7827948251</a>
                     </p>
                   </div>
-
                 </form>
               </div>
             </div>
             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
           </div>
-
         </div>
       </div>
       <div class="col-lg-8 col-md-12 w-width">
@@ -200,44 +209,10 @@
           <div class="map-details col-md-12 col-lg-8 col-sm-12">
             <p><br><br><br><br><br><br><br><br></p>
             <div class="details-container pb-0 col-12 d-inline-flex">
-              <div class="col-6 text-center  blue-container">
+              <div *ngFor="let nearLocation of property.nearLocations;let i = index;" [class]="(i%2 == 0) ? 'col-6 text-center dark-container' : 'col-6 text-center blue-container'">
                 <div class="info-container">
-                  <h2>2.4 KM</h2>
-                  <p class="mb-0">Forum Mall</p>
-                </div>
-              </div>
-              <div class="col-6 text-center  dark-container">
-                <div class="info-container">
-                  <h2>1.4 KM</h2>
-                  <p class="mb-0">Baldwins College</p>
-                </div>
-              </div>
-            </div>
-            <div class="details-container pb-0 col-12 d-inline-flex">
-              <div class="col-6 text-center dark-container">
-                <div class="info-container">
-                  <h2>1.5 KM</h2>
-                  <p class="mb-0">Bosch</p>
-                </div>
-              </div>
-              <div class="col-6 text-center blue-container">
-                <div class="info-container">
-                  <h2>3.2 KM</h2>
-                  <p class="mb-0">MG Road Metro Station</p>
-                </div>
-              </div>
-            </div>
-            <div class="details-container pb-0 col-12 d-inline-flex">
-              <div class="col-6 text-center blue-container">
-                <div class="info-container">
-                  <h2>2.4 KM</h2>
-                  <p class="mb-0">Life Care Hospital</p>
-                </div>
-              </div>
-              <div class="col-6 text-center dark-container">
-                <div class="info-container">
-                  <h2>1.4 KM</h2>
-                  <p class="mb-0">IOC Petrol Pump</p>
+                  <h2>{{ nearLocation.km }} KM</h2>
+                  <p class="mb-0">{{ nearLocation.name }}</p>
                 </div>
               </div>
             </div>
@@ -263,7 +238,7 @@
           </div><div class="line col-12"> </div>
         </span>
 
-        <div class="row">
+        <div class="row" *ngIf="uniqueBuildDiv">
           <div class="col-12 col-sm-12">
             <h5 class="pt-3 pb-3">UNIQUE TO THIS BUILDING</h5>
           </div>
@@ -280,7 +255,7 @@
             </div>
           </div>-->
         </div>
-        <div class="row">
+        <div class="row" *ngIf="includedAmenityDiv">
           <div class="col-12 col-sm-12">
             <h5 class="pt-3 pb-3">INCLUDED AMENITTES</h5>
           </div>
@@ -325,7 +300,7 @@
               <p>{{ row.city }}</p>
               <div class="col-12 btn-container d-inline-flex p-0">
                 <p class="distance">{{ row.mile }} Miles</p>
-                <a [routerLink]="['/property/'+ row.slug]"><img src="assets/images/button-styled.png" alt="click Me"></a>
+                <a [routerLink]="['/office-space/'+ row.locationSlug+'/'+row.slug]"><img src="assets/images/button-styled.png" alt="click Me"></a>
               </div>
             </div>
           </div>
