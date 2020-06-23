@@ -32,6 +32,7 @@ import {FooterSearchService} from './services/footer-search.service';
 import {BlogDetailResolve} from './resolve/blog-detail.resolve';
 import {CustomBuildComponent} from './pages/customBuild/customBuild.component';
 import {LandlordComponent} from './pages/landlord/landlord.component';
+import {BrokersComponent} from './pages/brokers/brokers.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -54,6 +55,7 @@ const APP_PROVIDERS = [
     TermConditionComponent,
     CustomBuildComponent,
     LandlordComponent,
+    BrokersComponent,
     MenuComponent,
     FooterComponent
   ],

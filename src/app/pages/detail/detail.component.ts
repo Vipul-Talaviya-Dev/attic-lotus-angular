@@ -14,8 +14,11 @@ export class DetailComponent implements OnInit {
   public days: any;
   public time: any;
   public propertyFeatures: any;
+  public propertyFeatureDiv = true;
   public enquiryDiv = true;
   public msgDiv = false;
+  public propertyBookedDiv = false;
+  public locationName = '';
   public uniqueBuildDiv = false;
   public includedAmenityDiv = false;
   public message = '';
@@ -25,6 +28,7 @@ export class DetailComponent implements OnInit {
     image: ''
   };
   public properties: any;
+  public propertiesDiv = true;
   public slug: any;
   public form: FormGroup;
   public enquiryForm: FormGroup;
@@ -32,6 +36,7 @@ export class DetailComponent implements OnInit {
   public enquiryErrors = {
     firstName: false,
     lastName: false,
+    email: false,
     mobile: false,
     propertyId: false,
     product_of_interest: false,
@@ -74,6 +79,11 @@ export class DetailComponent implements OnInit {
     this.enquiryForm = fb.group({
       'firstName': ['', [Validators.required]],
       'lastName': ['', [Validators.required]],
+      'email': ['', [
+        Validators.required,
+        Validators.pattern(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)
+      ]
+      ],
       'mobile': ['', [Validators.required]],
       'product_of_interest': ['', [Validators.required]],
       'checkbox': ['', [Validators.required]],
@@ -92,16 +102,18 @@ export class DetailComponent implements OnInit {
     this.route.data.subscribe((response) => {
       this.property = response.property.property;
       this.enquiryDiv = (this.property.isAvailable) ? false : true;
-      this.msgDiv = (this.property.isAvailable) ? true : false;
+      this.propertyBookedDiv = this.msgDiv = (this.property.isAvailable) ? true : false;
       this.uniqueBuildDiv = (this.property.uniqueBuilds.length > 0) ? true : false;
       this.includedAmenityDiv = (this.property.includedAmenittes.length > 0) ? true : false;
       this.form.patchValue({'propertyId': this.property.id});
       this.enquiryForm.patchValue({'propertyId': this.property.id});
       this.properties = this.property.properties;
+      this.propertiesDiv = (this.property.properties.length > 0) ? true : false;
       this.days = this.property.days;
       this.time = this.property.time;
       this.propertyFeatures = this.property.propertyFeatures;
-
+      this.propertyFeatureDiv = (this.property.propertyFeatures.length > 0) ? true : false;
+      this.locationName = this.property.locationName;
       this.jsData();
     });
   }

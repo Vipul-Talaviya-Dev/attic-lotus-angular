@@ -15,6 +15,7 @@ import {BlogDetailComponent} from './pages/blog-detail/blog-detail.component';
 import {BlogDetailResolve} from './resolve/blog-detail.resolve';
 import {CustomBuildComponent} from './pages/customBuild/customBuild.component';
 import {LandlordComponent} from './pages/landlord/landlord.component';
+import {BrokersComponent} from './pages/brokers/brokers.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'terms-condition', component: TermConditionComponent },
   { path: 'all-locations', component: MapViewComponent },
   { path: 'landlord', component: LandlordComponent },
+  { path: 'brokers', component: BrokersComponent },
   { path: 'ideas', component: BlogComponent },
   {
     path: 'ideas/:slug', component: BlogDetailComponent,

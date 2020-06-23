@@ -15,6 +15,7 @@ export class CustomBuildComponent implements OnInit {
   public customWorks: any;
   public categories: any;
   public properties: any;
+  public expandedIndex = 0;
   public slug: any;
   public form: FormGroup;
   public submitted: boolean = false;
@@ -141,5 +142,9 @@ export class CustomBuildComponent implements OnInit {
         console.log('Do not get URL data');
       }
     });
+  }
+
+  Collaps(index: number) {
+    this.expandedIndex = index === this.expandedIndex ? -1 : index;
   }
 }

@@ -3,35 +3,21 @@
   <section class="landload_first_section" style="background-color: #ffffff;">
     <div class="container">
       <div class="row">
-        <div class="col-lg-12">
-          <h2>REGUS MAKES IT EASIER FOR YOU TO DO MORE BUSINESS</h2>
+        <div class="col-lg-12" align="center">
+          <h2>{{ step1.title }}</h2>
           <div class="divider_img">
             <img src="assets/images/divider.jpg" alt="">
           </div>
-          <h3>We've helped thousands of agents both large and small. We can help you to...</h3>
+          <h3>{{ step1.sub_title }}</h3>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-md-4 col-sm-12 text-center">
+        <div class="column_box_wrap col-md-4 col-sm-12 text-center" *ngFor="let landLoad of landLoads;">
           <div class="column_box_wrap">
-            <img src="assets/images/icon_1.png" alt="">
-            <span>Find the right office space for your clients</span>
-            <p>The widest choice of offices in your areas, with impressive new interiors and a range of workspace to meet your clients' needs.</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-12 text-center">
-          <div class="column_box_wrap">
-            <img src="assets/images/icon_2.png" alt="">
-            <span>Save time</span>
-            <p>With support from a dedicated agent helpdesk and simple, flexible agreements.</p>
-          </div>
-        </div>
-        <div class="column_box_wrap col-md-4 col-sm-12 text-center">
-          <div class="column_box_wrap">
-            <img src="assets/images/icon_1.png" alt="">
-            <span>Earn money quickly</span>
-            <p>A dedicated agent helpdesk open every day, with 10% commission, 21 day deal cycles and fees paid within 30 days.</p>
+            <img [src]="landLoad.image">
+            <span>{{ landLoad.title }}</span>
+            <p>{{ landLoad.sub_title }}</p>
           </div>
         </div>
 
@@ -45,8 +31,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h1>Ready to partner?</h1>
-          <p>We are committed to helping you close the best deals for your clients. Give us a call or submit your information below to connect with a broker representative, enquire about available inventory and find out how we can work better, together.</p>
+          <h1>{{ step2.title }}</h1>
+          <p>{{ step2.sub_title }}</p>
         </div>
       </div>
 
@@ -62,16 +48,10 @@
 
         <div class="row">
           <div class="col-lg-4">
-            <label for="" class="top_label">How Many Seats? *</label>
-            <select class="form-control">
-              <option>50 Members</option>
-            </select>
+            <input type="text" class="form-control" placeholder="Phone Number*">
           </div>
           <div class="col-lg-4">
-            <label for="" class="top_label">Market  *</label>
-            <select class="form-control">
-              <option>Gurugram</option>
-            </select>
+            <input type="text" class="form-control" placeholder="Office Location*">
           </div>
         </div>
 

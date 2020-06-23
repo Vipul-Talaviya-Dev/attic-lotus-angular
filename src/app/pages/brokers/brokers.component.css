@@ -1,0 +1,142 @@
+.page-content {
+  font-family: 'ApercuProRegular';
+  overflow: hidden;
+}
+.landload_first_section {
+  width: 100%;
+  margin: 100px 0;
+}
+.landload_first_section h2 {
+  font-family: 'ApercuProBold';
+  font-weight: light;
+  font-size: #2b2a29;
+  float: left;
+  width: 100%;
+}
+.landload_first_section h3 {
+  font-size: 24px;
+  color: #2b2a29;
+}
+.divider_img {
+  float: left;
+  width: 100%;
+  text-align: center;
+  margin: 60px 0;
+}
+.column_box_wrap {
+  float: left;
+  width: 100%;
+}
+.column_box_wrap img {
+  margin: 30px 0;
+}
+.column_box_wrap span {
+  float: left;
+  width: 100%;
+  font-size: 21px;
+  margin-bottom: 25px;
+  line-height: 24px;
+  height: 50px;
+  font-family: 'ApercuProBold';
+}
+.column_box_wrap p {
+  font-size: 15px;
+  line-height: 18px;
+}
+.second_section {
+  float: left;
+  width: 100%;
+}
+.second_section h1 {
+  font-size: 34px;
+  margin-bottom: 50px;
+}
+.second_section p {
+  font-size: 19px;
+  line-height: 33px;
+  margin-bottom: 64px;
+}
+.second_section form {
+  float: left;
+  width: 100%;
+}
+.second_section form input {
+  height: 64px;
+  font-size: 19px;
+  margin-bottom: 20px;
+}
+.second_section form select {
+  height: 64px !important;
+  font-size: 19px;
+  margin-bottom: 20px;
+}
+.second_section form .top_label {
+  position: absolute;
+  font-size: 15px;
+  top: -12px;
+  left: 28px;
+  background-color: #fff;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.second_section form .submit_btn_wrap {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+.second_section form .submit_btn_wrap button {
+  height: 60px;
+  font-size: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
+
+
+
+@media screen and (max-width: 1500px) {
+
+}
+
+@media screen and (max-width: 1200px) {
+
+}
+
+@media screen and (max-width: 1100px) {
+
+}
+
+@media screen and (max-width: 1024px) {
+
+}
+
+@media screen and (max-width: 991px) {
+
+}
+
+@media screen and (max-width: 767px) {
+  .landload_first_section {
+    margin: 50px 0;
+  }
+  .divider_img {
+    margin: 30px 0;
+  }
+  .column_box_wrap span {
+    height: auto;
+    margin-bottom: 10px;
+  }
+  .second_section h1 {
+    margin-bottom: 25px;
+  }
+  .second_section p {
+    margin-bottom: 30px;
+  }
+  .second_section form .submit_btn_wrap {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+
+}

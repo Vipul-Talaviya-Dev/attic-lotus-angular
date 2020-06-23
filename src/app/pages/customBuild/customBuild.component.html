@@ -87,11 +87,11 @@
         <div class="col-md-12 col-lg-6">
           <h3>How It Works</h3>
           <ul class="listing-custom">
-            <li *ngFor="let work of customWorks;let i = index;" [class]="(i==0) ? 'active' : ''"><span>{{ i+1 }}</span> {{ work.title }}</li>
+            <li *ngFor="let work of customWorks;let i = index;" (click)="Collaps(i)" [class]="( i=== expandedIndex) ? 'active' : 'cursor-pointer'"><span>{{ i+1 }}</span> {{ work.title }}</li>
           </ul><!--/.listing-custom-->
         </div><!--/.col-lg-6-->
         <div class="col-md-12 col-lg-6 hiwright">
-          <span *ngFor="let work of customWorks;let i = index;" [style]="(i == 0) ? 'display:block;' : 'display:none;'">
+          <span *ngFor="let work of customWorks;let i = index;" [style]="(i === expandedIndex) ? 'display:block;' : 'display:none;'">
             <img [src]="work.image"><img src="assets/images/imgarrow.png" alt="">
             <h6>{{ work.title }}</h6>
             <p>{{ work.sub_title }}</p>

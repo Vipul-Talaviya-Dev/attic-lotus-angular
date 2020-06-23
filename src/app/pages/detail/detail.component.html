@@ -13,6 +13,12 @@
     </div>
     <div class="row">
       <div class="position-sticky col-4 text-center">
+        <div class="msg-success" *ngIf="propertyBookedDiv" style="font-size: 20px;">
+          <p>Property <b> already booked.</b></p>
+          <b>But Don't Worry.</b>
+          <p>We will set up a new office in <b>{{ locationName }}. just for you.</b> </p>
+          <p><b>Please</b> Contact us.</p>
+        </div>
         <div class="msg-success" *ngIf="(msgDiv && (message != '')) ? true : false">
           <p>{{ message }}</p>
         </div>
@@ -54,6 +60,20 @@
                 </div>
                 <div class="row col-12 m-auto text-left">
                   <div class="enquiry-form-group col-12" [ngClass]="{
+                    'has-error': (enquiryForm.get('email').hasError('required') || enquiryErrors.email) && enquiryForm.get('email').touched
+                  }">
+                    <label>Email*</label>
+                    <input type="text" class="enquiry-form-control" placeholder="Your Email" autocomplete="off" formControlName="email" required>
+                    <em class="has-error" *ngIf="enquiryForm.get('email').hasError('required') && enquiryForm.get('email').touched">
+                      Email is required
+                    </em>
+                    <em class="has-error" *ngIf="enquiryForm.get('email').hasError('pattern')">
+                      Email is invalid
+                    </em>
+                  </div>
+                </div>
+                <div class="row col-12 m-auto text-left">
+                  <div class="enquiry-form-group col-12" [ngClass]="{
                     'has-error': (enquiryForm.get('mobile').hasError('required') || enquiryErrors.mobile) && enquiryForm.get('mobile').touched
                   }">
                     <label>Contact Number*</label>
@@ -67,9 +87,9 @@
                   <div class="enquiry-form-group col-12" [ngClass]="{
                     'has-error': (enquiryForm.get('product_of_interest').hasError('required') || enquiryErrors.product_of_interest) && enquiryForm.get('product_of_interest').touched
                   }">
-                    <label for="products">Product of Interest*</label>
+                    <label for="products">Select Number Seats*</label>
                     <select class="visit-form-control" id="products" formControlName="product_of_interest">
-                      <option value="">Select Product of Interest</option>
+                      <option value="">Select Number Seats</option>
                       <option *ngFor="let vseat of property.seats;" [value]="vseat">{{ vseat }}</option>
                       <!--<option value="Office Space">Office Space</option>
                       <option value="Residential Space">Residential Space</option>
@@ -178,7 +198,7 @@
           </section>
         </div>
 
-        <div class="row ">
+        <div class="row " *ngIf="propertyFeatureDiv">
           <div class="col ">
             <h2 class="secheading ">Property Features</h2>
           </div>
@@ -270,7 +290,7 @@
     </div>
   </div>
 
-  <div class="container-fluid ">
+  <div class="container-fluid " *ngIf="(property.support.name !== '') ? true : false">
     <div class="row">
       <div class="about-user col-12 col-sm-12 d-inline-flex ">
         <img [src]="property.support.image" alt="Here to help">
@@ -284,7 +304,7 @@
     </div>
   </div>
 
-  <div class="container-fluid ">
+  <div class="container-fluid" *ngIf="propertiesDiv">
     <div class="row">
       <div class="col-12 text-center">
         <h2>OTHER CENTRES NEARBY</h2>
@@ -299,7 +319,7 @@
               <h5>{{ row.name }}</h5>
               <p>{{ row.city }}</p>
               <div class="col-12 btn-container d-inline-flex p-0">
-                <p class="distance">{{ row.mile }} Miles</p>
+<!--                <p class="distance">{{ row.mile }} Miles</p>-->
                 <a [routerLink]="['/office-space/'+ row.locationSlug+'/'+row.slug]"><img src="assets/images/button-styled.png" alt="click Me"></a>
               </div>
             </div>
