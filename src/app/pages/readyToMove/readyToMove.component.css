@@ -153,12 +153,17 @@ input:disabled {
 
 .bigtitle {
   font-family: 'ApercuBold';
-  font-size: 50px;
+  font-weight: 700;
+  font-size: 60px;
+  margin: 0 0 20px;
   color: #2b2a29;
+  /*font-size: 50px;
+  color: #2b2a29;*/
 }
 
 .bigfont {
-  font-size: 100px;
+  /*font-size: 100px;*/
+  font-size: 72px;
   color: var(--primary);
 }
 

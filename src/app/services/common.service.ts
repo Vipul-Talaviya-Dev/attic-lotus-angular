@@ -584,6 +584,28 @@ export class CommonService {
     );
   }
 
+  getBrokers(): Observable<any> {
+    this.configService.notifyLoaderEmitter(true);
+    let endPoint = environment.api;
+    let apiURL = endPoint + 'brokerPage';
+
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    let requestOptions:object = {
+      headers: headers,
+      responseType: 'json'
+    };
+
+    return this.http.get(apiURL, requestOptions).pipe(
+      map(res => { return this.extractData(res); }),
+      catchError(error => {
+        return this.handleError(error);
+      }),
+    );
+  }
+
   private extractData(res) {
     this.configService.notifyLoaderEmitter(false);
     return res || {};

@@ -12,6 +12,15 @@ declare var $: any;
   styleUrls: ['./brokers.component.css']
 })
 export class BrokersComponent implements OnInit {
+  public brokers: any;
+  public step1 = {
+    title: '',
+    sub_title: '',
+  };
+  public step2 = {
+    title: '',
+    sub_title: '',
+  };
 
   constructor(private commonService: CommonService, private toaster: ToastrService, private fb: FormBuilder, private _compiler: Compiler, private titleService: Title, private meta: Meta) {
     this.jsData();
@@ -21,10 +30,25 @@ export class BrokersComponent implements OnInit {
     window.scroll(0,0);
     this._compiler.clearCache();
     this.pageContent();
+    this.getBrokerData();
   }
 
   jsData() {
     $(document).ready(function() {});
+  }
+
+  getBrokerData() {
+    this.commonService.getBrokers().subscribe((res) => {
+      try {
+        if(res.status) {
+          this.brokers = res.brokers;
+          this.step1 = res.brokerContent1;
+          this.step2 = res.brokerContent2;
+        }
+      } catch (e) {
+        console.log('Do not get URL data');
+      }
+    });
   }
 
   public pageContent() {

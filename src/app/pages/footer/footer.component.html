@@ -207,10 +207,10 @@
           <div class="link-container">
             <div class="q-links">
               <ul class="list-unstyled d-inline-flex">
-                <li><a routerLink="/privacy-policy"><h2>Privacy</h2></a></li>
-                <li><a routerLink="/terms-condition"><h2>Terms</h2></a></li>
-                <li><a href="javascript:void(0);"><h2>Cookies</h2></a></li>
-                <li><a href="javascript:void(0);"><h2>Sitemap</h2></a></li>
+                <li><a routerLink="/privacy-policy"><h4>Privacy</h4></a></li>
+                <li><a routerLink="/terms-condition"><h4>Terms</h4></a></li>
+                <li><a href="javascript:void(0);"><h4>Cookies</h4></a></li>
+                <li><a href="javascript:void(0);"><h4>Sitemap</h4></a></li>
               </ul>
             </div>
             <div class="copyright">
@@ -331,22 +331,10 @@
             </em>
           </div>
           <div class="row col-12 m-auto text-left teamRadio">
-            <label>Team</label>
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" value="1-10" (change)="onItemChange($event.target.value)">
-              <label class="custom-control-label" for="customRadioInline1">1-10</label>
-            </div>
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input" value="10-50" (change)="onItemChange($event.target.value)">
-              <label class="custom-control-label" for="customRadioInline2">10-50</label>
-            </div>
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" id="customRadioInline3" name="customRadioInline1" class="custom-control-input" value="50-100" (change)="onItemChange($event.target.value)">
-              <label class="custom-control-label" for="customRadioInline3">50-100</label>
-            </div>
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" id="customRadioInline4" name="customRadioInline1" class="custom-control-input" value="100+" (change)="onItemChange($event.target.value)">
-              <label class="custom-control-label" for="customRadioInline4">100+</label>
+            <label style="margin-top: 10px;">Team</label>
+            <div class="custom-control custom-radio custom-control-inline" *ngFor="let team of teams;let i = index;">
+              <input type="radio" [id]="'customRadioInline'+i" class="custom-control-input" name="customRadioInline1" value="{{ team }}" (change)="onItemChange($event.target.value)">
+              <label class="custom-control-label" [attr.for]="'customRadioInline'+i">{{ team }}</label>
             </div>
           </div>
           <div class="row col-12 m-auto text-left" style="margin-left: 20px !important;">
@@ -466,7 +454,7 @@
             <em class="has-error" *ngIf="calculateForm.get('feet').hasError('required') && calculateForm.get('feet').touched">
               Feet is required
             </em>
-            <span class="selection" style="top: 2px;">Select No of Feet</span>
+            <span class="selection" style="top: 2px;">Enter Size in Sq Ft</span>
           </label>
           <div class="radio">
             <label><input type="radio" name="optradio" value="1" (change)="onTypeChange($event.target.value)"> Ready to move in</label>
@@ -481,7 +469,7 @@
         </div>
       </div>
       <div class="all-location-link button-modal">
-        <a href="javascript:void(0);">SEE ALL LOCATIONS</a>
+        <a routerLink="/all-locations">SEE ALL LOCATIONS</a>
       </div>
     </section>
   </div>

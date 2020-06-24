@@ -18,6 +18,7 @@ export class FooterComponent implements OnInit {
   public searchProperties: any;
   public cities: any;
   public locations: any;
+  public teams: any;
   public total = 0;
   public termsText = '';
   public officeContact =  {
@@ -141,6 +142,7 @@ export class FooterComponent implements OnInit {
         if(res.status) {
           this.officeContact = res.officeContact;
           this.termsText = res.officeContact.termsText;
+          this.teams = res.officeContact.teams;
         }
       } catch (e) {
         console.log('Do not get URL data');

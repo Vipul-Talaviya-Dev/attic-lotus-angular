@@ -906,6 +906,12 @@
     padding-left: 2em;
     padding-right: 2em;
   }
+  .map-container iframe {
+    max-width: 260px;
+  }
+  .user-content {
+    padding: 10px 20px;
+  }
   .cal-form-group {
     margin: 0;
   }

@@ -775,6 +775,7 @@
 }
 .custom-control {
   padding-left: 1rem;
+  margin: 16px 1px 2px 6px;
 }
 .custom-control-label {
   margin-bottom: 0;
