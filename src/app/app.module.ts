@@ -33,6 +33,9 @@ import {BlogDetailResolve} from './resolve/blog-detail.resolve';
 import {CustomBuildComponent} from './pages/customBuild/customBuild.component';
 import {LandlordComponent} from './pages/landlord/landlord.component';
 import {BrokersComponent} from './pages/brokers/brokers.component';
+import {NewsRoomComponent} from './pages/newsRoom/newsRoom.component';
+import {NewsRoomDetailResolve} from './resolve/newsRoom-detail.resolve';
+import {NewsRoomDetailComponent} from './pages/newsRoom-detail/newsRoom-detail.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -56,6 +59,8 @@ const APP_PROVIDERS = [
     CustomBuildComponent,
     LandlordComponent,
     BrokersComponent,
+    NewsRoomComponent,
+    NewsRoomDetailComponent,
     MenuComponent,
     FooterComponent
   ],
@@ -78,6 +83,7 @@ const APP_PROVIDERS = [
     PropertyResolve,
     BlogDetailResolve,
     SearchResolve,
+    NewsRoomDetailResolve,
     CommonService,
     FooterSearchService,
     APP_PROVIDERS

@@ -448,6 +448,28 @@ export class CommonService {
     );
   }
 
+  getNewsRooms(): Observable<any> {
+    this.configService.notifyLoaderEmitter(true);
+    let endPoint = environment.api;
+    let apiURL = endPoint + 'newsRooms';
+
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    let requestOptions:object = {
+      headers: headers,
+      responseType: 'json'
+    };
+
+    return this.http.get(apiURL, requestOptions).pipe(
+      map(res => { return this.extractData(res); }),
+      catchError(error => {
+        return this.handleError(error);
+      }),
+    );
+  }
+
   getSupports(): Observable<any> {
     this.configService.notifyLoaderEmitter(true);
     let endPoint = environment.api;
@@ -522,6 +544,28 @@ export class CommonService {
     this.configService.notifyLoaderEmitter(true);
     let endPoint = environment.api;
     let apiURL = endPoint + 'blog/'+slug;
+
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    let requestOptions:object = {
+      headers: headers,
+      responseType: 'json'
+    };
+
+    return this.http.get(apiURL, requestOptions).pipe(
+      map(res => { return this.extractData(res); }),
+      catchError(error => {
+        return this.handleError(error);
+      }),
+    );
+  }
+
+  getNewsRoomDetail(slug) {
+    this.configService.notifyLoaderEmitter(true);
+    let endPoint = environment.api;
+    let apiURL = endPoint + 'newsRoom/'+slug;
 
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'

@@ -16,6 +16,9 @@ import {BlogDetailResolve} from './resolve/blog-detail.resolve';
 import {CustomBuildComponent} from './pages/customBuild/customBuild.component';
 import {LandlordComponent} from './pages/landlord/landlord.component';
 import {BrokersComponent} from './pages/brokers/brokers.component';
+import {NewsRoomComponent} from './pages/newsRoom/newsRoom.component';
+import {NewsRoomDetailResolve} from './resolve/newsRoom-detail.resolve';
+import {NewsRoomDetailComponent} from './pages/newsRoom-detail/newsRoom-detail.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -32,6 +35,13 @@ const routes: Routes = [
     path: 'ideas/:slug', component: BlogDetailComponent,
     resolve: {
       blog: BlogDetailResolve
+    }
+  },
+  { path: 'newsroom', component: NewsRoomComponent },
+  {
+    path: 'newsroom/:slug', component: NewsRoomDetailComponent,
+    resolve: {
+      newsroom: NewsRoomDetailResolve
     }
   },
   { path: 'support', component: SupportComponent },

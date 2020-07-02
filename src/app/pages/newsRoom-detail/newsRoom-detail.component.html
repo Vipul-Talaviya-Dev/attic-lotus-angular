@@ -1,0 +1,39 @@
+<app-menu></app-menu>
+<div class="page-content" style="padding: 0px;margin-top: 25px;">
+  <!-- Slider section start here -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 w-width">
+        <div class="search-section">
+          <div class="row">
+            <div class="blog-image-container">
+              <h2>{{ blog.title }}</h2>
+              <p>{{ blog.sub_title }}</p>
+              <img [src]="blog.image" alt="" class="img-fluid">
+            </div>
+            <span [innerHTML]="blog.description"></span>
+            <div class="author-section">
+              <div class="author-id">
+                <h6 class="author-name">{{ blog.name }}</h6>
+                <p class="position">{{ blog.designation }}</p>
+                <p class="date"> {{ blog.date }}</p>
+                <div class="social-icons">
+                  <a title="Share article on Facebook" href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a>
+                  <a title="Share article on Twitter" href="javascript:void(0);"><i class="fab fa-twitter"></i></a>
+                  <a title="Share article on Instagram" href="javascript:void(0);"><i class="fab fa-instagram"></i></a>
+                  <a title="Share article on Linked-In" href="javascript:void(0);"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+              </div>
+              <div class="author-message">
+                <p class="quote">{{ blog.writer_description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- page content ends here -->
+  <!-- footer starts Here -->
+  <app-footer></app-footer>
+</div>

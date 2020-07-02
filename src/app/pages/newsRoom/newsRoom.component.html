@@ -1,0 +1,24 @@
+<app-menu></app-menu>
+<div class="page-content">
+
+  <!-- Slider section start here -->
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 w-width">
+        <div class="row">
+          <div class="blog col-lg-4 col-md-4 col-sm-12 pl-0 cursor-pointer" *ngFor="let newsRoom of newsRooms;" [routerLink]="['/newsroom/'+ newsRoom.slug]">
+            <div class="blog-container">
+              <img [src]="newsRoom.image" alt="img">
+              <div class="blog-content-wrapper">
+                <h5>{{ newsRoom.title }}</h5>
+                <p>{{ newsRoom.sub_title }}</p>
+              </div>
+            </div>
+          </div>
+        </div><p><br></p>
+      </div>
+    </div>
+  </div>
+  <!-- page content ends here -->
+  <app-footer></app-footer>
+</div>
