@@ -1,4 +1,4 @@
-import {Compiler, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Compiler, Component, OnInit} from '@angular/core';
 import {CommonService} from '../../services/common.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -13,7 +13,8 @@ declare var $: any;
   templateUrl: './blog.component.html',
   styleUrls: ['./blog.component.css']
 })
-export class BlogComponent implements OnInit {
+export class BlogComponent implements OnInit, AfterViewInit  {
+  private fragment: string;
   public categories: any;
   public blogs: any;
   public form: FormGroup;
@@ -64,8 +65,16 @@ export class BlogComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.route.fragment.subscribe(fragment => { this.fragment = fragment; });
     window.scroll(0,0);
     this._compiler.clearCache();
+  }
+
+  ngAfterViewInit(): void {
+    try {
+      this.scrollToElement(this.fragment);
+      document.querySelector('#' + this.fragment).scrollIntoView();
+    } catch (e) { }
   }
 
   getBlogs() {

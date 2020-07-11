@@ -2,6 +2,59 @@
   padding: 0 4em;
   padding-left: 15em;
 }
+/* start custom build css */
+.innerbannersection {
+  padding: 100px 0 0;
+}
+.prxls {
+  padding-left: 100px;
+}
+.xltitle {
+  font-weight: 700;
+  font-size: 60px;
+  margin: 0 0 20px;
+}
+
+@media (max-width: 991px) {
+  .xltitle {
+    font-size: 30px;
+  }
+  .prxls {
+    padding-left: 0px;
+  }
+}
+
+#sidebar {
+  background: #fff;
+  box-shadow: 0 0 14px rgba(0,0,0,.2);
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+.linetitle {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 50px;
+}
+.linetitle:after {
+  content: "";
+  display: block;
+  background: #458ded;
+  width: 154px;
+  height: 2px;
+  margin: 5px auto 0;
+}
+@media (min-width: 992px) {
+  .innerbannersection .col-lg-3 {
+    width: 370px;
+    float: right;
+    flex: 0 0 370px;
+    max-width: 370px;
+  }
+}
+/* End custom build css */
+
 .cal-form-group {
   margin: 0.5em 0;
 }

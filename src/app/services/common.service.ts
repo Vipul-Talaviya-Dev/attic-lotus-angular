@@ -58,6 +58,28 @@ export class CommonService {
     );
   }
 
+  getReadyToUse(): Observable<any> {
+    this.configService.notifyLoaderEmitter(true);
+    let endPoint = environment.api;
+    let apiURL = endPoint + 'readyToUsePage';
+
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    let requestOptions:object = {
+      headers: headers,
+      responseType: 'json'
+    };
+
+    return this.http.get(apiURL, requestOptions).pipe(
+      map(res => { return this.extractData(res); }),
+      catchError(error => {
+        return this.handleError(error);
+      }),
+    );
+  }
+
   getCities(propertyLimit = 0): Observable<any> {
     this.configService.notifyLoaderEmitter(true);
     let endPoint = environment.api;
@@ -380,6 +402,31 @@ export class CommonService {
     );
   }
 
+  brokerLandlordFormData(data): Observable<any> {
+    this.configService.notifyLoaderEmitter(true);
+    const endPoint = environment.api;
+    const apiURL = endPoint + 'brokerLandlordFormData';
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    const requestOptions: object = {
+      headers: headers,
+      responseType: 'json'
+    };
+    const body = JSON.stringify(data);
+
+    return this.http.post(apiURL, body, requestOptions).pipe(
+      map(res => {
+        return this.extractData(res);
+      }),
+      catchError(error => {
+        return this.handleError(error);
+      }),
+    );
+  }
+
   inquiry(data): Observable<any> {
     this.configService.notifyLoaderEmitter(true);
     const endPoint = environment.api;
@@ -628,10 +675,54 @@ export class CommonService {
     );
   }
 
+  getDemandLocation(): Observable<any> {
+    this.configService.notifyLoaderEmitter(true);
+    let endPoint = environment.api;
+    let apiURL = endPoint + 'demandLocationPage';
+
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    let requestOptions:object = {
+      headers: headers,
+      responseType: 'json'
+    };
+
+    return this.http.get(apiURL, requestOptions).pipe(
+      map(res => { return this.extractData(res); }),
+      catchError(error => {
+        return this.handleError(error);
+      }),
+    );
+  }
+
   getBrokers(): Observable<any> {
     this.configService.notifyLoaderEmitter(true);
     let endPoint = environment.api;
     let apiURL = endPoint + 'brokerPage';
+
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    let requestOptions:object = {
+      headers: headers,
+      responseType: 'json'
+    };
+
+    return this.http.get(apiURL, requestOptions).pipe(
+      map(res => { return this.extractData(res); }),
+      catchError(error => {
+        return this.handleError(error);
+      }),
+    );
+  }
+
+  getUpcomingPropertiesPageData(): Observable<any> {
+    this.configService.notifyLoaderEmitter(true);
+    let endPoint = environment.api;
+    let apiURL = endPoint + 'upcomingPrperties';
 
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'

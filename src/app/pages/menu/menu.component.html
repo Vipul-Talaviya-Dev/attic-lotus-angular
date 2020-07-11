@@ -32,18 +32,10 @@
                   <li class="divider" *ngIf="(i == 0) ? true : false"></li>
                 </span>
               </ul>
-              <!--<ul>
-                <li><a href="javascript:void(0);">Bangalore</a></li>
-                <li>
-                  <a href="javascript:void(0);" class="special-link" style="color: #000 !important; font-size: 14px;"> <span style=" font-size: 14px;">NEW</span> Attic Lotus </a>
-                </li>
-                <li class="divider"></li>
-                <li><a href="javascript:void(0);">Hydrabad</a></li>
-              </ul>-->
-              <div class="dropdown-info text-center">
-                <img src="assets/images/plane-icn.png" alt="">
-                <p style="color: #000; font-weight: 600;">See places near you</p>
-                <p style="font-size: 13px;">You have turned off location. To see a list of places near you, allow facebook to access your location while you use the app</p>
+              <div class="dropdown-info text-center cursor-pointer" routerLink="/on-demand-location">
+                <img [src]="locationMenu.image" alt="">
+                <p style="color: #000; font-weight: 600;">{{ locationMenu.title }}</p>
+                <p style="font-size: 13px;">{{ locationMenu.sub_title }}</p>
               </div>
             </div>
           </li>
@@ -54,10 +46,10 @@
                 <li class="divider"></li>
                 <li><a routerLink="/custom-build">Custom Build </a></li>
               </ul>
-              <div class="dropdown-info text-center">
-                <img src="assets/images/building-icn.png" alt="">
-                <p style="color: #000; font-weight: 600;">+5000 Seats Solution</p>
-                <p style="font-size: 13px;">You have turned off location. To see a list of places near you, allow Facebook to access your location while you use the app</p>
+              <div class="dropdown-info text-center cursor-pointer" routerLink="/upcoming-properties">
+                <img [src]="spaceMenu.image" alt="">
+                <p style="color: #000; font-weight: 600;">{{ spaceMenu.title }}</p>
+                <p style="font-size: 13px;">{{ spaceMenu.sub_title }}</p>
               </div>
             </div>
           </li>

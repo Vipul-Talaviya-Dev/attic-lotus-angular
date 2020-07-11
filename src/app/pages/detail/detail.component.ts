@@ -192,7 +192,11 @@ export class DetailComponent implements OnInit {
         dots: false,
         infinite: true,
         variableWidth: true
+      }).on('setPosition', function (event, slick) {
+        slick.$slides.css('height', '450px');
+        slick.$slides.find('img').css('height', '450px');
       });
+
       $(".center-nearby").not('.slick-initialized').slick({
         dots: false,
         infinite: true,

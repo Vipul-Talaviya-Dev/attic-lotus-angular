@@ -321,7 +321,7 @@
 }
 
 .blog-content-wrapper p {
-  min-height: 145px;
+  /*min-height: 145px;*/
   font-family: 'ApercuProRegular';
   color: #666;
   font-size: 16px;

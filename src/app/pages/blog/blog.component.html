@@ -24,7 +24,7 @@
                   Email is invalid
                 </em>
               </div>
-              <div class="subscribe-form-group col-lg-12 col-md-12 "[ngClass]="{
+              <div class="subscribe-form-group col-lg-12 col-md-12 " [ngClass]="{
                 'has-error': (form.get('name').hasError('required') || errors.name) && form.get('name').touched
               }">
                 <label>NAME*</label>
@@ -175,7 +175,7 @@
               </div>
               <div class="row col-12 m-auto text-left">
                 <div style="margin-left: 25px;">
-                  <input type="checkbox" (change)="onItemChange($event)" formControlName="checkbox" style="margin-left: -15px;"  class="form-check-input" id="exampleCheck3" value="1"> <p class="form-check-label" for="exampleCheck3">{{ termsText }}</p>
+                  <input type="checkbox" (change)="onItemChange($event)" formControlName="checkbox" style="margin-left: -15px;"  class="form-check-input" id="exampleCheck9" value="1"> <p class="form-check-label" for="exampleCheck9">{{ termsText }}</p>
                   <em class="has-error" *ngIf="form.get('checkbox').hasError('required') && form.get('checkbox').touched">
                     Terms & Condition required.
                   </em>

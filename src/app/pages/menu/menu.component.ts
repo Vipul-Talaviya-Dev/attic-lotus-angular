@@ -13,7 +13,16 @@ export class MenuComponent implements OnInit {
   public searchDiv = false;
   public contactDiv = false;
   public notifyDiv = false;
-
+  public locationMenu = {
+    title: '',
+    sub_title: '',
+    image: 'assets/images/plane-icn.png'
+  };
+  public spaceMenu = {
+    title: '',
+    sub_title: '',
+    image: 'assets/images/building-icn.png'
+  };
   constructor(private commonService: CommonService) { }
 
   ngOnInit(): void {
@@ -25,6 +34,8 @@ export class MenuComponent implements OnInit {
       try {
         if(res.status) {
           this.cities = res.cities;
+          this.locationMenu = res.locationMenu;
+          this.spaceMenu = res.spaceMenu;
         }
       } catch (e) {
         console.log('Do not get URL data');

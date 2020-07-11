@@ -7,13 +7,12 @@ import {Meta, Title} from '@angular/platform-browser';
 declare var $: any;
 
 @Component({
-  selector: 'app-brokers',
-  templateUrl: './brokers.component.html',
-  styleUrls: ['./brokers.component.css']
+  selector: 'app-demand-location',
+  templateUrl: './demandLocation.component.html',
+  styleUrls: ['./demandLocation.component.css']
 })
-export class BrokersComponent implements OnInit {
-  public brokers: any;
-  public markets: any;
+export class DemandLocationComponent implements OnInit {
+  public landLoads: any;
   public step1 = {
     title: '',
     sub_title: '',
@@ -32,7 +31,10 @@ export class BrokersComponent implements OnInit {
     name: false,
     email: false,
     mobile: false,
-    market: false,
+    city: false,
+    area: false,
+    landmark: false,
+    zipcode: false,
     checkbox: false,
   };
 
@@ -42,8 +44,7 @@ export class BrokersComponent implements OnInit {
     private fb: FormBuilder,
     private _compiler: Compiler,
     private titleService: Title,
-    private meta: Meta
-  ) {
+    private meta: Meta) {
     this.jsData();
 
     // search form
@@ -55,9 +56,12 @@ export class BrokersComponent implements OnInit {
       ]
       ],
       'mobile': ['', [Validators.required]],
-      'market': ['', [Validators.required]],
+      'city': ['', [Validators.required]],
+      'area': ['', [Validators.required]],
+      'landmark': ['', [Validators.required]],
+      'zipcode': ['', [Validators.required]],
       'checkbox': ['', [Validators.required]],
-      'type': [1, [Validators.required]],
+      'type': [3, [Validators.required]],
     });
   }
 
@@ -65,7 +69,21 @@ export class BrokersComponent implements OnInit {
     window.scroll(0,0);
     this._compiler.clearCache();
     this.pageContent();
-    this.getBrokerData();
+    this.getLandLoadData();
+  }
+
+  getLandLoadData() {
+    this.commonService.getDemandLocation().subscribe((res) => {
+      try {
+        if(res.status) {
+          this.landLoads = res.demandLocations;
+          this.step1 = res.demandLocationContent1;
+          this.step2 = res.demandLocationContent2;
+        }
+      } catch (e) {
+        console.log('Do not get URL data');
+      }
+    });
   }
 
   jsData() {
@@ -79,14 +97,14 @@ export class BrokersComponent implements OnInit {
     });
   }
 
-  getBrokerData() {
-    this.commonService.getBrokers().subscribe((res) => {
+  public pageContent() {
+    this.commonService.getPageContent(13).subscribe((res) => {
       try {
         if(res.status) {
-          this.markets = res.markets;
-          this.brokers = res.brokers;
-          this.step1 = res.brokerContent1;
-          this.step2 = res.brokerContent2;
+          this.termsText = res.page.termsText;
+          this.titleService.setTitle(res.page.title);
+          this.meta.addTag({name: 'keywords', content: res.page.keywords});
+          this.meta.addTag({name: 'description', content: res.page.decription});
         }
       } catch (e) {
         console.log('Do not get URL data');
@@ -101,21 +119,6 @@ export class BrokersComponent implements OnInit {
       this.form.patchValue({'checkbox': ""});
       this.form.get('checkbox').setValidators(Validators.required);
     }
-  }
-
-  public pageContent() {
-    this.commonService.getPageContent(9).subscribe((res) => {
-      try {
-        if(res.status) {
-          this.termsText = res.page.termsText;
-          this.titleService.setTitle(res.page.title);
-          this.meta.addTag({name: 'keywords', content: res.page.keywords});
-          this.meta.addTag({name: 'description', content: res.page.decription});
-        }
-      } catch (e) {
-        console.log('Do not get URL data');
-      }
-    });
   }
 
   public onSubmit() {
@@ -133,4 +136,5 @@ export class BrokersComponent implements OnInit {
       });
     }
   }
+
 }

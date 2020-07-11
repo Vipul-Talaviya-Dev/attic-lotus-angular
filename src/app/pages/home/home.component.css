@@ -6,8 +6,17 @@
     font-size: 15px;
   }
 }
+.designed_for_you_section h1 {
+  font-family: ApercuProRegular;
+  font-weight: bold;
+  font-size: 60px;
+}
+.slider_section .slider-info h1 {
+  font-weight: bold;
+  font-size: 60px;
+  font-family: 'ApercuProRegular';
 
-
+}
 /* accordian css close */
 
 @media only screen and (max-width: 1200px) {

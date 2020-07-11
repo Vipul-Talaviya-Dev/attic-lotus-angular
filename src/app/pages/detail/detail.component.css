@@ -556,7 +556,7 @@
 }
 
 .about-user {
-  padding: 50px 0px;
+  padding: 50px;
   margin: 100px 0px;
 }
 
@@ -941,10 +941,13 @@
     width: 100%;
   }
   .about-user {
-    display: grid !important
+    display: grid !important;
   }
   .about-user img {
-    padding-left: 50px;
+    padding-left: 0px;
+  }
+  .position-sticky {
+    min-width: 100%;
   }
   .user-content:before {
     position: absolute;

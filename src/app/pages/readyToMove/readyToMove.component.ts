@@ -12,18 +12,23 @@ declare var $: any;
 })
 export class ReadyToMoveComponent implements OnInit {
   selectedIndex: number = null;
-  public locations: any;
-  public cities: any;
+  public bags: any;
   public properties: any;
-  public questions: any;
   public slug: any;
   public days: any;
   public time: any;
   public termsText = '';
+  public message = '';
   public form: FormGroup;
   public submitted: boolean = false;
   public msgDiv = false;
   public formDiv: boolean = true;
+  public step8 = {
+    bagTitle: '',
+    title: '',
+    bag_description: '',
+    description: ''
+  };
   public errors = {
     name: false,
     email: false,
@@ -60,11 +65,12 @@ export class ReadyToMoveComponent implements OnInit {
   ngOnInit(): void {
     window.scroll(0,0);
     this._compiler.clearCache();
+    this.getReadyToUse();
     this.pageContent();
     this.getCommon();
     this.getProperties('');
-    this.getCities();
   }
+
   onItemChange(e) {
     if(e.target.checked) {
       this.form.patchValue({'checkboxs': 1});
@@ -84,18 +90,6 @@ export class ReadyToMoveComponent implements OnInit {
     });
   }
 
-  getLocations(city) {
-    this.commonService.getLocations(city).subscribe((res) => {
-      try {
-        if(res.status) {
-          this.locations = res.locations;
-        }
-      } catch (e) {
-        console.log('Do not get URL data');
-      }
-    });
-  }
-
   getCommon() {
     this.commonService.getCommon().subscribe((res) => {
       if (res.status === true) {
@@ -107,11 +101,12 @@ export class ReadyToMoveComponent implements OnInit {
     });
   }
 
-  getCities() {
-    this.commonService.getCities().subscribe((res) => {
+  getReadyToUse() {
+    this.commonService.getReadyToUse().subscribe((res) => {
       try {
         if(res.status) {
-          this.cities = res.cities;
+          this.bags = res.bags;
+          this.step8 = res.step8;
         }
       } catch (e) {
         console.log('Do not get URL data');
@@ -126,6 +121,7 @@ export class ReadyToMoveComponent implements OnInit {
         if (res.status === true) {
           this.form.reset();
           this.msgDiv = true;
+          this.message = res.message;
           this.formDiv = false;
           // this.toaster.success(res.message, 'Success !!!');
         } else {

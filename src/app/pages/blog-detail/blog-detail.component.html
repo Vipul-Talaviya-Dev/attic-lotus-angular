@@ -46,7 +46,7 @@
             </div>
             <div class="row col-12 m-auto text-left">
               <div style="margin-left: 25px;">
-                <input type="checkbox" (change)="onItemChange($event)" formControlName="checkbox" style="margin-left: -15px;"  class="form-check-input" id="exampleCheck3" value="1"> <p class="form-check-label" for="exampleCheck3">{{ termsText }}</p>
+                <input type="checkbox" (change)="onItemChange($event)" formControlName="checkbox" style="margin-left: -15px;"  class="form-check-input" id="exampleCheck11" value="1"> <p class="form-check-label" for="exampleCheck11">{{ termsText }}</p>
                 <em class="has-error" *ngIf="form.get('checkbox').hasError('required') && form.get('checkbox').touched">
                   Terms & Condition required.
                 </em>
@@ -65,7 +65,7 @@
         <div class="search-section">
           <div class="row">
             <ul class="list-unstyled d-inline-flex" id="one-pagenav">
-              <li *ngFor="let category of blog.categories;"><a href="javascript:void(0);" [class]="(blog.category_id === category.id) ? 'active' : ''"> {{ category.name }} </a></li>
+              <li *ngFor="let category of blog.categories;"><a [routerLink]="['/ideas']" fragment="{{ category.slug }}" [class]="(blog.category_id === category.id) ? 'active' : ''"> {{ category.name }} </a></li>
               <!--<li><a href="#officedesign"> Office design & space</a></li>
               <li><a href="#cityguides"> City guides</a></li>
               <li><a href="#worklife"> Work life</a></li>-->
@@ -192,7 +192,7 @@
               </div>
               <div class="row col-12 m-auto text-left">
                 <div style="margin-left: 25px;">
-                  <input type="checkbox" (change)="onItemChange($event)" formControlName="checkbox" style="margin-left: -15px;"  class="form-check-input" id="exampleCheck3" value="1"> <p class="form-check-label" for="exampleCheck3">{{ termsText }}</p>
+                  <input type="checkbox" (change)="onItemChange($event)" formControlName="checkbox" style="margin-left: -15px;"  class="form-check-input" id="exampleCheck60" value="1"> <p class="form-check-label" for="exampleCheck60">{{ termsText }}</p>
                   <em class="has-error" *ngIf="form.get('checkbox').hasError('required') && form.get('checkbox').touched">
                     Terms & Condition required.
                   </em>
