@@ -4,9 +4,9 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h1>Who We Are</h1>
-          <p>Built with love on Indian soil, we are a premium homegrown coworking solution provider that builds workspaces for businesses of all sizes. <br><br>
-            Our sole purpose is to bring together the largest community of working professionals across the globe, fuel them with inspiration and connect them through technology. Our workspaces empower people to express themselves freely as they do some of their life’s best work.</p>
+          <h1>{{ step1.title }}</h1>
+          <p>{{ step1.sub_title }}</p><br>
+          <p>{{ step1.description }}</p>
         </div>
       </div>
     </div>
@@ -27,10 +27,9 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h1>What We want to do</h1>
-          <p>Built with love on Indian soil, we are a premium homegrown coworking solution provider that builds workspaces for businesses of all sizes. <br><br>
-            Our sole purpose is to bring together the largest community of working professionals across the globe, fuel them with inspiration and connect them through technology. Our workspaces empower people to express themselves freely as they do some of their life’s best work.
-          </p>
+          <h1>{{ step2.title }}</h1>
+          <p>{{ step2.sub_title }}</p><br>
+          <p>{{ step2.description }}</p>
         </div>
       </div>
     </div>
@@ -40,39 +39,39 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-sm-12">
-          <h1>The Power of Our Community</h1>
-          <p>CoWrks packs the right mix of infrastructure, collaborative spirit and inspiration.</p>
+          <h1>{{ step3.title }}</h1>
+          <p>{{ step3.sub_title }}</p>
           <div class="row">
             <div class="col-lg-6 border_bottom border_right">
               <div class="power_number_box ">
-                <span>350+</span>
-                <p>companies choose CoWrks workspace</p>
+                <span>{{ step3.firstNo }}</span>
+                <p>{{ step3.firstDescription }}</p>
               </div>
             </div>
             <div class="col-lg-6 border_bottom">
               <div class="power_number_box">
-                <span>23+</span>
-                <p>companies choose CoWrks workspace</p>
+                <span>{{ step3.secondNo }}</span>
+                <p>{{ step3.secondDescription }}</p>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-lg-6 border_right">
               <div class="power_number_box">
-                <span>11+</span>
-                <p>companies choose CoWrks workspace</p>
+                <span>{{ step3.threeNo }}</span>
+                <p>{{ step3.threeDescription }}</p>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="power_number_box">
-                <span>10000+</span>
-                <p>companies choose CoWrks workspace</p>
+                <span>{{ step3.fourNo }}</span>
+                <p>{{ step3.fourDescription }}</p>
               </div>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-sm-12">
-          <img src="assets/images/chart_img.jpg" alt="" class="img-fluid">
+          <img [src]="step3.image" alt="" class="img-fluid">
         </div>
       </div>
     </div>
@@ -86,39 +85,11 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-4 cursor-pointer" *ngFor="let about of abouts" [routerLink]="['/about/'+ about.slug]">
           <div class="team_box_wrap">
-            <img src="assets/images/team_img_1.jpg" alt="" class="img-fluid">
-            <span>Salil Parekh</span>
-            <p>Chief Executive Officer and Managing Director</p>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="team_box_wrap">
-            <img src="assets/images/team_img_2.jpg" alt="" class="img-fluid">
-            <span>Pravin Rao</span>
-            <p>Chief Operating Officer and Whole-time Director</p>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="team_box_wrap">
-            <img src="assets/images/team_img_3.jpg" alt="" class="img-fluid">
-            <span>Nilanjan Roy</span>
-            <p>Chief Financial Officer</p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12">
-          <h2>Founder</h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="team_box_wrap team_box_margin_bottom_none">
-            <img src="assets/images/team_img_4.jpg" alt="" class="img-fluid">
-            <span>N.R. Narayana Murthy</span>
-            <p>Founder</p>
+            <img [src]="about.image" alt="" class="img-fluid">
+            <span>{{ about.name }}</span>
+            <p>{{ about.designation }}</p>
           </div>
         </div>
       </div>

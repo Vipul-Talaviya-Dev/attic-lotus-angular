@@ -22,6 +22,8 @@ import {NewsRoomDetailComponent} from './pages/newsRoom-detail/newsRoom-detail.c
 import {AboutComponent} from './pages/about/about.component';
 import {UpcomingPrpertiesComponent} from './pages/upcomingPrperties/upcomingPrperties.component';
 import {DemandLocationComponent} from './pages/demandLocation/demandLocation.component';
+import {AboutDetailComponent} from './pages/about-detail/about-detail.component';
+import {AboutDetailResolve} from './resolve/about-detail.resolve';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -45,6 +47,12 @@ const routes: Routes = [
     path: 'newsroom/:slug', component: NewsRoomDetailComponent,
     resolve: {
       newsroom: NewsRoomDetailResolve
+    }
+  },
+  {
+    path: 'about/:slug', component: AboutDetailComponent,
+    resolve: {
+      about: AboutDetailResolve
     }
   },
   { path: 'support', component: SupportComponent },

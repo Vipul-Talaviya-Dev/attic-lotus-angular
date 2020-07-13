@@ -44,6 +44,7 @@ export class FooterComponent implements OnInit {
     checkbox: false,
   };
   public footerForm: FormGroup;
+  public footerDataForm: FormGroup;
   public footerFormDivMessage = false;
   public footerFormDiv = true;
   public footerMessage = '';
@@ -104,6 +105,16 @@ export class FooterComponent implements OnInit {
       'mobile': ['', [Validators.required]],
       'cityId': ['', [Validators.required]],
       'checkboxs': ['', [Validators.required]],
+    });
+
+    // Upcoming Location
+    this.footerDataForm = fb.group({
+      'name': [''],
+      'email': [''],
+      'mobile': [''],
+      'type': [''],
+      'city': [''],
+      'member': [''],
     });
 
     // Upcoming Location
@@ -257,7 +268,25 @@ export class FooterComponent implements OnInit {
       }
     });
   }
+
+  public footerFormData(value) {
+    this.footerDataForm.patchValue({'name': value.name});
+    this.footerDataForm.patchValue({'email': value.email});
+    this.footerDataForm.patchValue({'mobile': value.mobile});
+    this.footerDataForm.patchValue({'type': value.type});
+    this.footerDataForm.patchValue({'city': value.city});
+    this.footerDataForm.patchValue({'member': value.member});
+    this.commonService.footerForm(this.footerDataForm.value).subscribe((res) => {
+      if (res.status === true) {
+        console.log('success');
+      } else {
+        this.toaster.error(res.message, 'Error !!!');
+      }
+    });
+  }
+
   jsData() {
+    let self = this;
     $(document).ready(function() {
       $(window).scroll(function() { $(this).scrollTop() > 0 ? $(".to-top").fadeIn() : $(".to-top").fadeOut() }), $(".to-top").click(function(e) { $("html, body").animate({ scrollTop: 0 }, 500) })
       $(".menu-icon").on("click", function() {
@@ -377,8 +406,8 @@ export class FooterComponent implements OnInit {
                   break;
                 case 7:
                   $("input")[6].setAttribute("type", "submit"), (n = !0), (clientNameFinal = $(".question__question")[0].value);
-                  let o = $(".question__question")[4].value;
-                  let m = $(".question__question")[5].value;
+                  let o = $(".question__question")[8].value;
+                  let m = $(".question__question")[9].value;
                   (clientNameFinal = clientNameFinal.charAt(0).toUpperCase() + clientNameFinal.slice(1)), ($(".question__title")[6].innerText = clientNameFinal + ", " + $(".question__title")[6].innerText);
                   let i = "We will contact you via email: " + o + " or mobile: "+ m +" in no time. But if you don’t want to wait for a good things to happen, feel free to call us at 080 4717 8622 - let’s have a conversation!";
                   ($(".confirm__p")[0].innerText = i),
@@ -386,6 +415,15 @@ export class FooterComponent implements OnInit {
                     $(".next__wrapper").addClass("next__wrapper--inactive"),
                     $(".question__number").addClass("question__number--inactive"),
                     $("#question-7").removeClass("question__wrapper--inactive");
+                    let data = {
+                      name: $("input[name='questionName']").val(),
+                      city: $("input[name='customRadioInline6']:checked").attr('data-name'),
+                      member: $("input[name='questionMember']").val(),
+                      type: $("input[name='customRadioInline9']:checked").attr('data-name'),
+                      email: $("input[name='questionEmail']").val(),
+                      mobile: $("input[name='questionMobile']").val(),
+                    };
+                    self.footerFormData(data);
               }
             else
               switch (($(".error__wrapper").css("opacity", "1"), e)) {

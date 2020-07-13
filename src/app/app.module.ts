@@ -39,6 +39,8 @@ import {NewsRoomDetailComponent} from './pages/newsRoom-detail/newsRoom-detail.c
 import {AboutComponent} from './pages/about/about.component';
 import {UpcomingPrpertiesComponent} from './pages/upcomingPrperties/upcomingPrperties.component';
 import {DemandLocationComponent} from './pages/demandLocation/demandLocation.component';
+import {AboutDetailComponent} from './pages/about-detail/about-detail.component';
+import {AboutDetailResolve} from './resolve/about-detail.resolve';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -67,6 +69,7 @@ const APP_PROVIDERS = [
     AboutComponent,
     UpcomingPrpertiesComponent,
     DemandLocationComponent,
+    AboutDetailComponent,
     MenuComponent,
     FooterComponent
   ],
@@ -90,6 +93,7 @@ const APP_PROVIDERS = [
     BlogDetailResolve,
     SearchResolve,
     NewsRoomDetailResolve,
+    AboutDetailResolve,
     CommonService,
     FooterSearchService,
     APP_PROVIDERS

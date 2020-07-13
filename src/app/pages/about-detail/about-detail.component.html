@@ -1,0 +1,36 @@
+<app-menu></app-menu>
+<div class="page-content" style="padding: 0px;margin-top: 25px;">
+  <!-- Slider section start here -->
+  <div class="container">
+    <div class="row">
+      <div class="position-sticky col-4 text-center">
+
+      </div>
+      <div class="col-lg-8 col-md-12 w-width">
+        <div class="search-section">
+          <div class="row">
+            <div class="blog-image-container">
+              <h2>{{ blog.name }}</h2>
+              <img [src]="blog.image" alt="">
+            </div>
+            <span [innerHTML]="blog.description"></span>
+            <div class="author-section">
+              <div class="author-id">
+                <h6 class="author-name">{{ blog.name }}</h6><br>
+                <p class="position">{{ blog.designation }}</p>
+                <div class="social-icons">
+                  <a title="Share article on Facebook" href="javascript:void(0);" (click)="link(blog.facebook_link)"><i class="fab fa-facebook-f"></i></a>
+                  <a title="Share article on Twitter" href="javascript:void(0);" (click)="link(blog.tweeter_link)"><i class="fab fa-twitter"></i></a>
+                  <a title="Share article on Instagram" href="javascript:void(0);" (click)="link(blog.instagram_link)"><i class="fab fa-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- footer starts Here -->
+<app-footer></app-footer>

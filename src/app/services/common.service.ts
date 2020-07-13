@@ -123,6 +123,27 @@ export class CommonService {
       }),
     );
   }
+  getaboutPage(): Observable<any> {
+    this.configService.notifyLoaderEmitter(true);
+    let endPoint = environment.api;
+    let apiURL = endPoint + 'aboutPage';
+
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    let requestOptions:object = {
+      headers: headers,
+      responseType: 'json'
+    };
+
+    return this.http.get(apiURL, requestOptions).pipe(
+      map(res => { return this.extractData(res); }),
+      catchError(error => {
+        return this.handleError(error);
+      }),
+    );
+  }
 
   getCustomPage(): Observable<any> {
     this.configService.notifyLoaderEmitter(true);
@@ -306,6 +327,31 @@ export class CommonService {
     this.configService.notifyLoaderEmitter(true);
     const endPoint = environment.api;
     const apiURL = endPoint + 'contact';
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    const requestOptions: object = {
+      headers: headers,
+      responseType: 'json'
+    };
+    const body = JSON.stringify(data);
+
+    return this.http.post(apiURL, body, requestOptions).pipe(
+      map(res => {
+        return this.extractData(res);
+      }),
+      catchError(error => {
+        return this.handleError(error);
+      }),
+    );
+  }
+
+  footerForm(data): Observable<any> {
+    this.configService.notifyLoaderEmitter(true);
+    const endPoint = environment.api;
+    const apiURL = endPoint + 'footerForm';
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
@@ -591,6 +637,28 @@ export class CommonService {
     this.configService.notifyLoaderEmitter(true);
     let endPoint = environment.api;
     let apiURL = endPoint + 'blog/'+slug;
+
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    let requestOptions:object = {
+      headers: headers,
+      responseType: 'json'
+    };
+
+    return this.http.get(apiURL, requestOptions).pipe(
+      map(res => { return this.extractData(res); }),
+      catchError(error => {
+        return this.handleError(error);
+      }),
+    );
+  }
+
+  getAboutDetail(slug) {
+    this.configService.notifyLoaderEmitter(true);
+    let endPoint = environment.api;
+    let apiURL = endPoint + 'about/'+slug;
 
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'
