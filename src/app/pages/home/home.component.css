@@ -17,6 +17,9 @@
   font-family: 'ApercuProRegular';
 
 }
+.designed_section_list ul li span {
+  color: #000000 !important;
+}
 /* accordian css close */
 
 @media only screen and (max-width: 1200px) {

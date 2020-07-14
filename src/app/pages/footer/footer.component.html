@@ -143,7 +143,7 @@
           </div>
         </div>
         <div class="col-md-3 col-sm-12 pr-0" *ngIf="footerFormDiv">
-          <h4>UPCOMING LOCATIONS</h4>
+          <h4>Important Announcement</h4>
           <form class="footer-form" autocomplete="off" [formGroup]="footerForm" (submit)="onFooterSubmit()">
             <label class="form-group has-float-label" [ngClass]="{
                 'has-error': (footerForm.get('cityId').hasError('required') || footerErrors.cityId) && footerForm.get('cityId').touched

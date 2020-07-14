@@ -71,7 +71,7 @@
           <h1>{{ step1.title }}</h1>
         </div>
         <div class="float-right designed_section_list">
-          <span [innerHTML]="step1.description"></span>
+          <span style="color: #000000;" [innerHTML]="step1.description"></span>
         </div>
       </div>
       <div class="col-md-4 col-sm-12">
@@ -85,7 +85,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <span [innerHTML]="step2.title"></span>
+        <h1 style="font-family: ApercuProRegular;font-weight: bold;font-size: 60px;" [innerHTML]="step2.title"></h1>
       </div>
     </div>
     <div class="row" style="padding:30px 0px;">
@@ -105,7 +105,7 @@
 </div>
 
 <div class="case_study_section" *ngIf="studyDiv">
-  <div class="container">
+  <div class="container" *ngIf="false">
     <div class="row">
       <div class="col-md-7 big-case-study">
         <img [src]="step5First.image" alt="client" class="img img-fluid">
@@ -193,7 +193,7 @@
         <div class="move-in-desc">
           <p>{{ step4.description }}</p>
         </div>
-        <a href="javascript:void(0);" class="move-in-process">Move-in Process <i class="fa fa-arrow-right"></i></a>
+        <a href="javascript:void(0);" class="modal-trigger2 move-in-process">Schedule a call now <i class="fa fa-arrow-right"></i></a>
       </div>
       <div class="col-md-5 more-feature-right">
         <img [src]="step4.image" alt="move-in" class="img img-fluid">
