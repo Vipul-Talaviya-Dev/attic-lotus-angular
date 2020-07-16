@@ -92,9 +92,9 @@
       <p class="clients_logos">
         <img *ngFor="let image of images" [src]="image" alt="client" class="img img-fluid">
       </p>
-      <div class="row col-md-12"><br>
+      <div class="row col-md-12" *ngIf="false"><br>
         <div class="col-sm-6 col-lg-6">
-<!--          <h1 class="float-left">They Are Saying..</h1>-->
+          <h1 class="float-left">They Are Saying..</h1>
         </div>
         <div class="col case-study-div col-sm-6 col-lg-6">
           <a href="javascript:void(0);">See all case studies</a>
@@ -104,7 +104,7 @@
   </div>
 </div>
 
-<div class="case_study_section" *ngIf="studyDiv">
+<div class="case_study_section" *ngIf="(studyDiv && false)">
   <div class="container" *ngIf="false">
     <div class="row">
       <div class="col-md-7 big-case-study">

@@ -188,14 +188,18 @@ export class DetailComponent implements OnInit {
       if ($('.center-nearby').hasClass('slick-initialized')) {
         $('.center-nearby').slick('destroy');
       }
-      $(".property ").not('.slick-initialized').slick({
+      $('.carousel').carousel({
+        interval: 2000
+      });
+      /*$(".property ").not('.slick-initialized').slick({
         dots: false,
         infinite: true,
-        variableWidth: true
-      }).on('setPosition', function (event, slick) {
+        variableWidth: true,
+      });*/
+        /*.on('setPosition', function (event, slick) {
         slick.$slides.css('height', '450px');
         slick.$slides.find('img').css('height', '450px');
-      });
+      });*/
 
       $(".center-nearby").not('.slick-initialized').slick({
         dots: false,
