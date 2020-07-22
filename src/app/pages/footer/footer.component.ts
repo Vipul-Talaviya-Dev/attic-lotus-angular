@@ -21,6 +21,7 @@ export class FooterComponent implements OnInit {
   public teams: any;
   public total = 0;
   public termsText = '';
+  public questionTitle = '';
   public officeContact =  {
     officeMobile: '',
     officeEmail: '',
@@ -138,6 +139,7 @@ export class FooterComponent implements OnInit {
         if(res.status) {
           this.questions = res.footers;
           this.normals = res.normals;
+          this.questionTitle = res.questionTitle;
           this.normalsDiv = (res.normals.length > 0) ? true : false;
           this.total = this.questions.length;
         }
