@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   // api: 'http://localhost/attic-lotus/public/api/v1/'
-  api: 'http://attic-lotus.altsolution.in/api/v1/'
+  // api: 'http://attic-lotus.altsolution.in/api/v1/'
+  api: 'http://site.atticspace.in/api/v1/'
 };
 
 /*
