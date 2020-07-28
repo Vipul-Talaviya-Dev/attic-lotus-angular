@@ -43,34 +43,34 @@
   font-size: 15px;
   line-height: 18px;
 }
-.second_section {
+/*.nine_section {
   float: left;
   width: 100%;
-}
-.second_section h1 {
+}*/
+.nine_section h1 {
   font-size: 34px;
   margin-bottom: 50px;
 }
-.second_section p {
+.nine_section p {
   font-size: 19px;
   line-height: 33px;
   margin-bottom: 64px;
 }
-.second_section form {
+/*.nine_section form {
   float: left;
   width: 100%;
-}
-.second_section form input {
+}*/
+.nine_section form input {
   height: 64px;
   font-size: 19px;
   margin-bottom: 20px;
 }
-.second_section form select {
+.nine_section form select {
   height: 64px !important;
   font-size: 19px;
   margin-bottom: 20px;
 }
-.second_section form .top_label {
+.nine_section form .top_label {
   position: absolute;
   font-size: 15px;
   top: -12px;
@@ -79,11 +79,11 @@
   padding-left: 10px;
   padding-right: 10px;
 }
-.second_section form .submit_btn_wrap {
+.nine_section form .submit_btn_wrap {
   margin-top: 60px;
   margin-bottom: 60px;
 }
-.second_section form .submit_btn_wrap button {
+.nine_section form .submit_btn_wrap button {
   height: 60px;
   font-size: 15px;
   padding-left: 20px;
@@ -125,13 +125,13 @@
     height: auto;
     margin-bottom: 10px;
   }
-  .second_section h1 {
+  .nine_section h1 {
     margin-bottom: 25px;
   }
-  .second_section p {
+  .nine_section p {
     margin-bottom: 30px;
   }
-  .second_section form .submit_btn_wrap {
+  .nine_section form .submit_btn_wrap {
     margin-top: 30px;
     margin-bottom: 30px;
   }

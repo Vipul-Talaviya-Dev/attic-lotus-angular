@@ -43,10 +43,10 @@
   font-size: 15px;
   line-height: 18px;
 }
-.second_section {
+/*.second_section {
   float: left;
   width: 100%;
-}
+}*/
 .second_section h1 {
   font-size: 34px;
   margin-bottom: 50px;
@@ -56,10 +56,10 @@
   line-height: 33px;
   margin-bottom: 64px;
 }
-.second_section form {
+/*.second_section form {
   float: left;
   width: 100%;
-}
+}*/
 .second_section form input {
   height: 64px;
   font-size: 19px;
