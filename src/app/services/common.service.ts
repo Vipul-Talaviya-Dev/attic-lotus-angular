@@ -101,7 +101,27 @@ export class CommonService {
       }),
     );
   }
+  getHeaderCities(propertyLimit = 0): Observable<any> {
+    this.configService.notifyLoaderEmitter(true);
+    let endPoint = environment.api;
+    let apiURL = endPoint + 'headerCities?propertyLimit='+propertyLimit;
 
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    let requestOptions:object = {
+      headers: headers,
+      responseType: 'json'
+    };
+
+    return this.http.get(apiURL, requestOptions).pipe(
+      map(res => { return this.extractData(res); }),
+      catchError(error => {
+        return this.handleError(error);
+      }),
+    );
+  }
   getPageContent(id): Observable<any> {
     this.configService.notifyLoaderEmitter(true);
     let endPoint = environment.api;
@@ -280,6 +300,50 @@ export class CommonService {
     this.configService.notifyLoaderEmitter(true);
     let endPoint = environment.api;
     let apiURL = endPoint + 'term-condition';
+
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    let requestOptions:object = {
+      headers: headers,
+      responseType: 'json'
+    };
+
+    return this.http.get(apiURL, requestOptions).pipe(
+      map(res => { return this.extractData(res); }),
+      catchError(error => {
+        return this.handleError(error);
+      }),
+    );
+  }
+
+  getCookies(): Observable<any> {
+    this.configService.notifyLoaderEmitter(true);
+    let endPoint = environment.api;
+    let apiURL = endPoint + 'cookies';
+
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    let requestOptions:object = {
+      headers: headers,
+      responseType: 'json'
+    };
+
+    return this.http.get(apiURL, requestOptions).pipe(
+      map(res => { return this.extractData(res); }),
+      catchError(error => {
+        return this.handleError(error);
+      }),
+    );
+  }
+
+  getSitemap(): Observable<any> {
+    this.configService.notifyLoaderEmitter(true);
+    let endPoint = environment.api;
+    let apiURL = endPoint + 'sitemap';
 
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'
@@ -563,10 +627,10 @@ export class CommonService {
     );
   }
 
-  getSupports(): Observable<any> {
+  getSupports(search = ''): Observable<any> {
     this.configService.notifyLoaderEmitter(true);
     let endPoint = environment.api;
-    let apiURL = endPoint + 'supports';
+    let apiURL = endPoint + 'supports?search='+search;
 
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'

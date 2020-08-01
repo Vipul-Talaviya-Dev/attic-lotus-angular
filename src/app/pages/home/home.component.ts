@@ -96,7 +96,7 @@ export class HomeComponent implements OnInit {
   }
 
   getCities() {
-    this.commonService.getCities(2).subscribe((res) => {
+    this.commonService.getCities(0).subscribe((res) => {
       try {
         if(res.status) {
           this.cities = res.cities;

@@ -24,14 +24,19 @@ import {UpcomingPrpertiesComponent} from './pages/upcomingPrperties/upcomingPrpe
 import {DemandLocationComponent} from './pages/demandLocation/demandLocation.component';
 import {AboutDetailComponent} from './pages/about-detail/about-detail.component';
 import {AboutDetailResolve} from './resolve/about-detail.resolve';
+import {CookiesComponent} from './pages/cookies/cookies.component';
+import {SitemapComponent} from './pages/sitemap/sitemap.component';
+import {NotFoundComponent} from './pages/notFound/notFound.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'ready-to-use', component: ReadyToMoveComponent },
   { path: 'custom-build', component: CustomBuildComponent },
-  { path: 'privacy-policy', component: PrivacyPolicyComponent },
-  { path: 'terms-condition', component: TermConditionComponent },
+  { path: 'privacy', component: PrivacyPolicyComponent },
+  { path: 'terms', component: TermConditionComponent },
+  { path: 'cookies', component: CookiesComponent },
+  { path: 'sitemap', component: SitemapComponent },
   { path: 'all-locations', component: MapViewComponent },
   { path: 'landlord', component: LandlordComponent },
   { path: 'brokers', component: BrokersComponent },
@@ -70,7 +75,9 @@ const routes: Routes = [
     resolve: {
       property: SearchResolve
     }
-  }
+  },
+  {path: '404', component: NotFoundComponent},
+  {path: '**', redirectTo: '/404'}
 ];
 
 @NgModule({

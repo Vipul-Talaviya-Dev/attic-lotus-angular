@@ -41,6 +41,9 @@ import {UpcomingPrpertiesComponent} from './pages/upcomingPrperties/upcomingPrpe
 import {DemandLocationComponent} from './pages/demandLocation/demandLocation.component';
 import {AboutDetailComponent} from './pages/about-detail/about-detail.component';
 import {AboutDetailResolve} from './resolve/about-detail.resolve';
+import {CookiesComponent} from './pages/cookies/cookies.component';
+import {SitemapComponent} from './pages/sitemap/sitemap.component';
+import {NotFoundComponent} from './pages/notFound/notFound.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -70,6 +73,9 @@ const APP_PROVIDERS = [
     UpcomingPrpertiesComponent,
     DemandLocationComponent,
     AboutDetailComponent,
+    CookiesComponent,
+    SitemapComponent,
+    NotFoundComponent,
     MenuComponent,
     FooterComponent
   ],

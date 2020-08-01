@@ -1,7 +1,5 @@
 import {Compiler, Component, OnInit} from '@angular/core';
 import {CommonService} from '../../services/common.service';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ActivatedRoute, Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 import {Meta, Title} from '@angular/platform-browser';
 
@@ -21,7 +19,7 @@ export class SupportComponent implements OnInit {
     private titleService: Title, private meta: Meta
   ) {
     this.pageContent();
-    this.getData();
+    this.getData('');
   }
 
   ngOnInit(): void {
@@ -29,8 +27,8 @@ export class SupportComponent implements OnInit {
     this._compiler.clearCache();
   }
 
-  getData() {
-    this.commonService.getSupports().subscribe((res) => {
+  getData(search) {
+    this.commonService.getSupports(search).subscribe((res) => {
       try {
         if(res.status) {
           this.categories = res.categories;
@@ -40,6 +38,15 @@ export class SupportComponent implements OnInit {
         console.log('Do not get URL data');
       }
     });
+  }
+
+  public search(name) {
+    if(name.length > 3) {
+      this.getData(name);
+    }
+    if(name.length === 0) {
+      this.getData('');
+    }
   }
 
   public pageContent() {

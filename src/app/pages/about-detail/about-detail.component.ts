@@ -20,10 +20,14 @@ export class AboutDetailComponent implements OnInit {
     private router: Router,
     private toaster: ToastrService,
     private _compiler: Compiler,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private titleService: Title, private meta: Meta
   ) {
     this.route.data.subscribe((response) => {
       this.blog = response.about.about;
+      this.titleService.setTitle(this.blog.name);
+      this.meta.addTag({name: 'keywords', content: this.blog.meta_keywords});
+      this.meta.addTag({name: 'description', content: this.blog.meta_description});
     });
   }
 

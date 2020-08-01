@@ -7,11 +7,11 @@
           <div class="form-group col-lg-8 col-md-8 col-sm-12">
             <label style="color: #7a7979;">Support</label>
             <span class="search-input-img"><img src="assets/images/search-gray.png" alt="search-icn"></span>
-            <input type="text" class="form-control" placeholder="I am looking for...">
+            <input type="text" class="form-control" placeholder="I am looking for..." (keyup)="search($event.target.value)">
 
           </div>
           <div class="form-group col-lg-4 col-md-4 col-sm-12">
-            <a class="request-submit" href="javascript:void(0);">Submit A Request</a>
+            <a class="request-submit" href="mailto:info@atticspace.in">Submit A Request</a>
           </div>
         </div>
       </div>
@@ -73,9 +73,9 @@
         <h2 class="section-title">Way To Reach Us</h2>
         <div class="reach-us ">
           <div class="infos col-md-3 col-lg-3 col-sm-12">
-            <div class="icon-container whatsapp">
+            <a href="https://api.whatsapp.com/send?phone=8892778866&text=&source=&data=&app_absent="><div class="icon-container whatsapp">
               <div class="icon"></div>
-            </div>
+            </div></a>
             <div class="details">
               <p class="details-title">WHATSAPP</p>
               <p class="details-number">7506651114/3/2</p>
