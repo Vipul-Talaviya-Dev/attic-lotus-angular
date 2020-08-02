@@ -71,11 +71,23 @@ const routes: Routes = [
     }
   },
   {
-    path: ':city', component: SearchComponent,
+    path: 'Bangalore', component: SearchComponent,
     resolve: {
       property: SearchResolve
     }
   },
+  {
+    path: 'Hyderabad', component: SearchComponent,
+    resolve: {
+      property: SearchResolve
+    }
+  },
+  /*{
+    path: ':city', component: SearchComponent,
+    resolve: {
+      property: SearchResolve
+    }
+  },*/
   {path: '404', component: NotFoundComponent},
   {path: '**', redirectTo: '/404'}
 ];
