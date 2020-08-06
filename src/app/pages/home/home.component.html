@@ -11,7 +11,7 @@
             <div *ngFor="let banner of banners; let i = index;" [class]="(i == 0) ? 'carousel-item active' : 'carousel-item'">
               <img class="d-block slider-image w-100" [src]="banner.image" >
               <div class="carousel-caption d-md-block slider-info">
-                <h1>CUSTOMIZE OFFICE SPACE</h1>
+                <h1>{{ banner.sub_title }}</h1>
                 <p>{{ banner.title }}</p>
                 <a [routerLink]="['/office-space/'+banner.locationSlug+'/' +banner.propertySlug]" class="btn slider-cta-btn">{{ banner.propertyName }}</a>
               </div>
@@ -26,38 +26,22 @@
 <div class="features_section">
   <div class="container">
     <div class="row">
-      <div class="float-left fix-w-280">
-        <h3>
-          <img src="assets/images/feature_icon1.png" alt="icon"> 100%
-        </h3>
-        <p>Custom Made</p>
-      </div>
-      <div class="float-right fix-w-280">
-        <h3>
-          <img src="assets/images/feature_icon2.png" alt="icon"> 70%
-        </h3>
-        <p>Less Move-In Time</p>
-      </div>
-      <div class="float-left fix-w-280">
-        <h3>
-          <img src="assets/images/feature_icon3.png" alt="icon"> 90 Days
-        </h3>
-        <p>Lock-In Time</p>
-      </div>
-      <div class="float-right fix-w-280">
-        <h3>
-          <img src="assets/images/feature_icon4.png" alt="icon"> 100%
-        </h3>
-        <p>Fully Managed & Service Office</p>
-      </div>
-      <div class="float-left fix-w-280">
-        <h3 class="d-inline-flex">
-          <img src="assets/images/feature_icon5.png" alt="icon"> Calculate
-        </h3>
-        <div class="col-12 d-inline-flex p-0">
-          <p class="col-10 p-0">Saving with Attic Space</p>
-          <a href="javascript:void(0);" class="col-2 modal-trigger4"> <img src="assets/images/home-next-icn.png" alt="click menu_1"></a>
-        </div>
+      <div *ngFor="let option of options;let i = index;" [class]="(i%2 == 0) ? 'float-right fix-w-280' : 'float-left fix-w-280'">
+        <span *ngIf="i != 4">
+          <h3>
+            <img [src]="option.image" > {{ option.title }}
+          </h3>
+          <p>{{ option.sub_title }}</p>
+        </span>
+        <span *ngIf="i == 4">
+          <h3 class="d-inline-flex">
+            <img [src]="option.image" > {{ option.title }}
+          </h3>
+          <div class="col-12 d-inline-flex p-0">
+            <p class="col-10 p-0">{{ option.sub_title }}</p>
+            <a href="javascript:void(0);" [class]="'col-2'" (click)="calculateModal();"> <img src="assets/images/home-next-icn.png" alt="click menu_1"></a>
+          </div>
+        </span>
       </div>
     </div>
   </div>

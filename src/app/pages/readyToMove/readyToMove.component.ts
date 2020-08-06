@@ -27,7 +27,8 @@ export class ReadyToMoveComponent implements OnInit {
     bagTitle: '',
     title: '',
     bag_description: '',
-    description: ''
+    description: '',
+    mobile: '',
   };
   public errors = {
     name: false,

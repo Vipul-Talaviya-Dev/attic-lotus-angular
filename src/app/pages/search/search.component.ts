@@ -53,11 +53,17 @@ export class SearchComponent implements OnInit {
     private titleService: Title, private meta: Meta
   ) {
     this.route.params.subscribe((params: Params) => {
-      this.city = params['city'];
-      this.pageContent((params['city'] == "Bangalore") ? 2 : 3)
-      this.getProperties(params['city']);
-      this.getLocations(params['city']);
-      this.getTestimonials(params['city']);
+      let cityName = '';
+      if(this.router.url === '/Bangalore') {
+        cityName = 'Bangalore';
+      } else if(this.router.url === '/Hyderabad') {
+        cityName = 'Hyderabad';
+      }
+      this.city = cityName;
+      this.pageContent((cityName === "Bangalore") ? 2 : 3)
+      this.getProperties(cityName);
+      this.getLocations(cityName);
+      this.getTestimonials(cityName);
     });
     // search form
     this.form = fb.group({

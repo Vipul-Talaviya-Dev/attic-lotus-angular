@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
   public banners: any;
   public cities: any;
   public images: any;
+  public options: any;
   public step5Second: any = [];
   public studyDiv = false;
   public step1 = {
@@ -67,7 +68,13 @@ export class HomeComponent implements OnInit {
 
     });
   }
-
+  calculateModal() {
+    $(document).ready(function() {
+      window.scroll(0,0);
+      $(".modal-body").removeClass("active");
+      $(".modal4").toggleClass("active");
+    });
+  }
   ngOnInit(): void {
     window.scroll(0,0);
     this.pageContent();
@@ -80,6 +87,7 @@ export class HomeComponent implements OnInit {
       try {
         if(res.status) {
           this.banners = res.banners;
+          this.options = res.options;
           this.step1 = res.step1;
           this.step2 = res.step2;
           this.images = res.step2.images;

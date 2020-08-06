@@ -13,11 +13,11 @@
     </div>
     <div class="row">
       <div class="position-sticky col-4 text-center">
-        <div class="msg-success" *ngIf="propertyBookedDiv" style="font-size: 20px;">
+        <div class="msg-success" *ngIf="propertyBookedDiv" style="font-size: 24px;">
           <p>Property <b> already booked.</b></p>
           <b>But Don't Worry.</b>
-          <p>We will set up a new office in <b>{{ locationName }}. just for you.</b> </p>
-          <p><b>Please</b> Contact us.</p>
+          <p>We will set up a new office in <b>{{ locationName }} just for you.</b> </p>
+          <p><b>Please</b> &nbsp;<a href="javascript:void(0);" class="modal-trigger2">Contact us.</a></p>
         </div>
         <div class="msg-success" *ngIf="(msgDiv && (message != '')) ? true : false">
           <p>{{ message }}</p>

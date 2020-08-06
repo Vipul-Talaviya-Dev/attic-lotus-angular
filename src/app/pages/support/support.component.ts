@@ -11,6 +11,7 @@ import {Meta, Title} from '@angular/platform-browser';
 export class SupportComponent implements OnInit {
   public categories: any;
   public supports: any;
+  public options: any;
   public expandedIndex = 0;
   constructor(
     private commonService: CommonService,
@@ -33,13 +34,18 @@ export class SupportComponent implements OnInit {
         if(res.status) {
           this.categories = res.categories;
           this.supports = res.supports;
+          this.options = res.options;
         }
       } catch (e) {
         console.log('Do not get URL data');
       }
     });
   }
-
+  public redirectUrl(i) {
+    if(i === 0) {
+      window.location.href = 'https://api.whatsapp.com/send?phone=8892778866&text=&source=&data=&app_absent=';
+    }
+  }
   public search(name) {
     if(name.length > 3) {
       this.getData(name);

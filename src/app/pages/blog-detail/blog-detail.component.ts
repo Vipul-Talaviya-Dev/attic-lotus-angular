@@ -111,6 +111,20 @@ export class BlogDetailComponent implements OnInit {
     }
   }
 
+  public facebook() {
+    window.location.href = 'http://www.facebook.com/sharer.php?u=https://atticspace.in' + this.router.url;
+  }
+
+  public instagram() {
+    window.location.href = 'https://www.instagram.com/sharer.php?u=https://atticspace.in' + this.router.url;
+  }
+
+  public twitter() {
+    window.location.href = 'http://twitter.com/share?url=https://atticspace.in' + this.router.url;
+  }
+  public linkdin() {
+    window.location.href = 'http://www.linkedin.com/shareArticle?mini=true&url=https://atticspace.in' + this.router.url;
+  }
   public jsData() {
     let total = this.relevantBlogTotal;
     $(document).ready(function() {

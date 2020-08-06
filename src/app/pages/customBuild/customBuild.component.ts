@@ -34,7 +34,8 @@ export class CustomBuildComponent implements OnInit {
   public step7 = {
     title: '',
     sub_title: '',
-    description: ''
+    description: '',
+    mobile: ''
   };
 
   constructor(private commonService: CommonService, private toaster: ToastrService, private fb: FormBuilder, private _compiler: Compiler, private titleService: Title, private meta: Meta) {

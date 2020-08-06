@@ -111,10 +111,10 @@
       <section class="social-links ">
         <a routerLink="/all-locations" class="location-link">All Locations <i class="arrow"></i></a>
         <div class="social-icons ">
-          <i class="fab fa-facebook-f"></i>
-          <i class="fab fa-twitter"></i>
-          <i class="fab fa-instagram"></i>
-          <i class="fab fa-linkedin-in"></i>
+          <a href="https://www.facebook.com/atticspaceofficial"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com/atticspace4"><i class="fab fa-twitter"></i></a>
+          <a href="javascript:void(0);"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/attic-space/"><i class="fab fa-linkedin-in"></i></a>
           <a href="javascript:void(0);" class="to-top"><i class="fa fa-angle-double-up"></i></a>
         </div>
       </section>
@@ -262,7 +262,7 @@
           </div>
         </div>
         <div class="all-location-link button-modal">
-          <a href="javascript:void(0);">SEE ALL LOCATIONS</a>
+          <a routerLink="/all-locations">SEE ALL LOCATIONS</a>
         </div>
       </div>
     </section>
@@ -318,7 +318,7 @@
                   </select>
                 </span>
               </div>
-              <input type="number" class="form-control" placeholder="Phone No*" aria-describedby="basic-addon1" autocomplete="off" formControlName="phone" required>
+              <input type="text" class="form-control mobile" placeholder="Phone No*" maxlength="10" aria-describedby="basic-addon1" autocomplete="off" formControlName="phone" required>
             </div>
             <em class="has-error" *ngIf="contactForm.get('phone').hasError('required') && contactForm.get('phone').touched">
               Phone is required
